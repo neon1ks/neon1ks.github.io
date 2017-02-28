@@ -1,0 +1,150 @@
+body {
+	color: #333;
+	font-family: 'Segoe UI', 'Lucida Grande', Helvetica, sans-serif;
+	line-height: 1.5;
+	margin: 50px auto;
+	max-width: 800px;
+	padding: 0 10px;
+}
+code, kbd, pre, samp {
+    font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	line-height: 1em;
+	margin: 20px 0;
+}
+h1 {
+	font-size: 2.25em;
+}
+h2 {
+	font-size: 1.75em;
+}
+h3 {
+	font-size: 1.5em;
+}
+h4, h5, h6 {
+	font-size: 1.25em;
+}
+p {
+	text-align:justify;
+}
+a {
+	color: #204a87;
+	text-decoration: none;
+	background: none;
+}
+a:hover {
+	color: #3465a4;
+}
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+a:focus {
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+img {
+	max-width: 100%;
+}
+li + li {
+	margin-top: 3px;
+}
+li:first-child {
+	margin-top: 7px;
+}
+li:last-child {
+	margin-bottom: 10px;
+}
+dt {
+	font-weight: bold;
+}
+code {
+    padding: .2rem .4rem;
+    font-size: 90%;
+    color: #bd4147;
+    background-color: #f7f7f9;
+    border-radius: .25rem;
+}
+pre {
+    background-color: #f7f7f9;
+    padding: 0.5em;
+	white-space: pre-wrap;
+}
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+
+blockquote {
+	border-left: 5px solid #EEE;
+	margin: 0;
+	padding: 0 10px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+table + table {
+	margin-top: 1em;
+}
+thead {
+	background: #EEE;
+	text-align: left;
+}
+th, td {
+	border: 1px solid #EEE;
+	padding: 5px 10px;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #f8f5f0;
+}
+.text-danger {
+	color: #d9534f;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+	color: #c9302c;
+}
+
+.pager {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.pager li {
+  display: inline;
+}
+.pager li > a,
+.pager li > span {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.pager li:first-child > a,
+.pager li:first-child > span {
+  padding-left: 0;
+}
+
+.pager li:last-child > a,
+.pager li:last-child > span {
+  padding-right: 0;
+}
+
+p.t-indent {
+	text-indent:2.5em;
+}
+.t-center {
+  text-align: center;
+}
+.hljs {
+    padding: 0 !important;
+    background-color: #f7f7f9 !important;
+}
