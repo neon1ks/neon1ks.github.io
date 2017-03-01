@@ -74,7 +74,7 @@ double sum_series(int num, ...)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="../13/vprintf-vfprintf-vsprintf-vsnprintf.htm">vprintf()</A>
-<P><IMG src="../work/sup.bmp" alt="----------">
+<p><IMG src="../work/sup.bmp" alt="----------">
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Он должен быть объявлен, например, так: <PRE>va_list <I>argptr</I>;</PRE>
 <P class="tj"><SUP><A href="#2" id="22">[2]</A></SUP>Ну где вы видели функцию, которой в качестве аргумента передается служебное слово? Конечно, это возможно именно потому, что <KBD>va_arg()</KBD> — макрос, а не функция языка С. Кроме того, посмотрите на описание <I>type</I><PRE>va_arg(va_list <I>argptr</I>, <I>type</I>);</PRE><P class="t">Какой же компилятор позволит вам так описывать функцию?!
