@@ -63,6 +63,8 @@ li.t + li.t {
   border: 1px solid #dfd7ca;
 }
 
+
+
 .text-left {
   text-align: left;
 }
@@ -71,4 +73,41 @@ li.t + li.t {
 }
 .text-center {
   text-align: center;
+}
+
+.span1 {
+  width: 6.382978723%;
+}
+.span2 {
+  width: 14.89361702%;
+}
+.span3 {
+  width: 23.404255317%;
+}
+.span4 {
+  width: 31.914893614%;
+}
+.span5 {
+  width: 40.425531911%;
+}
+.span6 {
+  width: 48.936170208%;
+}
+.span7 {
+  width: 57.446808505%;
+}
+.span8 {
+  width: 65.957446802%;
+}
+.span9 {
+  width: 74.468085099%;
+}
+.span10 {
+  width: 82.978723396%;
+}
+.span11 {
+  width: 91.489361693%;
+}
+.span12 {
+  width: 99.99999999%;
 }
