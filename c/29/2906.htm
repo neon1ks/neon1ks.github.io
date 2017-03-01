@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#29">Содержание</A> | <A href="2905.htm">&lt;&lt;&lt;</A> | <A href="2907.htm">&gt;&gt;&gt;</A><HR>
 <H1>Интерпретатор Little C</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В этом разделе рассматривается наиболее важная часть интерпретатора Little С. Перед тем как приступить к подробному чтению текста программы интерпретатора, нужно понять, как вообще работает интерпретатор. Понять программу интерпретатора в некотором смысле легче, чем программу синтаксического анализатора выражений, потому что работа по интерпретации программы на С может быть выражена следующим простым алгоритмом:
 <PRE>
 while (есть_лексемы_во_входном_потоке) {
@@ -25,7 +17,6 @@ while (есть_лексемы_во_входном_потоке) {
 <P class="tj">Этот алгоритм может показаться невероятно простым по сравнению с синтаксическим анализатором выражений, но это именно то, что делает интерпретатор. Нужно только иметь в виду следующее: шаг "выполнить соответствующее действие" может содержать чтение дополнительных лексем из входного потока. Для лучшего понимания этого алгоритма мысленно выполним интерпретацию следующего фрагмента программы:
 <PRE>
 int a;
-
 a = 10;
 if(a &lt; 100) printf("%d", a);
 </PRE>
@@ -47,7 +38,6 @@ void prescan(void)
   int brace = 0;  /* Если brace = 0, то текущая
                      позиция указателя программы находится
                      в не какой-либо функции. */
-
   p = prog;
   func_index = 0;
   do {
@@ -56,7 +46,6 @@ void prescan(void)
       if(*token == '{') brace++;
       if(*token == '}') brace--;
     }
-
     tp = prog; /* запоминание текущей позиции */
     get_token();
     /* тип глобальной переменной или возвращаемого значения функции */
@@ -99,18 +88,13 @@ struct var_type {
   int v_type;
   int value;
 }  global_vars[NUM_GLOBAL_VARS];
-
 int gvar_index; /* индекс в таблице глобальных переменных */
-
 /* Объявление глобальной переменной. */
 void decl_global(void)
 {
   int vartype;
-
   get_token();  /* определение типа */
-
   vartype = tok; /* запоминание типа переменной */
-
   do { /* обработка списка */
     global_vars[gvar_index].v_type = vartype;
     global_vars[gvar_index].value = 0;  /* инициализация нулем */
@@ -130,7 +114,6 @@ struct func_type {
   int ret_type;
   char *loc;  /* адрес точки входа в файл */
 } func_table[NUM_FUNC];
-
 int func_index; /* индекс в таблице функций */
 </PRE>
 <P class="tj">Переменная <KBD>func_index</KBD> содержит индекс первой свободной позиции в таблице <KBD>func_table</KBD>.
@@ -143,39 +126,30 @@ int main(int argc, char *argv[])
     printf("Применение: littlec &lt;имя_файла&gt;\n");
     exit(1);
   }
-
   /* выделение памяти для программы */
   if((p_buf = (char *) malloc(PROG_SIZE))==NULL) {
     printf("Выделить память не удалось");
     exit(1);
   }
-
   /* загрузка программы для выполнения */
   if(!load_program(p_buf, argv[1])) exit(1);
   if(setjmp(e_buf)) exit(1); /* инициализация буфера long jump */
-
   gvar_index = 0;  /* инициализация индекса глобальных переменных */
-
   /* установка указателя программы на начало буфера программы */
   prog = p_buf;
   prescan(); /* определение адресов всех функций
                 и глобальных переменных программы */
-
   lvartos = 0;     /* инициализация индекса стека локальных переменных */
   functos = 0;     /* инициализация индекса стека вызова (CALL) */
-
   /* первой вызывается main() */
   prog = find_func("main"); /* поиск точки входа программы */
-
   if(!prog) { /* функция main() неправильна или отсутствует */
     printf("main() не найдена.\n");
     exit(1);
   }
-
   prog--; /* возврат к открывающейся скобке ( */
   strcpy(token, "main");
   call(); /* начало интерпритации main() */
-
   return 0;
 }
 </PRE>
@@ -191,14 +165,11 @@ void interp_block(void)
 {
   int value;
   char block = 0;
-
   do {
     token_type = get_token();
-
     /* При интерпритации одного операторавозврат
        после первой точки с запятой.
     */
-
     /* определение типа лексемы */
     if(token_type == IDENTIFIER) {
       /* Это не зарегестрированное слово,
@@ -254,14 +225,12 @@ void interp_block(void)
 <P class="tj">Ниже приведен листинг файла с текстом программы интерпретатора. Он называется LITTLEC.C.
 <PRE>
 /* Интерпритатор языка Little C. */
-
 #include &lt;stdio.h&gt;
 #include &lt;setjmp.h&gt;
 #include &lt;math.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
-
 #define NUM_FUNC        100
 #define NUM_GLOBAL_VARS 100
 #define NUM_LOCAL_VARS  200
@@ -271,19 +240,15 @@ void interp_block(void)
 #define NUM_PARAMS      31
 #define PROG_SIZE       10000
 #define LOOP_NEST       31
-
 enum tok_types {DELIMITER, IDENTIFIER, NUMBER, KEYWORD,
                 TEMP, STRING, BLOCK};
-
 /* сюда можно добавить дополнительные лексемы
    зарезервированных слов */
 enum tokens {ARG, CHAR, INT, IF, ELSE, FOR, DO, WHILE,
              SWITCH, RETURN, EOL, FINISHED, END};
-
 /* сюда можно добавить дополнительные двухсимвольные операторы,
    например, -&gt; */
 enum double_ops {LT=1, LE, GT, GE, EQ, NE};
-
 /* Эти константы используются для вызова функции sntx_err()
    в случае синтаксической ошибки. При необходимости список
    констант можно расширить.
@@ -297,11 +262,9 @@ enum error_msg
       NEST_FUNC, RET_NOCALL, PAREN_EXPECTED,
       WHILE_EXPECTED, QUOTE_EXPECTED, NOT_TEMP,
       TOO_MANY_LVARS, DIV_BY_ZERO};
-
 char *prog;    /* текущая позиция в исходном тексте программы */
 char *p_buf;   /* указывает на начало буфера программы */
 jmp_buf e_buf; /* содержит информацию для longjmp() */
-
 /* Массив этих структур содержит информацию
    о глобальных переменных.
 */
@@ -310,17 +273,13 @@ struct var_type {
   int v_type;
   int value;
 }  global_vars[NUM_GLOBAL_VARS];
-
 struct var_type local_var_stack[NUM_LOCAL_VARS];
-
 struct func_type {
   char func_name[ID_LEN];
   int ret_type;
   char *loc;  /* адрес точки входа в файл */
 } func_table[NUM_FUNC];
-
 int call_stack[NUM_FUNC];
-
 struct commands { /* таблица зарезервированных слов */
   char command[20];
   char tok;
@@ -336,17 +295,13 @@ struct commands { /* таблица зарезервированных слов 
   "end", END,
   "", END  /* конец таблицы */
 };
-
 char token[80];
 char token_type, tok;
-
 int functos;  /* индекс вершины стека вызова функции */
 int func_index; /* индекс в таблице функций */
 int gvar_index; /* индекс в таблице глобальных переменных */
 int lvartos; /* индекс в стеке локальных переменных */
-
 int ret_value; /* возвращаемое значение функции */
-
 void print(void), prescan(void);
 void decl_global(void), call(void), putback(void);
 void decl_local(void), local_push(struct var_type i);
@@ -359,49 +314,38 @@ int load_program(char *p, char *fname), find_var(char *s);
 void interp_block(void), func_ret(void);
 int func_pop(void), is_var(char *s), get_token(void);
 char *find_func(char *name);
-
 int main(int argc, char *argv[])
 {
   if(argc != 2) {
     printf("Применение: littlec &lt;имя_файла&gt;\n");
     exit(1);
   }
-
   /* выделение памяти для программы */
   if((p_buf = (char *) malloc(PROG_SIZE))==NULL) {
     printf("Выделить память не удалось");
     exit(1);
   }
-
   /* загрузка программы для выполнения */
   if(!load_program(p_buf, argv[1])) exit(1);
   if(setjmp(e_buf)) exit(1); /* инициализация буфера long jump */
-
   gvar_index = 0;  /* инициализация индекса глобальных переменных */
-
   /* установка указателя программы на начало буфера программы */
   prog = p_buf;
   prescan(); /* определение адресов всех функций
                 и глобальных переменных программы */
-
   lvartos = 0;     /* инициализация индекса стека локальных переменных */
   functos = 0;     /* инициализация индекса стека вызова (CALL) */
-
   /* первой вызывается main() */
   prog = find_func("main"); /* поиск точки входа программы */
-
   if(!prog) { /* функция main() неправильна или отсутствует */
     printf("main() не найдена.\n");
     exit(1);
   }
-
   prog--; /* возврат к открывающейся скобке ( */
   strcpy(token, "main");
   call(); /* начало интерпритации main() */
-
   return 0;
 }
-
 /* Интерпритация одного оператора или блока. Когда
    interp_block() возвращает управление после первого
    вызова, в main() встретилась последняя
@@ -411,14 +355,11 @@ void interp_block(void)
 {
   int value;
   char block = 0;
-
   do {
     token_type = get_token();
-
     /* При интерпритации одного операторавозврат
        после первой точки с запятой.
     */
-
     /* определение типа лексемы */
     if(token_type == IDENTIFIER) {
       /* Это не зарегестрированное слово,
@@ -465,28 +406,23 @@ void interp_block(void)
       }
   } while (tok != FINISHED && block);
 }
-
 /* Загрузка программы. */
 int load_program(char *p, char *fname)
 {
   FILE *fp;
   int i=0;
-
   if((fp=fopen(fname, "rb"))==NULL) return 0;
-
   i = 0;
   do {
     *p = getc(fp);
     p++; i++;
   } while(!feof(fp) && i&lt;PROG_SIZE);
-
   if(*(p-2) == 0x1a) *(p-2) = '\0'; /* программа кончается
                                        нулевым символом */
   else *(p-1) = '\0';
   fclose(fp);
   return 1;
 }
-
 /* Найти адреса всех функций в программе
    и запомнить глобальные переменные. */
 void prescan(void)
@@ -497,7 +433,6 @@ void prescan(void)
   int brace = 0;  /* Если brace = 0, то текущая
                      позиция указателя программы находится
                      в не какой-либо функции. */
-
   p = prog;
   func_index = 0;
   do {
@@ -506,7 +441,6 @@ void prescan(void)
       if(*token == '{') brace++;
       if(*token == '}') brace--;
     }
-
     tp = prog; /* запоминание текущей позиции */
     get_token();
     /* тип глобальной переменной или возвращаемого значения функции */
@@ -537,30 +471,23 @@ void prescan(void)
   } while(tok != FINISHED);
   prog = p;
 }
-
 /* Возврат адреса точки входа данной функции.
    Возврат NULL, если не надена.
 */
 char *find_func(char *name)
 {
   register int i;
-
   for(i=0; i &lt; func_index; i++)
     if(!strcmp(name, func_table[i].func_name))
       return func_table[i].loc;
-
   return NULL;
  }
-
 /* Объявление глобальной переменной. */
 void decl_global(void)
 {
   int vartype;
-
   get_token();  /* определение типа */
-
   vartype = tok; /* запоминание типа переменной */
-
   do { /* обработка списка */
     global_vars[gvar_index].v_type = vartype;
     global_vars[gvar_index].value = 0;  /* инициализация нулем */
@@ -571,17 +498,13 @@ void decl_global(void)
   } while(*token == ',');
   if(*token != ';') sntx_err(SEMI_EXPECTED);
 }
-
 /* Объявление локальной переменной. */
 void decl_local(void)
 {
   struct var_type i;
-
   get_token();  /* определение типа */
-
   i.v_type = tok;
   i.value = 0;  /* инициализация нулем */
-
   do { /* обработка списка */
     get_token(); /* определение типа пременной */
     strcpy(i.var_name, token);
@@ -590,13 +513,11 @@ void decl_local(void)
   } while(*token == ',');
   if(*token != ';') sntx_err(SEMI_EXPECTED);
 }
-
 /* Вызов функции. */
 void call(void)
 {
   char *loc, *temp;
   int lvartemp;
-
   loc = find_func(token); /* найти точку входа функции */
   if(loc == NULL)
     sntx_err(FUNC_UNDEF); /* функция не определена */
@@ -616,18 +537,15 @@ void call(void)
                              локальных переменных */
   }
 }
-
 /* Заталкивание аргументов функций в стек
    локальных переменных. */
 void get_args(void)
 {
   int value, count, temp[NUM_PARAMS];
   struct var_type i;
-
   count = 0;
   get_token();
   if(*token != '(') sntx_err(PAREN_EXPECTED);
-
   /* обработка списка значений */
   do {
     eval_exp(&value);
@@ -643,13 +561,11 @@ void get_args(void)
     local_push(i);
   }
 }
-
 /* Получение параметров функции. */
 void get_params(void)
 {
   struct var_type *p;
   int i;
-
   i = lvartos-1;
   do { /* обработка списка параметров */
     get_token();
@@ -657,10 +573,8 @@ void get_params(void)
     if(*token != ')' ) {
       if(tok != INT && tok != CHAR)
         sntx_err(TYPE_EXPECTED);
-
       p-&gt;v_type = token_type;
       get_token();
-
       /* связывание имени пераметров с аргументом,
          уже находящимся в стеке локальных переменных */
       strcpy(p-&gt;var_name, token);
@@ -671,29 +585,23 @@ void get_params(void)
   } while(*token == ',');
   if(*token != ')') sntx_err(PAREN_EXPECTED);
 }
-
 /* Возврат из функции. */
 void func_ret(void)
 {
   int value;
-
   value = 0;
   /* получение возвращаемого значения, если оно есть */
   eval_exp(&value);
-
   ret_value = value;
 }
-
 /* Затолкнуть локальную переменную. */
 void local_push(struct var_type i)
 {
   if(lvartos &gt; NUM_LOCAL_VARS)
     sntx_err(TOO_MANY_LVARS);
-
   local_var_stack[lvartos] = i;
   lvartos++;
 }
-
 /* Выталкивание индекса в стеке локальных переменных. */
 int func_pop(void)
 {
@@ -701,7 +609,6 @@ int func_pop(void)
   if(functos &lt; 0) sntx_err(RET_NOCALL);
   return call_stack[functos];
 }
-
 /* Запись индекса в стек локальных переменных. */
 void func_push(int i)
 {
@@ -710,12 +617,10 @@ void func_push(int i)
   call_stack[functos] = i;
   functos++;
 }
-
 /* Присваивание переменной значения. */
 void assign_var(char *var_name, int value)
 {
   register int i;
-
   /* проверка наличия локальной переменной */
   for(i=lvartos-1; i &gt;= call_stack[functos-1]; i--)  {
     if(!strcmp(local_var_stack[i].var_name, var_name)) {
@@ -733,54 +638,43 @@ void assign_var(char *var_name, int value)
       }
   sntx_err(NOT_VAR); /* переменная не найдена */
 }
-
 /* Получение значения переменной. */
 int find_var(char *s)
 {
   register int i;
-
   /* проверка наличия переменной */
   for(i=lvartos-1; i &gt;= call_stack[functos-1]; i--)
     if(!strcmp(local_var_stack[i].var_name, token))
       return local_var_stack[i].value;
-
   /* в противном случае проверим,
      может быть это глобальная переменная */
   for(i=0; i &lt; NUM_GLOBAL_VARS; i++)
     if(!strcmp(global_vars[i].var_name, s))
       return global_vars[i].value;
-
   sntx_err(NOT_VAR); /* переменная не найдена */
   return -1;
 }
-
 /* Если индентификатор является переменной, то
    возвращается 1, иначе 0.
 */
 int is_var(char *s)
 {
   register int i;
-
   /* это локальная переменная ? */
   for(i=lvartos-1; i &gt;= call_stack[functos-1]; i--)
     if(!strcmp(local_var_stack[i].var_name, token))
       return 1;
-
   /* если нет - поиск среди глобальных переменных */
   for(i=0; i &lt; NUM_GLOBAL_VARS; i++)
     if(!strcmp(global_vars[i].var_name, s))
       return 1;
-
   return 0;
 }
-
 /* Выполнение оператора if. */
 void exec_if(void)
 {
   int cond;
-
   eval_exp(&cond); /* вычисление if-выражения */
-
   if(cond) { /* истина - интерпретация if-предложения */
     interp_block();
   }
@@ -788,7 +682,6 @@ void exec_if(void)
             и выполнение else-предложения, если оно есть */
     find_eob(); /* поиск конца блока */
     get_token();
-
     if(tok != ELSE) {
       putback();  /* восстановление лексемы,
                      если else-предложение отсутсвует */
@@ -797,13 +690,11 @@ void exec_if(void)
     interp_block();
   }
 }
-
 /* Выполнение цикла while. */
 void exec_while(void)
 {
   int cond;
   char *temp;
-
   putback();
   temp = prog;  /* запоминание адреса начала цикла while */
   get_token();
@@ -816,16 +707,13 @@ void exec_while(void)
   }
   prog = temp;  /* возврат к началу цикла */
 }
-
 /* Выполнение цикла do. */
 void exec_do(void)
 {
   int cond;
   char *temp;
-
   putback();
   temp = prog;  /* запоминание адреса начала цикла */
-
   get_token(); /* найти начало цикла */
   interp_block(); /* интерпритация цикла */
   get_token();
@@ -835,12 +723,10 @@ void exec_do(void)
   то цикл выполняется, в противном случае происходит
   выход из цикла */
 }
-
 /* Поиск конца блока. */
 void find_eob(void)
 {
   int brace;
-
   get_token();
   brace = 1;
   do {
@@ -849,14 +735,12 @@ void find_eob(void)
     else if(*token == '}') brace--;
   } while(brace);
 }
-
 /* Выполнение цикла for. */
 void exec_for(void)
 {
   int cond;
   char *temp, *temp2;
   int brace ;
-
   get_token();
   eval_exp(&cond);  /* инициализирующее выражение */
   if(*token != ';') sntx_err(SEMI_EXPECTED);
@@ -867,7 +751,6 @@ void exec_for(void)
     if(*token != ';') sntx_err(SEMI_EXPECTED);
     prog++; /* пропуск ; */
     temp2 = prog;
-
     /* поиск начала тела цикла */
     brace = 1;
     while(brace) {
@@ -875,7 +758,6 @@ void exec_for(void)
       if(*token == '(') brace++;
       if(*token == ')') brace--;
     }
-
     if(cond) interp_block();  /* если условие выполнено,
                                  то выполнить интерпритацию */
     else {  /* в противном случае обойти цикл */
@@ -895,12 +777,9 @@ void exec_for(void)
 void decl_local(void)
 {
   struct var_type i;
-
   get_token();  /* определение типа */
-
   i.v_type = tok;
   i.value = 0;  /* инициализация нулем */
-
   do { /* обработка списка */
     get_token(); /* определение типа пременной */
     strcpy(i.var_name, token);
@@ -909,13 +788,11 @@ void decl_local(void)
   } while(*token == ',');
   if(*token != ';') sntx_err(SEMI_EXPECTED);
 }
-
 /* Затолкнуть локальную переменную. */
 void local_push(struct var_type i)
 {
   if(lvartos &gt; NUM_LOCAL_VARS)
     sntx_err(TOO_MANY_LVARS);
-
   local_var_stack[lvartos] = i;
   lvartos++;
 }
@@ -930,7 +807,6 @@ void call(void)
 {
   char *loc, *temp;
   int lvartemp;
-
   loc = find_func(token); /* найти точку входа функции */
   if(loc == NULL)
     sntx_err(FUNC_UNDEF); /* функция не определена */
@@ -950,18 +826,15 @@ void call(void)
                              локальных переменных */
   }
 }
-
 /* Заталкивание аргументов функций в стек
    локальных переменных. */
 void get_args(void)
 {
   int value, count, temp[NUM_PARAMS];
   struct var_type i;
-
   count = 0;
   get_token();
   if(*token != '(') sntx_err(PAREN_EXPECTED);
-
   /* обработка списка значений */
   do {
     eval_exp(&value);
@@ -977,13 +850,11 @@ void get_args(void)
     local_push(i);
   }
 }
-
 /* Получение параметров функции. */
 void get_params(void)
 {
   struct var_type *p;
   int i;
-
   i = lvartos-1;
   do { /* обработка списка параметров */
     get_token();
@@ -991,10 +862,8 @@ void get_params(void)
     if(*token != ')' ) {
       if(tok != INT && tok != CHAR)
         sntx_err(TYPE_EXPECTED);
-
       p-&gt;v_type = token_type;
       get_token();
-
       /* связывание имени пераметров с аргументом,
          уже находящимся в стеке локальных переменных */
       strcpy(p-&gt;var_name, token);
@@ -1015,11 +884,9 @@ void get_params(void)
 void func_ret(void)
 {
   int value;
-
   value = 0;
   /* получение возвращаемого значения, если оно есть */
   eval_exp(&value);
-
   ret_value = value;
 }
 </PRE>
@@ -1028,18 +895,13 @@ void func_ret(void)
 <P class="tj">Возвратимся ненадолго к синтаксическому анализатору выражений. Когда встречается оператор присваивания, то сначала вычисляется значение выражения в правой части, а затем это значение присваивается переменной в левой части путем вызова <KBD>assign_var()</KBD>. Однако язык С структурирован и поддерживает глобальные и локальные переменные. Как же тогда в следующей программе
 <PRE>
 int count;
-
 int main()
 {
   int count, i;
-
   count = 10;
-
   i = f();
-
   return 0;
 }
-
 int f()
 {
   int count;
@@ -1053,7 +915,6 @@ int f()
 void assign_var(char *var_name, int value)
 {
   register int i;
-
   /* проверка наличия локальной переменной */
   for(i=lvartos-1; i &gt;= call_stack[functos-1]; i--)  {
     if(!strcmp(local_var_stack[i].var_name, var_name)) {
@@ -1081,9 +942,7 @@ void assign_var(char *var_name, int value)
 void exec_if(void)
 {
   int cond;
-
   eval_exp(&cond); /* вычисление if-выражения */
-
   if(cond) { /* истина - интерпретация if-предложения */
     interp_block();
   }
@@ -1091,7 +950,6 @@ void exec_if(void)
             и выполнение else-предложения, если оно есть */
     find_eob(); /* поиск конца блока */
     get_token();
-
     if(tok != ELSE) {
       putback();  /* восстановление лексемы,
                      если else-предложение отсутсвует */
@@ -1111,7 +969,6 @@ void exec_while(void)
 {
   int cond;
   char *temp;
-
   putback();
   temp = prog;  /* запоминание адреса начала цикла while */
   get_token();
@@ -1134,10 +991,8 @@ void exec_do(void)
 {
   int cond;
   char *temp;
-
   putback();
   temp = prog;  /* запоминание адреса начала цикла */
-
   get_token(); /* найти начало цикла */
   interp_block(); /* интерпритация цикла */
   get_token();
@@ -1159,7 +1014,6 @@ void exec_for(void)
   int cond;
   char *temp, *temp2;
   int brace ;
-
   get_token();
   eval_exp(&cond);  /* инициализирующее выражение */
   if(*token != ';') sntx_err(SEMI_EXPECTED);
@@ -1170,7 +1024,6 @@ void exec_for(void)
     if(*token != ';') sntx_err(SEMI_EXPECTED);
     prog++; /* пропуск ; */
     temp2 = prog;
-
     /* поиск начала тела цикла */
     brace = 1;
     while(brace) {
@@ -1178,7 +1031,6 @@ void exec_for(void)
       if(*token == '(') brace++;
       if(*token == ')') brace--;
     }
-
     if(cond) interp_block();  /* если условие выполнено,
                                  то выполнить интерпритацию */
     else {  /* в противном случае обойти цикл */
@@ -1196,17 +1048,7 @@ void exec_for(void)
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>На самом деле, конечно, данный алгоритм работает правильно только при условии, что учитываются только значащие фигурные скобки, а фигурные скобки внутри строк, например, не учитываются. (Фигурные скобки внутри строк "съедаются" программой считывания лексем.)
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#29">Содержание</A> | <A href="2905.htm">&lt;&lt;&lt;</A> | <A href="2907.htm">&gt;&gt;&gt;</A>
 </BODY></HTML>

@@ -7,20 +7,11 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция bsearch</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 void *bsearch(const void *<I>key</I>, const void *<I>buf</I>,
               size_t <I>num</I>, size_t <I>size</I>,
               int (*<I>compare</I>) (const void *, const void *));
-
 </PRE>
 <P class="tj">Функция <KBD>bsearch()</KBD> выполняет двоичный поиск в отсортированном массиве, адресуемом параметром <I>buf</I>, и возвращает указатель на первый член, который совпадает с искомым ключом-значением, адресуемым параметром <I>key</I>. Количество элементов в массиве задается параметром <I>num</I>, а размер (в байтах) каждого элемента — параметром <I>size</I>.
 <P class="tj">Для сравнения каждого элемента массива с ключом-значением используется функция, адресуемая параметром <I>compare</I>. Функция <I>compare</I> должна иметь следующее определение.
@@ -39,26 +30,20 @@ void *bsearch(const void *<I>key</I>, const void *<I>buf</I>,
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdio.h&gt;
-
 char *alpha = "abcdefghijklmnopqrstuvwxyz";
-
 int comp(const void *ch, const void *s);
-
 int main(void)
 {
   char ch;
   char *p;
-
   printf("Введите символ: ");
   ch = getchar();
   ch = tolower(ch);
   p = (char *) bsearch(&ch, alpha, 26, 1, comp);
   if(p) printf(" %c находится в алфавите\n", *p);
   else printf("не входит в алфавит\n");
-
   return 0;
 }
-
 /* Сравнивает два символа. */
 int comp(const void *ch, const void *s)
 {
@@ -67,18 +52,8 @@ int comp(const void *ch, const void *s)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="qsort.htm">qsort()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

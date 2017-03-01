@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция fclose</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 int fclose(FILE *<I>stream</I>);
@@ -26,34 +18,20 @@ int fclose(FILE *<I>stream</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   FILE *fp;
-
   if((fp=fopen("test", "rb"))==NULL) {
     printf("He удается открыть  файл.\n");
     exit(1);
   }
-
   if(fclose(fp)) printf("Ошибка при закрытии файла.\n");
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="fopen.htm">fopen()</A>  <A href="freopen.htm">freopen()</A>  <A href="fflush.htm">fflush()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

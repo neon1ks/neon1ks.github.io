@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция memchr</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 void *memchr(const void *<I>buffer</I>, int <I>ch</I>, size_t <I>count</I>);
@@ -26,14 +18,11 @@ void *memchr(const void *<I>buffer</I>, int <I>ch</I>, size_t <I>count</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char *p;
-
   p = memchr("строка из примера", ' ', 17);
   printf(p);
-
   return 0;
 }
 </PRE>
@@ -44,15 +33,12 @@ int main(void)
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char str[17];
   char *ptr;
-
   strcpy(str, "This is a string");
   ptr = (char *) memchr(str, 'r', strlen(str));
-
   if (ptr)
     printf("The character 'r' is at position: %d\n", ptr - str);
   else
@@ -62,18 +48,8 @@ int main(void)
 <P class="tj">В данном примере, правда, константа указана в объявлении массива <KBD>str</KBD>. Однако этого можно было легко избежать, проинициализировав массив в объявлении. Правда, остается еще один недостаток: некоторое снижение эффективности кода из-за вызова функции <KBD>strlen</KBD>. Но и его можно устранить, если длина строки может быть вычислена при компиляции (как в наших примерах). Действительно, тогда ведь можно воспользоваться операцией <KBD>sizeof</KBD> и записать не константу 17, а константное выражение <KBD>sizeof (str) /sizeof (char)</KBD>. (Отсюда вывод: никогда не верьте тем, кто говорит, что последовательное применение технологии программирования приводит к ухудшенению характеристик программы. Если язык программирования хорошо сконструирован, то ничего подобного быть не может. Правда, если язык продуман плохо... то едва ли стоит на нем писать программы!).
 <H2>Зависимые функции</H2>
 <A href="memcpy.htm">memcpy()</A>  <A href="isspace.htm">isspace()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

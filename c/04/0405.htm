@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#04">Содержание</A> | <A href="0404.htm">&lt;&lt;&lt;</A> | <A href="0406.htm">&gt;&gt;&gt;</A><HR>
 <H1>Двухмерные массивы</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Стандартом С определены многомерные массивы. Простейшая форма многомерного массива — двухмерный массив. Двухмерный массив — это массив одномерных массивов. Объявление двухмерного массива <KBD>d</KBD> с размерами 10 на 20 выглядит следующим образом:
 <PRE>int d[10][20];</PRE>
 <P class="tj">Во многих языках измерения массива отделяются друг от друга запятой. В языке С каждое измерение заключено в свои квадратные скобки.
@@ -23,22 +15,18 @@
 <P class="tj">В следующем примере элементам двухмерного массива присваиваются числа от 1 до 12 и значения элементов выводятся на экран построчно:
 <PRE>
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   int t, i, num[3][4];
-
   for(t=0; t&lt;3; ++t)
     for(i=0; i&lt;4; ++i)
       num[t][i] = (t*4)+i+1;
-
   /* вывод на экран */
   for(t=0; t&lt;3; ++t) {
     for(i=0; i&lt;4; ++i)
       printf("%3d ", num[t][i]);
     printf("\n");
   }
-
   return 0;
 }
 </PRE>
@@ -57,7 +45,6 @@ num[t][i]
 <TR><TD>
 <PRE>
             Объявление массива <KBD>char ch[3][4]</KBD>
-
         Правый индекс определяет номер столбца
                    |          |          |
    о               V          V          V
@@ -76,7 +63,6 @@ num[t][i]
 с  м      +----------+----------+----------+
    е    -&gt;|ch [3] [0]|ch [3] [1]|ch [3] [2]|
    р      +----------+----------+----------+
-
 </PRE>
 </TABLE>
 <P class="tj">Объем памяти в байтах, занимаемый двухмерным массивом, вычисляется по следующей формуле:
@@ -102,20 +88,15 @@ void func1(int x[][10])
 #include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdlib.h&gt;
-
 #define CLASSES  3
 #define GRADES  30
-
 int grade[CLASSES][GRADES];
-
 void enter_grades(void);
 int get_grade(int num);
 void disp_grades(int g[][GRADES]);
-
 int main(void)
 {
   char ch, str[80];
-
   for(;;) {
     do {
       printf("(В)вод оценок студентов\n");
@@ -124,7 +105,6 @@ int main(void)
       gets(str);
       ch = toupper(*str);
     } while(ch!='В' && ch!='ы' && ch!='х');
-
     switch(ch) {
       case 'В':
         enter_grades();
@@ -136,37 +116,30 @@ int main(void)
         exit(0);
     }
   }
-
   return 0;
 }
-
 /* Занесение оценок студентов в массив. */
 void enter_grades(void)
 {
   int t, i;
-
   for(t=0; t&lt;CLASSES; t++) {
     printf("Класс № %d:\n", t+1);
     for(i=0; i&lt;GRADES; ++i)
       grade[t][i] = get_grade(i);
   }
 }
-
 /* Ввод оценок. */
 int get_grade(int num)
 {
   char s[80];
-
   printf("Введите оценку студента № %d:\n", num+1);
   gets(s);
   return(atoi(s));
 }
-
 /* Вывод оценок. */
 void disp_grades(int g[][GRADES])
 {
   int t, i;
-
   for(t=0; t&lt;CLASSES; ++t) {
     printf("Класс № %d:\n", t+1);
     for(i=0; i&lt;GRADES; ++i)
@@ -186,29 +159,22 @@ void disp_grades(int g[][GRADES])
 <PRE>
 /* Очень простой текстовый редактор. */
 #include &lt;stdio.h&gt;
-
 #define MAX 100
 #define LEN 80
-
 char text[MAX][LEN];
-
 int main(void)
 {
   register int t, i, j;
-
   printf("Для выхода введите пустую строку.\n");
-
   for(t=0; t&lt;MAX; t++) {
     printf("%d: ", t);
     gets(text[t]);
     if(!*text[t]) break; /* выход по пустой строке */
   }
-
   for(i=0; i&lt;t; i++) {
     for(j=0; text[i][j]; j++) putchar(text[i][j]);
     putchar('\n');
   }
-
   return 0;
 }
 </PRE>
@@ -217,18 +183,8 @@ int main(void)
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Размер правого измерения указывать не нужно, если в вызывающей функции массив объявлен как <KBD>**х</KBD> и размещен динамически (см. <A href="../05/05.htm">главу 5</A>)
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#04">Содержание</A> | <A href="0404.htm">&lt;&lt;&lt;</A> | <A href="0406.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

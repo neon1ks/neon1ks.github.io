@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция fread</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 size_t fread(void *<I>buf</I>, size_t <I>size</I>, size_t <I>count</I>, FILE *<I>stream</I>);
@@ -28,54 +20,37 @@ size_t fread(void *<I>buf</I>, size_t <I>size</I>, size_t <I>count</I>, FILE *<I
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   FILE *fp;
   float bal[5] = { 1.1F, 2.2F, 3.3F, 4.4F, 5.5F };
   int i;
-
   /* запись значений */
   if((fp=fopen("test", "wb"))==NULL) {
     printf("Не удаётся отрыть файл.\n");
     exit(1);
   }
-
   if(fwrite(bal, sizeof(float), 5, fp) != 5)
     printf("Ошибка при записи файла.");
   fclose(fp);
-
   /* чтение значений */
   if((fp=fopen("test", "rb"))==NULL) {
     printf("Не удаётся отрыть файл.\n");
     exit(1);
   }
-
   if(fread(bal, sizeof(float), 5, fp) != 5) {
     if(feof(fp)) printf("Преждевременное достижение конца файла.");
     else printf("Ошибка при чтении файла.");
   }
   fclose(fp);
-
   for(i=0; i&lt;5; i++)
     printf("%f ", bal[i]);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="fwrite.htm">fwrite()</A>  <A href="fopen.htm">fopen()</A>  <A href="fscanf.htm">fscanf()</A>  <A href="fgetc.htm">fgetc()</A>  <A href="getc.htm">getc()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

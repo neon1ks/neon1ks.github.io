@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#09">Содержание</A> | <A href="0903.htm">&lt;&lt;&lt;</A> | <A href="0905.htm">&gt;&gt;&gt;</A><HR>
 <H1>Основы файловой системы</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Файловая система языка С состоит из нескольких взаимосвязанных функций. Самые распространенные из них показаны в табл. 9.1. Для их работы требуется заголовок <KBD>&lt;stdio.h&gt;</KBD>.</P>
 <table class="table table-bordered">
 <CAPTION><B>Таблица 9.1. Часто используемые функции файловой системы С</B></CAPTION>
@@ -71,7 +63,6 @@ fp = fopen("test", "w");
 <P class="tj">Хотя предыдущий код технически правильный, но его обычно пишут немного по-другому:
 <PRE>
 FILE *fp;
-
 if ((fp = fopen("test","w"))==NULL) {
   printf("Ошибка при открытии файла.\n");
   exit(1);
@@ -109,29 +100,23 @@ do {
 /* KTOD: программа ввода с клавиатуры на диск. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(int argc, char *argv[])
 {
   FILE *fp;
   char ch;
-
   if(argc!=2) {
     printf("Вы забыли ввести имя файла.\n");
     exit(1);
   }
-
   if((fp=fopen(argv[1], "w"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     exit(1);
   }
-
   do {
     ch = getchar();
     putc(ch, fp);
   } while (ch != '$');
-
   fclose(fp);
-
   return 0;
 }
 </PRE>
@@ -141,31 +126,24 @@ int main(int argc, char *argv[])
          и выводит их на экран. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(int argc, char *argv[])
 {
   FILE *fp;
   char ch;
-
   if(argc!=2) {
     printf("Вы забыли ввести имя файла.\n");
     exit(1);
   }
-
   if((fp=fopen(argv[1], "r"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     exit(1);
   }
-
   ch = getc(fp);   /* чтение одного символа */
-
   while (ch!=EOF) {
     putchar(ch);  /* вывод на экран */
     ch = getc(fp);
   }
-
   fclose(fp);
-
   return 0;
 }
 </PRE>
@@ -181,17 +159,14 @@ int main(int argc, char *argv[])
 /* Копирование файла. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(int argc, char *argv[])
 {
   FILE *in, *out;
   char ch;
-
   if(argc!=3) {
     printf("Вы забыли ввести имя файла.\n");
     exit(1);
   }
-
   if((in=fopen(argv[1], "rb"))==NULL) {
     printf("Нельзя открыть исходный файл.\n");
     exit(1);
@@ -200,16 +175,13 @@ int main(int argc, char *argv[])
     printf("Нельзя открыть файл результатов.\n");
     exit(1);
   }
-
   /* Именно этот код копирует файл. */
   while(!feof(in)) {
     ch = getc(in);
     if(!feof(in)) putc(ch, out);
   }
-
   fclose(in);
   fclose(out);
-
   return 0;
 }
 </PRE>
@@ -226,24 +198,20 @@ char *fgets(char *<I>cmp</I>, int <I>длина</I>, FILE *<I>уф</I>);
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char str[80];
   FILE *fp;
-
   if((fp = fopen("TEST", "w"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     exit(1);
   }
-
   do {
     printf("Введите строку (пустую - для выхода):\n");
     gets(str);
     strcat(str, "\n");  /* добавление разделителя строк */
     fputs(str, fp);
   } while(*str!='\n');
-
   return 0;
 }
 </PRE>
@@ -256,24 +224,20 @@ int main(void)
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char str[80];
   FILE *fp;
-
   if((fp = fopen("TEST", "w+"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     exit(1);
   }
-
   do {
     printf("Введите строку (пустую - для выхода):\n");
     gets(str);
     strcat(str, "\n");  /* ввод разделителя строк */
     fputs(str, fp);
   } while(*str!='\n');
-
   /* теперь выполняется чтение и отображение файла */
   rewind(fp);  /* установить указатель
                   текущей позиции на начало файла. */
@@ -281,7 +245,6 @@ int main(void)
     fgets(str, 79, fp);
     printf(str);
   }
-
   return 0;
 }
 </PRE>
@@ -293,42 +256,33 @@ int main(void)
 <PRE>
 /* Программа заменяет в текстовом файле символы
    табуляции пробелами и отслеживает ошибки. */
-
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 #define TAB_SIZE 8
 #define IN 0
 #define OUT 1
-
 void err(int e);
-
 int main(int argc, char *argv[])
 {
   FILE *in, *out;
   int tab, i;
   char ch;
-
   if(argc!=3) {
     printf("Синтаксис: detab &lt;входной_файл&gt; &lt;выходной файл&gt;\n");
     exit(1);
   }
-
   if((in = fopen(argv[1], "rb"))==NULL) {
     printf("Нельзя открыть %s.\n", argv[1]);
     exit(1);
   }
-
   if((out = fopen(argv[2], "wb"))==NULL) {
     printf("Нельзя открыть %s.\n", argv[2]);
     exit(1);
   }
-
   tab = 0;
   do {
     ch = getc(in);
     if(ferror(in)) err(IN);
-
     /* если найдена табуляция, выводится
        соответствующее число пробелов */
     if(ch=='\t') {
@@ -348,10 +302,8 @@ int main(int argc, char *argv[])
   } while(!feof(in));
   fclose(in);
   fclose(out);
-
   return 0;
 }
-
 void err(int e)
 {
   if(e==IN) printf("Ошибка при вводе.\n");
@@ -369,19 +321,15 @@ void err(int e)
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
-
 int main(int argc, char *argv[])
 {
   char str[80];
-
   if(argc!=2) {
     printf("Синтаксис: xerase &lt;имя_файла&gt;\n");
     exit(1);
   }
-
   printf("Стереть %s? (Y/N): ", argv[1]);
   gets(str);
-
   if(toupper(*str)=='Y')
     if(remove(argv[1])) {
       printf("Нельзя стиреть файл.\n");
@@ -395,18 +343,8 @@ int main(int argc, char *argv[])
 <PRE>int fflush(FILE *<I>уф</I>);</PRE>
 <P class="tj">Эта функция записывает все данные, находящиеся в буфере в файл, который указан с помощью <I>уф</I>. При вызове функции <KBD>fflush()</KBD> с пустым (null) указателем файла <I>уф</I> будет выполнена дозапись во все файлы, открытые для вывода.
 <P class="tj">После своего успешного выполнения <KBD>fflush()</KBD> возвращает нуль, в противном случае — <KBD>EOF</KBD>.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#09">Содержание</A> | <A href="0903.htm">&lt;&lt;&lt;</A> | <A href="0905.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

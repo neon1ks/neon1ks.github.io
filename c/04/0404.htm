@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#04">Содержание</A> | <A href="0403.htm">&lt;&lt;&lt;</A> | <A href="0405.htm">&gt;&gt;&gt;</A><HR>
 <H1>Строки</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Одномерный массив наиболее часто применяется в виде строки символов. <I>Строка</I> — это одномерный массив символов, заканчивающийся нулевым символом. В языке С признаком окончания строки (нулевым символом) служит символ '<KBD>\0</KBD>'. Таким образом, строка содержит символы, составляющие строку, а также нулевой символ. Это единственный вид строки, определенный в С.</P>
 <table class="table table-bordered">
 <TR><td class="tdnote">На заметку<TD class="tj">В C++ дополнительно определен специальный класс строк, называющийся <KBD>String</KBD><SUP><A href="#11" id="1">[1]</A></SUP>, который позволяет обрабатывать строки объектно-ориентированными методами. Стандарт С не поддерживает <KBD>String</KBD>.
@@ -39,26 +31,19 @@
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char s1[80], s2[80];
-
   gets(s1);
   gets(s2);
-
   printf("Длина: %d %d\n", strlen(s1), strlen(s2));
-
   if(!strcmp(s1, s2)) printf("Строки равны\n");
-
   strcat(s1, s2);
   printf("%s\n", s1);
-
   strcpy(s1, "Проверка.\n");
   printf(s1);
   if(strchr("Алло", 'e')) printf(" л есть в Алло\n");
   if(strstr("Привет", "ив")) printf(" найдено ив ");
-
   return 0;
 }
 </PRE>
@@ -76,18 +61,8 @@ int main(void)
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP><KBD>CString</KBD> в среде Visual C++</KBD>.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#04">Содержание</A> | <A href="0403.htm">&lt;&lt;&lt;</A> | <A href="0405.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

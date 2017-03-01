@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция memcpy</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 void *memcpy(void *<I>to</I>, const void *<I>from</I>, size_t <I>count</I>);
@@ -27,34 +19,20 @@ void *memcpy(void *<I>to</I>, const void *<I>from</I>, size_t <I>count</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 #define SIZE 80
-
 int main(void)
 {
   char buf1[SIZE], buf2[SIZE];
-
   strcpy(buf1, "Когда, в случае если...");
   memcpy(buf2, buf1, SIZE);
   printf(buf2);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="memmove.htm">memmove()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

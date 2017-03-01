@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#03">Содержание</A> | <A href="0301.htm">&lt;&lt;&lt;</A> | <A href="0303.htm">&gt;&gt;&gt;</A><HR>
 <H1>Условные операторы</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В языке С существуют два условных оператора: <KBD>if</KBD> и <KBD>switch</KBD>. При определенных обстоятельствах оператор <KBD>?</KBD> является альтернативой оператора <KBD>if</KBD>.
 <H2>Оператор if</H2>
 <P class="tj">Общая форма оператора <KBD>if</KBD> следующая:
@@ -28,19 +20,14 @@ else <I>оператор;</I></PRE>
 /* Магическое число, программа N1. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   int magic; /* магическое число */
   int guess; /* попытка игрока */
-
   magic = rand(); /* генерация магического числа */
-
   printf("Угадай магическое число: ");
   scanf("%d", &guess);
-
   if(guess == magic) printf("** Верно **");
-
   return 0;
 }
 </PRE>
@@ -49,20 +36,15 @@ int main(void)
 /* Магическое число, программа N2. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   int magic; /* магическое число */
   int guess; /* попытка игрока */
-
   magic = rand(); /* генерация магического числа */
-
   printf("Угадай магическое число: ");
   scanf("%d", &guess);
-
   if(guess == magic) printf("** Верно **");
   else printf("Неверно");
-
   return 0;
 }
 </PRE>
@@ -71,18 +53,8 @@ int main(void)
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Иногда в этом случае говорят, что <I>выражение</I> принимает значение ИСТИНА, которое в языке С может быть представлено, как мы помним, любым целым числом, отличным от нуля
 <P class="tj"><SUP><A href="#2" id="22">[2]</A></SUP><I>Плавающие операнды</I> называются также <I>операндами в формате с плавающей точкой, вещественными операндами</I>.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#03">Содержание</A> | <A href="0301.htm">&lt;&lt;&lt;</A> | <A href="0303.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

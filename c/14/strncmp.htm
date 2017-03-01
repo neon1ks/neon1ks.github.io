@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция strncmp</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 int strncmp(const char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I>);
@@ -33,34 +25,21 @@ int strncmp(const char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(int argc, char *argv[])
 {
   if(argc!=3) {
     printf("Неверное количество аргументов.");
     exit(1);
   }
-
   if(!strncmp(argv[1], argv[2], 8))
     printf("Строки одинаковые.\n");
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="strcmp.htm">strcmp()</A>  <A href="strnchr.htm">strnchr()</A>  <A href="strncpy.htm">strncpy()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

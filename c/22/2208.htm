@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#22">Содержание</A> | <A href="2207.htm">&lt;&lt;&lt;</A> | <A href="../23/23.htm">&gt;&gt;&gt;</A><HR>
 <H1>Двоичные деревья</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Напоследок мы рассмотрим структуру данных, которая называется <I>двоичное дерево</I> (binary tree). Несмотря на то, что бывает много различных типов деревьев, двоичные деревья играют особую роль, так как в отсортированном состоянии позволяют очень быстро выполнять вставку, удаление и поиск. Каждый элемент двоичного дерева состоит из информационной части и указателей на левый и правый элементы. На рис. 22.8 показано небольшое двоичное дерево.</P>
 <table class="table">
 <caption class="bottom"><P class="tj"><I>Рис. 22.8. Пример двоичного дерева, высота которого равна 3</I>
@@ -68,7 +60,6 @@ struct tree {
   struct tree *left;
   struct tree *right;
 };
-
 struct tree *stree(
   struct tree *root,
   struct tree *r,
@@ -92,7 +83,6 @@ struct tree *stree(
     stree(r,r->left,info);
   else
     stree(r,r->right,info);
-
   return root;
 }
 </PRE>
@@ -107,7 +97,6 @@ rt = street(rt, rt, info);
 void inorder(struct tree *root)
 {
   if(!root) return;
-
   inorder(root->left);
   if(root->info) printf("%c ", root->info);
   inorder(root->right);
@@ -119,16 +108,13 @@ void inorder(struct tree *root)
 void preorder(struct tree *root)
 {
   if(!root) return;
-
   if(root->info) printf("%c ", root->info);
   preorder(root->left);
   preorder(root->right);
 }
-
 void postorder(struct tree *root)
 {
   if(!root) return;
-
   postorder(root->left);
   postorder(root->right);
   if(root->info) printf("%c ", root->info);
@@ -139,9 +125,7 @@ void postorder(struct tree *root)
 void print_tree(struct tree *r, int l)
 {
   int i;
-
   if(r == NULL) return;
-
   print_tree(r->right, l+1);
   for(i=0; i<l; ++i) printf(" ");
   printf("%c\n", r->info);
@@ -151,44 +135,34 @@ void print_tree(struct tree *r, int l)
 <P class="tj">Далее следует текст всей программы печати дерева. Попробуйте вводить различные деревья, чтобы увидеть, как они строятся.
 <PRE>
 /* Эта программа выводит на экран двоичное дерево. */
-
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
-
 struct tree {
   char info;
   struct tree *left;
   struct tree *right;
 };
-
 struct tree *root; /* начальная вершина дерева */
 struct tree *stree(struct tree *root,
                    struct tree *r, char info);
 void print_tree(struct tree *root, int l);
-
 int main(void)
 {
   char s[80];
-
   root = NULL;  /* инициализация корня дерева */
-
   do {
     printf("Введите букву: ");
     gets(s);
     root = stree(root, root, *s);
   } while(*s);
-
   print_tree(root, 0);
-
   return 0;
 }
-
 struct tree *stree(
   struct tree *root,
   struct tree *r,
   char info)
 {
-
   if(!r) {
     r = (struct tree *) malloc(sizeof(struct tree));
     if(!r) {
@@ -203,21 +177,16 @@ struct tree *stree(
     else root->right = r;
     return r;
   }
-
   if(info < r->info)
     stree(r, r->left, info);
   else
     stree(r, r->right, info);
-
   return root;
 }
-
 void print_tree(struct tree *r, int l)
 {
   int i;
-
   if(!r) return;
-
   print_tree(r->right, l+1);
   for(i=0; i<l; ++i) printf(" ");
   printf("%c\n", r->info);
@@ -254,9 +223,7 @@ struct tree *search_tree(struct tree *root, char key)
 struct tree *dtree(struct tree *root, char key)
 {
   struct tree *p,*p2;
-
   if(!root) return root; /* вершина не найдена */
-
   if(root->info == key) { /* удаление корня */
     /* это означает пустое дерево */
     if(root->left == root->right){
@@ -292,18 +259,8 @@ struct tree *dtree(struct tree *root, char key)
 <P class="tj">Необходимо также следить за правильным обновлением указателя на корень дерева, описанного вне данной функции, поскольку удаляемая вершина может быть корнем. Лучше всего с этой целью указателю на корень присваивать значение, возвращаемое функцией <KBD>dtree()</KBD>:
 <PRE>root = dtree(root, key);</PRE>
 <P class="tj">Двоичные деревья — исключительно мощное, гибкое и эффективное средство. Поскольку при поиске в сбалансированном дереве выполняется в худшем случае log<SUB>2</SUB>n сравнений, оно намного лучше, чем связанный список, в котором возможен лишь последовательный поиск.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#22">Содержание</A> | <A href="2207.htm">&lt;&lt;&lt;</A> | <A href="../23/23.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

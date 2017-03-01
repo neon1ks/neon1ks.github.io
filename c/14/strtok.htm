@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция strtok</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 char *strtok(char *<I>str1</I>, const char *<I>str2</I>);
@@ -28,35 +20,22 @@ char *strtok(char *<I>str1</I>, const char *<I>str2</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char *p;
-
   p = strtok("Травка зеленеет, солнышко блестит", " ");
   printf(p);
   do {
     p = strtok('\0', ", ");
     if(p) printf("|%s", p);
   } while(p);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="strchr.htm">strchr()</A>  <A href="strcspn.htm">strcspn()</A>  <A href="strpbrk.htm">strpbrk()</A>  <A href="strrchr.htm">strrchr()</A>  <A href="strspn.htm">strspn()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#08">Содержание</A> | <A href="08.htm">&lt;&lt;&lt;</A> | <A href="0802.htm">&gt;&gt;&gt;</A><HR>
 <H1>Чтение и запись символов</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Самыми простыми из консольных функций ввода/вывода являются <KBD>getchar()</KBD>, которая читает символ с клавиатуры, и <KBD>putchar()</KBD>, которая отображает символ на экране. Первая из этих функций ожидает, пока не будет нажата клавиша, а затем возвращает значение этой клавиши. Кроме того, при нажатии клавиши на клавиатуре на экране дисплея автоматически отображается соответствующий символ. Вторая же функция, <KBD>putchar()</KBD>, отображает символ на экране в текущей позиции курсора. Вот прототипы функций <KBD>getchar()</KBD> и <KBD>putchar()</KBD>:
 <PRE>
 int getchar(void);
@@ -26,22 +18,17 @@ int putchar(int <I>c</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
-
 int main(void)
 {
   char ch;
-
   printf("Введите какой-нибудь текст
           (для завершения работы введите точку).\n");
   do {
     ch = getchar();
-
     if(islower(ch)) ch = toupper(ch);
     else ch = tolower(ch);
-
     putchar(ch);
   } while (ch != '.');
-
   return 0;
 }
 </PRE>
@@ -61,22 +48,17 @@ int getche(void);
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 #include &lt;ctype.h&gt;
-
 int main(void)
 {
   char ch;
-
   printf("Введите какой-нибудь текст
           (для завершения работы введите точку).\n");
   do {
     ch = getch();
-
     if(islower(ch)) ch = toupper(ch);
     else ch = tolower(ch);
-
     putchar(ch);
   } while (ch != '.');
-
   return 0;
 }
 </PRE>
@@ -84,18 +66,8 @@ int main(void)
 <table class="table table-bordered">
 <TR><td class="tdnote">На заметку<TD class="tj">Тогда: когда писались эти слова, при использовании компилятора Visual C++ компании Microsoft функции <KBD>_getch()</KBD> и <KBD>getch()</KBD> были несовместимы с функциями ввода стандартного С, например, с функциями <KBD>scanf()</KBD> или <KBD>gets()</KBD>. Поэтому вам придется вместо стандартных функций использовать такие их специальные версии, как <KBD>cscanf()</KBD> или <KBD>cgets()</KBD>. Чтобы получить более подробную информацию, следует изучить документацию по Visual C++.
 </TABLE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#08">Содержание</A> | <A href="08.htm">&lt;&lt;&lt;</A> | <A href="0802.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

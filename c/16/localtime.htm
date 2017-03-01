@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
 <H1>Функция localtime</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;time.h&gt;
 struct tm *localtime(const time_t *<I>time</I>);
@@ -26,36 +18,23 @@ struct tm *localtime(const time_t *<I>time</I>);
 <PRE>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
-
 /* Печатать местное и координированное всемирное (UTC) время. */
 int main(void)
 {
   struct tm *local;
   time_t t;
-
   t = time(NULL);
   local = localtime(&t);
   printf("Местное время и дата: %s\n", asctime(local));
   local = gmtime(&t);
   printf("Координированное всемирное время (UTC) и дата: %s\n", asctime(local));
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
 </BODY>
 </html>

@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A><HR>
 <H1>Функция calloc</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 void *calloc(size_t <I>num</I>, size_t <I>size</I>);
@@ -26,11 +18,9 @@ void *calloc(size_t <I>num</I>, size_t <I>size</I>);
 <PRE>
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
-
 float *get_mem(void)
 {
   float *p;
-
   p = calloc(100, sizeof(float));
   if(!p) {
     printf("Ошибка при распределении памяти\n");
@@ -41,18 +31,8 @@ float *get_mem(void)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="free.htm">free()</A>  <A href="malloc.htm">malloc()</A>  <A href="realloc.htm">realloc()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A>
 </BODY>
 </html>

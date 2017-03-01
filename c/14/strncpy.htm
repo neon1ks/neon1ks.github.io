@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция strncpy</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 char *strncpy(char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I>);
@@ -29,7 +21,6 @@ char *strncpy(char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I>);
 <P class="tj">Следующий фрагмент программы копирует не более 79 символов из строки <KBD>str1</KBD> в строку <KBD>str2</KBD>, тем самым гарантируется, что массив не переполнится.
 <PRE>
 char str1[128], str2[80];
-
 gets(str1);
 strncpy(str2, str1, 79);
 </PRE>
@@ -39,18 +30,8 @@ strncpy(str2, str1, 79);
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Обратите внимание, что такую "строку " считать полноценной нельзя, ведь некоторые строковые функции работать с подобными строками могут некорректно.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

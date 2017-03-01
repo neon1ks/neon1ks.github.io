@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#25">Содержание</A> | <A href="2508.htm">&lt;&lt;&lt;</A> | <A href="2510.htm">&gt;&gt;&gt;</A><HR>
 <H1>Поиск методом наискорейшего подъема</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В задаче организации полета из Нью-Йорка в Лос-Анджелес могут быть два ограничивающих параметра, которые пассажиру хотелось бы свести к минимуму. Первый из них — это количество авиарейсов, необходимых, чтобы добраться до Лос-Анджелеса. А второй — это длина маршрута. Помните, что самый короткий маршрут — это не обязательно тот, который имеет минимальное количество авиарейсов<SUP><A href="#11" id="1">[1]</A></SUP>. В алгоритме поиска, ищущем в качестве первого решения маршрут с минимальным количеством авиарейсов<SUP><A href="#22" id="2">[2]</A></SUP>, применяется следующая эвристика. Чем длиннее авиарейс,то тем больше вероятность того, что путешественник окажется ближе к месту назначения. Поэтому количество авиарейсов<SUP><A href="#33" id="3">[3]</A></SUP> сводится к минимуму.
 <P class="tj">На языке искусственного интеллекта это называется <I>наискорейшим подъемом</I>. Алгоритм наискорейшего подъема в качестве следующей выбирает вершину, которая, как ему кажется, ближе всего находится к цели (то есть дальше всего от текущей вершины). Своим названием алгоритм обязан вот чему. Представьте себе, что турист-пешеход на полпути к вершине заблудился в темноте. И хотя вокруг темно, но турист, зная, что его лагерь находится на вершине, может, следуя алгоритму наискорейшего подъема, найти свой лагерь. Просто он должен помнить, что каждый шаг наверх — это шаг в правильном направлении.
 <P class="tj">Применительно к базе данных авиарейсов, в программе, генерирующей маршруты, эвристику наискорейшего подъема можно использовать следующим образом. Среди авиарейсов, исходящих из текущей вершины, выбирайте самый дальний — в надежде, что он доставит ближе всего к месту назначения. Вот как для этого нужно модифицировать подпрограмму <KBD>find()</KBD>:
@@ -24,10 +16,8 @@
 int find(char *from, char *anywhere)
 {
   int pos, dist;
-
   pos=dist = 0;
   find_pos = 0;
-
   while(find_pos &lt; f_pos) {
     if(!strcmp(flight[find_pos].from, from) &&
       !flight[find_pos].skip) {
@@ -52,9 +42,7 @@ int find(char *from, char *anywhere)
 /* Нискорейший подъем */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
  #define MAX 100
-
 /* структура базы данных авиарейсов */
 struct FL {
   char from[20];
@@ -62,22 +50,17 @@ struct FL {
   int distance;
   char skip; /* используется при поиске с возвратом */
 };
-
 struct FL flight[MAX];  /* массив структур БД */
-
 int f_pos = 0;    /* количество записей в БД авиарейсов */
 int find_pos = 0; /* индекс для поиска в БД авиарейсов */
-
 int tos = 0;      /* вершина стека */
 struct stack {
   char from[20];
   char to[20];
   int dist;
 } ;
-
 struct stack bt_stack[MAX]; /* стек, используемый для посика
                                с возвратом */
-
 void setup(void), route(char *to);
 void assert_flight(char *from, char *to, int dist);
 void push(char *from, char *to, int dist);
@@ -85,24 +68,18 @@ void pop(char *from, char *to, int *dist);
 void isflight(char *from, char *to);
 int find(char *from, char *anywhere);
 int match(char *from, char *to);
-
 int main(void)
 {
   char from[20], to[20];
-
   setup();
-
   printf("Пункт вылета: ");
   gets(from);
   printf("Пункт прибытия: ");
   gets(to);
-
   isflight(from,to);
   route(to);
-
   return 0;
 }
-
 /* Инициализация базы данных авиаресов. */
 void setup(void)
 {
@@ -118,11 +95,9 @@ void setup(void)
   assert_flight("Хьюстон", "Лос-Анжелес", 1500);
   assert_flight("Денвер", "Лос-Анжелес", 1000);
 }
-
 /* Записать факты в базу данных. */
 void assert_flight(char *from, char *to, int dist)
 {
-
   if(f_pos &lt; MAX) {
     strcpy(flight[f_pos].from, from);
     strcpy(flight[f_pos].to, to);
@@ -132,12 +107,10 @@ void assert_flight(char *from, char *to, int dist)
   }
   else printf("База данных авиарейсов заполнена.\n");
 }
-
 /* Показать маршрут и общее расстояние. */
 void route(char *to)
 {
   int dist, t;
-
   dist = 0;
   t = 0;
   while(t &lt; tos) {
@@ -148,29 +121,23 @@ void route(char *to)
   printf("%s\n", to);
   printf("Расстояние в милях равно %d.\n", dist);
 }
-
 /* Если между двумя городами имеется авиарейс, то возвращается
    расстояние между ними, а в противном случае возвращается 0. */
 int match(char *from, char *to)
 {
   register int t;
-
   for(t=f_pos-1; t &gt; -1; t--)
     if(!strcmp(flight[t].from, from) &&
       !strcmp(flight[t].to, to)) return flight[t].distance;
-
   return 0;  /* not found */
 }
-
 /* Зная пункт отправления (параметр from), найти пункт прибытия
    для самого дальнейшего авиарейса (параметр anywhere). */
 int find(char *from, char *anywhere)
 {
   int pos, dist;
-
   pos=dist = 0;
   find_pos = 0;
-
   while(find_pos &lt; f_pos) {
     if(!strcmp(flight[find_pos].from, from) &&
       !flight[find_pos].skip) {
@@ -188,20 +155,17 @@ int find(char *from, char *anywhere)
   }
   return 0;
 }
-
 /* Определить, имеется ли маршрут между из города, на который указывает
    параметр from (из) в город, на который указывает параметр to (в). */
 void isflight(char *from, char *to)
 {
   int d, dist;
   char anywhere[20];
-
   if(d=match(from, to)) {
     /* это цель */
     push(from, to, d);
     return;
   }
-
   /* найти любой авиарейс */
   if(dist=find(from, anywhere)) {
     push(from, to, dist);
@@ -212,7 +176,6 @@ void isflight(char *from, char *to)
     isflight(from, to);
   }
 }
-
 /* Подпрограммы обращения к стеку */
 void push(char *from, char *to, int dist)
 {
@@ -224,7 +187,6 @@ void push(char *from, char *to, int dist)
   }
   else printf("Стек заполнен.\n");
 }
-
 void pop(char *from, char *to, int *dist)
 {
   if(tos &gt; 0) {
@@ -256,18 +218,8 @@ void pop(char *from, char *to, int *dist)
 <P class="tj"><SUP><A href="#2" id="22">[2]</A></SUP>Т.е. маршрут с минимальным количеством пересадок.
 <P class="tj"><SUP><A href="#3" id="33">[3]</A></SUP>Т.е. количество проходимых ребер графа.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#25">Содержание</A> | <A href="2508.htm">&lt;&lt;&lt;</A> | <A href="2510.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

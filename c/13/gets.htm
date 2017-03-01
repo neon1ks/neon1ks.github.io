@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция gets</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 char *gets(char *<I>str</I>);
@@ -27,38 +19,23 @@ char *gets(char *<I>str</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   FILE *fp;
   char fname[128];
-
   printf("Введите имя файла: ");
   gets(fname);
-
   if((fp=fopen(fname, "r"))==NULL) {
     printf("Не удается открыть файл.\n");
     exit(1);
   }
-
   fclose(fp);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="fputs.htm">fputs()</A>  <A href="fgetc.htm">fgetc()</A>  <A href="fgets.htm">fgets()</A>  <A href="puts.htm">puts()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

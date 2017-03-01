@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
 <H1>Функция strftime</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;time.h&gt;
 size_t strftime(char *<I>str</I>, size_t <I>maxsize</I>, const char *<I>fmt</I>,
@@ -71,36 +63,22 @@ size_t strftime(char *<I>str</I>, size_t <I>maxsize</I>, const char *<I>fmt</I>,
 <PRE>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   struct tm *ptr;
   time_t lt;
   char str[80];
-
   lt = time(NULL);
   ptr = localtime(&lt);
-
   strftime(str, 100, "Сейчас %H %p.", ptr);
   printf(str);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="time.htm">time()</A>  <A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
 </BODY>
 </html>

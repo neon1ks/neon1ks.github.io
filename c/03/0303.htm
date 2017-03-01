@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#03">Содержание</A> | <A href="0302.htm">&lt;&lt;&lt;</A> | <A href="0304.htm">&gt;&gt;&gt;</A><HR>
 <H1>Вложенные условные операторы if</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Оператор <KBD>if</KBD> является вложенным, если он вложен, т.е. находится внутри другого оператора <KBD>if</KBD> или <KBD>else</KBD>. В практике программирования вложенные условные операторы используются довольно часто. Во вложенном условном операторе фраза <KBD>else</KBD> всегда ассоциирована с ближайшим <KBD>if</KBD> в том же блоке, если этот <KBD>if</KBD> не ассоциирован с другой фразой <KBD>else</KBD>. Например:
 <PRE>
 if(i)
@@ -32,17 +24,13 @@ else statement 4; /* ассоциирован с if(i) */
 /* Магическое число, программа N3. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   int magic; /* магическое число */
   int guess; /* попытка игрока */
-
   magic = rand(); /* генерация магического числа */
-
   printf("Угадай магическое число: ");
   scanf("%d", &guess);
-
   if (guess == magic) {
     printf("** Верно **");
     printf("Магическое число равно %d\n", magic);
@@ -53,22 +41,11 @@ int main(void)
                          /* вложенный if */
     else printf("слишком малое\n");
   }
-
   return 0;
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#03">Содержание</A> | <A href="0302.htm">&lt;&lt;&lt;</A> | <A href="0304.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

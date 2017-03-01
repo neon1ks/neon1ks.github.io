@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#06">Содержание</A> | <A href="0602.htm">&lt;&lt;&lt;</A> | <A href="0604.htm">&gt;&gt;&gt;</A><HR>
 <H1>Аргументы функции</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Если функция должна принимать аргументы, то в ее объявлении следует декларировать параметры, которые примут значения этих аргументов. Как видно из объявления следующей функции, объявления параметров стоят после имени функции.
 <PRE>
 /* Возвращает 1, если символ c входит в строку s;
@@ -36,18 +28,13 @@ int is_in(char *s,  char c)
 <P class="tj">Проанализируйте следующую программу:
 <PRE>
 #include &lt;stdio.h&gt;
-
 int sqr(int x);
-
 int main(void)
 {
   int t=10;
-
   printf("%d %d", sqr(t), t);
-
   return 0;
 }
-
 int sqr(int x)
 {
   x = x*x;
@@ -63,7 +50,6 @@ int sqr(int x)
 void swap(int *x, int *y)
 {
   int temp;
-
   temp = *x;  /* сохранить значение по адресу x */
   *x = *y;    /* поместить y в x */
   *y = temp;  /* поместить x в y */
@@ -74,27 +60,19 @@ void swap(int *x, int *y)
 <PRE>
 #include &lt;stdio.h&gt;
 void swap(int *x, int *y);
-
 int main(void)
 {
   int i, j;
-
   i = 10;
   j = 20;
-
   printf("i и j перед обменом значениями: %d %d\n", i, j);
-
   swap(&i, &j); /* передать адреса переменных i и j */
-
   printf("i и j после обмена значениями: %d %d\n", i, j);
-
   return 0;
 }
-
 void swap(int *x, int *y)
 {
   int temp;
-
   temp = *x;  /* сохранить значение по адресу x */
   *x = *y;    /* поместить y в x */
   *y = temp;  /* поместить x в y */
@@ -115,25 +93,20 @@ i и j после обмена значениями: 20 10
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
-
 void print_upper(char *string);
-
 int main(void)
 {
   char s[80];
-
   printf("Введите строку символов: ");
   gets(s);
   print_upper(s);
   printf("\ns теперь на верхнем регистре: %s", s);
   return 0;
 }
-
 /* Печатать строку на верхнем регистре. */
 void print_upper(char *string)
 {
   register int t;
-
   for(t=0; string[t]; ++t)  {
     string[t] = toupper(string[t]);
     putchar(string[t]);
@@ -151,25 +124,19 @@ s теперь в верхнем регистре: THIS IS A TEST.
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
-
 void print_upper(char *string);
-
 int main(void)
 {
   char s[80];
-
   printf("Введите строку символов: ");
   gets(s);
   print_upper(s);
   printf("\ns не изменялась: %s", s);
-
   return 0;
 }
-
 void print_upper(char *string)
 {
   register int t;
-
   for(t=0; string[t]; ++t)
     putchar(toupper(string[t]));
 }
@@ -188,12 +155,9 @@ char *xgets(char *s)
 {
   char ch, *p;
   int t;
-
   p = s;  /* xgets() возвращает указатель s */
-
   for(t=0; t&lt;80; ++t){
     ch = getchar();
-
     switch(ch) {
       case '\n':
         s[t] = '\0'; /* завершает строку */
@@ -217,18 +181,8 @@ char *xgets(char *s)
 <P class="tj"><SUP><A href="#3" id="33">[3]</A></SUP>Конечно, это просто программистский жаргон. На самом деле, конечно, аргументами являются именно адреса переменных, а не сами переменные. Просто в этом случае для краткости изложения программисты "делают вид", что вроде бы и в самом деле происходит передача значений по ссылке.
 <P class="tj"><SUP><A href="#4" id="44">[4]</A></SUP>Ведь при вызове по значению пришлось бы копировать весь массив!
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#06">Содержание</A> | <A href="0602.htm">&lt;&lt;&lt;</A> | <A href="0604.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

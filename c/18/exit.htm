@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция exit</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 void exit(int <I>exit_code</I>);
@@ -27,7 +19,6 @@ void exit(int <I>exit_code</I>);
 int menu(void)
 {
   char choice;
-
   do {
     printf("Ввод имени (E)\n");
     printf("Удаление имени (D)\n");
@@ -35,26 +26,14 @@ int menu(void)
     printf("Выход (Q)\n");
     choice = getchar();
   } while(!strchr("EDPQ", toupper(choice)));
-
   if(choice=='Q') exit(0);
-
   return choice;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="atexit.htm">atexit()</A>  <A href="abort.htm">abort()</A>  <A href="_Exit.htm">_Exit()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

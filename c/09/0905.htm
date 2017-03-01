@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#09">Содержание</A> | <A href="0904.htm">&lt;&lt;&lt;</A> | <A href="0906.htm">&gt;&gt;&gt;</A><HR>
 <H1>Функции fread() и fwrite()</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Для чтения и записи данных, тип которых может занимать более 1 байта, в файловой системе языка С имеется две функции: <KBD>fread()</KBD> и <KBD>fwrite()</KBD>. Эти функции позволяют читать и записывать блоки данных любого типа. Их прототипы следующие:
 <PRE>
 size_t fread(void *<I>буфер</I>, size_t <I>колич_байт</I>, size_t <I>счетчик</I>, FILE *<I>уф</I>);
@@ -29,33 +21,25 @@ size_t fwrite(const void *<I>буфер</I>, size_t <I>колич_байт</I>, 
    и последующее их чтение.  */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(void)
 {
   FILE *fp;
   double d = 12.23;
   int i = 101;
   long l = 123023L;
-
   if((fp=fopen("test", "wb+"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     exit(1);
   }
-
   fwrite(&d, sizeof(double), 1, fp);
   fwrite(&i, sizeof(int), 1, fp);
   fwrite(&l, sizeof(long), 1, fp);
-
   rewind(fp);
-
   fread(&d, sizeof(double), 1, fp);
   fread(&i, sizeof(int), 1, fp);
   fread(&l, sizeof(long), 1, fp);
-
   printf("%f %d %ld", d, i, l);
-
   fclose(fp);
-
   return 0;
 }
 </PRE>
@@ -89,32 +73,26 @@ void save(void)
 {
   FILE  *fp;
   register int i;
-
   if((fp=fopen("maillist", "wb"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     return;
   }
-
   for(i=0; i&lt;MAX; i++)
     if(*addr_list[i].name)
       if(fwrite(&addr_list[i],
          sizeof(struct addr), 1, fp)!=1)
            printf("Ошибка при записи файла.\n");
-
   fclose(fp);
 }
-
 /* Загрузить файл. */
 void load(void)
 {
   FILE  *fp;
   register int i;
-
   if((fp=fopen("maillist", "rb"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     return;
   }
-
   init_list();
   for(i=0; i&lt;MAX; i++)
     if(fread(&addr_list[i],
@@ -122,7 +100,6 @@ void load(void)
          if(feof(fp)) break;
          printf("Ошибка при чтении файла.\n");
     }
-
   fclose(fp);
 }
 </PRE>
@@ -133,9 +110,7 @@ void load(void)
    в которой используется массив структур. */
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 #define MAX 100
-
 struct addr {
   char name[30];
   char street[40];
@@ -143,16 +118,13 @@ struct addr {
   char state[3];
   unsigned long int zip;
 } addr_list[MAX];
-
 void init_list(void), enter(void);
 void delete(void), list(void);
 void load(void), save(void);
 int menu_select(void), find_free(void);
-
 int main(void)
 {
   char choice;
-
   init_list(); /* инициализация массива структур */
   for(;;) {
     choice = menu_select();
@@ -170,24 +142,19 @@ int main(void)
       case 6: exit(0);
     }
   }
-
   return 0;
 }
-
 /* Инициализация списка. */
 void init_list(void)
 {
   register int t;
-
   for(t=0; t&lt;MAX; ++t) addr_list[t].name[0] = '\0';
 }
-
 /* Получения значения, выбранного  в меню. */
 int menu_select(void)
 {
   char s[80];
   int c;
-
   printf("1. Ввести имя\n");
   printf("2. Удалить имя\n");
   printf("3. Вывести список\n");
@@ -201,67 +168,51 @@ int menu_select(void)
   } while(c&lt;0 || c&gt;6);
   return c;
 }
-
 /* Добавление адреса в список. */
 void enter(void)
 {
   int slot;
   char s[80];
-
   slot = find_free();
-
   if(slot==-1) {
     printf("\nСписок заполнен");
     return;
   }
-
   printf("Введите имя: ");
   gets(addr_list[slot].name);
-
   printf("Введите улицу: ");
   gets(addr_list[slot].street);
-
   printf("Введите город: ");
   gets(addr_list[slot].city);
-
   printf("Введите штат: ");
   gets(addr_list[slot].state);
-
   printf("Введите почтовый индекс: ");
   gets(s);
   addr_list[slot].zip = strtoul(s, '\0', 10);
 }
-
 /* Поиск свободной структуры. */
 int find_free(void)
 {
   register int t;
-
   for(t=0; addr_list[t].name[0] && t&lt;MAX; ++t) ;
-
   if(t==MAX) return -1; /* свободных структур нет */
   return t;
 }
-
 /* Удаление адреса. */
 void delete(void)
 {
   register int slot;
   char s[80];
-
   printf("Введите № записи: ");
   gets(s);
   slot = atoi(s);
-
   if(slot&gt;=0 && slot &lt; MAX)
     addr_list[slot].name[0] = '\0';
 }
-
 /* Вывод списка на экран. */
 void list(void)
 {
   register int t;
-
   for(t=0; t&lt;MAX; ++t) {
     if(addr_list[t].name[0]) {
       printf("%s\n", addr_list[t].name);
@@ -273,38 +224,31 @@ void list(void)
   }
   printf("\n\n");
 }
-
 /* Сохранение списка. */
 void save(void)
 {
   FILE  *fp;
   register int i;
-
   if((fp=fopen("maillist", "wb"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     return;
   }
-
   for(i=0; i&lt;MAX; i++)
     if(*addr_list[i].name)
       if(fwrite(&addr_list[i],
          sizeof(struct addr), 1, fp)!=1)
            printf("Ошибка при записи файла.\n");
-
   fclose(fp);
 }
-
 /* Загрузить файл. */
 void load(void)
 {
   FILE  *fp;
   register int i;
-
   if((fp=fopen("maillist", "rb"))==NULL) {
     printf("Ошибка при открытии файла.\n");
     return;
   }
-
   init_list();
   for(i=0; i&lt;MAX; i++)
     if(fread(&addr_list[i],
@@ -312,22 +256,11 @@ void load(void)
          if(feof(fp)) break;
          printf("Ошибка при чтении файла.\n");
     }
-
   fclose(fp);
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#09">Содержание</A> | <A href="0904.htm">&lt;&lt;&lt;</A> | <A href="0906.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

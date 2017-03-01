@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция setjmp</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;setjmp.h&gt;
 int setjmp(jmp_buf <I>envbuf</I>);
@@ -23,18 +15,8 @@ int setjmp(jmp_buf <I>envbuf</I>);
 <P class="tj">Макрос-функция <KBD>setjmp()</KBD> при инициализации возвращает нуль. Однако <KBD>longjmp()</KBD> передает аргумент функции <KBD>setjmp()</KBD>, и именно его значение (всегда отличное от нуля), станет значением <KBD>setjmp()</KBD> после вызова <KBD>longjmp()</KBD>. Таким образом, если макрос <KBD>setjmp()</KBD> выполняется после вызова функции <KBD>longjmp()</KBD>, он возвращает значение аргумента, переданного ему функцией <KBD>longjmp()</KBD>. Дополнительная информация приведена в описании <KBD>longjmp()</KBD>.
 <H2>Зависимые функции</H2>
 <A href="longjmp.htm">longjmp()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

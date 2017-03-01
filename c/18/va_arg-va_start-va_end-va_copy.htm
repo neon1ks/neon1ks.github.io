@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция va_arg, va_start, va_end, va_copy</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdarg.h&gt;
 type va_arg(va_list <I>argptr</I>, <I>type</I>);
@@ -38,35 +30,26 @@ void va_start(va_list <I>argptr</I>, <I>last_parm</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdarg.h&gt;
-
 double sum_series(int num, ...);
-
 /* Пример переменного числа аргументов - сумма последовательности. */
 int main(void)
 {
   double d;
-
   d = sum_series(5, 0.5, 0.25, 0.125, 0.0625, 0.03125);
-
   printf("Сумма последовательности %f.\n", d);
-
   return 0;
 }
-
 double sum_series(int num, ...)
 {
   double sum=0.0, t;
   va_list argptr;
-
   /* Инициализация argptr */
   va_start(argptr, num);
-
   /* сумма последовательности */
   for( ; num; num--) {
     t = va_arg(argptr, double); /* получить следующий аргумент */
     sum += t;
   }
-
   /* выполнение корректного выхода */
   va_end(argptr);
   return sum;
@@ -79,18 +62,8 @@ double sum_series(int num, ...)
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Он должен быть объявлен, например, так: <PRE>va_list <I>argptr</I>;</PRE>
 <P class="tj"><SUP><A href="#2" id="22">[2]</A></SUP>Ну где вы видели функцию, которой в качестве аргумента передается служебное слово? Конечно, это возможно именно потому, что <KBD>va_arg()</KBD> — макрос, а не функция языка С. Кроме того, посмотрите на описание <I>type</I><PRE>va_arg(va_list <I>argptr</I>, <I>type</I>);</PRE><P class="t">Какой же компилятор позволит вам так описывать функцию?!
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

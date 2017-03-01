@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция tmpnam</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 char *tmpnam(char *<I>name</I>);
@@ -26,33 +18,20 @@ char *tmpnam(char *<I>name</I>);
 <P class="tj">В данной программе генерируются и выводятся на экран три уникальных имени временных файлов.
 <PRE>
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   char name[40];
   int i;
-
   for(i=0; i&lt;3; i++) {
     tmpnam(name);
     printf("%s ", name);
   }
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="tmpfile.htm">tmpfile()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

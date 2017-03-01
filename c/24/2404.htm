@@ -7,34 +7,22 @@
 </HEAD><BODY>
 <A href="../main.htm#24">Содержание</A> | <A href="2403.htm">&lt;&lt;&lt;</A> | <A href="2405.htm">&gt;&gt;&gt;</A><HR>
 <H1>Простая программа синтаксического анализа выражений</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В оставшейся части данной главы приведены два синтаксических анализатора. Первый из них разбирает и вычисляет только константные выражения, т.е. выражения, в которых нет переменных. Второй анализатор способен работать с 26 переменными, от А до Z.
 <P class="tj">Ниже приводится полная версия простого рекурсивного нисходящего синтаксического анализатора, вычисляющего выражения, в которых при вычислении операнды представляются в формате с плавающей запятой.
 <PRE>
 /* Это модуль содержит простой синтаксический анализатор,
    который не распознает переменные.
 */
-
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 #define DELIMITER 1
 #define VARIABLE  2
 #define NUMBER    3
-
 extern char *prog;   /* содержит анализируемое выражение */
 char token[80];
 char tok_type;
-
 void eval_exp(double *answer), eval_exp2(double *answer);
 void eval_exp3(double *answer), eval_exp4(double *answer);
 void eval_exp5(double *answer), eval_exp6(double *answer);
@@ -42,7 +30,6 @@ void atom(double *answer);
 void get_token(void), putback(void);
 void serror(int error);
 int isdelim(char c);
-
 /* Точка входа анализатора. */
 void eval_exp(double *answer)
 {
@@ -52,16 +39,13 @@ void eval_exp(double *answer)
     return;
   }
   eval_exp2(answer);
-
   if(*token) serror(0); /* последней лексемой должен быть нуль */
 }
-
 /* Сложение или вычитание двух слагаемых. */
 void eval_exp2(double *answer)
 {
   register char  op;
   double temp;
-
   eval_exp3(answer);
   while((op = *token) == '+' || op == '-') {
     get_token();
@@ -76,13 +60,11 @@ void eval_exp2(double *answer)
     }
   }
 }
-
 /* Умножение или деление двух множителей. */
 void eval_exp3(double *answer)
 {
   register char op;
   double temp;
-
   eval_exp4(answer);
   while((op = *token) == '*' || op == '/' || op == '%') {
     get_token();
@@ -103,15 +85,12 @@ void eval_exp3(double *answer)
     }
   }
 }
-
 /* Возведение в степень */
 void eval_exp4(double *answer)
 {
   double temp, ex;
   register int t;
-
   eval_exp5(answer);
-
   if(*token == '^') {
     get_token();
     eval_exp4(&temp);
@@ -123,12 +102,10 @@ void eval_exp4(double *answer)
     for(t=temp-1; t&gt;0; --t) *answer = (*answer) * (double)ex;
   }
 }
-
 /* Умножение унарных операторов + и -. */
 void eval_exp5(double *answer)
 {
   register char  op;
-
   op = 0;
   if((tok_type == DELIMITER) && *token=='+' || *token == '-') {
     op = *token;
@@ -137,7 +114,6 @@ void eval_exp5(double *answer)
   eval_exp6(answer);
   if(op == '-') *answer = -(*answer);
 }
-
 /* Вычисление выражения в скобках. */
 void eval_exp6(double *answer)
 {
@@ -151,7 +127,6 @@ void eval_exp6(double *answer)
   else
     atom(answer);
 }
-
 /* Получение значения в скобках. */
 void atom(double *answer)
 {
@@ -162,16 +137,13 @@ void atom(double *answer)
   }
   serror(0);  /* иначе синтаксическая ошибка в выражении */
 }
-
 /* Выражение лексемы во входной поток. */
 void putback(void)
 {
   char *t;
-
   t = token;
   for(; *t; t++) prog--;
 }
-
 /* Отображение сообщения об ошибке. */
 void serror(int error)
 {
@@ -183,20 +155,16 @@ void serror(int error)
   };
   printf("%s\n", e[error]);
 }
-
 /* Возврат очередной лексемы. */
 void get_token(void)
 {
   register char *temp;
-
   tok_type = 0;
   temp = token;
   *temp = '\0';
-
   if(!*prog) return; /* конец выражения */
   while(isspace(*prog)) ++prog; /* пропустить пробелы,
                   символы табуляции и пустой строки */
-
   if(strchr("+-*/%^=()", *prog)){
     tok_type = DELIMITER;
     /* перейтик следующему символу */
@@ -210,14 +178,11 @@ void get_token(void)
     while(!isdelim(*prog)) *temp++ = *prog++;
     tok_type = NUMBER;
   }
-
   *temp = '\0';
 }
-
 /* Возвращение значения ИСТИНА, если с является разделителем. */
 int isdelim(char c)
 {
-
   if(strchr(" +-/*%^=()", c) || c==9 || c=='\r' || c==0)
     return 1;
   return 0;
@@ -231,21 +196,17 @@ int isdelim(char c)
 #include &lt;ctype.h&gt;
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 char *prog;
 void eval_exp(double *answer);
-
 int main(void)
 {
   double answer;
   char *p;
-
   p = (char *) malloc(100);
   if(!p) {
     printf("Ошибка при выделении памяти.\n");
     exit(1);
   }
-
   /* Обработка выражений до ввода пустой строки. */
   do {
     prog = p;
@@ -255,7 +216,6 @@ int main(void)
     eval_exp(&answer);
     printf("Результат: %.2f\n", answer);
   } while(*p);
-
   return 0;
 }
 </PRE>
@@ -264,18 +224,8 @@ int main(void)
 <P class="tj">При вызове функции <KBD>eval_exp()</KBD> — входной точки анализатора — из входной строки выбирается лексема. Если она является пустой строкой, то функция печатает сообщение "Нет выражения" и завершается. Однако в данном случае лексемой является число 10. Поскольку это не пустая строка, вызывается функция <KBD>eval_exp2()</KBD>. В результате, функция <KBD>eval_exp2()</KBD> вызывает <KBD>eval_exp3()</KBD>, a <KBD>eval_exp3()</KBD> вызывает <KBD>eval_exp4()</KBD>, а та в свою очередь вызывает <KBD>eval_exp5()</KBD>. Затем функция <KBD>eval_exp5()</KBD> проверяет, не является ли лексема унарным плюсом или минусом. В данном случае это не так, поэтому вызывается функция <KBD>eval_exp6()</KBD>. В этот момент <KBD>eval_exp6()</KBD> может рекурсивно вызвать либо <KBD>eval_exp2()</KBD> (в случае выражения, заключенного в скобки), либо <KBD>atom()</KBD>, чтобы определить значение числа. Поскольку лексема не является открывающей скобкой, выполняется функция <KBD>atom()</KBD> и переменной <KBD>*answer</KBD> присваивается значение 10. Затем происходит выборка следующей лексемы и возврат из цепочки вызовов функций. Лексемой становится оператор -, а управление возвращается функции <KBD>eval_exp2()</KBD>.
 <P class="tj">То, что происходит дальше, очень важно. Поскольку текущей лексемой является символ -, он сохраняется в переменной <KBD>ор</KBD>. Затем анализатор выбирает следующую лексему и спуск по цепочке начинается снова. Как и раньше, вызывается функция <KBD>atom()</KBD>. Полученное значение 3 возвращается в переменной <KBD>*answer</KBD>, и считывается лексема *. Это вызывает возврат по цепочке до <KBD>eval_exp3()</KBD>, где считывается последняя лексема 2. В этот момент происходит первая арифметическая операция — умножение 3 на 2. Полученный результат возвращается функции <KBD>eval_exp2()</KBD>, где происходит вычитание. В результате вычитания в ответе получается 4. Несмотря на то, что этот процесс может поначалу показаться сложным, самостоятельная проработка других примеров поможет вам разобраться в работе анализатора.
 <P class="tj">Данный анализатор подошел бы для настольного калькулятора, что было продемонстрировано предыдущей программой, или для небольшой базы данных. Однако перед тем как использовать его для разбора языка программирования или в сложном калькуляторе, в него необходимо добавить средства работы с переменными. Это является предметом следующего раздела.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#24">Содержание</A> | <A href="2403.htm">&lt;&lt;&lt;</A> | <A href="2405.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

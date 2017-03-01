@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#03">Содержание</A> | <A href="0304.htm">&lt;&lt;&lt;</A> | <A href="0306.htm">&gt;&gt;&gt;</A><HR>
 <H1>Оператор цикла</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В языке С, как и в других языках программирования, операторы цикла служат для многократного выполнения последовательности операторов до тех пор, пока выполняется некоторое условие. Условие может быть установленным заранее (как в операторе <KBD>for</KBD>) или меняться при выполнении тела цикла (как в <KBD>while</KBD> или <KBD>do-while</KBD>).
 <H2>Цикл for</H2>
 <P class="tj">Во всех процедурных языках программирования циклы <KBD>for</KBD> очень похожи. Однако в С этот цикл особенно гибкий и мощный. Общая форма оператора <KBD>for</KBD> следующая:
@@ -23,13 +15,10 @@
 <P class="tj">В следующем примере в цикле <KBD>for</KBD> выводятся на экран числа от 1 до 100:
 <PRE>
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   int x;
-
   for(x=1; x &lt;= 100; x++) printf("%d ", x);
-
   return 0;
 }
 </PRE>
@@ -68,25 +57,19 @@ for(x=0, y=0; x+y&lt;10; ++x) {
 /* Демонстрация использования 2-х параметров цикла. */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 void converge(char *targ, char *src);
-
 int main(void)
 {
   char target[80] = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-
   converge(target, "Это проверка функции converge().");
   printf("Строка-результат: %s\n", target);
-
   return 0;
 }
-
 /* Эта функция копирует содержимое одной строки в
    другую, начиная с обоих концов и сходясь посередине. */
 void converge(char *targ, char *src)
 {
   int i, j;
-
   printf("%s\n", targ);
   for(i=0, j=strlen(src); i&lt;=j; i++, j--) {
     targ[i] = src[i];
@@ -124,12 +107,10 @@ void sign_on(void)
 {
   char str[20];
   int x;
-
   for(x=0; x&lt;3 && strcmp(str, "password"); ++x) {
     printf("Пожалуйста, введите пароль:");
     gets(str);
   }
-
   if(x==3) return;
   /* Иначе пользователь допускается */
 }
@@ -138,35 +119,27 @@ void sign_on(void)
 <P class="tj">Следует помнить, что каждая из трех секций оператора <KBD>for</KBD> может быть любым синтаксически правильным выражением. Эти выражения не всегда каким-либо образом отображают назначение секции. Рассмотрим следующий пример:
 <PRE>
 #include &lt;stdio.h&gt;
-
 int sqrnum(int num);
 int readnum(void);
 int prompt(void);
-
 int main(void)
 {
   int t;
-
   for(prompt(); t=readnum(); prompt())
     sqrnum(t);
-
   return 0;
 }
-
 int prompt(void)
 {
   printf("Введите число: ");
   return 0;
 }
-
 int readnum(void)
 {
   int t;
-
   scanf("%d", &t);
   return t;
 }
-
 int sqrnum(int num)
 {
   printf("%d\n", num*num);
@@ -184,7 +157,6 @@ for(x=0; x!=123; ) scanf("%d", &x);
 gets(s);  /* читает строку в s */
 if(*s) x = strlen(s); /* вычисление длины строки */
 else x = 10;
-
 for( ; x&lt;10; ) {
   printf("%d", x);
   ++x;
@@ -200,12 +172,10 @@ for( ; ; ) printf("Этот цикл крутится бесконечно.\n");
 <P class="tj">Фактически конструкция <KBD>for( ; ; )</KBD> не гарантирует бесконечность итераций, потому что в нем может встретиться оператор <KBD>break</KBD>, вызывающий немедленный выход из цикла. (Подробно оператор <KBD>break</KBD> рассмотрен в этой главе далее.) В этом случае выполнение программы продолжается с оператора, следующего за закрывающейся фигурной скобкой цикла <KBD>for</KBD>:
 <PRE>
 ch = '\0';
-
 for( ; ; ) {
   ch = getchar(); /* считывание символа */
   if(ch=='A') break; /* выход из цикла */
 }
-
 printf("Вы напечатали 'A'");
 </PRE>
 <P class="tj">В данном примере цикл выполняется до тех пор, пока пользователь не введет с клавиатуры символ <KBD>А</KBD>.
@@ -224,13 +194,11 @@ printf("Вы напечатали 'A'");
 /*
     Здесь переменная i является локальной
     переменной цикла, а j видима вне цикла.
-
     *** Этот пример в C89 неправильный. ***
 */
 int j;
 for(int i = 0; i&lt;10; i++)
   j = i * i;
-
 /* i = 10;
 Это ошибка, переменная i здесь недоступна! */
 </PRE>
@@ -245,7 +213,6 @@ for(int i = 0; i&lt;10; i++)
 char wait_for_char(void)
 {
   char ch;
-
   ch = '\0';  /* инициализация ch */
   while(ch != 'A') ch = getchar();
   return ch;
@@ -256,27 +223,20 @@ char wait_for_char(void)
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 void pad(char *s, int length);
-
 int main(void)
 {
   char str[80];
-
   strcpy(str, "это проверка");
   pad(str, 40);
   printf("%d", strlen(str));
-
   return 0;
 }
-
 /* Добавление пробелов в конец строки. */
 void pad(char *s, int length)
 {
   int l;
-
   l = strlen(s); /* опредление длины строки */
-
   while(l&lt;length) {
     s[l] = ' '; /* вставка пробелов */
     l++;
@@ -290,9 +250,7 @@ void pad(char *s, int length)
 void func1(void)
 {
   int working;
-
   working = 1; /* т.е. ИСТИНА */
-
   while(working) {
     working = process1();
     if(working)
@@ -324,12 +282,10 @@ do {
 void menu(void)
 {
   char ch;
-
   printf("1. Проверка правописания\n");
   printf("2. Коррекция ошибок\n");
   printf("3. Вывод ошибок\n");
   printf("      Введите Ваш выбор: ");
-
   do {
     ch = getchar(); /* чтение выбора с клавиатуры */
     switch(ch) {
@@ -352,18 +308,8 @@ void menu(void)
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Этот пример, конечно, учебный. На практике так поступать со строкой не рекомендуется, потому что начало строки <KBD>str</KBD>, "напрасно висящее" в памяти, впоследствии может создать некоторые трудности. Например, если вы захотите освободить память, занимаемую данной строкой, вам потребуется указать на начало строки, а не на первый отличный от пробела символ в этой строке.
 <P class="tj"><SUP><A href="#2" id="22">[2]</A></SUP>В некоторых языках (например АЛГОЛ 68) локализация параметра цикла выполняется автоматически.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#03">Содержание</A> | <A href="0304.htm">&lt;&lt;&lt;</A> | <A href="0306.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

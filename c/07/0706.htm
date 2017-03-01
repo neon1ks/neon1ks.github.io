@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#07">Содержание</A> | <A href="0705.htm">&lt;&lt;&lt;</A> | <A href="0707.htm">&gt;&gt;&gt;</A><HR>
 <H1>Объединения</H1>
-
-
-
-
-
-
-
-
 <P class="tj"><I>Объединение</I> — это место в памяти, которое используется для хранения переменных, разных типов. Объединение дает возможность интерпретировать один и тот же набор битов не менее,  чем двумя разными  способами.  Объявление  объединения (начинается с ключевого слова <KBD>union</KBD>) похоже на объявление структуры и в общем виде выглядит так:
 <PRE>
 union <I>тег</I> {
@@ -73,53 +65,34 @@ union pw {
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 union pw {
   short int i;
   char ch[2];
 };
-
 int putw(short int num, FILE *fp);
-
 int main(void)
 {
   FILE *fp;
-
   fp = fopen("test.tmp", "wb+");
   if(fp == NULL) {
     printf("Файл не открыт.\n");
     exit(1);
   }
-
   putw(1025, fp);  /* запись значения 1025 */
   fclose(fp);
-
   return 0;
 }
-
 int putw(short int num, FILE *fp)
 {
   union pw word;
-
   word.i = num;
-
   putc(word.ch[0], fp); /* записать первую половину */
   return putc(word.ch[1], fp); /* записать вторую половину */
 }
 </PRE>
 <P class="tj">Хотя функция <KBD>putw()</KBD> и вызывается с целым аргументом типа <KBD>short</KBD>, ей для выполнения побайтовой записи в файл на диске все равно приходится использовать стандартную функцию <KBD>putc()</KBD>.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#07">Содержание</A> | <A href="0705.htm">&lt;&lt;&lt;</A> | <A href="0707.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

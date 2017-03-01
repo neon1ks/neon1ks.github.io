@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
 <H1>Функция strncat</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;string.h&gt;
 char *strncat(char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I>);
@@ -28,38 +20,23 @@ char *strncat(char *<I>str1</I>, const char *<I>str2</I>, size_t <I>count</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 int main(void)
 {
   char s1[80], s2[80];
   unsigned int len;
-
   gets(s1);
   gets(s2);
-
   /* вычисление подходящей длины */
   len = 79-strlen(s2);
-
   strncat(s2, s1, len);
   printf(s2);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="strcat.htm">strcat()</A>  <A href="strnchr.htm">strnchr()</A>  <A href="strncmp.htm">strncmp()</A>  <A href="strncpy.htm">strncpy()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
 </BODY>
 </html>

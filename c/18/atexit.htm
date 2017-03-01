@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция atexit</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #inelude &lt;stdlib.h&gt;
 int atexit(void (*<I>func</I>) (void));
@@ -26,16 +18,12 @@ int atexit(void (*<I>func</I>) (void));
 <PRE>
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
-
 void done(void);
-
 int main(void)
 {
   if(atexit(done)) printf("Ошибка в atexit().");
-
   return 0;
 }
-
 void done(void)
 {
   printf("Привет здесь");
@@ -43,18 +31,8 @@ void done(void)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="exit.htm">exit()</A>  <A href="abort.htm">abort()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

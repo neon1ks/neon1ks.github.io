@@ -7,34 +7,21 @@
 </HEAD><BODY>
 <A href="../main.htm#25">Содержание</A> | <A href="2513.htm">&lt;&lt;&lt;</A> | <A href="../V.htm">&gt;&gt;&gt;</A><HR>
 <H1>И снова возвращаемся к поиску потерянных ключей</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Возможно, вы помните, что вам все-таки удалось найти ключи от машины. (Если, конечно, не потеряли их снова.) Однако главу, посвященную решению задач, хотелось бы завершить демонстрацией программы, которая находит потерянные ключи от машины. Ведь подобные задачи встречаются так часто! В коде программы используются те же методы, что и при поиске маршрута из одного города в другой. Теперь, когда вы уже освоили технику применения языка С для решения задач, программа представлена без последующих подробных объяснений.
 <PRE>
 /* Найти ключи с помощью поиска в глубину. */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 #define MAX 100
-
 /* структура базы данных keys (ключи) */
 struct FL {
   char from[20];
   char to[20];
   char skip;
 };
-
 struct FL keys[MAX];  /* массив структур БД */
-
 int f_pos = 0;    /* количество комнат в доме */
 int find_pos = 0; /* индекс для поиска в БД keys */
-
 int tos = 0;      /* вершина стека */
 struct stack {
   char from[20];
@@ -42,7 +29,6 @@ struct stack {
 } ;
 struct stack bt_stack[MAX]; /* стек, используемый для поиска
                                с возвратом */
-
 void setup(void), route(void);
 void assert_keys(char *from, char *to);
 void push(char *from, char *to);
@@ -50,19 +36,15 @@ void pop(char *from, char *to);
 void iskeys(char *from, char *to);
 int find(char *from, char *anywhere);
 int match(char *from, char *to);
-
 int main(void)
 {
   char from[20] = "входная_дверь";
   char to[20] = "ключи";
-
   setup();
   iskeys(from, to);
   route();
-
   return 0;
 }
-
 /* Инициализация база данных. */
 void setup(void)
 {
@@ -75,7 +57,6 @@ void setup(void)
   assert_keys("гостиная", "кухня");
   assert_keys("кухня", "ключи");
 }
-
 /* Запомнить факты в базе данных. */
 void assert_keys(char *from, char *to)
 {
@@ -87,12 +68,10 @@ void assert_keys(char *from, char *to)
   }
   else printf("База данных keys заполнена.\n");
 }
-
 /* Показать путь к ключам. */
 void route(void)
 {
   int t;
-
   t = 0;
   while(t &lt; tos) {
     printf("%s", bt_stack[t].from);
@@ -101,24 +80,19 @@ void route(void)
   }
   printf("\n");
 }
-
 /* Посмотреть, есть ли ребро в графе. */
 int match(char *from, char *to)
 {
   register int t;
-
   for(t=f_pos-1; t &gt; -1; t--)
     if(!strcmp(keys[t].from, from) &&
       !strcmp(keys[t].to, to)) return 1;
-
   return 0;  /* не найдено */
 }
-
 /* Зная откуда (from), попасть куда-нибудь (anywhere). */
 int find(char *from, char *anywhere)
 {
   find_pos = 0;
-
   while(find_pos &lt; f_pos) {
     if(!strcmp(keys[find_pos].from, from) &&
       !keys[find_pos].skip) {
@@ -130,17 +104,14 @@ int find(char *from, char *anywhere)
   }
   return 0;
 }
-
 /*  Определить, имеется ли путь из from (из) в to (в). */
 void iskeys(char *from, char *to)
 {
   char anywhere[20];
-
   if(match(from, to)) {
     push(from, to); /* расстояние */
     return;
   }
-
   if(find(from, anywhere)) {
     push(from, to);
     iskeys(anywhere, to);
@@ -150,7 +121,6 @@ void iskeys(char *from, char *to)
     iskeys(from, to);
   }
 }
-
 /* Подпрограммы обращения к стеку */
 void push(char *from, char *to)
 {
@@ -161,7 +131,6 @@ void push(char *from, char *to)
   }
   else printf("Стек заполнен.\n");
 }
-
 void pop(char *from, char *to)
 {
   if(tos &gt; 0) {
@@ -172,18 +141,8 @@ void pop(char *from, char *to)
   else printf("Стек пуст.\n");
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#25">Содержание</A> | <A href="2513.htm">&lt;&lt;&lt;</A> | <A href="../V.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

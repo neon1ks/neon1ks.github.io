@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#10">Содержание</A> | <A href="1004.htm">&lt;&lt;&lt;</A> | <A href="1006.htm">&gt;&gt;&gt;</A><HR>
 <H1>Директивы условной компиляции</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Имеется несколько директив, которые дают возможность выборочно компилировать части исходного кода вашей программы. Этот процесс называется <I>условной компиляцией</I> и широко используется фирмами, живущими за счет коммерческого программного обеспечения — теми, которые поставляют и поддерживают многие специальные версии одной программы.
 <H2>Директивы #if, #else, #elif и #endif</H2>
 <P class="tj">Возможно, самыми распространенными директивами условной компиляции являются <KBD>#if</KBD>, <KBD>#else</KBD>, <KBD>#elif</KBD> и <KBD>#endif</KBD>. Они дают возможность в зависимости от значения константного выражения включать или исключать те или иные части кода.
@@ -28,15 +20,12 @@
 <PRE>
 /* Простой пример #if. */
 #include &lt;stdio.h&gt;
-
 #define MAX 100
-
 int main(void)
 {
 #if MAX&gt;99
   printf("Компилирует для массива, размер которого больше 99.\n");
 #endif
-
   return 0;
 }
 </PRE>
@@ -45,9 +34,7 @@ int main(void)
 <PRE>
 /* Простой пример #if/#else. */
 #include &lt;stdio.h&gt;
-
 #define MAX 10
-
 int main(void)
 {
 #if MAX&gt;99
@@ -55,7 +42,6 @@ int main(void)
 #else
   printf("Компилирует для небольшого массива.\n");
 #endif
-
   return 0;
 }
 </PRE>
@@ -84,9 +70,7 @@ int main(void)
 #define US 0
 #define ENGLAND 1
 #define FRANCE 2
-
 #define ACTIVE_COUNTRY US
-
 #if ACTIVE_COUNTRY == US
   char currency[] = "dollar";
 #elif ACTIVE_COUNTRY == ENGLAND
@@ -107,7 +91,6 @@ int main(void)
   char out_buffer[100];
 #endif
 </PRE>
-
 <H2>Директивы #ifdef и #ifndef</H2>
 <P class="tj">Другой способ условной компиляции — это использование директив <KBD>#ifdef</KBD> и <KBD>#ifndef</KBD>, которые соответственно означают "if defined" (если определено) и "if not defined" (если не определено). В общем виде <KBD>#ifdef</KBD> выглядит таким образом:
 <PRE>
@@ -126,9 +109,7 @@ int main(void)
 <P class="tj">И в <KBD>#ifdef</KBD>, и в <KBD>#ifndef</KBD> можно использовать оператор <KBD>#else</KBD> или <KBD>#elif</KBD>. Например,
 <PRE>
 #include &lt;stdio.h&gt;
-
 #define TED 10
-
 int main(void)
 {
 #ifdef TED
@@ -139,24 +120,13 @@ int main(void)
 #ifndef RALPH
   printf("А RALPH не определен, т.ч. Ральфу не повезло.\n");
 #endif
-
   return 0;
 }
 </PRE>
 <P class="t">выведет <KBD>Привет, Тед</KBD>, а также <KBD>A RALPH не определен, т.ч. Ральфу не повезло.</KBD>
 <P class="tj">В соответствии со стандартом С89 допускается не менее 8 уровней <KBD>#ifdef</KBD> и <KBD>#ifndef</KBD>. А стандарт С99 устанавливает, что должно поддерживаться не менее 63 уровней вложенности.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#10">Содержание</A> | <A href="1004.htm">&lt;&lt;&lt;</A> | <A href="1006.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

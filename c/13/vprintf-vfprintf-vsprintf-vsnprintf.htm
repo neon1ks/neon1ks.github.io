@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция vprintf, vfprintf, vsprintf, vsnprintf</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdarg.h&tg;
 #include &lt;stdio.h&gt;
@@ -30,44 +22,27 @@ int vsnprintf(char * restrict <I>buf</I>, size_t <I>num</I>, const char * restri
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdarg.h&gt;
-
 void print_message(char *format, ...);
-
 int main(void)
 {
   print_message("Не удается открыть файл %s.", "test");
-
   return 0;
 }
-
 void print_message(char *format, ...)
 {
   va_list ptr; /* извлечение аргумента ptr */
-
   /* инициализация ptr, он становится указателем на первый аргумент,
      следующий за строкой форматирования
   */
   va_start(ptr, format);
-
   /* вывод сообщения */
   vprintf(format, ptr);
-
   va_end(ptr);
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="vscanf-vfscanf-vsscanf.htm">vscanf()</A>  <A href="vscanf-vfscanf-vsscanf.htm">vfscanf()</A>  <A href="vscanf-vfscanf-vsscanf.htm">vsscanf()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_arg()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_start()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_end()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

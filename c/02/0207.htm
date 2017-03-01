@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#02">Содержание</A> | <A href="0206.htm">&lt;&lt;&lt;</A> | <A href="0208.htm">&gt;&gt;&gt;</A><HR>
 <H1>Спецификаторы класса памяти</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Стандарт С поддерживает четыре спецификатора класса памяти:
 <PRE>
 extern
@@ -35,16 +27,12 @@ auto
 <P class="tj">Приведем пример использования спецификатора <KBD>extern</KBD>. Обратите внимание, что глобальные переменные <KBD>first</KBD> и <KBD>last</KBD> объявлены <I>после</I> <KBD>main()</KBD>.
 <PRE>
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   extern int first, last; /* используются глобальные переменные */
-
   printf("%d %d", first, last);
-
   return 0;
 }
-
 /* описание глобальных переменных first и last */
 int first = 10, last = 20;
 </PRE>
@@ -60,12 +48,10 @@ int first = 10, last = 20;
   <B>Файл 1</B>                    <B>Файл 2</B>
 int x, y;                 extern int x, y;
 char ch;                  extern char ch;
-
 int main(void)            void func22(void)
 {                         {
   /* ... */                 x = y / 10;
 }                         }
-
 void func1(void)          void func23(void)
 {                         {
   x = 123;                  y = 10;
@@ -86,7 +72,6 @@ void func1(void)          void func23(void)
 int series(void)
 {
   static int series_num;
-
   series_num = series_num+23;
   return series_num;
 }
@@ -97,7 +82,6 @@ int series(void)
 int series(void)
 {
   static int series_num = 100;
-
   series_num = series_num+23;
   return series_num;
 }
@@ -109,17 +93,14 @@ int series(void)
 <PRE>
 /* Это должно быть в одном файле
      отдельно от всего остального. */
-
 static int series_num;
 void series_start(int seed);
 int series(void);
-
 int series(void)
 {
   series_num = series_num+23;
   return series_num;
 }
-
 /* иницилизирует переменную series_num */
 void series_start(int seed)
 {
@@ -139,9 +120,7 @@ void series_start(int seed)
 int int_pwr(register int m,  register int e)
 {
   register int temp;
-
   temp = 1;
-
   for(; e; e--) temp = temp * m;
   return temp;
 }
@@ -155,18 +134,8 @@ int int_pwr(register int m,  register int e)
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Синонимы: <I>определение</I>, <I>дефиниция</I>.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#02">Содержание</A> | <A href="0206.htm">&lt;&lt;&lt;</A> | <A href="0208.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

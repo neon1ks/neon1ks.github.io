@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция getchar</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 int getchar(void);
@@ -26,33 +18,19 @@ int getchar(void);
 <P class="tj">Данная программа считывает в массив <KBD>s</KBD> символы из стандартного входного потока <KBD>stdin</KBD>, пока пользователь не нажмет клавишу <KBD>ENTER</KBD>. Затем введенная строка выводится на экран.
 <PRE>
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   char s[256], *p;
-
   p = s;
-
   while((*p++ = getchar())!= '\n') ;
   *p = '\0'; /* добавляем символ конца строки */
   printf(s);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="fputc.htm">fputc()</A>  <A href="fgetc.htm">fgetc()</A>  <A href="putc.htm">putc()</A>  <A href="fopen.htm">fopen()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

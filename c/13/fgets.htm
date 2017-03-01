@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
 <H1>Функция fgets</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdio.h&gt;
 char *fgets(char *<I>str</I>, int <I>num</I>, FILE *<I>stream</I>);
@@ -27,39 +19,24 @@ char *fgets(char *<I>str</I>, int <I>num</I>, FILE *<I>stream</I>);
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-
 int main(int argc, char *argv[])
 {
   FILE *fp;
   char str[128];
-
   if((fp=fopen(argv[1], "r"))==NULL) {
     printf("Не удается открыть файл.\n");
     exit(1);
   }
-
   while(!feof(fp)) {
     if(fgets(str, 126, fp)) printf("%s", str);
   }
-
   fclose(fp);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="fputs.htm">fputs()</A>  <A href="fgetc.htm">fgetc()</A>  <A href="gets.htm">gets()</A>  <A href="puts.htm">puts()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
 </BODY></HTML>

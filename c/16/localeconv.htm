@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
 <H1>Функция localeconv</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;locale.h&gt;
 struct lconv *localeconv(void)
@@ -39,11 +31,8 @@ struct lconv *localeconv(void)
 <TR><TD><KBD>char&nbsp;n_sep_by_space;</KBD><TD>/*  1 - если символ валюты отделяется от отрицательного значения пробелом, 0 - если символ валюты следует за значением. В версии С99 содержит разделитель.  */
 <TR><TD><KBD>char&nbsp;p_sign_posn;</KBD><TD>/*  Указывает позицию символа положительного значения.  */
 <TR><TD><KBD>char&nbsp;n_sign_posn;</KBD><TD>/*  Указывает позицию символа отрицательного значения.  */
-
 <TR><TD colspan=2 align=center><B>/* Следующие члены добавлены в С99. */</B>
-
 <TR><TD><KBD>char&nbsp;_p_cs_precedes;</KBD><TD>/*  1 - если символ валюты предшествует положительному значению, 0 - если символ валюты следует за значением. Применяется для значений в межд ународном формате.  */
-
 <TR><TD><KBD>char&nbsp;_p_sep_by_space;</KBD><TD>/*  Разделитель между символом валюты, знаком и положительным значением. Применяется для значений в международном формате.  */
 <TR><TD><KBD>char&nbsp;_n_cs_precedes;</KBD><TD>/*  1 - если символ валюты предшествует отрицательному значению, 0 - если символ валюты следует за значением. Применяется для значений в международном формате.  */
 <TR><TD><KBD>char&nbsp;_n_sep_by_space;</KBD><TD>/*  Разделитель между символом валюты, знаком и отрицательным значением. Применяется для значений в международном формате.  */
@@ -56,33 +45,19 @@ struct lconv *localeconv(void)
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;locale.h&gt;
-
 int main(void)
 {
   struct lconv lc;
-
   lc = *localeconv();
-
   printf("В качестве разделителя целой и дробной части в десятичных
           числах используется символ: %s\n", lc.decimal_point);
-
   return 0;
 }
 </PRE>
 <H2>Родственная функция</H2>
 <A href="setlocale.htm">setlocale()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
 </BODY>
 </html>

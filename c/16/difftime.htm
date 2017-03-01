@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
 <H1>Функция difftime</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include  &lt;time.h&gt;
 double difftime(time_t <I>time2</I>, time_t <I>time1</I>);
@@ -25,34 +17,21 @@ double difftime(time_t <I>time2</I>, time_t <I>time1</I>);
 <PRE>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   time_t start,end;
   volatile long unsigned t;
-
   start = time(NULL);
   for(t=0; t&lt;5000000; t++) ;
   end = time(NULL);
   printf("Цикл использовал %f секунд.\n", difftime(end, start));
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
 </BODY>
 </html>

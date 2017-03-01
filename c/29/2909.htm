@@ -7,34 +7,20 @@
 </HEAD><BODY>
 <A href="../main.htm#29">Содержание</A> | <A href="2908.htm">&lt;&lt;&lt;</A> | <A href="2910.htm">&gt;&gt;&gt;</A><HR>
 <H1>Демонстрация Little C</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Работа интерпретатора Little С демонстрируется с помощью следующих примеров программ.
 <P class="tj">Программа №1 иллюстрирует все средства программирования, поддерживаемые в Little С:
 <PRE>
 /* Little C. Демонстрационная программа №1.
-
    Эта программа демонстрирует работу всех средств
    языка C, поддерживаемых интерпритатором Little C.
 */
-
 int i, j;   /* глобальные переменные */
 char ch;
-
 int main()
 {
   int i, j;  /* локальные переменные */
-
   puts("Программа демонстрации Little C.");
-
   print_alpha();
-
   do {
     puts("Введите число (0, если выход): ");
     i = getnum();
@@ -50,24 +36,19 @@ int main()
       }
     }
   } while(i!=0);
-
   return 0;
 }
-
 /* Сумма чисел от 0 до введенного числа. */
 int sum(int num)
 {
   int running_sum;
-
   running_sum = 0;
-
   while(num) {
     running_sum = running_sum + num;
     num = num - 1;
   }
   return running_sum;
 }
-
 /* Вывод на экран английского алфавита. */
 int print_alpha()
 {
@@ -75,7 +56,6 @@ int print_alpha()
     putch(ch);
   }
   puts("");
-
   return 0;
 }
 </PRE>
@@ -85,7 +65,6 @@ int print_alpha()
 int main()
 {
   int i, j, k;
-
   for(i = 0; i &lt; 5; i = i + 1) {
     for(j = 0; j &lt; 3; j = j + 1) {
       for(k = 3; k ; k = k - 1) {
@@ -97,7 +76,6 @@ int main()
     }
   }
   puts("выполнено");
-
   return 0;
 }
 </PRE>
@@ -107,25 +85,20 @@ int main()
 int main()
 {
   int a, b;
-
   a = b = 10;
-
   print(a); print(b);
-
   while(a=a-1) {
     print(a);
     do {
        print(b);
     } while((b=b-1) &gt; -10);
   }
-
   return 0;
 }
 </PRE>
 <P class="tj">Следующий пример демонстрирует выполнение рекурсивных функций. В ней функция <KBD>factr()</KBD> вычисляет факториал числа.
 <PRE>
 /* Демонстрация рекурсивных функций. */
-
 /* возвращает факториал числа i */
 int factr(int i)
 {
@@ -136,48 +109,38 @@ int factr(int i)
      return i * factr(i-1);
   }
 }
-
 int main()
 {
   print("Факториал от 4 равен: ");
   print(factr(4));
-
   return 0;
 }
 </PRE>
 <P class="tj">В следующей программе демонстируются различные приемы использования аргументов функций:
 <PRE>
 /* Использование аргументов функций. */
-
 int f1(int a, int b)
 {
   int count;
-
   print("в функции f1");
-
   count = a;
   do {
     print(count);
   } while(count=count-1);
-
   print(a); print(b);
   print(a*b);
   return a*b;
 }
-
 int f2(int a, int x, int y)
 {
   print(a); print(x);
   print(x / a);
   print(y*x);
-
   return 0;
 }
-
 int main()
 {
   f2(10, f1(10, 20), 99);
-
   return 0;
 }
 </PRE>
@@ -188,7 +151,6 @@ int main()
 {
   int a;
   char ch;
-
   /* the while */
   puts("Введите число: ");
   a = getnum();
@@ -198,32 +160,19 @@ int main()
     puts("");
     a = a - 1;
   }
-
   /* цикл do-while */
   puts("Введите символ, если выход, то 'q' ");
   do {
      ch = getche();
   } while(ch !='q');
-
   /* цикл for */
   for(a=0; a&lt;10; a = a + 1) {
      print(a);
   }
-
   return 0;
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#29">Содержание</A> | <A href="2908.htm">&lt;&lt;&lt;</A> | <A href="2910.htm">&gt;&gt;&gt;</A>
 </BODY></HTML>

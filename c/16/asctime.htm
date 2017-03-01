@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
 <H1>Функция asctime</H1>
-
-
-
-
-
-
-
-
 <PRE>
 include &lt;time.h&gt;
 char *asctime(const struct tm *<I>ptr</I>);
@@ -30,33 +22,20 @@ char *asctime(const struct tm *<I>ptr</I>);
 <PRE>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   struct tm *ptr;
   time_t lt;
-
   lt = time(NULL);
   ptr = localtime(&amp;lt);
   printf(asctime(ptr));
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="ctime.htm">ctime()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
 </BODY>
 </html>

@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A><HR>
 <H1>Функция realloc</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 void *realloc(void *ptr, size_t <I>size</I>);
@@ -29,48 +21,30 @@ void *realloc(void *ptr, size_t <I>size</I>);
 #include &lt;stdlib.h&gt
 #include &lt;stdio.h&gt
 #include &lt;string.h&gt
-
 int main(void)
 {
   char *p;
-
   p = malloc(17);
   if(!p) {
     printf("Ошибка при распределении памяти\n");
     exit(1);
   }
-
   strcpy(p, "Это - 17 символов");
-
   p = realloc(p, 18);
   if(!p) {
     printf("Ошибка при распределении памяти\n");
     exit(1);
   }
-
   strcat(p, ".");
-
   printf(p);
-
   free(p);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="free.htm">free()</A>  <A href="malloc.htm">malloc()</A>  <A href="calloc.htm">calloc()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A>
 </BODY>
 </html>

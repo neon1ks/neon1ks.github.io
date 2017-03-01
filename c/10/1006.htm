@@ -7,41 +7,21 @@
 </HEAD><BODY>
 <A href="../main.htm#10">Содержание</A> | <A href="1005.htm">&lt;&lt;&lt;</A> | <A href="1007.htm">&gt;&gt;&gt;</A><HR>
 <H1>Директива #undef</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Директива <KBD>#undef</KBD> удаляет ранее заданное определение имени макроса, то есть "аннулирует" его определение; само имя макроса должно находиться после директивы. В общем виде директива <KBD>#undef</KBD> выглядит таким образом:
 <PRE>#undef <I>имя_макроса</I></PRE>
 <P class="tj">Вот как, например, можно использовать эту директиву:
 <PRE>
 #define LEN 100
 #define WIDTH 100
-
 char array[LEN][WIDTH];
-
 #undef LEN
 #undef WIDTH
 /* а здесь и LEN и WIDTH уже не определены */
 </PRE>
 <P class="tj">И <KBD>LEN</KBD>, и <KBD>WIDTH</KBD> определены, пока не встретился оператор <KBD>#undef</KBD>.
 <P class="tj">Директива <KBD>#undef</KBD> используется в основном для того, чтобы локализовать имена макросов в тех участках кода, где они нужны.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#10">Содержание</A> | <A href="1005.htm">&lt;&lt;&lt;</A> | <A href="1007.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

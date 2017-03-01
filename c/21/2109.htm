@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#21">Содержание</A> | <A href="2108.htm">&lt;&lt;&lt;</A> | <A href="2110.htm">&gt;&gt;&gt;</A><HR>
 <H1>Сортировка других структур данных</H1>
-
-
-
-
-
-
-
-
 <P class="tj">До сих пор мы сортировали только массивы символов. Очевидно, что приведенные выше функции можно переделать для сортировки массивов любого из встроенных типов данных, просто поменяв типы параметров и переменных. Тем не менее, обычно возникает необходимость сортировать составные типы данных, например строки, или агрегированные данные, например структуры. Большинство задач сортировки имеют дело с ключом и информацией, связанной с этим ключом. Чтобы адаптировать алгоритмы для обработки подобных данных, необходимо модифицировать код сравнения, код обмена или оба фрагмента. Сам алгоритм при этом не меняется.
 <P class="tj">Поскольку быстрая сортировка в настоящее время является одним из лучших методов сортировки общего назначения, она используется в последующих примерах. Тем не менее, тот же принцип относится и ко всем остальным методам, описанным ранее.
 <H2>Сортировка строк</H2>
@@ -25,16 +17,13 @@ void quick_string(char items[][10], int count)
 {
   qs_string(items, 0, count-1);
 }
-
 void qs_string(char items[][10], int left, int right)
 {
   register int i, j;
   char *x;
   char temp[10];
-
   i = left; j = right;
   x = items[(left+right)/2];
-
   do {
     while((strcmp(items[i],x) &lt; 0) && (i &lt; right)) i++;
     while((strcmp(items[j],x) &gt; 0) && (j &gt; left)) j--;
@@ -45,7 +34,6 @@ void qs_string(char items[][10], int left, int right)
       i++; j--;
    }
   } while(i &lt;= j);
-
   if(left &lt; j) qs_string(items, left, j);
   if(i &lt; right) qs_string(items, i, right);
 }
@@ -56,24 +44,18 @@ void qs_string(char items[][10], int left, int right)
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
 void quick_string(char items[][10], int count);
 void qs_string(char items[][10], int left, int right);
-
 char str[][10] = { "один",
                    "два",
                    "три",
                    "четыре"
                  };
-
 int main(void)
 {
   int i;
-
   quick_string(str, 4);
-
   for(i=0; i&lt;4; i++) printf("%s ", str[i]);
-
   return 0;
 }
 </PRE>
@@ -96,17 +78,13 @@ void quick_struct(struct address items[], int count)
 {
   qs_struct(items,0,count-1);
 }
-
 void qs_struct(struct address items[], int left, int right)
 {
-
   register int i, j;
   char *x;
   struct address temp;
-
   i = left; j = right;
   x = items[(left+right)/2].zip;
-
   do {
     while((strcmp(items[i].zip,x) &lt; 0) && (i &lt; right)) i++;
     while((strcmp(items[j].zip,x) &gt; 0) && (j &gt; left)) j--;
@@ -117,23 +95,12 @@ void qs_struct(struct address items[], int left, int right)
       i++; j--;
     }
   } while(i &lt;= j);
-
   if(left &lt; j) qs_struct(items, left, j);
   if(i &lt; right) qs_struct(items, i, right);
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#21">Содержание</A> | <A href="2108.htm">&lt;&lt;&lt;</A> | <A href="2110.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

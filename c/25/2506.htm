@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#25">Содержание</A> | <A href="2505.htm">&lt;&lt;&lt;</A> | <A href="2507.htm">&gt;&gt;&gt;</A><HR>
 <H1>Поиск в глубину</H1>
-
-
-
-
-
-
-
-
 <P class="tj">При <I>поиске в глубину</I> каждая из цепочек, которые могут привести к решению, проверяется до своего листа, а лишь затем начинается проверка следующей цепочки (т.е. пути). Чтобы более точно представить себе, как работает такой поиск, проанализируйте следующее дерево. Целью является вершина F.</P>
 <table class="table">
 <TR><TD align="center"><A href="../work/pic.pdf">Страница №4
@@ -24,7 +16,6 @@
 <P class="tj">В С-программе, предназначенной для выбора маршрута из Нью-Йорка в Лос-Анджелес, используется база данных с информацией об авиарейсах компании XYZ Airlines. Каждая запись этой базы содержит сведения о городе-пункте вылета и городе-пункте прибытия, о расстоянии между ними, а также флаг, который помогает при поиске с возвратом (вы скоро увидите, каким именно образом). Вся эта информация хранится в следующей структуре:
 <PRE>
 #define MAX 100
-
 /* структура базы данных авиарейсов */
 struct FL {
   char from[20];
@@ -32,9 +23,7 @@ struct FL {
   int distance;
   char skip;  /* используется при поиске с возвратом */
 };
-
 struct FL flight[MAX];  /* массив структур БД */
-
 int f_pos = 0;    /* количество записей в БД авиарейсов */
 int find_pos = 0; /* индекс для поиска в БД авиарейсов */
 </PRE>
@@ -54,7 +43,6 @@ void setup(void)
   assert_flight("Хьюстон", "Лос-Анжелес", 1500);
   assert_flight("Денвер", "Лос-Анжелес", 1000);
 }
-
 /* Запись данных в базу. */
 void assert_flight(char *from, char *to, int dist)
 {
@@ -76,11 +64,9 @@ void assert_flight(char *from, char *to, int dist)
 int match(char *from, char *to)
 {
   register int t;
-
   for(t=f_pos-1; t &gt; -1; t--)
     if(!strcmp(flight[t].from, from) &&
       !strcmp(flight[t].to, to)) return flight[t].distance;
-
   return 0;  /* не найден */
 }
 </PRE>
@@ -117,7 +103,6 @@ void push(char *from, char *to, int dist)
   }
   else printf("Стек заполнен.\n");
 }
-
 void pop(char *from, char *to, int *dist)
 {
   if(tos &gt; 0) {
@@ -137,13 +122,11 @@ void isflight(char *from, char *to)
 {
   int d, dist;
   char anywhere[20];
-
   /* посмотреть, является ли городом-пунктом прибытия */
   if(d=match(from, to)) {
     push(from, to, d);
     return;
   }
-
   /* проверить другой авиарейс */
   if(dist=find(from, anywhere)) {
     push(from, to, dist);
@@ -164,7 +147,6 @@ void isflight(char *from, char *to)
 void route(char *to)
 {
   int dist, t;
-
   dist = 0;
   t = 0;
   while(t &lt; tos) {
@@ -181,9 +163,7 @@ void route(char *to)
 /* Поиск в глубину. */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-
  #define MAX 100
-
 /* структура базы данных авиарейсов */
 struct FL {
   char from[20];
@@ -191,9 +171,7 @@ struct FL {
   int distance;
   char skip; /* используется при поиске с возвратом */
 };
-
 struct FL flight[MAX]; /* массив структур БД */
-
 int f_pos = 0;    /* количество записей в БД авиарейсов */
 int find_pos = 0; /* индекс для поиска в БД авиарейсов */
 int tos = 0;      /* вершина стека */
@@ -204,7 +182,6 @@ struct stack {
 } ;
 struct stack bt_stack[MAX]; /* стек, используемый для посика
                                с возвратом */
-
 void setup(void), route(char *to);
 void assert_flight(char *from, char *to, int dist);
 void push(char *from, char *to, int dist);
@@ -212,24 +189,18 @@ void pop(char *from, char *to, int *dist);
 void isflight(char *from, char *to);
 int find(char *from, char *anywhere);
 int match(char *from, char *to);
-
 int main(void)
 {
   char from[20], to[20];
-
   setup();
-
   printf("Пункт вылета: ");
   gets(from);
   printf("Пункт прибытия: ");
   gets(to);
-
   isflight(from,to);
   route(to);
-
   return 0;
 }
-
 /* Инициализация базы данных авиаресов. */
 void setup(void)
 {
@@ -245,11 +216,9 @@ void setup(void)
   assert_flight("Хьюстон", "Лос-Анжелес", 1500);
   assert_flight("Денвер", "Лос-Анжелес", 1000);
 }
-
 /* Запомнить данные в базе. */
 void assert_flight(char *from, char *to, int dist)
 {
-
   if(f_pos &lt; MAX) {
     strcpy(flight[f_pos].from, from);
     strcpy(flight[f_pos].to, to);
@@ -259,13 +228,10 @@ void assert_flight(char *from, char *to, int dist)
   }
   else printf("База данных авиарейсов заполнена.\n");
 }
-
 /* Показать маршрут и общее расстояние. */
 void route(char *to)
-
 {
   int dist, t;
-
   dist = 0;
   t = 0;
   while(t &lt; tos) {
@@ -276,20 +242,16 @@ void route(char *to)
   printf("%s\n", to);
   printf("Расстояние в милях равно %d.\n", dist);
 }
-
 /* Если между двумя городами имеется авиарейс, то возвращается
    расстояние между ними, а в противном случае возвращается 0. */
 int match(char *from, char *to)
 {
   register int t;
-
   for(t=f_pos-1; t &gt; -1; t--)
     if(!strcmp(flight[t].from, from) &&
       !strcmp(flight[t].to, to)) return flight[t].distance;
-
   return 0; /* не найден */
 }
-
 /* Зная пункт отправления (параметр from), найти пункт прибытия
    (параметр anywhere). */
 int find(char *from, char *anywhere)
@@ -306,14 +268,12 @@ int find(char *from, char *anywhere)
   }
   return 0;
 }
-
 /* Определить, имеется ли маршрут между из города, на который указывает
    параметр from (из) в город, на который указывает параметр to (в). */
 void isflight(char *from, char *to)
 {
   int d, dist;
   char anywhere[20];
-
   /* является ли пунктом прибытия */
   if(d=match(from, to)) {
     push(from, to, d);
@@ -330,7 +290,6 @@ void isflight(char *from, char *to)
     isflight(from, to);
   }
 }
-
 /* Подпрограммы обращения к стеку */
 void push(char *from, char *to, int dist)
 {
@@ -342,7 +301,6 @@ void push(char *from, char *to, int dist)
   }
   else printf("Стек заполнен.\n");
 }
-
 void pop(char *from, char *to, int *dist)
 {
   if(tos &gt; 0) {
@@ -369,18 +327,8 @@ void pop(char *from, char *to, int *dist)
 <H2>Анализ поиска в глубину</H2>
 <P class="tj">Итак, с помощью поиска в глубину нам удалось найти достаточно хорошее решение. Кроме того, благодаря такому поиску именно в этой задаче было с первой попытки найдено решение без возврата, что уже считается очень хорошим показателем. Но то, что для достижения оптимального решения при поиске в глубину приходится пройти почти все вершины, — вот это уже не совсем хороший признак.
 <P class="tj">Обратите внимание, что если изучается особенно длинная ветвь, на конце которой нет решения, то эффективность поиска в глубину может оказаться весьма низкой. Тогда при рассматриваемом способе поиска теряется очень много времени, причем не только на изучение этой цепи, но и на возвращение по ней, чтобы можно было двигаться дальше к цели.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#25">Содержание</A> | <A href="2505.htm">&lt;&lt;&lt;</A> | <A href="2507.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

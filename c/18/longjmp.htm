@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция longjmp</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;setjmp.h&gt;
 void longjmp(jmp_buf <I>envbuf</I>, int <I>status</I>);
@@ -29,14 +21,11 @@ void longjmp(jmp_buf <I>envbuf</I>, int <I>status</I>);
 <PRE>
 #include &lt;setjmp.h&gt;
 #include &lt;stdio.h&gt;
-
 jmp_buf ebuf;
 void f2(void);
-
 int main(void)
 {
   int i;
-
   printf("1 ");
   i = setjmp(ebuf);
   if(i == 0) {
@@ -44,10 +33,8 @@ int main(void)
     printf("Это не будет напечатано.");
   }
   printf("%d", i);
-
   return 0;
 }
-
 void f2(void)
 {
   printf("2 ");
@@ -56,18 +43,8 @@ void f2(void)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="setjmp.htm">setjmp()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

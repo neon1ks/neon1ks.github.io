@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#22">Содержание</A> | <A href="2206.htm">&lt;&lt;&lt;</A> | <A href="2208.htm">&gt;&gt;&gt;</A><HR>
 <H1>Пример списка рассылки</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Чтобы завершить обсуждение двусвязных списков, в данном разделе представлена простая, но законченная программа для работы со списком рассылки. Во время работы весь список хранится в оперативной памяти. Тем не менее, его можно сохранять в файле и загружать для дальнейшей работы.
 <PRE>
 /* Простая программа для обработки списка рассылки
@@ -23,7 +15,6 @@
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
-
 struct address {
   char name[30];
   char street[40];
@@ -33,11 +24,9 @@ struct address {
   struct address *next;  /* указатель на следующую запись */
   struct address *prior;  /* указатель на предыдущую запись */
 };
-
 struct address *start;  /* указатель на первую запись списка */
 struct address *last;  /* указатель на последнюю запись */
 struct address *find(char *);
-
 void enter(void), search(void), save(void);
 void load(void), list(void);
 void mldelete(struct address **, struct address **);
@@ -45,11 +34,9 @@ void dls_store(struct address *i, struct address **start,
                struct address **last);
 void inputs(char *, char *, int), display(struct address *);
 int menu_select(void);
-
 int main(void)
 {
   start = last = NULL;  /* инициализация указателей на начало и конец */
-
   for(;;) {
     switch(menu_select()) {
       case 1: enter(); /* ввод адреса */
@@ -69,13 +56,11 @@ int main(void)
   }
   return 0;
 }
-
 /* Выбор действия пользователя. */
 int menu_select(void)
 {
   char s[80];
   int c;
-
   printf("1. Ввод имени\n");
   printf("2. Удаление имени\n");
   printf("3. Отображение содержимого списка\n");
@@ -90,47 +75,39 @@ int menu_select(void)
   } while(c&lt;0 || c&gt;7);
   return c;
 }
-
 /* Ввод имени и адресов. */
 void enter(void)
 {
   struct address *info;
-
   for(;;) {
     info = (struct address *)malloc(sizeof(struct address));
     if(!info) {
       printf("\nНет свободной памяти");
       return;
     }
-
     inputs("Введите имя: ", info-&gt;name, 30);
     if(!info-&gt;name[0]) break;  /* завершить ввод */
     inputs("Введите улицу: ", info-&gt;street, 40);
     inputs("Введите город: ", info-&gt;city, 20);
     inputs("Введите штат: ", info-&gt;state, 3);
     inputs("Введите почтовый индекс: ", info-&gt;zip, 10);
-
     dls_store(info, &start, &last);
   } /* цикл ввода */
 }
-
 /* Следующая функция вводит с клавиатуры строку
    длинной не больше count и предотвращает переполнение
    строки. Кроме того, она выводит на экран подсказку. */
 void inputs(char *prompt, char *s, int count)
 {
   char p[255];
-
   do {
     printf(prompt);
     fgets(p, 254, stdin);
     if(strlen(p) &gt; count) printf("\nСлишком длинная строка\n");
   } while(strlen(p) &gt; count);
-
   p[strlen(p)-1] = 0; /* удалить символ перевода строки */
   strcpy(s, p);
 }
-
 /* Создание упорядоченного двусвязного списка. */
 void dls_store(
   struct address *i,   /* новый элемент */
@@ -139,7 +116,6 @@ void dls_store(
 )
 {
   struct address *old, *p;
-
   if(*last==NULL) {  /* первый элемент списка */
     i-&gt;next = NULL;
     i-&gt;prior = NULL;
@@ -148,7 +124,6 @@ void dls_store(
     return;
   }
   p = *start; /* начать с начала списка */
-
   old = NULL;
   while(p) {
     if(strcmp(p-&gt;name, i-&gt;name)&lt;0){
@@ -175,13 +150,11 @@ void dls_store(
   i-&gt;prior = old;
   *last = i;
 }
-
 /* Удаление элемента из списка. */
 void mldelete(struct address **start, struct address **last)
 {
   struct address *info;
   char s[80];
-
   inputs("Введите имя: ", s, 30);
   info = find(s);
   if(info) {
@@ -200,12 +173,10 @@ void mldelete(struct address **start, struct address **last)
     free(info);  /* освободить память */
   }
 }
-
 /* Поиск адреса. */
 struct address *find( char *name)
 {
   struct address *info;
-
   info = start;
   while(info) {
     if(!strcmp(name, info-&gt;name)) return info;
@@ -214,12 +185,10 @@ struct address *find( char *name)
   printf("Имя не найдено.\n");
   return NULL;  /* нет подходящего элемента */
 }
-
 /* Отобразить на экране весь список. */
 void list(void)
 {
   struct address *info;
-
   info = start;
   while(info) {
     display(info);
@@ -227,7 +196,6 @@ void list(void)
   }
   printf("\n\n");
 }
-
 /* Данная функция выполняет собственно вывод на экран
    всех полей записи, содержащей адрес. */
 void display(struct address *info)
@@ -239,34 +207,28 @@ void display(struct address *info)
     printf("%s\n", info-&gt;zip);
     printf("\n\n");
 }
-
 /* Поиск имени в списке. */
 void search(void)
 {
   char name[40];
   struct address *info;
-
   printf("Введите имя: ");
   gets(name);
   info = find(name);
   if(!info) printf("Не найдено\n");
   else display(info);
 }
-
 /* Сохранить список в дисковом файле. */
 void save(void)
 {
   struct address *info;
-
   FILE *fp;
-
   fp = fopen("mlist", "wb");
   if(!fp) {
     printf("Невозможно открыть файл.\n");
     exit(1);
   }
   printf("\nСохранение в файл\n");
-
   info = start;
   while(info) {
     fwrite(info, sizeof(struct address), 1, fp);
@@ -274,29 +236,24 @@ void save(void)
   }
   fclose(fp);
 }
-
 /* Загрузка адресов из файла. */
 void load()
 {
   struct address *info;
   FILE *fp;
-
   fp = fopen("mlist", "rb");
   if(!fp) {
     printf("Невозможно открыть файл.\n");
     exit(1);
   }
-
   /* освободить память, если в памяти уже есть список */
   while(start) {
     info = start-&gt;next;
     free(info);
     start = info;
   }
-
   /* сбросить указатели на начало и конец */
   start = last = NULL;
-
   printf("\nЗагрузка из файла\n");
   while(!feof(fp)) {
     info = (struct address *) malloc(sizeof(struct address));
@@ -310,18 +267,8 @@ void load()
   fclose(fp);
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#22">Содержание</A> | <A href="2206.htm">&lt;&lt;&lt;</A> | <A href="2208.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

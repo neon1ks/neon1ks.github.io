@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#22">Содержание</A> | <A href="2201.htm">&lt;&lt;&lt;</A> | <A href="2203.htm">&gt;&gt;&gt;</A><HR>
 <H1>Циклическая очередь</H1>
-
-
-
-
-
-
-
-
 <P class="tj">При изучении предыдущего примера программы планирования встреч, вероятно, вам в голову мог прийти следующий способ ее улучшения: при достижении конца массива, в котором хранится очередь, можно не останавливать программу, а устанавливать индексы вставки (<KBD>spos</KBD>) и извлечения (<KBD>rpos</KBD>) так, чтобы они указывали на начало массива. Это позволит помещать в очередь любое количество элементов при условии их своевременного извлечения. Такая реализация очереди называется <I>циклической очередью</I>, поскольку массив используется так, будто он представляет собой не линейный список, а кольцо.
 <P class="tj">Чтобы организовать в программе-планировщике циклическую очередь, функции <KBD>qstore()</KBD> и <KBD>qretrieve()</KBD> необходимо переписать следующим образом:
 <PRE>
@@ -28,12 +20,10 @@ void qstore(char *q)
     printf("Список полон\n");
     return;
   }
-
   p[spos] = q;
   spos++;
   if(spos==MAX) spos = 0; /* установить на начало */
 }
-
 char *qretrieve(void)
 {
   if(rpos==MAX) rpos = 0; /* установить на начало */
@@ -54,23 +44,17 @@ char *qretrieve(void)
 #include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 #include &lt;stdlib.h&gt;
-
 #define MAX 80
-
 char buf[MAX+1];
 int spos = 0;
 int rpos = 0;
-
 void qstore(char q);
 char qretrieve(void);
-
 int main(void)
 {
   register char ch;
   int t;
-
   buf[80] = '\0';
-
   /* Принимать вводимые символы до нажатия &lt;Enter&gt;. */
   for(ch=' ',t=0; t&lt;32000 && ch!='\r'; ++t) {
     if(_kbhit()) {
@@ -88,7 +72,6 @@ int main(void)
   }
   return 0;
 }
-
 /* Занесение символа в очередь. */
 void qstore(char q)
 {
@@ -100,29 +83,17 @@ void qstore(char q)
   spos++;
   if(spos==MAX) spos = 0; /* установить на начало */
 }
-
 /* Получение символа из очереди. */
 char qretrieve(void)
 {
   if(rpos==MAX) rpos = 0; /* установить на начало */
   if(rpos==spos) return '\0';
-
   rpos++;
   return buf[rpos-1];
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#22">Содержание</A> | <A href="2201.htm">&lt;&lt;&lt;</A> | <A href="2203.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

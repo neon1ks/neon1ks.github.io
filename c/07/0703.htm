@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#07">Содержание</A> | <A href="0702.htm">&lt;&lt;&lt;</A> | <A href="0704.htm">&gt;&gt;&gt;</A><HR>
 <H1>Передача структур функциям</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В этом разделе рассказывается о передаче структур и их членов функциям.
 <H2>Передача членов структур функциям</H2>
 <P class="tj">При передаче функции члена структуры передается его значение, притом не играет роли то, что значение берется из члена структуры. Проанализируйте, например, следующую структуру:
@@ -50,26 +42,19 @@ func(&mike.s[2]); /* передается адрес символа в s[2] */
 <P class="tj">При использовании структуры в качестве аргумента надо помнить, что тип аргумента должен соответствовать типу параметра. Например, в следующей программе и аргумент <KBD>arg</KBD>, и параметр <KBD>parm</KBD> объявляются с одним и тем же типом структуры.
 <PRE>
 #include &lt;stdio.h&gt;
-
 /* Определение типа структуры. */
 struct struct_type {
   int a, b;
   char ch;
 } ;
-
 void f1(struct struct_type parm);
-
 int main(void)
 {
   struct struct_type arg;
-
   arg.a = 1000;
-
   f1(arg);
-
   return 0;
 }
-
 void f1(struct struct_type parm)
 {
   printf("%d", parm.a);
@@ -81,50 +66,32 @@ void f1(struct struct_type parm)
 /* Эта программа неправильная и при компиляции будут
    обнаружены ошибки. */
 #include &lt;stdio.h&gt;
-
 /* Определение типа структур. */
 struct struct_type {
   int a, b;
   char ch;
 } ;
-
 /* Определение структуры, похожей на struct_type,
    но сдругими именами. */
 struct struct_type2 {
   int a, b;
   char ch;
 } ;
-
 void f1(struct struct_type2 parm);
-
 int main(void)
 {
   struct struct_type arg;
-
   arg.a = 1000;
-
   f1(arg); /* несовпадение типов */
-
   return 0;
 }
-
 void f1(struct struct_type2 parm)
 {
   printf("%d", parm.a);
 }
 </PRE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#07">Содержание</A> | <A href="0702.htm">&lt;&lt;&lt;</A> | <A href="0704.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
 <H1>Функция strtod</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 double strtod(const char *<I>start</I>, char **<I>end</I>);
@@ -30,11 +22,9 @@ double strtod(const char *<I>start</I>, char **<I>end</I>);
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   char *end, *start = "100.00 плоскогубцев 200.00 молотков";
-
   end = start;
   while(*start) {
     printf("%f, ", strtod(start, &end));
@@ -43,7 +33,6 @@ int main(void)
     /* пропускает символы не входящие в числа */
     while(!isdigit(*start) && *start) start++;
   }
-
   return 0;
 }
 </PRE>
@@ -52,18 +41,8 @@ int main(void)
 200.000000, Остаток: молотков</PRE>
 <H2>Зависимые функции</H2>
 <A href="atof.htm">atof()</A>  <A href="strtold.htm">strtold()</A>  <A href="strtof.htm">strtof()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
 </BODY>
 </html>

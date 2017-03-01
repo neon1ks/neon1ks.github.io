@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A><HR>
 <H1>Функция free</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib.h&gt;
 void free(void <I>*ptr</I>);
@@ -26,12 +18,10 @@ void free(void <I>*ptr</I>);
 <PRE>
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
-
 int main(void)
 {
   char *str[100];
   int i;
-
   for(i=0; i&lt;100; i++) {
     if((str[i] = malloc(128))==NULL) {
       printf("Ошибка при распределении  памяти\n");
@@ -39,27 +29,15 @@ int main(void)
     }
     gets(str[i]);
   }
-
   /* Освобождение  блока  памяти */
   for(i=0; i&lt;100; i++) free(str[i]);
-
   return 0;
 }
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="calloc.htm">calloc()</A>  <A href="malloc.htm">malloc()</A>  <A href="realloc.htm">realloc()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A>
 </BODY>
 </html>

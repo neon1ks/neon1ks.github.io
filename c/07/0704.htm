@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#07">Содержание</A> | <A href="0703.htm">&lt;&lt;&lt;</A> | <A href="0705.htm">&gt;&gt;&gt;</A><HR>
 <H1>Указатели на структуры</H1>
-
-
-
-
-
-
-
-
 <P class="tj">В языке С указатели на структуры также официально признаны, как и указатели на любой другой вид объектов. Однако указатели на структуры имеют некоторые особенности, о которых и пойдет речь.
 <H2>Объявление указателя на структуру</H2>
 <P class="tj">Как и другие указатели, указатель на структуру объявляется с помощью звездочки <KBD>*</KBD>, которую помещают перед именем переменной структуры. Например, для ранее определенной структуры <KBD>addr</KBD> следующее выражение объявляет <KBD>addr_pointer</KBD> указателем на данные этого типа (то есть на данные типа <KBD>addr</KBD>):
@@ -29,7 +21,6 @@ struct bal {
   float balance;
   char name[80];
 } person;
-
 struct bal *p;  /* объявление указателя на структуру */
 </PRE>
 <P class="t">адрес структуры <KBD>person</KBD> можно присвоить указателю <KBD>p</KBD>:
@@ -41,35 +32,27 @@ struct bal *p;  /* объявление указателя на структур
 <PRE>
 /* Программа-имитатор таймера. */
 #include &lt;stdio.h&gt;
-
 #define DELAY 128000
-
 struct my_time {
   int hours;
   int minutes;
   int seconds;
 } ;
-
 void display(struct my_time *t);
 void update(struct my_time *t);
 void delay(void);
-
 int main(void)
 {
   struct my_time systime;
-
   systime.hours = 0;
   systime.minutes = 0;
   systime.seconds = 0;
-
   for(;;) {
     update(&systime);
     display(&systime);
   }
-
   return 0;
 }
-
 void update(struct my_time *t)
 {
   t-&gt;seconds++;
@@ -77,27 +60,22 @@ void update(struct my_time *t)
     t-&gt;seconds = 0;
     t-&gt;minutes++;
   }
-
   if(t-&gt;minutes==60) {
     t-&gt;minutes = 0;
     t-&gt;hours++;
   }
-
   if(t-&gt;hours==24) t-&gt;hours = 0;
   delay();
 }
-
 void display(struct my_time *t)
 {
   printf("%02d:", t-&gt;hours);
   printf("%02d:", t-&gt;minutes);
   printf("%02d\n", t-&gt;seconds);
 }
-
 void delay(void)
 {
   long int t;
-
   /* если надо, можно изменять константу DELAY (задержка) */
   for(t=1; t&lt;DELAY; ++t) ;
 }
@@ -109,18 +87,8 @@ void delay(void)
 <PRE>if(t-&gt;hours==24) t-&gt;hours = 0;</PRE>
 <P class="tj">Таким образом, компилятору дается указание взять адрес <KBD>t</KBD> (этот адрес указывает на переменную <KBD>systime</KBD> из <KBD>main()</KBD>) и сбросить значение <KBD>hours</KBD> в нуль.
 <P class="tj">Помните, что оператор точка используется для доступа к элементам структуры при работе с самой структурой. А когда используется указатель на структуру, то надо применять оператор стрелка.
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#07">Содержание</A> | <A href="0703.htm">&lt;&lt;&lt;</A> | <A href="0705.htm">&gt;&gt;&gt;</A>
 </BODY>
 </html>

@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#29">Содержание</A> | <A href="2904.htm">&lt;&lt;&lt;</A> | <A href="2906.htm">&gt;&gt;&gt;</A><HR>
 <H1>Синтаксический анализатор выражений</H1>
-
-
-
-
-
-
-
-
 <P class="tj">Часть программы, выполняющая чтение и анализ выражения, называется <I>синтаксическим анализатором выражений</I>. Это — наиболее важная подсистема интерпретатора Little С. Так как согласно стандарту множество выражений в языке С значительно шире, чем во многих других языках программирования, то синтаксический анализатор выражений составляет значительную часть программного кода синтаксического анализатора программ.
 <P class="tj">Для построения синтаксического анализатора выражений языка С можно применить несколько различных методов. Во многих коммерческих компиляторах используются <I>синтаксические анализаторы, управляемые таблицей</I>; такие синтаксические анализаторы создаются специальными генераторами программ синтаксического анализа. Синтаксические анализаторы, управляемые таблицей, в общем случае обладают большим быстродействием, чем другие синтаксические анализаторы, однако процесс их создания очень трудоемкий. В рассматриваемом здесь интерпретаторе Little С используется <I>рекурсивный нисходящий синтаксический анализатор</I><SUP><A href="#11" id="1">[1]</A></SUP>, который представляет собой реализацию в языке С производящих правил, приведенных в предыдущем разделе.
 <P class="tj">Рекурсивный нисходящий синтаксический анализатор представляет собой набор взаимно рекурсивных функций, обрабатывающих выражение. Если синтаксический анализатор работает в компиляторе, то он генерирует объектный код, соответствующий исходному тексту программы. В интерпретаторе целью синтаксического анализатора является вычисление значения заданного выражения. В этом разделе рассматривается разработка синтаксического анализатора выражений языка Little С.</P>
@@ -73,30 +65,23 @@ block (блок)                         { или }
 /* Считывание лексемы из входного потока. */
 int get_token(void)
 {
-
   register char *temp;
-
   token_type = 0; tok = 0;
-
   temp = token;
   *temp = '\0';
-
   /* пропуск пробелов, символов табуляции и пустой строки */
   while(iswhite(*prog) && *prog) ++prog;
-
   if(*prog == '\r') {
     ++prog;
     ++prog;
     /* пропуск пробелов */
     while(iswhite(*prog) && *prog) ++prog;
   }
-
   if(*prog == '\0') { /* конец файла */
     *token = '\0';
     tok = FINISHED;
     return (token_type = DELIMITER);
   }
-
   if(strchr("{}", *prog)) { /* ограничение блока */
     *temp = *prog;
     temp++;
@@ -104,7 +89,6 @@ int get_token(void)
     prog++;
     return (token_type = BLOCK);
   }
-
   /* поиск комментариев */
   if(*prog == '/')
     if(*(prog+1) == '*') { /* это комментарий */
@@ -115,7 +99,6 @@ int get_token(void)
       } while (*prog != '/');
       prog++;
     }
-
   if(strchr("!&lt;&gt;=", *prog)) { /* возможно, это
                                        оператор сравнения */
     switch(*prog) {
@@ -158,7 +141,6 @@ int get_token(void)
     }
     if(*token) return(token_type = DELIMITER);
   }
-
   if(strchr("+-*^/%=;(),'", *prog)){ /* разделитель */
     *temp = *prog;
     prog++; /* продвижение на следующую позицию */
@@ -166,7 +148,6 @@ int get_token(void)
     *temp = '\0';
     return (token_type = DELIMITER);
   }
-
   if(*prog=='"') { /* строка в кавычках */
     prog++;
     while(*prog != '"'&& *prog != '\r') *temp++ = *prog++;
@@ -174,20 +155,16 @@ int get_token(void)
     prog++; *temp = '\0';
     return (token_type = STRING);
   }
-
   if(isdigit(*prog)) { /* число */
     while(!isdelim(*prog)) *temp++ = *prog++;
     *temp = '\0';
     return (token_type = NUMBER);
   }
-
   if(isalpha(*prog)) { /* переменная или оператор */
     while(!isdelim(*prog)) *temp++ = *prog++;
     token_type = TEMP;
   }
-
   *temp = '\0';
-
   /* эта строка является оператором или переменной? */
   if(token_type==TEMP) {
     tok = look_up(token); /* преобразовать во внутренее представление */
@@ -201,19 +178,14 @@ int get_token(void)
 <PRE>
 extern char *prog;  /* текущее положение в исходном тексте программы */
 extern char *p_buf;  /* указатель на начало буфера программы */
-
 extern char token[80]; /* строковое представление лексемы */
 extern char token_type; /* содержит тип лексемы */
 extern char tok; /* внутреннее представление лексемы */
-
 enum tok_types {DELIMITER, IDENTIFIER, NUMBER, KEYWORD,
                 TEMP, STRING, BLOCK};
-
 enum tokens {ARG, CHAR, INT, IF, ELSE, FOR, DO, WHILE,
              SWITCH, RETURN, EOL, FINISHED, END};
-
 enum double_ops {LT=1, LE, GT, GE, EQ, NE};
-
 /* Эти константы используются для вызова функции sntx_err()
    в случае синтаксической ошибки. При необходимости список
    констант можно расширить.
@@ -236,7 +208,6 @@ void sntx_err(int error)
   char *p, *temp;
   int linecount = 0;
   register int i;
-
   static char *e[]= {
     "синтаксическая ошибка",
     "несбалансированные скобки",
@@ -266,11 +237,9 @@ void sntx_err(int error)
     }
   }
   printf(" in line %d\n", linecount);
-
   temp = p;
   for(i=0; i &lt; 20 && p &gt; p_buf && *p != '\n'; i++, p--);
   for(i=0; i &lt; 30 && p &lt;= temp; i++, p++) printf("%c", *p);
-
   longjmp(e_buf, 1); /* возврат в безопасную точку */
 }
 </PRE>
@@ -288,7 +257,6 @@ void sntx_err(int error)
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 #include &lt;stdio.h&gt;
-
 #define NUM_FUNC        100
 #define NUM_GLOBAL_VARS 100
 #define NUM_LOCAL_VARS  200
@@ -296,15 +264,11 @@ void sntx_err(int error)
 #define FUNC_CALLS      31
 #define PROG_SIZE       10000
 #define FOR_NEST        31
-
 enum tok_types {DELIMITER, IDENTIFIER, NUMBER, KEYWORD,
                 TEMP, STRING, BLOCK};
-
 enum tokens {ARG, CHAR, INT, IF, ELSE, FOR, DO, WHILE,
              SWITCH, RETURN, EOL, FINISHED, END};
-
 enum double_ops {LT=1, LE, GT, GE, EQ, NE};
-
 /* Эти константы используются для вызова функции sntx_err()
    в случае синтаксической ошибки. При необходимости список
    констант можно расширить.
@@ -318,11 +282,9 @@ enum error_msg
       NEST_FUNC, RET_NOCALL, PAREN_EXPECTED,
       WHILE_EXPECTED, QUOTE_EXPECTED, NOT_TEMP,
       TOO_MANY_LVARS, DIV_BY_ZERO};
-
 extern char *prog;  /* текущее положение в исходном тексте программы */
 extern char *p_buf;  /* указатель на начало буфера программы */
 extern jmp_buf e_buf; /* содержит данные для longjmp() */
-
 /* Массив этой структуры содержит информацию
    о глобальный переменных.
 */
@@ -331,27 +293,23 @@ extern struct var_type {
   int v_type;
   int value;
 }  global_vars[NUM_GLOBAL_VARS];
-
 /* Это стек вызова функции. */
 extern struct func_type {
   char func_name[32];
   int ret_type;
   char *loc;  /* адрес входа функции в файле */
 } func_stack[NUM_FUNC];
-
 /* Таблица зарезервированных слов */
 extern struct commands {
   char command[20];
   char tok;
 } table[];
-
 /* Здесь функции "стандартной библиотеки"
    объявлены таким образом, что их можно
    поместить во внутренюю таблицу функции.
 */
 int call_getche(void), call_putch(void);
 int call_puts(void), print(void), getnum(void);
-
 struct intern_func_type {
   char *f_name; /* имя функции */
   int (*p)();   /* указатель на функцию */
@@ -363,13 +321,10 @@ struct intern_func_type {
   "getnum", getnum,
   "", 0  /* этот список заканчивается нулем */
 };
-
 extern char token[80]; /* строковое представление лексемы */
 extern char token_type; /* содержит тип лексемы */
 extern char tok; /* внутреннее представление лексемы */
-
 extern int ret_value; /* возвращаемое значение функции */
-
 void eval_exp0(int *value);
 void eval_exp(int *value);
 void eval_exp1(int *value);
@@ -386,7 +341,6 @@ int internal_func(char *s);
 int is_var(char *s);
 char *find_func(char *name);
 void call(void);
-
 /* Точка входа в синтаксический анализатор выражений. */
 void eval_exp(int *value)
 {
@@ -402,14 +356,12 @@ void eval_exp(int *value)
   eval_exp0(value);
   putback(); /* возврат последней лексемы во входной поток */
 }
-
 /* Обработка выражения в присваивании */
 void eval_exp0(int *value)
 {
   char temp[ID_LEN];  /* содержит имя переменной,
                          которой присваивается значение */
   register int temp_tok;
-
   if(token_type == IDENTIFIER) {
     if(is_var(token)) {  /* если эта переменная,
        посмотреть, присваивается ли ей значение */
@@ -431,7 +383,6 @@ void eval_exp0(int *value)
   }
   eval_exp1(value);
 }
-
 /* Обработка операций сравнения. */
 void eval_exp1(int *value)
 {
@@ -440,7 +391,6 @@ void eval_exp1(int *value)
   char relops[7] = {
     LT, LE, GT, GE, EQ, NE, 0
   };
-
   eval_exp2(value);
   op = *token;
   if(strchr(relops, op)) {
@@ -468,13 +418,11 @@ void eval_exp1(int *value)
     }
   }
 }
-
 /*  Суммирование или вычисление двух термов. */
 void eval_exp2(int *value)
 {
   register char  op;
   int partial_value;
-
   eval_exp3(value);
   while((op = *token) == '+' || op == '-') {
     get_token();
@@ -489,13 +437,11 @@ void eval_exp2(int *value)
     }
   }
 }
-
 /* Умножение или деление двух множителей. */
 void eval_exp3(int *value)
 {
   register char  op;
   int partial_value, t;
-
   eval_exp4(value);
   while((op = *token) == '*' || op == '/' || op == '%') {
     get_token();
@@ -515,12 +461,10 @@ void eval_exp3(int *value)
     }
   }
 }
-
 /* Унарный + или -. */
 void eval_exp4(int *value)
 {
   register char  op;
-
   op = '\0';
   if(*token == '+' || *token == '-') {
     op = *token;
@@ -530,7 +474,6 @@ void eval_exp4(int *value)
   if(op)
     if(op == '-') *value = -(*value);
 }
-
 /* Обработка выражения в скобках. */
 void eval_exp5(int *value)
 {
@@ -543,12 +486,10 @@ void eval_exp5(int *value)
   else
     atom(value);
 }
-
 /* Получение значения числа, переменной или функции. */
 void atom(int *value)
 {
   int i;
-
   switch(token_type) {
   case IDENTIFIER:
     i = internal_func(token);
@@ -583,14 +524,12 @@ void atom(int *value)
     sntx_err(SYNTAX); /* синтаксическая ошибка */
   }
 }
-
 /* Вывод сообщения об ошибке. */
 void sntx_err(int error)
 {
   char *p, *temp;
   int linecount = 0;
   register int i;
-
   static char *e[]= {
     "синтаксическая ошибка",
     "несбалансированные скобки",
@@ -620,41 +559,31 @@ void sntx_err(int error)
     }
   }
   printf(" in line %d\n", linecount);
-
   temp = p;
   for(i=0; i &lt; 20 && p &gt; p_buf && *p != '\n'; i++, p--);
   for(i=0; i &lt; 30 && p &lt;= temp; i++, p++) printf("%c", *p);
-
   longjmp(e_buf, 1); /* возврат в безопасную точку */
 }
-
 /* Считывание лексемы из входного потока. */
 int get_token(void)
 {
-
   register char *temp;
-
   token_type = 0; tok = 0;
-
   temp = token;
   *temp = '\0';
-
   /* пропуск пробелов, символов табуляции и пустой строки */
   while(iswhite(*prog) && *prog) ++prog;
-
   if(*prog == '\r') {
     ++prog;
     ++prog;
     /* пропуск пробелов */
     while(iswhite(*prog) && *prog) ++prog;
   }
-
   if(*prog == '\0') { /* конец файла */
     *token = '\0';
     tok = FINISHED;
     return (token_type = DELIMITER);
   }
-
   if(strchr("{}", *prog)) { /* ограничение блока */
     *temp = *prog;
     temp++;
@@ -662,7 +591,6 @@ int get_token(void)
     prog++;
     return (token_type = BLOCK);
   }
-
   /* поиск комментариев */
   if(*prog == '/')
     if(*(prog+1) == '*') { /* это комментарий */
@@ -673,7 +601,6 @@ int get_token(void)
       } while (*prog != '/');
       prog++;
     }
-
   if(strchr("!&lt;&gt;=", *prog)) { /* возможно, это
                                        оператор сравнения */
     switch(*prog) {
@@ -716,7 +643,6 @@ int get_token(void)
     }
     if(*token) return(token_type = DELIMITER);
   }
-
   if(strchr("+-*^/%=;(),'", *prog)){ /* разделитель */
     *temp = *prog;
     prog++; /* продвижение на следующую позицию */
@@ -724,7 +650,6 @@ int get_token(void)
     *temp = '\0';
     return (token_type = DELIMITER);
   }
-
   if(*prog=='"') { /* строка в кавычках */
     prog++;
     while(*prog != '"'&& *prog != '\r') *temp++ = *prog++;
@@ -732,20 +657,16 @@ int get_token(void)
     prog++; *temp = '\0';
     return (token_type = STRING);
   }
-
   if(isdigit(*prog)) { /* число */
     while(!isdelim(*prog)) *temp++ = *prog++;
     *temp = '\0';
     return (token_type = NUMBER);
   }
-
   if(isalpha(*prog)) { /* переменная или оператор */
     while(!isdelim(*prog)) *temp++ = *prog++;
     token_type = TEMP;
   }
-
   *temp = '\0';
-
   /* эта строка является оператором или переменной? */
   if(token_type==TEMP) {
     tok = look_up(token); /* преобразовать во внутренее представление */
@@ -754,16 +675,13 @@ int get_token(void)
   }
   return token_type;
 }
-
 /* Возврат лексемы во входной поток. */
 void putback(void)
 {
   char *t;
-
   t = token;
   for(; *t; t++) prog--;
 }
-
 /* Поиск внутреннего представления лексемы
    в таблице лексем.
 */
@@ -771,31 +689,26 @@ int look_up(char *s)
 {
   register int i;
   char *p;
-
   /* преобразование в нижний регистр */
   p = s;
   while(*p) { *p = tolower(*p); p++; }
-
   /* есть ли лексемы в таблице? */
   for(i=0; *table[i].command; i++) {
     if(!strcmp(table[i].command, s)) return table[i].tok;
   }
   return 0; /* незнакомый оператор */
 }
-
 /* Возвращает идекс функции во внутренней
    библиотеке, или -1, если не найдена.
 */
 int internal_func(char *s)
 {
   int i;
-
   for(i=0; intern_func[i].f_name[0]; i++) {
     if(!strcmp(intern_func[i].f_name, s))  return i;
   }
   return -1;
 }
-
 /* Возвращает true (ИСТИНА), если с - разделитель. */
 int isdelim(char c)
 {
@@ -803,7 +716,6 @@ int isdelim(char c)
      c == '\r' || c == 0) return 1;
   return 0;
 }
-
 /* Возвращает 1, если с - пробел или табуляция. */
 int iswhite(char c)
 {
@@ -820,7 +732,6 @@ int iswhite(char c)
 */
 int call_getche(void), call_putch(void);
 int call_puts(void), print(void), getnum(void);
-
 struct intern_func_type {
   char *f_name; /* имя функции */
   int (*p)();   /* указатель на функцию */
@@ -844,17 +755,7 @@ struct intern_func_type {
 <BLOCKQUOTE>
 <P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>Так называется программа, выполняющая синтаксический анализ методом рекурсивного спуска.
 </BLOCKQUOTE>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#29">Содержание</A> | <A href="2904.htm">&lt;&lt;&lt;</A> | <A href="2906.htm">&gt;&gt;&gt;</A>
 </BODY></HTML>

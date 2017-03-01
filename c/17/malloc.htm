@@ -7,14 +7,6 @@
 </HEAD><BODY>
 <A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A><HR>
 <H1>Функция malloc</H1>
-
-
-
-
-
-
-
-
 <PRE>
 #include &lt;stdlib&gt;
 void *malloc(size_t <I>size</I>);
@@ -30,11 +22,9 @@ struct addr {
   char state[3];
   char zip[10];
 };
-
 struct addr *get_struct(void)
 {
   struct addr *p;
-
   if((p = malloc(sizeof(struct addr)))==NULL) {
     printf("Ошибка при распределении памяти\n");
     exit(1);
@@ -44,18 +34,8 @@ struct addr *get_struct(void)
 </PRE>
 <H2>Зависимые функции</H2>
 <A href="free.htm">free()</A>  <A href="realloc.htm">realloc()</A>  <A href="calloc.htm">calloc()</A>
-
-
 <p>
-
-
-
-
-
-
 </p>
-
-
 <HR><A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A>
 </BODY>
 </html>
