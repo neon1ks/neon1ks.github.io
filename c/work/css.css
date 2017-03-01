@@ -63,9 +63,12 @@ li.t + li.t {
   border: 1px solid #dfd7ca;
 }
 
-.bottom {
-  vertical-align: bottom;
+.text-left {
+  text-align: left;
 }
-.center {
+.text-right {
+  text-align: right;
+}
+.text-center {
   text-align: center;
 }
