@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция _Exit - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция _Exit</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+void _Exit(int <I>exit_code</I>);
+</PRE>
+<P class="tj">Функция <KBD>_Exit()</KBD> добавлена в версии С99.
+<P class="tj">Действие функции <KBD>_Exit()</KBD> аналогично действию функции <KBD>exit()</KBD> за исключением следующих моментов:
+<UL type=square>
+<LI>Не вызываются функции завершения, зарегистрированные функцией <KBD>atexit()</KBD>.
+<LI>Не вызываются обработчики сигналов, зарегистрированные функцией <KBD>signal()</KBD>.
+<LI>Не всегда закрываются открытые файлы и, возможно, они не дозаписываются.
+</UL>
+<H2>Зависимые функции</H2>
+<A href="atexit.htm">atexit()</A>  <A href="abort.htm">abort()</A>  <A href="exit.htm">exit()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

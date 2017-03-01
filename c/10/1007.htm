@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Использование defined - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#10">Содержание</A> | <A href="1006.htm">&lt;&lt;&lt;</A> | <A href="1008.htm">&gt;&gt;&gt;</A><HR>
+<H1>Использование defined</H1>
+
+
+
+
+
+
+
+
+<P class="tj">Кроме применения <KBD>#ifdef</KBD>, есть еще второй способ узнать, определено ли имя макроса. Можно использовать директиву <KBD>#if</KBD> в сочетании с оператором времени компиляции <KBD>defined</KBD>. В общем виде оператор <KBD>defined</KBD> выглядит таким образом:
+<PRE>defined <I>имя_макроса</I></PRE>
+<P class="tj">Если <I>имя_макроса</I> определено, то выражение считается истинным; в противном случае — ложным.  Например, чтобы узнать, определено ли имя макроса <KBD>MYFILE</KBD>, можно использовать одну из двух команд препроцессора:
+<PRE>#if defined MYFILE</PRE>
+<P class="t">или
+<PRE>#ifdef MYFILE</PRE>
+<P class="tj">Можно также задать противоположное условие, поставив <KBD>!</KBD> прямо перед <KBD>defined</KBD>. Например, следующий фрагмент компилируется только тогда, когда имя макроса <KBD>DEBUG</KBD> не определено:
+<PRE>
+#if !defined DEBUG
+  printf("Окончательная версия!\n");
+#endif
+</PRE>
+<P class="tj">Единственная причина, по которой используется оператор <KBD>defined</KBD>, состоит в том, что с его помощью в <KBD>#elif</KBD> можно узнать, определено ли имя макроса.
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#10">Содержание</A> | <A href="1006.htm">&lt;&lt;&lt;</A> | <A href="1008.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

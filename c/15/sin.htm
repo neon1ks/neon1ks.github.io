@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция sin - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция sin</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float sinf(float <I>arg</I>);
+double sin(double <I>arg</I>);
+long double sinl(long double <I>arg</I>);
+</PRE>
+<P class="tj">Функции <KBD>sinf()</KBD> и <KBD>sinl()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>sin()</KBD> возвращает значение синуса от аргумента <I>arg</I>. Значение аргумента должно быть задано в радианах.
+<H2>Пример</H2>
+<P class="tj">Данная программа выводит синусы последовательности значений, лежащих в пределах от -1 до 1 и изменяющихся с шагом одна десятая, т.е. составляет таблицу синусов чисел от -1 до 1.
+<PRE>
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  double val = -1.0;
+
+  do {
+    printf("Синус %f равен %f.\n", val, sin(val));
+    val += 0.1;
+  } while(val&lt;=1.0);
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="asin.htm">asin()</A>  <A href="acos.htm">acos()</A>  <A href="atan2.htm">atan2()</A>  <A href="atan.htm">atan()</A>  <A href="tan.htm">tan()</A>  <A href="cos.htm">cos()</A>  <A href="sinh.htm">sinh()</A>  <A href="cosh.htm">cosh()</A>  <A href="tanh.htm">tanh()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

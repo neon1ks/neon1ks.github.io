@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция strcpy - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
+<H1>Функция strcpy</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;string.h&gt;
+char *strcpy(char *<I>str1</I>, const char *<I>str2</I>);
+</PRE>
+<P class="tj">Функция <KBD>strcpy()</KBD> копирует содержимое строки <I>str2</I> в строку <I>str1</I>. Параметр <I>str2</I> должен указывать на строку с завершающим нулевым символом. Функция <KBD>strcpy()</KBD> возвращает значение указателя <I>str1</I>.
+<P class="tj">В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>.
+<P class="tj">Если символьные массивы <I>str1</I> и <I>str2</I> перекрываются, поведение функции <KBD>strcpy()</KBD> не определено.
+<H2>Пример</H2>
+<P class="tj">Следующий фрагмент программы копирует строку привет в строку <KBD>str</KBD>.
+<PRE>
+char str[80];
+strcpy(str, "привет");
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="memcpy.htm">memcpy()</A>  <A href="strchr.htm">strchr()</A>  <A href="strcmp.htm">strcmp()</A>  <A href="strncmp.htm">strncmp()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
+</BODY>
+</html>

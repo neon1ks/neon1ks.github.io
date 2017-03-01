@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Поиск "оптимального" решения - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#25">Содержание</A> | <A href="2512.htm">&lt;&lt;&lt;</A> | <A href="2514.htm">&gt;&gt;&gt;</A><HR>
+<H1>Поиск "оптимального" решения</H1>
+
+
+
+
+
+
+
+
+<P class="tj">Все предыдущие методы поиска от начала и до конца предназначены для нахождения решения, притом любого из них. Кроме того, те из приведенных методов, которые являются эвристическими, показали, что при определенных стараниях решение можно до некоторой степени улучшить. Но не было сделано ни одной попытки убедиться, что получено именно оптимальное решение. Но иногда бывает так, что подходит <I>только</I> оптимальное решение. Впрочем, не забывайте, что "оптимальное решение" в данном смысле просто означает наилучший маршрут, который можно найти с помощью одного из разнообразных методов, генерирующих варианты решений. И этот маршрут в действительности может и не быть наилучшим решением. (Ведь для получения действительно оптимального решения может понадобиться полный перебор, на который требуется недопустимо много времени.)
+<P class="tj">Перед тем как закончить изучение хорошо проработанного примера с маршрутами, проанализируйте программу, которая находит оптимальный маршрут при следующем ограничении: общее расстояние должно быть минимальным. Эта программа с помошью удаления путей генерирует разные решения, а с помощью поиска с использованием частичного пути минимальной стоимости получает путь с минимальным общим расстоянием. При нахождении самого короткого пути применяют такой принцип: из двух решений, старого и нового, сохраняется лишь то, которое короче. А когда новые решения больше не генерируются, то остается только оптимальное.
+<P class="tj">Чтобы реализовать этот алгоритм, необходимо серьезно изменить функцию <KBD>route()</KBD> и создать еще один стек. В новом стеке будет храниться текущее решение, а в конце работы — оптимальное. Этот стек называется <KBD>solution</KBD> (решение), а вот и сама измененная функция <KBD>route()</KBD>:
+<PRE>
+/* Найти кратчайшее расстояние. */
+int route(void)
+{
+  int dist, t;
+  static int old_dist = 32000;
+
+  if(!tos) return 0;  /* все сделано */
+  t = 0;
+  dist = 0;
+  while(t &lt; tos) {
+    dist += bt_stack[t].dist;
+    t++;
+  }
+
+  /* Если короче, то найти новое решение */
+  if(dist&lt;old_dist && dist) {
+    t = 0;
+    old_dist = dist;
+    stos = 0; /* удалить старый маршрут из стека solution */
+    while(t &lt; tos) {
+      spush(bt_stack[t].from, bt_stack[t].to, bt_stack[t].dist);
+      t++;
+    }
+  }
+  return dist;
+}
+</PRE>
+<P class="tj">Далее приводится вся программа. Обратите внимание на изменения в функции <KBD>main()</KBD> и на то, что в программу введена функция <KBD>spush()</KBD>, которая помещает вершины нового решения в стек решений (<KBD>solution</KBD>).
+<PRE>
+/* Поиск оптимального решения методом поиска частичного пути
+   минимальной стоимости; некоторые маршруты удаляются.
+*/
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX 100
+
+/* структура базы данных авиарейсов */
+struct FL {
+  char from[20];
+  char to[20];
+  int distance;
+  char skip;  /* используется при поиске с возвратом */
+};
+
+struct FL flight[MAX];  /* массив структур БД */
+
+int f_pos = 0;    /* количество записей в БД авиарейсов */
+int find_pos = 0; /* индекс для поиска в БД авиарейсов */
+
+int tos = 0;     /* вершина стека */
+int stos = 0;    /* вершина стека solution */
+
+struct stack {
+  char from[20];
+  char to[20];
+  int dist;
+} ;
+
+struct stack bt_stack[MAX]; /* стек, используемый для поиска */
+struct stack solution[MAX]; /* хранит временные решения */
+
+void setup(void);
+int route(void);
+void assert_flight(char *from, char *to, int dist);
+void push(char *from, char *to, int dist);
+void pop(char *from, char *to, int *dist);
+void isflight(char *from, char *to);
+void spush(char *from, char *to, int dist);
+int find(char *from, char *anywhere);
+int match(char *from, char *to);
+
+int main(void)
+{
+  char from[20], to[20];
+  int t, d;
+
+  setup();
+
+  printf("From? ");
+  gets(from);
+  printf("To? ");
+  gets(to);
+  do {
+    isflight(from, to);
+    d = route();
+    tos = 0;  /* возврат в исходное состояние стека,
+                 используемого для поиска с возвратом */
+  } while(d != 0);  /* пока алгоритм может новые решения */
+
+  t = 0;
+  printf("Оптимальное решение:\n");
+  while(t &lt; stos) {
+    printf("%s to ", solution[t].from);
+    d += solution[t].dist;
+    t++;
+  }
+  printf("%s\n", to);
+  printf("Расстояние в милях равно %d.\n", d);
+
+  return 0;
+}
+
+/* Инициализация базы данных авиаресов. */
+void setup(void)
+{
+  assert_flight("Нью-Йорк", "Чикаго", 1000);
+  assert_flight("Чикаго", "Денвер", 1000);
+  assert_flight("Нью-Йорк", "Торонто", 800);
+  assert_flight("Нью-Йорк", "Денвер", 1900);
+  assert_flight("Торонто", "Калгари", 1500);
+  assert_flight("Торонто", "Лос-Анжелес", 1800);
+  assert_flight("Торонто", "Чикаго", 500);
+  assert_flight("Денвер", "Урбана", 1000);
+  assert_flight("Денвер", "Хьюстон", 1500);
+  assert_flight("Хьюстон", "Лос-Анжелес", 1500);
+  assert_flight("Денвер", "Лос-Анжелес", 1000);
+}
+
+/* Записать факты в базу данных. */
+void assert_flight(char *from, char *to, int dist)
+{
+  if(f_pos &lt; MAX) {
+    strcpy(flight[f_pos].from, from);
+    strcpy(flight[f_pos].to, to);
+    flight[f_pos].distance = dist;
+    flight[f_pos].skip = 0;
+    f_pos++;
+  }
+  else printf("База данных авиарейсов заполнена.\n");
+}
+
+/* Найти кратчайшее расстояние. */
+int route(void)
+{
+  int dist, t;
+  static int old_dist=32000;
+
+  if(!tos) return 0;  /* все сделано */
+  t = 0;
+  dist = 0;
+  while(t &lt; tos) {
+    dist += bt_stack[t].dist;
+    t++;
+  }
+
+  /* Если короче, заменить новым решением */
+  if(dist&lt;old_dist && dist) {
+    t = 0;
+    old_dist = dist;
+    stos = 0; /* удалить старый маршрут из стека solution */
+    while(t &lt; tos)  {
+      spush(bt_stack[t].from, bt_stack[t].to, bt_stack[t].dist);
+      t++;
+    }
+  }
+  return dist;
+}
+
+/* Если между двумя городами (параметры from и to) имеется авиарейс,
+   то возвращается расстояние между ними,
+   а в противном случае возвращается 0. */
+int match(char *from, char *to)
+{
+  register int t;
+
+  for(t=f_pos-1; t &gt; -1; t--)
+    if(!strcmp(flight[t].from, from) &&
+      !strcmp(flight[t].to, to)) return flight[t].distance;
+
+  return 0;  /* не найден */
+}
+
+/* Зная пункт отправления (параметр from), найти пункт прибытия
+   (параметр anywhere). */
+int find(char *from, char *anywhere)
+{
+  find_pos = 0;
+  while(find_pos &lt; f_pos) {
+    if(!strcmp(flight[find_pos].from, from) &&
+      !flight[find_pos].skip) {
+        strcpy(anywhere, flight[find_pos].to);
+        flight[find_pos].skip = 1;
+        return flight[find_pos].distance;
+    }
+    find_pos++;
+  }
+  return 0;
+}
+
+/* Определить, имеется ли маршрут между из города, на который указывает
+   параметр from (из) в город, на который указывает параметр to (в). */
+void isflight(char *from, char *to)
+{
+  int d, dist;
+  char anywhere[20];
+
+  if(d=match(from, to)) {
+    push(from, to, d); /* расстояние */
+    return;
+  }
+
+  if(dist=find(from, anywhere)) {
+
+    push(from, to, dist);
+    isflight(anywhere, to);
+  }
+  else if(tos &gt; 0) {
+    pop(from, to, &dist);
+    isflight(from, to);
+  }
+}
+
+/* Подпрограммы обращения к стеку */
+void push(char *from, char *to, int dist)
+{
+  if(tos &lt; MAX) {
+    strcpy(bt_stack[tos].from, from);
+    strcpy(bt_stack[tos].to, to);
+    bt_stack[tos].dist = dist;
+    tos++;
+  }
+  else printf("Стек заполнен.\n");
+}
+
+void pop(char *from, char *to, int *dist)
+{
+  if(tos &gt; 0) {
+    tos--;
+    strcpy(from, bt_stack[tos].from);
+    strcpy(to, bt_stack[tos].to);
+    *dist = bt_stack[tos].dist;
+  }
+  else printf("Стек пуст.\n");
+}
+
+/* Cтек решений (solution) */
+void spush(char *from, char *to, int dist)
+{
+  if(stos &lt; MAX) {
+    strcpy(solution[stos].from, from);
+    strcpy(solution[stos].to, to);
+    solution[stos].dist = dist;
+    stos++;
+  }
+  else printf("Стек для кратчайших маршрутов заполнен.\n");
+}
+</PRE>
+<P class="tj">В последнем методе есть один недостаток: обход по всем маршрутам продолжается вплоть до их листьев. Будь этот метод более совершенным, обход по маршруту немедленно прекращался бы тогда, когда длина найденной части маршрута достигала бы текущего минимума (или превосходила его). С учетом этого обстоятельства данную программу можно значительно улучшить.
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#25">Содержание</A> | <A href="2512.htm">&lt;&lt;&lt;</A> | <A href="2514.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

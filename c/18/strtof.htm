@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция strtof - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция strtof</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+float strtof(const char * restrict <I>start</I>, char restrict ** restrict <I>end</I>);
+</PRE>
+<P class="tj">Функция <KBD>strtof()</KBD> добавлена в версии С99.
+<P class="tj">Функция <KBD>strtof()</KBD> аналогична функции <KBD>strtod()</KBD> за исключением того, что она возвращает значение типа <KBD>float</KBD>. При возникновении переполнения возвращается либо значение <KBD>HUGE_VAL</KBD>, либо значение <KBD>-HUGE_VAL</KBD>, а глобальная переменная errno устанавливается равной значению <KBD>ERANGE</KBD>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <I>start</I> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
+<H2>Зависимые функции</H2>
+<A href="atof.htm">atof()</A>  <A href="strtold.htm">strtold()</A>  <A href="strtol.htm">strtol()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

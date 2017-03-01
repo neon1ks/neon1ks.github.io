@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция log10 - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция log10</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float log10f(float <I>num</I>);
+double log10(double <I>num</I>);
+long double log10l(long double <I>num</I>);
+</PRE>
+<P class="tj">Функции <KBD>log10f()</KBD> и <KBD>log10l()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>log10()</KBD> возвращает значение логарифма по основанию 10 от аргумента <I>num</I>. Если значение аргумента <I>num</I> отрицательно, возникает ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения). Если же значение <I>num</I> равно нулю, возможна ошибка из-за выхода за пределы диапазона представимых значений.
+<H2>Пример</H2>
+<P class="tj">Данная программа выводит значение десятичных логарифмов чисел, изменяющихся от 1 до 10 с шагом 1, т.е. составляет таблицу десятичных логарифмов целых чисел от 1 до 10.
+<PRE>
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  double val = 1.0;
+
+  do {
+    printf("%f %f\n", val, log10(val));
+    val++;
+  } while (val&lt;11.0);
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="log.htm">log()</A>  <A href="log2.htm">log2()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

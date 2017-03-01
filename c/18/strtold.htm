@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция strtold - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция strtold</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+long double strtold(const char * restrict <I>start</I>, char ** restrict <I>end</I>);
+</PRE>
+<P class="tj">Функция <KBD>strtold()</KBD> добавлена в версии С99.
+<P class="tj">Функция <KBD>strtold()</KBD> аналогична функции <KBD>strtod()</KBD> за исключением того, что она возвращает значение типа <KBD>long double</KBD>. При возникновении переполнения возвращается либо значение <KBD>HUGE_VALL</KBD>, либо значение <KBD>-HUGE_VALL</KBD>, а глобальная переменная <KBD>errno</KBD> устанавливается равной значению <KBD>ERANGE</KBD>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <I>start</I> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
+<H2>Зависимые функции</H2>
+<A href="atof.htm">atof()</A>  <A href="strtold.htm">strtold()</A>  <A href="strtof.htm">strtof()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция isalpha - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
+<H1>Функция isalpha</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include  &lt;ctype.h&gt;
+int isalpha(int <I>ch</I>);
+</PRE>
+<P class="tj">Функция <KBD>isalpha()</KBD> возвращает ненулевое значение, если ее аргумент <I>ch</I> является буквой, в противном случае возвращается нуль. Принадлежность символа к буквам зависит от конкретного языка. Для английского языка таковыми являются прописные и строчные буквы от А до Z.
+<H2>Пример</H2>
+<P class="tj">Данная программа делает проверку каждого символа, прочитанного из стандартного входного потока <KBD>stdin</KBD>, и выдает сообщение, если этот символ окажется буквой.
+<PRE>
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char ch;
+
+  for(;;) {
+  ch = getchar();
+  if(ch == '.') break;
+  if(isalpha(ch)) printf("%c является буквой\n", ch);
+  }
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2> 
+<A href="isalnum.htm">isalnum()</A>  <A href="iscntrl.htm">iscntrl()</A>  <A href="isdigit.htm">isdigit()</A>  <A href="isgraph.htm">isgraph()</A>  <A href="isprint.htm">isprint()</A>  <A href="ispunct.htm">ispunct()</A>  <A href="isspace.htm">isspace()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
+</BODY>
+</html>

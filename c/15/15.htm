@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Математические фукции - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<P><A href="../main.htm#15">Содержание</A><HR>
+<H1>Математические фукции</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В версии С99 математическая библиотека была значительно пополнена; при этом число ее функций увеличилось более чем в три раза (стандарт С89 определял всего лишь 22 математические функции). Одной из основных целей комитета по версии С99 было повышение применимости языка С для численных расчетов. Теперь с уверенностью можно сказать, что эта цель достигнута!
+<P class="tj">Для использования математических функций в программу необходимо включить заголовок <KBD>&lt;math.h&gt;</KBD>. Помимо объявления математических функций, этот заголовок определяет один или несколько макросов. В версии С89 заголовком <KBD>&lt;math.h&gt;</KBD> определяется только макрос <KBD>HUGE_VAL</KBD>, который представляет собой значение типа <KBD>double</KBD>, сигнализирующее о возникшем переполнении. В версии С99 кроме него определены следующие макросы.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TD><KBD>HUGE_VALF</KBD><TD>версия макроса <KBD>HUGE_VAL</KBD> с типом <KBD>float</KBD>
+<TR><TD><KBD>HUGE_VALL</KBD><TD>версия макроса <KBD>HUGE_VAL с типом <KBD>long double</KBD>
+<TR><TD><KBD>INFINITY</KBD><TD>Значение, представляющее бесконечность
+<TR><TD><KBD>math_errhandling</KBD><TD>Содержит макросы <KBD>MATH_ERRNO</KBD> и/или <KBD>MATH_ERREXCEPT</KBD>
+<TR><TD><KBD>MATHERRNO</KBD><TD>Встроенная глобальная переменная <KBD>errno</KBD>, используемая для вывода сообщений об ошибках
+<TR><TD><KBD>MATH_ERREXCEPT</KBD><TD>Исключение, возбуждаемое при выполнении операций над вещественными числами, с целью вывода сообщения об ошибках
+<TR><TD><KBD>NAN</KBD><TD>He число
+</TABLE>
+<P class="tj">В версии С99 определены следующие макросы (подобные функциям), классифицирующие значение.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TD>int&nbsp;fpclassify(<I>fpval</I>)<TD>В зависимости от значения аргумента <I>fpval</I> возвращает <KBD>FP_INFINITY</KBD>, <KBD>FP_NAN</KBD>, <KBD>FP_NORMAL</KBD>, <KBD>FP_SOBNORMAL</KBD> или <KBD>FP_ZERO</KBD>. Эти макросы определяются заголовком <KBD>&lt;math.h&gt;</KBD>
+<TR><TD>int&nbsp;isfinite(<I>fpval</I>)<TD>Возвращает ненулевое значение, если <I>fpval</I> конечное
+<TR><TD>int&nbsp;isinf(<I>fpval</I>)<TD>Возвращает ненулевое значение, если <I>fpval</I> представляет бесконечность
+<TR><TD>int&nbsp;isnan(<I>fpval</I>)<TD>Возвращает ненулевое значение, если <I>fpval</I> — не является числом
+<TR><TD>int&nbsp;isnormal(<I>fpval</I>)<TD>Возвращает ненулевое значение, если <I>fpval</I> представляет собой нормализованное число
+<TR><TD>int&nbsp;signbit(<I>fpval</I>)<TD>Возвращает ненулевое значение, если <I>fpval</I> отрицательно (т.е. установлен его знаковый разряд)
+</TABLE>
+<P class="tj">В версии С99 определены следующие макросы сравнения, аргументы которых (<I>а</I> и <I>b</I>) должны иметь числовые значения в формате с плавающей точкой.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TD>int&nbsp;isgreater(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает ненулевое значение, если <I>a</I> больше <I>b</I>
+<TR><TD>int&nbsp;isgreaterequal(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает ненулевое значение, если <I>a</I> больше или равно <I>b</I>
+<TR><TD>int&nbsp;isless(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает ненулевое значение, если <I>a</I> меньше <I>b</I>
+<TR><TD>int&nbsp;islessequal(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает ненулевое значение, если <I>a</I> меньше или равно <I>b</I>
+<TR><TD>int&nbsp;islessgreater(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает ненулевое значение, если <I>a</I> больше или меньше <I>b</I>
+<TR><TD>int&nbsp;isunordered(<I>a</I>,&nbsp;<I>b</I>)<TD>Возвращает 1, если <I>a</I> и <I>b</I> не упорядочены одно по отношению к другому. Возвращает 0, если <I>a</I> и <I>b</I> упорядочены
+</TABLE>
+<P class="tj">Эти макросы введены, так как они прекрасно обрабатывают значения, которые не являются числами, не вызывая при этом исключений вещественного типа.
+<P class="tj">Макросы <KBD>EDOM</KBD> и <KBD>ERANGE</KBD> также используются математическими функциями. Эти макросы определены в заголовке <KBD>&lt;errno.h&gt;</KBD>.
+<P class="tj">Ошибки в версиях С89 и С99 обрабатываются по-разному. Так, в версии С89, если аргумент математической функции не попадает в область определения, возвращается некоторое значение, зависящее от конкретной реализации, а встроенная глобальная целая переменная <KBD>errno</KBD> устанавливается равной значению <KBD>EDOM</KBD>. В версии С99 нарушение области определения также приводит к возврату значения, зависящего от конкретной реализации. Однако по значению <KBD>math_errhandling</KBD> можно судить о выполнении других действий. Если <KBD>math_errhandling</KBD> содержит значение <KBD>MATH_ERRNO</KBD>, то встроенная глобальная целая переменная <KBD>errno</KBD> устанавливается равной значению <KBD>EDOM</KBD>. Если же <KBD>math_errhandling</KBD> содержит значение <KBD>MATH_ERREXCEPT</KBD>, возбуждается исключение вещественного типа.
+<P class="tj">В версии С89, если функция генерирует результат, который слишком велик и потому не может быть представлен в машинном формате, то происходит переполнение. В этом случае функция возвращает значение <KBD>HUGE_VAL</KBD>, а переменная <KBD>errno</KBD> устанавливается равной значению <KBD>ERANGE</KBD>, сигнализирующему о выходе за пределы диапазона. При потере значимости функция возвращает нуль и устанавливает переменную <KBD>errno</KBD> равной значению <KBD>ERANGE</KBD>. В версии С99 ошибка переполнения также приводит к тому, что функция возвращает значение <KBD>HUGE_VAL</KBD>, а при потере значимости — нуль. Если <KBD>math_errhandling</KBD> содержит значение <KBD>MATH_ERRNO</KBD>, глобальная переменная <KBD>errno</KBD> устанавливается равной значению <KBD>ERANGE</KBD>, свидетельствующему об ошибке диапазона. Если же <KBD>math_errhandling</KBD> содержит значение <KBD>MATH_ERREXCEPT</KBD>, возбуждается исключение вещественного типа.
+<P class="tj">В версии С89 аргументами математических функций должны быть значения типа <KBD>double</KBD>, причем значения, возвращаемые функциями, тоже имеют тип <KBD>double</KBD>. В версии С99 добавлены варианты этих функций, работающие с типами <KBD>float</KBD> и <KBD>long double</KBD>. В этих функциях используются суффиксы <KBD>f</KBD> и <KBD>l</KBD> соответственно. Например, в версии С89 функция <KBD>sin()</KBD> определена следующим образом.
+<PRE>double sin(double <I>arg</I>);</PRE>
+<P class="tj">Версия С99 поддерживает приведенное выше определение функции <KBD>sin()</KBD>, но в ней добавлены еще две ее модификации — <KBD>sinf()</KBD> и <KBD>sinl()</KBD>.
+<PRE>float sinf (float <I>arg</I>);
+long double sinl(long double <I>arg</I>);</PRE>
+<P class="tj">Операции, выполняемые всеми тремя функциями, одинаковы; различаются лишь типы данных, над которыми выполняются эти операции. Добавление модификаций <KBD>f</KBD> и <KBD>l</KBD> математических функций позволяет использовать версию, которая наиболее точно соответствует данным, с которыми работают функции.
+<P class="tj">Поскольку в версии С99 добавлено так много новых функций, стоит отдельно перечислить те из них, которые поддерживаются версией С89. Это следующие функции.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TD>acos<TD>cos<TD>fmod<TD>modf<TD>tan
+<TR><TD>asin<TD>cosh<TD>frexp<TD>pow<TD>tanh
+<TR><TD>atan<TD>exp<TD>ldexp<TD>sin<TD>
+<TR><TD>atan2<TD>fabs<TD>log<TD>sinh<TD>
+<TR><TD>ceil<TD>floor<TD>log10<TD>sqrt<TD>
+</TABLE>
+<P class="tj">И последнее замечание: все углы задаются в радианах.<P>
+<A name="00"></A>
+<A href="acos.htm">acos</A><BR>
+<A href="acosh.htm">acosh</A><BR>
+<A href="asin.htm">asin</A><BR>
+<A href="asinh.htm">asinh</A><BR>
+<A href="atan.htm">atan</A><BR>
+<A href="atan2.htm">atan2</A><BR>
+<A href="atanh.htm">atanh</A><BR>
+<A href="cbrt.htm">cbrt</A><BR>
+<A href="ceil.htm">ceil</A><BR>
+<A href="copysign.htm">copysign</A><BR>
+<A href="cos.htm">cos</A><BR>
+<A href="cosh.htm">cosh</A><BR>
+<A href="erf.htm">erf</A><BR>
+<A href="erfc.htm">erfc</A><BR>
+<A href="exp.htm">exp</A><BR>
+<A href="exp2.htm">exp2</A><BR>
+<A href="expm1.htm">expm1</A><BR>
+<A href="fabs.htm">fabs</A><BR>
+<A href="fdim.htm">fdim</A><BR>
+<A href="floor.htm">floor</A><BR>
+<A href="fma.htm">fma</A><BR>
+<A href="fmax.htm">fmax</A><BR>
+<A href="fmin.htm">fmin</A><BR>
+<A href="fmod.htm">fmod</A><BR>
+<A href="frexp.htm">frexp</A><BR>
+<A href="hypot.htm">hypot</A><BR>
+<A href="ilogb.htm">ilogb</A><BR>
+<A href="ldexp.htm">ldexp</A><BR>
+<A href="lgamma.htm">lgamma</A><BR>
+<A href="llrint.htm">llrint</A><BR>
+<A href="llround.htm">llround</A><BR>
+<A href="log.htm">log</A><BR>
+<A href="log10.htm">log10</A><BR>
+<A href="log1p.htm">log1p</A><BR>
+<A href="log2.htm">log2</A><BR>
+<A href="logb.htm">logb</A><BR>
+<A href="lrint.htm">lrint</A><BR>
+<A href="lround.htm">lround</A><BR>
+<A href="modf.htm">modf</A><BR>
+<A href="nan.htm">nan</A><BR>
+<A href="nearbyint.htm">nearbyint</A><BR>
+<A href="nextafter.htm">nextafter</A><BR>
+<A href="nexttoward.htm">nexttoward</A><BR>
+<A href="pow.htm">pow</A><BR>
+<A href="remainder.htm">remainder</A><BR>
+<A href="remquo.htm">remquo</A><BR>
+<A href="rint.htm">rint</A><BR>
+<A href="round.htm">round</A><BR>
+<A href="scalbln.htm">scalbln</A><BR>
+<A href="scalbn.htm">scalbn</A><BR>
+<A href="sin.htm">sin</A><BR>
+<A href="sinh.htm">sinh</A><BR>
+<A href="sqrt.htm">sqrt</A><BR>
+<A href="tan.htm">tan</A><BR>
+<A href="tanh.htm">tanh</A><BR>
+<A href="tgamma.htm">tgamma</A><BR>
+<A href="trunc.htm">trunc</A><BR>
+<HR><P><A href="../main.htm#15">Содержание</A>
+</BODY>
+</html>

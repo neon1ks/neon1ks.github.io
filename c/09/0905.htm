@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функции fread() и fwrite() - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#09">Содержание</A> | <A href="0904.htm">&lt;&lt;&lt;</A> | <A href="0906.htm">&gt;&gt;&gt;</A><HR>
+<H1>Функции fread() и fwrite()</H1>
+
+
+
+
+
+
+
+
+<P class="tj">Для чтения и записи данных, тип которых может занимать более 1 байта, в файловой системе языка С имеется две функции: <KBD>fread()</KBD> и <KBD>fwrite()</KBD>. Эти функции позволяют читать и записывать блоки данных любого типа. Их прототипы следующие:
+<PRE>
+size_t fread(void *<I>буфер</I>, size_t <I>колич_байт</I>, size_t <I>счетчик</I>, FILE *<I>уф</I>);
+size_t fwrite(const void *<I>буфер</I>, size_t <I>колич_байт</I>, size_t <I>счетчик</I>, FILE *<I>уф</I>);
+</PRE>
+<P class="tj">Для <KBD>fread()</KBD> <I>буфер</I> — это указатель на область памяти, в которую будут прочитаны данные из файла. А для <KBD>fwrite()</KBD> <I>буфер</I> — это указатель на данные, которые будут записаны в файл. Значение <I>счетчик</I> определяет, сколько считывается или записывается элементов данных, причем длина каждого элемента в байтах равна <I>колич_байт</I>. (Вспомните, что тип <KBD>size_t</KBD> определяется как одна из разновидностей целого типа без знака.) И, наконец, <I>уф</I> — это указатель файла, то есть на уже открытый поток.
+<P class="tj">Функция <KBD>fread()</KBD> возвращает количество прочитанных элементов. Если достигнут конец файла или произошла ошибка, то возвращаемое значение может быть меньше, чем счетчик. А функция <KBD>fwrite()</KBD> возвращает количество записанных элементов. Если ошибка не произошла, то возвращаемый результат будет равен значению счетчик.
+<H2>Использование fread() и fwrite()</H2>
+<P class="tj">Как только файл открыт для работы с двоичными данными, <KBD>fread()</KBD> и <KBD>fwrite()</KBD> соответственно могут читать и записывать информацию любого типа. Например, следующая программа записывает в дисковый файл данные типов <KBD>double</KBD>, <KBD>int</KBD> и <KBD>long</KBD>, a затем читает эти данные из того же файла. Обратите внимание, как в этой программе при определении длины каждого типа данных используется функция <KBD>sizeof()</KBD>.
+<PRE>
+/* Запись несимвольных данных в дисковый файл
+   и последующее их чтение.  */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+  FILE *fp;
+  double d = 12.23;
+  int i = 101;
+  long l = 123023L;
+
+  if((fp=fopen("test", "wb+"))==NULL) {
+    printf("Ошибка при открытии файла.\n");
+    exit(1);
+  }
+
+  fwrite(&d, sizeof(double), 1, fp);
+  fwrite(&i, sizeof(int), 1, fp);
+  fwrite(&l, sizeof(long), 1, fp);
+
+  rewind(fp);
+
+  fread(&d, sizeof(double), 1, fp);
+  fread(&i, sizeof(int), 1, fp);
+  fread(&l, sizeof(long), 1, fp);
+
+  printf("%f %d %ld", d, i, l);
+
+  fclose(fp);
+
+  return 0;
+}
+</PRE>
+<P class="tj">Как видно из этой программы, в качестве буфера можно использовать (и часто именно так и делают) просто память, в которой размещена переменная. В этой простой программе значения, возвращаемые функциями <KBD>fread()</KBD> и <KBD>fwrite()</KBD>, игнорируются. Однако на практике эти значения необходимо проверять, чтобы обнаружить ошибки.
+<P class="tj">Одним из самых полезных применений функций <KBD>fread()</KBD> и <KBD>fwrite()</KBD> является чтение и запись данных пользовательских типов, особенно структур. Например, если определена структура
+<PRE>
+struct struct_type {
+  float balance;
+  char name[80];
+} cust;
+</PRE>
+<P class="t">то следующий оператор записывает содержимое <KBD>cust</KBD> в файл, на который указывает <KBD>fp</KBD>:
+<PRE>fwrite(&cust, sizeof(struct struct_type), 1, fp);</PRE>
+<H2>Пример со списком рассылки</H2>
+<P class="tj">Чтобы показать, как можно легко записывать большие объемы данных, пользуясь функциями <KBD>fread()</KBD> и <KBD>fwrite()</KBD>, мы переделаем программу работы со списком рассылки, с которой впервые встретились в <A href="../07/07.htm">главе 7</A>. Усовершенствованная версия сможет сохранять адреса в файле. Как и раньше, адреса будут храниться в массиве структур следующего типа:
+<PRE>
+struct addr {
+  char name[30];
+  char street[40];
+  char city[20];
+  char state[3];
+  unsigned long int zip;
+} addr_list[MAX];
+</PRE>
+<P class="tj">Значение <KBD>MAX</KBD> определяет максимальное количество адресов, которое может быть в списке.
+<P class="tj">При выполнении программы поле <KBD>name</KBD> каждой структуры инициализируется пустым указателем (<KBD>NULL</KBD>). В программе свободной считается та структура, поле <KBD>name</KBD> которой содержит строку нулевой длины, т.е. имя адресата представляет собой пустую строку.
+<P class="tj">Далее приведены функции <KBD>save()</KBD> и <KBD>load()</KBD>, которые используются соответственно для сохранения и загрузки базы данных (списка рассылки). Обратите внимание, насколько кратко удалось закодировать каждую из функций, а ведь эта краткость достигнута благодаря мощи <KBD>fread()</KBD> и <KBD>fwrite()</KBD>! И еше обратите внимание на то, как эти функции проверяют значения, возвращаемые функциями <KBD>fread()</KBD> и <KBD>fwrite()</KBD>, чтобы обнаружить таким образом возможные ошибки.
+<PRE>
+/* Сохранение списка. */
+void save(void)
+{
+  FILE  *fp;
+  register int i;
+
+  if((fp=fopen("maillist", "wb"))==NULL) {
+    printf("Ошибка при открытии файла.\n");
+    return;
+  }
+
+  for(i=0; i&lt;MAX; i++)
+    if(*addr_list[i].name)
+      if(fwrite(&addr_list[i],
+         sizeof(struct addr), 1, fp)!=1)
+           printf("Ошибка при записи файла.\n");
+
+  fclose(fp);
+}
+
+/* Загрузить файл. */
+void load(void)
+{
+  FILE  *fp;
+  register int i;
+
+  if((fp=fopen("maillist", "rb"))==NULL) {
+    printf("Ошибка при открытии файла.\n");
+    return;
+  }
+
+  init_list();
+  for(i=0; i&lt;MAX; i++)
+    if(fread(&addr_list[i],
+       sizeof(struct addr), 1, fp)!=1) {
+         if(feof(fp)) break;
+         printf("Ошибка при чтении файла.\n");
+    }
+
+  fclose(fp);
+}
+</PRE>
+<P class="tj">Обе функции, <KBD>save()</KBD> и <KBD>load()</KBD>, подтверждают (или не подтверждают) успешность выполнения функциями <KBD>fread()</KBD> и <KBD>fwrite()</KBD> операций с файлом, проверяя значения, возвращаемые функциями <KBD>fread()</KBD> и <KBD>fwrite()</KBD>. Кроме того, функция <KBD>load()</KBD> явно проверяет, не достигнут ли конец файла. Делает она это с помощью вызова функции <KBD>feof()</KBD>. Это приходится делать потому, что <KBD>fread()</KBD> и в случае ошибки, и при достижении конца файла возвращает одно и то же значение.
+<P class="tj">Далее показана вся программа, обрабатывающая списки рассылки. Ее можно использовать как ядро для дальнейших расширений, в нее, например, можно добавить средства поиска адресов.
+<PRE>
+/* Простая программа обработки списка рассылки,
+   в которой используется массив структур. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX 100
+
+struct addr {
+  char name[30];
+  char street[40];
+  char city[20];
+  char state[3];
+  unsigned long int zip;
+} addr_list[MAX];
+
+void init_list(void), enter(void);
+void delete(void), list(void);
+void load(void), save(void);
+int menu_select(void), find_free(void);
+
+int main(void)
+{
+  char choice;
+
+  init_list(); /* инициализация массива структур */
+  for(;;) {
+    choice = menu_select();
+    switch(choice) {
+      case 1: enter();
+        break;
+      case 2: delete();
+        break;
+      case 3: list();
+        break;
+      case 4: save();
+        break;
+      case 5: load();
+        break;
+      case 6: exit(0);
+    }
+  }
+
+  return 0;
+}
+
+/* Инициализация списка. */
+void init_list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) addr_list[t].name[0] = '\0';
+}
+
+/* Получения значения, выбранного  в меню. */
+int menu_select(void)
+{
+  char s[80];
+  int c;
+
+  printf("1. Ввести имя\n");
+  printf("2. Удалить имя\n");
+  printf("3. Вывести список\n");
+  printf("4. Сохранить файл\n");
+  printf("5. Загрузить файл\n");
+  printf("6. Выход\n");
+  do {
+    printf("\nВведите номер нужного пункта: ");
+    gets(s);
+    c = atoi(s);
+  } while(c&lt;0 || c&gt;6);
+  return c;
+}
+
+/* Добавление адреса в список. */
+void enter(void)
+{
+  int slot;
+  char s[80];
+
+  slot = find_free();
+
+  if(slot==-1) {
+    printf("\nСписок заполнен");
+    return;
+  }
+
+  printf("Введите имя: ");
+  gets(addr_list[slot].name);
+
+  printf("Введите улицу: ");
+  gets(addr_list[slot].street);
+
+  printf("Введите город: ");
+  gets(addr_list[slot].city);
+
+  printf("Введите штат: ");
+  gets(addr_list[slot].state);
+
+  printf("Введите почтовый индекс: ");
+  gets(s);
+  addr_list[slot].zip = strtoul(s, '\0', 10);
+}
+
+/* Поиск свободной структуры. */
+int find_free(void)
+{
+  register int t;
+
+  for(t=0; addr_list[t].name[0] && t&lt;MAX; ++t) ;
+
+  if(t==MAX) return -1; /* свободных структур нет */
+  return t;
+}
+
+/* Удаление адреса. */
+void delete(void)
+{
+  register int slot;
+  char s[80];
+
+  printf("Введите № записи: ");
+  gets(s);
+  slot = atoi(s);
+
+  if(slot&gt;=0 && slot &lt; MAX)
+    addr_list[slot].name[0] = '\0';
+}
+
+/* Вывод списка на экран. */
+void list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) {
+    if(addr_list[t].name[0]) {
+      printf("%s\n", addr_list[t].name);
+      printf("%s\n", addr_list[t].street);
+      printf("%s\n", addr_list[t].city);
+      printf("%s\n", addr_list[t].state);
+      printf("%lu\n\n", addr_list[t].zip);
+    }
+  }
+  printf("\n\n");
+}
+
+/* Сохранение списка. */
+void save(void)
+{
+  FILE  *fp;
+  register int i;
+
+  if((fp=fopen("maillist", "wb"))==NULL) {
+    printf("Ошибка при открытии файла.\n");
+    return;
+  }
+
+  for(i=0; i&lt;MAX; i++)
+    if(*addr_list[i].name)
+      if(fwrite(&addr_list[i],
+         sizeof(struct addr), 1, fp)!=1)
+           printf("Ошибка при записи файла.\n");
+
+  fclose(fp);
+}
+
+/* Загрузить файл. */
+void load(void)
+{
+  FILE  *fp;
+  register int i;
+
+  if((fp=fopen("maillist", "rb"))==NULL) {
+    printf("Ошибка при открытии файла.\n");
+    return;
+  }
+
+  init_list();
+  for(i=0; i&lt;MAX; i++)
+    if(fread(&addr_list[i],
+       sizeof(struct addr), 1, fp)!=1) {
+         if(feof(fp)) break;
+         printf("Ошибка при чтении файла.\n");
+    }
+
+  fclose(fp);
+}
+</PRE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#09">Содержание</A> | <A href="0904.htm">&lt;&lt;&lt;</A> | <A href="0906.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

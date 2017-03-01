@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция mblen - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция mblen</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+int mblen(const char *<I>str</I>, size_t <I>size</I>);
+</PRE>
+<P class="tj">Функция <KBD>mblen()</KBD> возвращает длину (в байтах) многобайтового символа, адресуемого параметром <I>str</I>. Учету подлежат только первые <I>size</I> символов. При ошибке функция возвращает значение -1.
+<P class="tj">Если указатель <I>str</I> нулевой, функция <KBD>mblen()</KBD> возвращает ненулевое значение в случае, когда многобайтовые символы имеют кодировку, зависящую от территориально-языковых особенностей. В противном случае возвращается нуль.
+<H2>Пример</H2>
+<P class="tj">Этот оператор отображает размер многобайтового символа, адресуемого указателем <I>mb</I>:
+<PRE>
+printf("%d", mblen(mb, 2));
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="mbtowc.htm">mbtowc()</A>  <A href="wctomb.htm">wctomb()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

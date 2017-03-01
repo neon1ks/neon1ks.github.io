@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция isprint - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
+<H1>Функция isprint</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;ctype.h&gt;
+int isprint(int <I>ch</I>);
+</PRE>
+<P class="tj">Функция <KBD>isprint()</KBD> возвращает ненулевое значение, если аргумент <I>ch</I> является печатаемым символом, включая пробел. В противном случае возвращается нуль. В ASCII-средах значения печатаемых символов лежат в диапазоне от 0x20 до 0х7Е.
+<H2>Пример</H2>
+<P class="tj">Данная программа проверяет все символы, прочитанные из стандартного входного потока <KBD>stdin</KBD>, и выдает сообщение о каждом печатаемом символе.
+<PRE>
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char ch;
+
+  for(;;) {
+    ch = getchar();
+    if(isprint(ch)) printf("Символ %c является печатаемым\n",ch);
+    if(ch == '.') break;
+  }
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="isalnum.htm">isalnum()</A>  <A href="isalpha.htm">isalpha()</A>  <A href="iscntrl.htm">iscntrl()</A>  <A href="isdigit.htm">isdigit()</A>  <A href="isgarph.htm">isgarph()</A>  <A href="ispunct.htm">ispunct()</A>  <A href="isspace.htm">isspace()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
+</BODY>
+</html>

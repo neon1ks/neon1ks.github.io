@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция strtok - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
+<H1>Функция strtok</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;string.h&gt;
+char *strtok(char *<I>str1</I>, const char *<I>str2</I>);
+</PRE>
+<P class="tj">Функция <KBD>strtok()</KBD> возвращает указатель на следующую лексему в строке, адресуемой параметром <I>str1</I>. Символы, образующие строку, адресуемую параметром <I>str2</I>, представляют собой разделители, которые определяют лексему. При отсутствии лексемы, подлежащей возврату, возвращается нулевой указатель.
+<P class="tj">В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>.
+<P class="tj">Чтобы разделить некоторую строку на лексемы, при первом вызове функции <KBD>strtok()</KBD> параметр <I>str1</I> должен указывать на начало этой строки. При последующих вызовах функции в качестве параметра <I>str1</I> нужно использовать нулевой указатель. Этим способом вся строка разбивается на лексемы.
+<P class="tj">При каждом обращении к функции <KBD>strtok()</KBD> можно использовать различные наборы разделителей.
+<H2>Пример</H2>
+<P class="tj">Эта программа разбивает строку "Травка зеленеет, солнышко блестит" на лексемы, разделителями которых служат пробелы и запятые. В результате получится <PRE>Травка|зеленеет|солнышко|блестит</PRE>
+<PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(void)
+{
+  char *p;
+
+  p = strtok("Травка зеленеет, солнышко блестит", " ");
+  printf(p);
+  do {
+    p = strtok('\0', ", ");
+    if(p) printf("|%s", p);
+  } while(p);
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="strchr.htm">strchr()</A>  <A href="strcspn.htm">strcspn()</A>  <A href="strpbrk.htm">strpbrk()</A>  <A href="strrchr.htm">strrchr()</A>  <A href="strspn.htm">strspn()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
+</BODY>
+</html>

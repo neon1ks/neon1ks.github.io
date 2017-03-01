@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция atof - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция atof</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+double atof(const char *<I>str</I>);
+</PRE>
+<P class="tj">Функция <KBD>atof()</KBD> преобразует строку, адресуемую параметром <I>str</I>, в значение типа <KBD>double</KBD>. Эта строка должна содержать допустимое число с плавающей точкой. В противном случае возвращаемое значение не определено.
+<P class="tj">После числа может следовать любой символ, который не может быть частью допустимого числа с плавающей точкой. Имеются в виду пробелы, символы табуляции и пустой строки, знаки препинания (но не точки) и символы, отличные от буквы "Е" или "е". Это значит, что, если функция <KBD>atof()</KBD> вызывается с аргументом <KBD>"100.00HELLO"</KBD>, будет возвращено значение <KBD>100.00</KBD>.
+<H2>Пример</H2>
+<P class="tj">Эта программа читает два числа с плавающей точкой и выводит их сумму:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char num1[80], num2[80];
+
+  printf("Введите первое число: ");
+  gets(num1);
+  printf("Введите второе число: ");
+  gets(num2);
+  printf("Сумма: %lf.", atof(num1) + atof(num2));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="atoi.htm">atoi()</A>  <A href="atol.htm">atol()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

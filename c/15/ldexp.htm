@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция ldexp - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция ldexp</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float ldexpf(float <I>num</I>, int <I>exp</I>);
+double ldexp(double <I>num</I>, int <I>exp</I>);
+long double ldexpl(long double <I>num</I>, int <I>exp</I>);
+</PRE>
+<P class="tj">Функции <KBD>ldexpf()</KBD> и <KBD>ldexpl()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>ldexp()</KBD> возвращает значение выражения <I>num&#160;*&#160;2<SUP>exp</SUP></I>.
+<H2>Пример</H2>
+<P class="tj">Данная программа выводит число <PRE>4</PRE>
+<PRE>
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  printf("%f", ldexp(1,2));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="frexp.htm">frexp()</A>  <A href="modf.htm">modf()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

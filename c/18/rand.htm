@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция rand - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция rand</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+int rand(void);
+</PRE>
+<P class="tj">Функция <KBD>rand()</KBD> генерирует последовательность псевдослучайных чисел. При каждом обращении к функции возвращается целое в интервале между нулем и значением <KBD>RAND_MAX</KBD>, которое в любой реализации должно быть не меньше числа 32 767.
+<H2>Пример</H2>
+<P class="tj">Следующая программа отображает 10 псевдослучайных чисел:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int i;
+
+  for(i=0; i&lt;10; i++)
+    printf("%d ", rand());
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="srand.htm">srand()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

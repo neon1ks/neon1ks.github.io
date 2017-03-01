@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Представление разреженного массива в виде двоичного дерева - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#23">Содержание</A> | <A href="2302.htm">&lt;&lt;&lt;</A> | <A href="2304.htm">&gt;&gt;&gt;</A><HR>
+<H1>Представление разреженного массива в виде двоичного дерева</H1>
+
+
+
+
+
+
+
+
+<P class="tj">По сути, двоичное дерево — это просто видоизмененный двусвязный список. Его основное преимущество заключается в возможности быстрого поиска. Именно благодаря этому удается очень быстро выполнять вставки и затрачивать совсем немного времени на доступ к элементам. (Ведь двоичные деревья идеально подходят для приложений, в которых требуется структура связанного списка, в которой поиск должен занимать совсем немного времени.)
+<P class="tj">Чтобы использовать двоичное дерево для реализации электронной таблицы, необходимо изменить структуру <KBD>cell</KBD> следующим образом:
+<PRE>
+struct cell {
+  char cell_name[9];  /* имя ячейки, напр., A1, B34 */
+  char  formula[128]; /* данные, напр., 10/B2 */
+  struct cell *left;  /* указатель на левое поддерево */
+  struct cell *right; /* указатель на правое поддерево */
+} list_entry;
+</PRE>
+<P class="tj">Функцию <KBD>street()</KBD> из <A href="../22/22.htm">главы 22</A> можно модифицировать так, чтобы она строила дерево на основании имени ячейки. В следующем коде предполагается, что параметр <KBD>n</KBD> является указателем на вставляемый элемент дерева.
+<PRE>
+struct cell *stree(
+        struct cell *root,
+        struct cell *r,
+        struct cell *n)
+{
+  if(!r) {    /* первая вершина поддерева */
+    n->left = NULL;
+    n->right = NULL;
+    if(!root) return n;  /* первый вход в дерево */
+    if(strcmp(n->cell_name, root->cell_name) < 0)
+      root->left = n;
+    else
+      root->right = n;
+    return n;
+  }
+
+  if(strcmp(r->cell_name, n->cell_name) <= 0)
+    stree(r, r->right, n);
+  else
+    stree(r, r->left, n);
+
+  return root;
+}
+</PRE>
+<P class="tj">При вызове функции <KBD>stree()</KBD> ей необходимо передавать указатели на корень дерева в качестве первых двух параметров и указатель на новую ячейку в качестве третьего. Функция возвращает указатель на корень.
+<P class="tj">Чтобы удалить ячейку электронной таблицы, можно воспользоваться показанной ниже модифицированной функцией <KBD>dtree()</KBD>, принимающей в качестве ключа имя ячейки:
+<PRE>
+struct cell *dtree(
+        struct cell *root,
+        char *key)
+{
+  struct cell *p, *p2;
+
+  if(!root) return root; /* элемент не найден */
+
+  if(!strcmp(root->cell_name, key)) { /* удаление корня */
+    /* это означает пустое дерево */
+    if(root->left == root->right){
+      free(root);
+      return NULL;
+    }
+    /* или если одно из поддеревьев пустое */
+    else if(root->left == NULL) {
+      p = root->right;
+      free(root);
+      return p;
+    }
+    else if(root->right == NULL) {
+      p = root->left;
+      free(root);
+      return p;
+    }
+    /* или если оба поддерева непустые */
+    else {
+      p2 = root->right;
+      p = root->right;
+      while(p->left) p = p->left;
+      p->left = root->left;
+      free(root);
+      return p2;
+    }
+  }
+  if(strcmp(root->cell_name, key)<=0)
+    root->right = dtree(root->right, key);
+  else root->left = dtree(root->left, key);
+  return root;
+}
+</PRE>
+<P class="tj">Наконец, для быстрого поиска ячейки электронной таблицы по ее имени можно воспользоваться модифицированной версией функции <KBD>search()</KBD>.
+<PRE>
+struct cell *search_tree(
+        struct cell *root,
+        char *key)
+{
+  if(!root) return root;  /* пустое дерево */
+  while(strcmp(root->cell_name, key)) {
+    if(strcmp(root->cell_name, key) <= 0)
+      root = root->right;
+    else root = root->left;
+    if(root == NULL) break;
+  }
+  return root;
+}
+</PRE>
+<H2>Анализ метода представления в виде двоичного дерева</H2>
+<P class="tj">Применение двоичного дерева значительно уменьшает время вставки и поиска элементов по сравнению со связанным списком. Следует помнить, что последовательный поиск требует в среднем <I>n</I>/2 сравнений, где <I>n</I> — количество элементов списка. По сравнению с этим двоичный поиск требует только log<SUB>2</SUB><I>n</I> сравнений (если дерево сбалансировано). Кроме того, двоичные деревья так же экономно расходуют память, как и связанные списки. Тем не менее, в некоторых ситуациях есть лучшие альтернативы, чем двоичные деревья.
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#23">Содержание</A> | <A href="2302.htm">&lt;&lt;&lt;</A> | <A href="2304.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция div - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция div</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+div_t div(int <I>numerator</I>, int <I>denominator</I>);
+</PRE>
+<P class="tj">Функция <KBD>div()</KBD> возвращает в структуре типа <KBD>div_t</KBD> частное и остаток, полученные в результате выполнения операции деления числителя <I>numerator</I> на знаменатель <I>denominator</I>.
+<P class="tj">Структура типа <KBD>div_t</KBD> имеет следующие два поля.
+<PRE>
+int quot; /* частное */
+int rem;  /* остаток */
+</PRE>
+<H2>Пример</H2>
+<P class="tj">Эта программа выводит частное и остаток от деления 10 на 3:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  div_t n;
+
+  n = div(10, 3);
+
+  printf("Частное и остаток: %d %d.\n", n.quot, n.rem);
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="ldiv.htm">ldiv()</A>  <A href="lldiv.htm">lldiv()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

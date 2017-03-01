@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция gmtime - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
+<H1>Функция gmtime</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;time.h&gt;
+struct tm *gmtime(const time_t *<I>time</I>);
+</PRE>
+<P class="tj">Функция <KBD>gmtime()</KBD> возвращает указатель на структуру <KBD>tm</KBD>, содержащую календарное время в разделенной на компоненты форме. Значение time представлено в виде так называемого координированного всемирного времени (Coordinated Universal Time, или UTC<SUP><A href="#11" name="1">[1]</A></SUP>), которое, по сути, является средним временем по гринвичскому меридиану<SUP><A href="#22" name="2">[2]</A></SUP> (Greenwich mean time, GMT). Функция <KBD>time()</KBD> возвращает указатель <I>time</I>. Она возвращает <KBD>NULL</KBD>, если система не поддерживает координированное всемирное время.
+<P class="tj">Память для структуры, в которой функция <KBD>gmtime()</KBD> сохраняет разделенное на компоненты время, распределяется статически. Эта структура перезаписывается при каждом вызове функции. Чтобы сохранить содержимое структуры, скопируйте ее в какую-нибудь другую область памяти.
+<H2>Пример</H2>
+<P class="tj">Эта программа печатает местное время и координированное всемирное время (UTC) системы:
+<PRE>
+#include &lt;time.h&gt;
+#include &lt;stdio.h&gt;
+
+/* Печать местного и координированного всемирного (UTC) времени. */
+int main(void)
+{
+  struct tm *local, *gm;
+  time_t t;
+
+  t = time(NULL);
+  local = localtime(&t);
+  printf("Местное время и дата: %s\n", asctime(local));
+  gm = gmtime(&t);
+  printf("Координированное всемирное время и дата: %s", asctime(gm));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="localtime.htm">localtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
+<P><IMG src="../work/sup.bmp" alt="----------">
+<BLOCKQUOTE>
+<P class="tj"><SUP><A href="#1" name="11">[1]</A></SUP>Называется также <I>всеобщим скоординированным временем</I> и <I>универсальным глобальным временем (по Гринвичу)</I>.
+<P class="tj"><SUP><A href="#2" name="22">[2]</A></SUP>Называется также <I>всемирным (гринвичским средним) временем</I> или <I>средним временем по Гринвичу</I>. UTC не может отличаться от GMT более чем на 0,9 с.
+</BLOCKQUOTE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
+</BODY>
+</html>

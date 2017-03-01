@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция acos - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция acos</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float acosf(float <I>arg</I>);
+double acos(double <I>arg</I>);
+long double acosl(long double <I>arg</I>);
+</PRE>
+<P class="tj">Функции <KBD>acosf()</KBD> и <KBD>acosl()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>acos()</KBD> возвращает значение арккосинуса от аргумента <I>arg</I>. Значение аргумента должно находиться в диапазоне от -1 до 1; в противном случае возникает ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения).
+<H2>Пример</H2>
+<P class="tj">Данная программа выводит значения арккосинусов последовательности аргументов, лежащих в интервале от -1 до 1 и увеличивающихся с шагом одна десятая, т.е. программа составляет таблицу арккосинуса.
+<PRE>
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  double val = -1.0;
+
+  do {
+    printf("Арккосинус %f равен %f.\n", val, acos(val));
+    val += 0.1;
+  } while(val&lt;=1.0);
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2> 
+<A href="asin.htm">asin()</A>  <A href="atan.htm">atan()</A>  <A href="atan2.htm">atan2()</A>  <A href="sin.htm">sin()</A>  <A href="cos.htm">cos()</A>  <A href="tan.htm">tan()</A>  <A href="sinh.htm">sinh()</A>  <A href="cosh.htm">cosh()</A>  <A href="tanh.htm">tanh()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

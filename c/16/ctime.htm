@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция ctime - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
+<H1>Функция ctime</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;time.h&gt;
+char *ctime(const time_t *<I>time</I>);
+</PRE>
+<P class="tj">Функция <KBD>ctime()</KBD> возвращает указатель на строку, имеющую следующий вид:
+<P class="tj"><I>День месяц год часы:минуты:секунды year\n\0</I>
+<P class="tj">Функции передается указатель на календарное время. Календарное время обычно получают с помощью функции <KBD>time()</KBD>.
+<P class="tj">Буфер, используемый <KBD>ctime()</KBD> для хранения форматированной строки вывода является статически распределенным массивом символов. Он перезаписывается при каждом вызове функции. Для сохранения строки скопируйте ее в какую-нибудь другую область памяти.
+<H2>Пример</H2>
+<P class="tj">Эта программа отображает местное время, определенное в системе:
+<PRE>
+#include &lt;time.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  time_t lt;
+
+  lt = time(NULL);
+  printf(ctime(&amp;lt));
+
+  return 0;
+}
+
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
+</BODY>
+</html>

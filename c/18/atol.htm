@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция atol - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция atol</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+long int atol(const char *<I>str</I>);
+</PRE>
+<P class="tj">Функция <KBD>atol()</KBD> преобразует строку, адресуемую параметром <I>str</I>, в значение типа <KBD>long int</KBD>. Эта строка должна содержать допустимое целое число. В противном случае возвращаемое значение не определено.
+<P class="tj">После числа может следовать любой символ, который не может быть частью целого числа. Имеются в виду пробелы, символы табуляции и пустой строки, знаки препинания и буквы. Это значит, что, если функция <KBD>atol()</KBD> вызывается с аргументом <KBD>"123.23"</KBD>, будет возвращено длинное целое значение <KBD>123L</KBD>, а подстрока <KBD>".23"</KBD> будет проигнорирована.
+<H2>Пример</H2>
+<P class="tj">Следующая программа считывает два целых числа в виде строк, преобразует их в два длинных целых числа и выводит их сумму:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char num1[80], num2[80];
+
+  printf("Введите первое число: ");
+  gets(num1);
+  printf("Введите второе число: ");
+  gets(num2);
+  printf("Сумма: %ld.", atol(num1)+atol(num2));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="atof.htm">atof()</A>  <A href="atoi.htm">atoi()</A>  <A href="atoll.htm">atoll()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

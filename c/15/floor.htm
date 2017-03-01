@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция floor - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция floor</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float floorf(float <I>num</I>);
+double floor(double <I>num</I>);
+long double floorl(long double <I>num</I>);
+</PRE>
+<P class="tj">Функции <KBD>floorf()</KBD> и <KBD>floorl()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>floor()</KBD> возвращает наибольшее целое (представленное в виде значения с плавающей точкой), которое меньше значения аргумента <I>num</I> или равно ему. Например, при <I>num</I>, равном 1.02, функция <KBD>floor()</KBD> вернет значение 1.0, а при <I>num</I>, равном -1.02, — значение -2.0.
+<H2>Пример</H2>
+<P class="tj">Данный фрагмент программы выводит на экран число <PRE>10</PRE>
+<PRE>printf("%f", floor(10.9));</PRE>
+<H2>Зависимые функции</H2>
+<A href="ceil.htm">ceil()</A>  <A href="fmod.htm">fmod()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

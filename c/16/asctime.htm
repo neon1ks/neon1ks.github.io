@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция asctime - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
+<H1>Функция asctime</H1>
+
+
+
+
+
+
+
+
+<PRE>
+include &lt;time.h&gt;
+char *asctime(const struct tm *<I>ptr</I>);
+</PRE>
+<P class="tj">Функция <KBD>asctime</KBD> возвращает указатель на строку, которая содержит информацию, сохраняемую в адресуемой параметром <I>ptr</I> структуре и имеющую следующую форму:
+<P class="tj"><I>День_недели месяц дата часы:минуты:секунды год\n\0</I>
+<P class="tj">Например:
+<PRE>Fri Apr 15 12:05:34 2005</PRE>
+<P class="tj"><I>Ptr</I> указывает на структуру, заполняемую функциями <KBD>localtime()</KBD> или <KBD>gmtime()</KBD>.
+<P class="tj">Буфер, используемый функцией <KBD>asctime()</KBD> для хранения форматированной строки вывода, является статически распределенным массивом символов. Он перезаписывается при каждом вызове функции. Чтобы сохранить содержание строки, скопируйте ее в какую-нибудь другую область памяти.
+<H2>Пример</H2>
+<P class="tj">Эта программа отображает местное время, определяемое системой:
+<PRE>
+#include &lt;time.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  struct tm *ptr;
+  time_t lt;
+
+  lt = time(NULL);
+  ptr = localtime(&amp;lt);
+  printf(asctime(ptr));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="ctime.htm">ctime()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
+</BODY>
+</html>

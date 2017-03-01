@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Массивы структур - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#07">Содержание</A> | <A href="0701.htm">&lt;&lt;&lt;</A> | <A href="0703.htm">&gt;&gt;&gt;</A><HR>
+<H1>Массивы структур</H1>
+
+
+
+
+
+
+
+
+<P class="tj">Структуры часто образуют массивы. Чтобы объявить массив структур, вначале необходимо определить структуру (то есть определить агрегатный тип данных), а затем объявить переменную массива этого же типа. Например, чтобы объявить 100-элементный массив структур типа <KBD>addr</KBD>, который был определен ранее, напишите следующее:
+<PRE>struct addr addr_list[100];</PRE>
+<P class="tj">Это выражение создаст 100 наборов переменных, каждый из которых организован так, как определено в структуре <KBD>addr</KBD>.
+<P class="tj">Чтобы получить доступ к определенной структуре, указывайте имя массива с индексом. Например, чтобы вывести ZIP-код из третьей структуры, напишите следующее:
+<PRE>printf("%d", addr_list[2].zip);</PRE>
+<P class="tj">Как и в других массивах переменных, в массивах структур индексирование начинается с 0.
+<P class="tj"><B>Для справки</B>: чтобы указать определенную структуру, находящуюся в массиве структур, необходимо указать имя этого массива с определенным индексом. А если нужно указать индекс определенного элемента в структуре, то необходимо указать индекс этого элемента. Таким образом, в результате выполнения следующего выражения первому символу члена <KBD>name</KBD>, находящегося в третьей структуре из <KBD>addr_list</KBD>, присваивается значение 'X'.
+<PRE>addr_list[2].name[0] = 'X';</PRE>
+<H2>Пример со списком рассылки</H2>
+<P class="tj">Чтобы показать, как используются структуры и массивы структур, в этом разделе создается простая программа работы со списком рассылки, и в ее массиве структур будут храниться адреса и связанная с ними информация. Эта информация записывается в следующие поля: <KBD>name</KBD> (имя), <KBD>street</KBD> (улица), <KBD>city</KBD> (город), <KBD>state</KBD> (штат) и <KBD>zip</KBD> (почтовый код, индекс).
+<P class="tj">Вся эта информация, как показано ниже, находится в массиве структур типа <KBD>addr</KBD>:
+<PRE>
+struct addr {
+  char name[30];
+  char street[40];
+  char city[20];
+  char state[3];
+  unsigned long int zip;
+} addr_list[MAX];
+</PRE>
+<P class="tj">Обратите внимание, что поле zip имеет целый тип <KBD>unsigned long</KBD>. Правда, чаще можно встретить хранение почтовых кодов, в которых используются строки символов, потому что этот способ подходит для почтовых кодов, в которых вместе с цифрами используются и буквы (как, например, в Канаде и других странах). Однако в нашем примере почтовый индекс хранится в виде целого числа; это делается для того, чтобы показать использование числового элемента в структуре.
+<P class="tj">Вот <KBD>main()</KBD> — первая функция, которая нужна программе:
+<PRE>
+int main(void)
+{
+  char choice;
+
+  init_list(); /* инициализация массива структур */
+
+  for(;;) {
+    choice = menu_select();
+    switch(choice) {
+      case 1: enter();
+        break;
+      case 2: delete();
+        break;
+      case 3: list();
+        break;
+      case 4: exit(0);
+    }
+  }
+
+  return 0;
+}
+</PRE>
+<P class="tj">Функция начинает выполнение с инициализации массива структур, а затем реагирует на выбранный пользователем пункт меню.
+<P class="tj">Функция <KBD>init_list()</KBD> готовит массив структур к использованию, обнуляя первый байт поля <KBD>name</KBD> каждой структуры массива. (В программе предполагается, что если поле <KBD>name</KBD> пустое, то элемент массива не используется.) А вот сама функция <KBD>init_list()</KBD>:
+<PRE>
+/* Инициализация списка. */
+void init_list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) addr_list[t].name[0] = '\0';
+}
+</PRE>
+<P class="tj">Функция <KBD>menu_select()</KBD> выводит меню на экран и возвращает то, что выбрал пользователь.
+<PRE>
+/* Получения значения, выбранного в меню. */
+int menu_select(void)
+{
+  char s[80];
+  int c;
+
+  printf("1. Введите имя\n");
+  printf("2. Удалите имя\n");
+  printf("3. Выведите список\n");
+  printf("4. Выход\n");
+
+  do {
+    printf("\nВведите номер нужного пункта: ");
+    gets(s);
+    c = atoi(s);
+  } while(c&lt;0 || c&gt;4);
+
+  return c;
+}
+</PRE>
+<P class="tj">Функция <KBD>enter()</KBD> подсказывает пользователю, что именно требуется ввести, и сохраняет введенную информацию в следующей свободной структуре. Если массив заполнен, то выводится сообщение Список заполнен. Функция <KBD>find_free()</KBD> ищет в массиве структур свободный элемент.
+<PRE>
+/* Ввод адреса в список. */
+void enter(void)
+{
+  int slot;
+  char s[80];
+
+  slot = find_free();
+  if(slot==-1) {
+    printf("\nСписок заполнен");
+    return;
+  }
+
+  printf("Введите имя: ");
+  gets(addr_list[slot].name);
+
+  printf("Введите улицу: ");
+  gets(addr_list[slot].street);
+
+  printf("Введите город: ");
+  gets(addr_list[slot].city);
+
+  printf("Введите штат: ");
+  gets(addr_list[slot].state);
+
+  printf("Введите почтовый код: ");
+  gets(s);
+  addr_list[slot].zip = strtoul(s, '\0', 10);
+}
+
+/* Поиск свободной структуры. */
+int find_free(void)
+{
+  register int t;
+
+  for(t=0; addr_list[t].name[0] && t&lt;MAX; ++t) ;
+
+  if(t==MAX) return -1; /* свободных структур нет */
+  return t;
+}
+</PRE>
+<P class="tj">Обратите внимание, что если все элементы массива структур заняты, то <KBD>find_free()</KBD> возвращает -1. Это удобное число, потому что в массиве нет -1-го элемента.
+<P class="tj">Функция <KBD>delete()</KBD> предлагает пользователю указать индекс той записи с адресом, которую требуется удалить. Затем функция обнуляет первый байт поля <KBD>name</KBD>.
+<PRE>
+/* Удаление адреса. */
+void delete(void)
+{
+  register int slot;
+  char s[80];
+
+  printf("Введите № записи: ");
+  gets(s);
+  slot = atoi(s);
+  if(slot&gt;=0 && slot &lt; MAX)
+    addr_list[slot].name[0] = '\0';
+}
+</PRE>
+<P class="tj">И последняя функция, которая требуется программе, — это <KBD>list()</KBD>, которая выводит на экран весь список рассылки. Из-за большого разнообразия компьютерных сред язык С не определяет стандартную функцию, которая бы отправляла вывод на принтер. Однако все нужные для этого средства имеются во всех компиляторах С. Возможно, вам самим захочется сделать так, чтобы программа работы со списками могла еще и распечатывать список рассылки.
+<PRE>
+/* Вывод списка на экран. */
+void list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) {
+    if(addr_list[t].name[0]) {
+      printf("%s\n", addr_list[t].name);
+      printf("%s\n", addr_list[t].street);
+      printf("%s\n", addr_list[t].city);
+      printf("%s\n", addr_list[t].state);
+      printf("%lu\n\n", addr_list[t].zip);
+    }
+  }
+  printf("\n\n");
+}
+</PRE>
+<P class="tj">Ниже программа обработки списка рассылки приведена полностью. Если у вас остались какие-либо сомнения относительно ее компонентов, введите программу в компьютер и проверьте ее работу, делая в программе изменения и получая соответствующие результаты.
+<PRE>
+/* Простой пример программы обработки списка,
+   в которой используется массив структур. */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX 100
+
+struct addr {
+  char name[30];
+  char street[40];
+  char city[20];
+  char state[3];
+  unsigned long int zip;
+} addr_list[MAX];
+
+void init_list(void), enter(void);
+void delete(void), list(void);
+int menu_select(void), find_free(void);
+
+int main(void)
+{
+  char choice;
+
+  init_list(); /* инициализация массива структур */
+  for(;;) {
+    choice = menu_select();
+    switch(choice) {
+      case 1: enter();
+        break;
+      case 2: delete();
+        break;
+      case 3: list();
+        break;
+      case 4: exit(0);
+    }
+  }
+
+  return 0;
+}
+
+/* Инициализация списка. */
+void init_list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) addr_list[t].name[0] = '\0';
+}
+
+/* Получения значения, выбранного меню. */
+int menu_select(void)
+{
+  char s[80];
+  int c;
+
+  printf("1. Введите имя\n");
+  printf("2. Удалите имя\n");
+  printf("3. Выведите список\n");
+  printf("4. Выход\n");
+  do {
+    printf("\nВведите номер нужного пункта: ");
+    gets(s);
+    c = atoi(s);
+  } while(c&lt;0 || c&gt;4);
+  return c;
+}
+
+/* Ввод адреса в список. */
+void enter(void)
+{
+  int slot;
+  char s[80];
+
+  slot = find_free();
+
+  if(slot==-1) {
+    printf("\nСписо заполнен");
+    return;
+  }
+
+  printf("Введите имя: ");
+  gets(addr_list[slot].name);
+
+  printf("Введите улицу: ");
+  gets(addr_list[slot].street);
+
+  printf("Введите город: ");
+  gets(addr_list[slot].city);
+
+  printf("Введите штат: ");
+  gets(addr_list[slot].state);
+
+  printf("Введите почтовый индекс: ");
+  gets(s);
+  addr_list[slot].zip = strtoul(s, '\0', 10);
+}
+
+/* Поиск свободной структуры. */
+int find_free(void)
+{
+  register int t;
+
+  for(t=0; addr_list[t].name[0] && t&lt;MAX; ++t) ;
+
+  if(t==MAX) return -1; /* свободных структур нет */
+  return t;
+}
+
+/* Удаление адреса. */
+void delete(void)
+{
+  register int slot;
+  char s[80];
+
+  printf("Введите № записи: ");
+  gets(s);
+  slot = atoi(s);
+
+  if(slot&gt;=0 && slot &lt; MAX)
+    addr_list[slot].name[0] = '\0';
+}
+
+/* Вывод списка на экран. */
+void list(void)
+{
+  register int t;
+
+  for(t=0; t&lt;MAX; ++t) {
+    if(addr_list[t].name[0]) {
+      printf("%s\n", addr_list[t].name);
+      printf("%s\n", addr_list[t].street);
+      printf("%s\n", addr_list[t].city);
+      printf("%s\n", addr_list[t].state);
+      printf("%lu\n\n", addr_list[t].zip);
+    }
+  }
+  printf("\n\n");
+}
+</PRE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#07">Содержание</A> | <A href="0701.htm">&lt;&lt;&lt;</A> | <A href="0703.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

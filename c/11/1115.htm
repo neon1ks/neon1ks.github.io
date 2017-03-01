@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Зарезервированный идентификатор	__func__ - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#11">Содержание</A> | <A href="1114.htm">&lt;&lt;&lt;</A> | <A href="1116.htm">&gt;&gt;&gt;</A><HR>
+<H1>Зарезервированный идентификатор	__func__</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В С99 определен идентификатор	<KBD>__func__</KBD>, который указывает (в виде строкового литерала) имя функции, в которой встречается	<KBD>__func__</KBD>. Например,
+<PRE>
+void StrUpper(char *str)
+{
+  static int i = 0;
+  
+  i++;
+  printf("Функция %s была вызвана %d раз(а).\n", __func__, i);
+  
+  while(*str) {
+    *str = toupper(*str);
+    str++;
+  }
+}
+</PRE>
+<P class="tj">При первом вызове функции <KBD>StrUpper()</KBD> появится следующий вывод:
+<PRE>Функция StrUpper была вызвана 1 раз(а).</PRE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#11">Содержание</A> | <A href="1114.htm">&lt;&lt;&lt;</A> | <A href="1116.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

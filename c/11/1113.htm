@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Новые возможности семейства функций printf() и scanf() - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#11">Содержание</A> | <A href="1112.htm">&lt;&lt;&lt;</A> | <A href="1114.htm">&gt;&gt;&gt;</A><HR>
+<H1>Новые возможности семейства функций printf() и scanf()</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В С99 для семейства функций <KBD>printf()</KBD> и <KBD>scanf()</KBD> предусмотрена новая возможность: они могут манипулировать с типами данных <KBD>long long int</KBD> и <KBD>unsigned long long int</KBD>. Модификатором формата для <KBD>long long</KBD> является <KBD>ll</KBD>. Например, в следующем фрагменте показано, как выводить значения типа <KBD>long long int</KBD> и <KBD>unsigned long long int</KBD>:
+<PRE>
+long long int val;
+unsigned long long int u_val;
+printf("%lld %llu", val, u_val);
+</PRE>
+<P class="tj">Модификатор <KBD>ll</KBD> можно применять к спецификаторам формата: <KBD>d</KBD>, <KBD>i</KBD>, <KBD>о</KBD>, <KBD>u</KBD> и <KBD>x</KBD> — как для <KBD>printf()</KBD>, так и для <KBD>scanf()</KBD>.
+<P class="tj">В С99 добавлен модификатор <KBD>hh</KBD>, который применяется для указания <KBD>char</KBD>-аргумента вместе со спецификаторами формата: <KBD>d</KBD>, <KBD>i</KBD>, <KBD>о</KBD>, <KBD>u</KBD> и <KBD>x</KBD>.
+<P class="tj">Оба модификатора, <KBD>ll</KBD> и <KBD>hh</KBD>, можно использовать также вместе со спецификатором <KBD>n</KBD>.
+<P class="tj">Спецификаторы формата <KBD>a</KBD> и <KBD>A</KBD>, которые были добавлены к <KBD>printf()</KBD>, заставляют выводить значение с плавающей точкой в шестнадцатеричном формате. Формат значения получается следующий:
+<PRE>[-]0xh.hhhhp+d</PRE>
+<P class="tj">Если используется <KBD>А</KBD>, то x и p будут выводиться на верхнем регистре. Спецификаторы формата <KBD>a</KBD> и <KBD>A</KBD> были также добавлены к <KBD>scanf()</KBD> и они читают значение с плавающей точкой.
+<P class="tj">В С99 разрешается при вызове <KBD>printf()</KBD> к спецификатору <KBD>%f</KBD> добавлять модификатор <KBD>l</KBD> (тогда получится <KBD>%lf</KBD>), но от этого нет никакой пользы<SUP><A href="#11" name="1">[1]</A></SUP>. В С89 <KBD>%lf</KBD> для <KBD>printf()</KBD> не определяется.
+<P><IMG src="../work/sup.bmp" alt="----------">
+<BLOCKQUOTE>
+<P class="tj"><SUP><A href="#1" name="11">[1]</A></SUP>Иногда есть: если строка формата используется и для других целей.
+</BLOCKQUOTE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#11">Содержание</A> | <A href="1112.htm">&lt;&lt;&lt;</A> | <A href="1114.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

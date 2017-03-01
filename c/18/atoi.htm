@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция atoi - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция atoi</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+int atoi(const char *<I>str</I>);
+</PRE>
+<P class="tj">Функция <KBD>atoi()</KBD> преобразует строку, адресуемую параметром <I>str</I>, в значение типа <KBD>int</KBD>. Эта строка должна содержать допустимое целое число. В противном случае возвращаемое значение не определено.
+<P class="tj">После числа может следовать любой символ, который не может быть частью целого числа. Имеются в виду пробелы, символы табуляции и пустой строки, знаки препинания и буквы. Это значит, что, если функция <KBD>atoi()</KBD> вызывается с аргументом <KBD>"123.23"</KBD>, будет возвращено целое значение <KBD>123</KBD>, а подстрока <KBD>".23"</KBD> будет проигнорирована.
+<H2>Пример</H2>
+<P class="tj">Следующая программа считывает два целых числа и выводит их сумму:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char num1[80], num2[80];
+
+  printf("Введите первое число: ");
+  gets(num1);
+  printf("Введите второе число: ");
+  gets(num2);
+  printf("Сумма: %d.", atoi(num1)+atoi(num2));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="atof.htm">atof()</A>  <A href="atol.htm">atol()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

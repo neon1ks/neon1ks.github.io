@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функции времени, даты и локализации - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#16">Содержание</A><HR>
+<H1>Функции времени, даты и локализации</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В библиотеке стандартных функций несколько функций предназначено для работы с датой и временем. В ней также определены функции, которые обрабатывают геополитическую информацию, связанную с программой. Приведем описание этих функций.
+<P class="tj">Для использования функций времени и даты необходим заголовочный файл <KBD>&lt;time.h&gt;</KBD>. Этот файл определяет три типа данных, связанных с исчислением времени: <KBD>clock_t</KBD>, <KBD>time_t</KBD>, и <KBD>tm</KBD>. Типы данных <KBD>clock_t</KBD> и <KBD>time_t</KBD> предназначены для представления системного времени и даты в виде некоторого целого значения, называемого календарным временем. Структурный тип <KBD>tm</KBD> содержит дату и время, разбитые на составляющие компоненты. Структура <KBD>tm</KBD> состоит из следующих членов:</P>
+<TABLE align=center border=1 width=100%>
+<TR><TD><KBD>int&nbsp;tm_sec;</KBD><TD>/* секунды, 0-60 */
+<TR><TD><KBD>int&nbsp;tm_min;</KBD><TD>/* минуты, 0-59 */
+<TR><TD><KBD>int&nbsp;tm_hour;</KBD><TD>/* часы, 0-23 */
+<TR><TD><KBD>int&nbsp;tm_mday;</KBD><TD>/* день месяца, 1-31 */
+<TR><TD><KBD>int&nbsp;tni_mon;</KBD><TD>/* месяцы, начиная с января, 0-11 */
+<TR><TD><KBD>int&nbsp;tm_year;</KBD><TD>/* годы, начиная с 1900 */
+<TR><TD><KBD>int&nbsp;tm_wday;</KBD><TD>/* дни, начиная с воскресенья, 0-6 */
+<TR><TD><KBD>int&nbsp;tm_yday;</KBD><TD>/* дни, начиная с 1 января, 0-365 */
+<TR><TD><KBD>int&nbsp;tm_isdst;</KBD><TD>/* индикатор летнего времени */
+</TABLE>
+<P class="tj">Значение <KBD>tmisdst</KBD> положительно, если действует режим летнего времени (Daylight Saving Time), равно нулю, если не действует, и отрицательно, если информация об этом недоступна. Такой формат представления времени и даты называется разделенным на компоненты календарным временем (<I>broken-down time</I>).
+<P class="tj">Кроме того, в <KBD>&lt;time.h&gt;</KBD> определен макрос <KBD>CLOCKS_PER_SEC</KBD>, который содержит число тактов системных часов в секунду.
+<P class="tj">Функции геополитического окружения описаны в заголовочном файле <KBD>&lt;locale.h&gt;</KBD>. В нем определена структура <KBD>lconv</KBD>, которая приведена в описании функции <KBD>localeconv()</KBD>.</P>
+<A name="00"></A>
+<A href="asctime.htm">asctime</A><BR>
+<A href="clock.htm">clock</A><BR>
+<A href="ctime.htm">ctime</A><BR>
+<A href="difftime.htm">difftime</A><BR>
+<A href="gmtime.htm">gmtime</A><BR>
+<A href="localeconv.htm">localeconv</A><BR>
+<A href="localtime.htm">localtime</A><BR>
+<A href="mktime.htm">mktime</A><BR>
+<A href="setlocale.htm">setlocale</A><BR>
+<A href="strftime.htm">strftime</A><BR>
+<A href="time.htm">time</A><BR>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#16">Содержание</A>
+</BODY>
+</html>

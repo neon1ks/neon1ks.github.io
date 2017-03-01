@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функции для преобразования формата целочисленных значений - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#20">Содержание</A> | <A href="stdint_h.htm">&lt;&lt;&lt;</A> | <A href="tgmath_h.htm">&gt;&gt;&gt;</A><HR>
+<H1>Функции для преобразования формата целочисленных значений</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В версии С99 добавлен ряд специализированных функций для преобразования формата целочисленных значений, которые позволяют преобразовывать целые значения в так называемые значения максимальной разрядности и наоборот — уменьшать разрядность при необходимости. Эти функции описаны в заголовке <KBD>&lt;inttypes.h&gt;</KBD>, который включает также заголовок <KBD>&lt;stdint.h&gt;</KBD>. Заголовок <KBD>&lt;inttypes.h&gt;</KBD> определяет один тип: структуру <KBD>imaxdiv_t</KBD>, в которой хранится значение, возвращаемое функцией <KBD>imaxdiv()</KBD>. Функции для преобразования формата целочисленных значений перечислены в табл. 20.3.
+<P class="tj">В заголовке <KBD>&lt;inttypes.h&gt;</KBD> также определено множество макросов, которые можно использовать в вызовах функций семейств <KBD>printf()</KBD> и <KBD>scanf()</KBD> для задания различных преобразований целых чисел. Макросы для функции <KBD>printf()</KBD> начинаются с префикса <KBD>PRI</KBD>, а макросы для функции <KBD>scanf()</KBD> — с префикса <KBD>SCN</KBD>. За этими префиксами стоит спецификатор преобразования, например <KBD>d</KBD> или <KBD>u</KBD>, затем следует имя типа (например, <I>N</I>, <KBD>MAX</KBD>, <KBD>PTR</KBD>, <KBD>FAST<I>N</I></KBD> или <KBD>LEAST<I>N</I></KBD>, где <I>N</I> задает разрядность). Точный список поддерживаемых макросов для задания различных преобразований целых чисел должен быть описан в документации к компилятору.</P>
+<TABLE align=center border=1 width=100%>
+<CAPTION><B>Таблица 20.3. Функции для преобразования целочисленных значений в формат с максимальной разрядностью и функции, выполняющие обратные преобразования
+</B></CAPTION>
+<TR><TH><I>Функция</I><TH><I>Описание</I>
+<TR><TD><PRE>intmax_t imaxabs(
+  intmax_t <I>arg</I>);<PRE><TD class="t">Возвращает абсолютное значение параметра <I>arg</I>
+<TR><TD><PRE>imaxdiv_t imaxdiv(
+  intmax_t <I>numerator</I>,
+  intmax_t <I>denominator</I>);<PRE><TD class="t">Возвращает структуру <KBD>imaxdiv_t</KBD>, которая содержит результат выполнения операции деления числителя <I>numerator</I> на знаменатель <I>denominator</I>. Частное занимает поле <KBD>quot</KBD>, а остаток — поле <KBD>rem</KBD>. Как поле <KBD>quot</KBD>, так и поле <KBD>rem</KBD> имеют тип <KBD>intmax_t</KBD>
+<TR><TD><PRE>intmax_t strtoimax(
+  const char * restrict <I>start</I>,
+  char ** restrict <I>end</I>,
+  int <I>base</I>);<PRE><TD class="t">Версия функции <KBD>strtol()</KBD> для целочисленных параметров максимальной	разрядности
+<TR><TD><PRE>uintmax_t strtoumax(
+  const char * restrict <I>start</I>,
+  char ** restrict <I>end</I>,
+  int <I>base</I>);<PRE><TD class="t">Версия функции <KBD>strtoul()</KBD> для целочисленных параметров максимальной разрядности
+<TR><TD><PRE>intmax_t wcstoimax(
+  const char * restrict <I>start</I>,
+  char ** restrict <I>end</I>,
+  int <I>base</I>);<PRE><TD class="t">Версия функции <KBD>wcstol()</KBD> для целочисленных параметров максимальной разрядности
+<TR><TD><PRE>uintmax_t wcstoumax(
+  const char * restrict <I>start</I>,
+  char ** restrict <I>end</I>,
+  int <I>base</I>);<PRE><TD class="t">Версия функции <KBD>wcstoul()</KBD> для целочисленных параметров максимальной разрядности
+</TABLE>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#20">Содержание</A> | <A href="stdint_h.htm">&lt;&lt;&lt;</A> | <A href="tgmath_h.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

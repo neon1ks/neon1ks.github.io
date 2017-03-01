@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция fabs - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
+<H1>Функция fabs</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;math.h&gt;
+float fabsf(float <I>num</I>);
+double fabs(double <I>num</I>);
+long double fabsl(long double <I>num</I>);
+</PRE>
+<P class="tj">Функции <KBD>fabsf()</KBD> и <KBD>fabsl()</KBD> добавлены в версии С99.
+<P class="tj">Каждая функция семейства <KBD>fabs()</KBD> возвращает абсолютное значение аргумента <I>num</I>.
+<H2>Пример</H2>
+<P class="tj">Данная программа дважды выводит на экран число <PRE>1.0</PRE>
+<PRE>
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  printf("%1.1f %1.1f", fabs(1.0), fabs(-1.0));
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="../18/abs.htm">abs()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
+</BODY>
+</html>

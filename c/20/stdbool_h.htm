@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Заголовок &lt;stdbool.h&gt; - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#20">Содержание</A> | <A href="tgmath_h.htm">&lt;&lt;&lt;</A> | <A href="../IV.htm">&gt;&gt;&gt;</A><HR>
+<H1>Заголовок &lt;stdbool.h&gt;</H1>
+
+
+
+
+
+
+
+
+<P class="tj">В стандарт С99 добавлен заголовок <KBD>&lt;stdbool.h&gt;</KBD>, который поддерживает тип данных <KBD>_Вооl</KBD>. Хотя в нем не определено ни одной функции, на самом деле он определяет следующие четыре макроса.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TH><I>Макрос</I><TH><I>Расширение</I>
+<TR><TD><KBD>bool</KBD><TD><KBD>_Bool</KBD>
+<TR><TD><KBD>true</KBD><TD><KBD>1</KBD>
+<TR><TD><KBD>false</KBD><TD><KBD>0</KBD>
+<TR><TD><KBD>_ _bool_true_false_are_defined</KBD><TD><KBD>1</KBD>
+</TABLE>
+<P class="tj">В версии С99 вместо ключевого слова <KBD>bool</KBD> определено ключевое слово <KBD>_Вооl</KBD>, поскольку во многих существующих С-программах уже определены собственные пользовательские версии типа <KBD>bool</KBD>. Определение в версии С99 логического (булева) типа в виде ключевого слова <KBD>_Вооl</KBD> позволяет избежать переписывания созданного ранее программного кода. То же объяснение относится и к ключевым словам <KBD>true</KBD> и <KBD>false</KBD> Однако при написании новых программ лучше всего включить в них заголовок <KBD>&lt;stdbool.h&gt;</KBD>, а затем использовать макросы <KBD>bool</KBD>, <KBD>true</KBD> и <KBD>false</KBD>. Благодаря этому вы сможете создавать программы, совместимые с языком C++.
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#20">Содержание</A> | <A href="tgmath_h.htm">&lt;&lt;&lt;</A> | <A href="../IV.htm">&gt;&gt;&gt;</A>
+</BODY>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция bsearch - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция bsearch</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+void *bsearch(const void *<I>key</I>, const void *<I>buf</I>,
+              size_t <I>num</I>, size_t <I>size</I>,
+              int (*<I>compare</I>) (const void *, const void *));
+
+</PRE>
+<P class="tj">Функция <KBD>bsearch()</KBD> выполняет двоичный поиск в отсортированном массиве, адресуемом параметром <I>buf</I>, и возвращает указатель на первый член, который совпадает с искомым ключом-значением, адресуемым параметром <I>key</I>. Количество элементов в массиве задается параметром <I>num</I>, а размер (в байтах) каждого элемента — параметром <I>size</I>.
+<P class="tj">Для сравнения каждого элемента массива с ключом-значением используется функция, адресуемая параметром <I>compare</I>. Функция <I>compare</I> должна иметь следующее определение.
+<PRE>int <I>func_name</I>(const void *<I>arg1</I>, const void *<I>arg2</I>);</PRE>
+<P class="tj">Она должна возвращать значения, описанные в следующей таблице.</P>
+<TABLE align=center border=1 width=100%>
+<TR><TH><I>Сравнение</I><TH><I>Возвращаемое значение</I>
+<TR><TD><I>arg1</I> меньше чем <I>arg2</I><TD>Меньше нуля
+<TR><TD><I>arg1</I> равен <I>arg2</I><TD>Нуль
+<TR><TD><I>arg1</I> больше чем <I>arg2</I><TD>Больше нуля
+</TABLE>
+<P class="tj">Массив должен быть отсортирован в порядке возрастания, чтобы по самому младшему адресу содержался наименьший элемент. Если массив не содержит искомого ключа-значения, возвращается нулевой указатель.
+<H2>Пример</H2>
+<P class="tj">Следующая программа считывает вводимые с клавиатуры символы и определяет, входят ли они в алфавит:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+
+char *alpha = "abcdefghijklmnopqrstuvwxyz";
+
+int comp(const void *ch, const void *s);
+
+int main(void)
+{
+  char ch;
+  char *p;
+
+  printf("Введите символ: ");
+  ch = getchar();
+  ch = tolower(ch);
+  p = (char *) bsearch(&ch, alpha, 26, 1, comp);
+  if(p) printf(" %c находится в алфавите\n", *p);
+  else printf("не входит в алфавит\n");
+
+  return 0;
+}
+
+/* Сравнивает два символа. */
+int comp(const void *ch, const void *s)
+{
+  return *(char *)ch - *(char *)s;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="qsort.htm">qsort()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

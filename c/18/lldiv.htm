@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция lldiv - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция lldiv</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+lldiv_t lldiv(long long int <I>numerator</I>, long long int <I>denominator</I>);
+</PRE>
+<P class="tj">Функция <KBD>lldiv()</KBD> добавлена в версии С99.
+<P class="tj">Функция <KBD>lldiv()</KBD> возвращает в структуре типа <KBD>lldiv_t</KBD> частное и остаток, полученные в результате деления числителя <I>numerator</I> на знаменатель <I>denominator</I>. Функция <KBD>lldiv()</KBD> аналогична функции <KBD>ldiv()</KBD>, но работает со значениями типа <KBD>long long int</KBD>.
+<P class="tj">Структура типа <KBD>lldiv_t</KBD> имеет следующие два поля:
+<PRE>
+long long int quot; /* частное */
+long long int rem;  /* остаток */
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="div.htm">div()</A>  <A href="ldiv.htm">ldiv()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>

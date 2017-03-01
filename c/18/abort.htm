@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<HEAD>
+<TITLE>Функция abort - cправочник по Си</TITLE>
+<meta charset="utf-8"> 
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
+</HEAD><BODY>
+<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
+<H1>Функция abort</H1>
+
+
+
+
+
+
+
+
+<PRE>
+#include &lt;stdlib.h&gt;
+void abort(void);
+</PRE>
+<P class="tj">Функция <KBD>abort()</KBD> вызывает немедленное аварийное завершение программы. Как правило, буфера файлов не дозаписываются. В средах, которые поддерживают эту функцию, она возвращает вызывающему процессу (обычно им является операционная система) значение (определяемое конкретной реализацией), которое сигнализирует об отказе.
+<H2>Пример</H2>
+<P class="tj">Эта программа заканчивается, если пользователь вводит А:
+<PRE>
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  for(;;)
+    if(getchar()=='A') abort();
+
+  return 0;
+}
+</PRE>
+<H2>Зависимые функции</H2>
+<A href="exit.htm">exit()</A>  <A href="atexit.htm">atexit()</A>
+
+
+<p>
+
+
+
+
+
+
+</p>
+<small>
+ 
+</small><HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
+</BODY>
+</html>
