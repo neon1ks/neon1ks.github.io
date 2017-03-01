@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Функции fprinf() и fscanf() - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#09">Содержание</A> | <A href="0906.htm">&lt;&lt;&lt;</A> | <A href="0908.htm">&gt;&gt;&gt;</A><HR>
@@ -43,7 +43,7 @@ int main(void)
   fscanf(stdin, "%s%d", s, &t); /* читать с клавиатуры */
 
   fprintf(fp, "%s %d", s, t); /* писать в файл */
-  fclose(fp); 
+  fclose(fp);
 
   if((fp=fopen("test","r")) == NULL) {
     printf("Ошибка при открытии файла.\n");

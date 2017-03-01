@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Функция localeconv - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
@@ -21,10 +21,10 @@ struct lconv *localeconv(void)
 </PRE>
 <P class="tj">Функция <KBD>localeconv()</KBD> возвращает указатель на структуру типа <KBD>lconv</KBD>, которая содержит различную информацию о геополитической среде, связанную со способом форматирования чисел. Структура <KBD>lconv</KBD> включает следующие члены:</P>
 <table class="table table-bordered">
-<TR><TD><KBD>char&nbsp;decimal_point;</KBD><TD>/*  Символ десятичной точки для неденежных значений.  */ 
+<TR><TD><KBD>char&nbsp;decimal_point;</KBD><TD>/*  Символ десятичной точки для неденежных значений.  */
 <TR><TD><KBD>char&nbsp;thousands_sep;</KBD><TD>/*  Разделитель тысяч для неденежных значений.  */
 <TR><TD><KBD>char&nbsp;grouping;</KBD><TD>/*  Определяет группирование для неденежных значений.  */
-<TR><TD><KBD>char&nbsp;int_curr_symbol;</KBD><TD>/*  Символ международной валюты.  */ 
+<TR><TD><KBD>char&nbsp;int_curr_symbol;</KBD><TD>/*  Символ международной валюты.  */
 <TR><TD><KBD>char&nbsp;currency_symbol;</KBD><TD>/*  Символ местной валюты.  */
 <TR><TD><KBD>char&nbsp;mon_decimal_point;</KBD><TD>/*  Символ десятичной точки для денежных значений.  */
 <TR><TD><KBD>char&nbsp;mon_thousands_sep;</KBD><TD>/*  Разделитель тысяч для денежных значений.  */
@@ -43,7 +43,7 @@ struct lconv *localeconv(void)
 <TR><TD colspan=2 align=center><B>/* Следующие члены добавлены в С99. */</B>
 
 <TR><TD><KBD>char&nbsp;_p_cs_precedes;</KBD><TD>/*  1 - если символ валюты предшествует положительному значению, 0 - если символ валюты следует за значением. Применяется для значений в межд ународном формате.  */
- 
+
 <TR><TD><KBD>char&nbsp;_p_sep_by_space;</KBD><TD>/*  Разделитель между символом валюты, знаком и положительным значением. Применяется для значений в международном формате.  */
 <TR><TD><KBD>char&nbsp;_n_cs_precedes;</KBD><TD>/*  1 - если символ валюты предшествует отрицательному значению, 0 - если символ валюты следует за значением. Применяется для значений в международном формате.  */
 <TR><TD><KBD>char&nbsp;_n_sep_by_space;</KBD><TD>/*  Разделитель между символом валюты, знаком и отрицательным значением. Применяется для значений в международном формате.  */

@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Скелет программы для Windows 2000 - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#26">Содержание</A> | <A href="2605.htm">&lt;&lt;&lt;</A> | <A href="2607.htm">&gt;&gt;&gt;</A><HR>
@@ -35,7 +35,7 @@ LRESULT CALLBACK WindowFunc(HWND, UINT, WPARAM, LPARAM);
 
 char szWinName[] = "MyWin"; /* имя класса окна */
 
-int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, 
+int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
                    LPSTR lpszArgs, int nWinMode)
 {
   HWND hwnd;
@@ -43,7 +43,7 @@ int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
   WNDCLASSEX wcl;
 
   /* Определим класс окна. */
-  wcl.cbSize = sizeof(WNDCLASSEX); 
+  wcl.cbSize = sizeof(WNDCLASSEX);
 
   wcl.hInstance = hThisInst;     /* дескриптор даннонго экземпляра */
   wcl.lpszClassName = szWinName; /* имя класса окна */
@@ -57,10 +57,10 @@ int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
 
   wcl.lpszMenuName = NULL; /* класс меню отсутствует */
   wcl.cbClsExtra = 0;      /* дополнительная память не требуется */
-  wcl.cbWndExtra = 0; 
+  wcl.cbWndExtra = 0;
 
   /* Сделаем белым цвет фона окна. */
-  wcl.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH); 
+  wcl.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH);
 
   /* Зарегистрируем класс окна. */
   if(!RegisterClassEx(&wcl)) return 0;
@@ -95,7 +95,7 @@ int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
   return msg.wParam;
 }
 
-/* Эта функция вызывается Windows 2000 и пересылает 
+/* Эта функция вызывается Windows 2000 и пересылает
    сообщения из очереди сообщений.
 */
 LRESULT CALLBACK WindowFunc(HWND hwnd, UINT message,

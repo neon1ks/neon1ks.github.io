@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Неявный int больше не поддерживается - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#11">Содержание</A> | <A href="1116.htm">&lt;&lt;&lt;</A> | <A href="1118.htm">&gt;&gt;&gt;</A><HR>
@@ -33,7 +33,7 @@ int isEven(int val)
 <P class="t">часто писалась примерно так:
 <PRE>
 /* по умолчанию используется целый тип */
-isEven(int val) 
+isEven(int val)
 {
   return !(val%2);
 }
@@ -41,7 +41,7 @@ isEven(int val)
 <P class="tj">В первом экземпляре кода возвращаемый тип <KBD>int</KBD> указывается явно. Во втором — это подразумевается по умолчанию.
 <P class="tj">Правило неявного <KBD>int</KBD> применялось не только к возвращаемым значениям функций (хотя здесь оно применялось чаще всего). Например, в С89 и более ранних версиях функцию <KBD>isEven()</KBD> можно было писать примерно еще и так:
 <PRE>
-isEven(const val) 
+isEven(const val)
 {
   return !(val%2);
 }

@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Использование программы MAKE - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#27">Содержание</A> | <A href="2702.htm">&lt;&lt;&lt;</A> | <A href="2704.htm">&gt;&gt;&gt;</A><HR>
@@ -59,7 +59,7 @@ int main(void)
   printf("count = %d\n", count);
   test3( );
   printf("count = %d\n", count);
-  
+
   return 0;
 }
 
@@ -113,7 +113,7 @@ test3.obj: test3.c test.h
         cl -c test3.c
 
 test.exe: test.h test.obj test2.obj test3.obj
-        cl test.obj test2.obj test3.obj 
+        cl test.obj test2.obj test3.obj
 </PRE>
 <P class="tj">Теперь работа будет выполнена неправильно, если файл TEST.H (или любой другой исходный файл) будет изменен. Это происходит потому, что последняя директива (которая создает новый TEST.EXE) больше не будет выполняться.
 <H2>Использование макросов в MAKE</H2>

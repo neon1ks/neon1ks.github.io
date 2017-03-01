@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Представление разреженного массива в виде связного списка - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#23">Содержание</A> | <A href="2301.htm">&lt;&lt;&lt;</A> | <A href="2303.htm">&gt;&gt;&gt;</A><HR>
@@ -42,8 +42,8 @@ struct cell *last = NULL;  /* последний элемент списка */
 <PRE>
 /* Вставка ячеек в упорядоченный список. */
 void dls_store(struct cell *i, /* указатель на вставляемую ячейку */
-               struct cell **start, 
-               struct cell **last) 
+               struct cell **start,
+               struct cell **last)
 {
   struct cell *old, *p;
 
@@ -63,7 +63,7 @@ void dls_store(struct cell *i, /* указатель на вставляемую
       old = p;
       p = p->next;
     }
-    else { 
+    else {
       if(p->prior) { /* это элемент из середины */
         p->prior->next = i;
         i->next = p;

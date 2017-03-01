@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Зарезервированный идентификатор	__func__ - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#11">Содержание</A> | <A href="1114.htm">&lt;&lt;&lt;</A> | <A href="1116.htm">&gt;&gt;&gt;</A><HR>
@@ -20,10 +20,10 @@
 void StrUpper(char *str)
 {
   static int i = 0;
-  
+
   i++;
   printf("Функция %s была вызвана %d раз(а).\n", __func__, i);
-  
+
   while(*str) {
     *str = toupper(*str);
     str++;

@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Функция fread - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
@@ -41,7 +41,7 @@ int main(void)
     exit(1);
   }
 
-  if(fwrite(bal, sizeof(float), 5, fp) != 5) 
+  if(fwrite(bal, sizeof(float), 5, fp) != 5)
     printf("Ошибка при записи файла.");
   fclose(fp);
 
@@ -58,7 +58,7 @@ int main(void)
   fclose(fp);
 
   for(i=0; i&lt;5; i++)
-    printf("%f ", bal[i]);  
+    printf("%f ", bal[i]);
 
   return 0;
 }

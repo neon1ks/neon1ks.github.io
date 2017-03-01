@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Интерпретатор Little C - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#29">Содержание</A> | <A href="2905.htm">&lt;&lt;&lt;</A> | <A href="2907.htm">&gt;&gt;&gt;</A><HR>
@@ -43,7 +43,7 @@ void prescan(void)
 {
   char *p, *tp;
   char temp[32];
-  int datatype; 
+  int datatype;
   int brace = 0;  /* Если brace = 0, то текущая
                      позиция указателя программы находится
                      в не какой-либо функции. */
@@ -60,7 +60,7 @@ void prescan(void)
     tp = prog; /* запоминание текущей позиции */
     get_token();
     /* тип глобальной переменной или возвращаемого значения функции */
-    if(tok==CHAR || tok==INT) { 
+    if(tok==CHAR || tok==INT) {
       datatype = tok; /* запоминание типа данных */
       get_token();
       if(token_type == IDENTIFIER) {
@@ -127,7 +127,7 @@ void decl_global(void)
 <PRE>
 struct func_type {
   char func_name[ID_LEN];
-  int ret_type; 
+  int ret_type;
   char *loc;  /* адрес точки входа в файл */
 } func_table[NUM_FUNC];
 
@@ -315,7 +315,7 @@ struct var_type local_var_stack[NUM_LOCAL_VARS];
 
 struct func_type {
   char func_name[ID_LEN];
-  int ret_type; 
+  int ret_type;
   char *loc;  /* адрес точки входа в файл */
 } func_table[NUM_FUNC];
 
@@ -493,7 +493,7 @@ void prescan(void)
 {
   char *p, *tp;
   char temp[32];
-  int datatype; 
+  int datatype;
   int brace = 0;  /* Если brace = 0, то текущая
                      позиция указателя программы находится
                      в не какой-либо функции. */
@@ -510,7 +510,7 @@ void prescan(void)
     tp = prog; /* запоминание текущей позиции */
     get_token();
     /* тип глобальной переменной или возвращаемого значения функции */
-    if(tok==CHAR || tok==INT) { 
+    if(tok==CHAR || tok==INT) {
       datatype = tok; /* запоминание типа данных */
       get_token();
       if(token_type == IDENTIFIER) {
@@ -751,7 +751,7 @@ int find_var(char *s)
       return global_vars[i].value;
 
   sntx_err(NOT_VAR); /* переменная не найдена */
-  return -1; 
+  return -1;
 }
 
 /* Если индентификатор является переменной, то
@@ -1032,11 +1032,11 @@ int count;
 int main()
 {
   int count, i;
-  
+
   count = 10;
-  
+
   i = f();
-  
+
   return 0;
 }
 
