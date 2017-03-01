@@ -48,11 +48,17 @@ li.t + li.t {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
-  border: 1px solid #dfd7ca;
 }
 
 .table th,
 .table td {
-  border: 1px solid #dfd7ca;
   padding: 8px;
+}
+
+.table-bordered {
+  border: 1px solid #dfd7ca;
+}
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dfd7ca;
 }
