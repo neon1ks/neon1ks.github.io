@@ -2,7 +2,7 @@
 <html lang="ru">
 <HEAD>
 <TITLE>Синтаксический анализатор выражений - cправочник по Си</TITLE>
-<meta charset="utf-8"> 
+<meta charset="utf-8">
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
 <A href="../main.htm#29">Содержание</A> | <A href="2904.htm">&lt;&lt;&lt;</A> | <A href="2906.htm">&gt;&gt;&gt;</A><HR>
@@ -29,7 +29,7 @@
 строки                      операторы          знаки пунктуации
 </PRE>
 <P class="tj"><I>Зарезервированные слова</I> — это лексемы, составляющие язык С; к ним относится, например, <KBD>while</KBD>. <I>Идентификаторы</I> — это имена переменных, функций и типов, определенных пользователем (в Little С не реализованы). <I>Знаки пунктуации</I> — это некоторые символы, такие как точка с запятой, запятая, различные скобки и т.п. В зависимости от контекста, некоторые из этих символов, могут быть операторами. Приведем пример разбиения на лексемы при разборе оператора слева направо. Оператор
-<PRE>for(x=0; x<10; x=x+1) printf("алло %d", x);
+<PRE>for (x = 0; x &lt; 10; x = x + 1) printf("алло %d", x);
 </PRE>
 <P class="t">состоит из следующих лексем:
 <PRE>
@@ -335,7 +335,7 @@ extern struct var_type {
 /* Это стек вызова функции. */
 extern struct func_type {
   char func_name[32];
-  int ret_type; 
+  int ret_type;
   char *loc;  /* адрес входа функции в файле */
 } func_stack[NUM_FUNC];
 
@@ -505,7 +505,7 @@ void eval_exp3(int *value)
         *value = *value * partial_value;
         break;
       case '/':
-        if(partial_value == 0) sntx_err(DIV_BY_ZERO);       
+        if(partial_value == 0) sntx_err(DIV_BY_ZERO);
         *value = (*value) / partial_value;
         break;
       case '%':
@@ -855,6 +855,6 @@ struct intern_func_type {
 
 </p>
 <small>
- 
+
 </small><HR><A href="../main.htm#29">Содержание</A> | <A href="2904.htm">&lt;&lt;&lt;</A> | <A href="2906.htm">&gt;&gt;&gt;</A>
 </BODY></HTML>
