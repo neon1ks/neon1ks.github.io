@@ -18,8 +18,6 @@ float strtof(const char * restrict <em>start</em>, char restrict ** restrict <em
 <p class="tj">Функция <kbd>strtof()</kbd> аналогична функции <kbd>strtod()</kbd> за исключением того, что она возвращает значение типа <kbd>float</kbd>. При возникновении переполнения возвращается либо значение <kbd>HUGE_VAL</kbd>, либо значение <kbd>-HUGE_VAL</kbd>, а глобальная переменная errno устанавливается равной значению <kbd>ERANGE</kbd>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <em>start</em> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
 <h2>Зависимые функции</h2>
 <a href="atof.htm">atof()</a>  <a href="strtold.htm">strtold()</a>  <a href="strtol.htm">strtol()</a>
-<p>
-</p>
 <hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
 
 

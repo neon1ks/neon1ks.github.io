@@ -18,8 +18,6 @@ long double strtold(const char * restrict <em>start</em>, char ** restrict <em>e
 <p class="tj">Функция <kbd>strtold()</kbd> аналогична функции <kbd>strtod()</kbd> за исключением того, что она возвращает значение типа <kbd>long double</kbd>. При возникновении переполнения возвращается либо значение <kbd>HUGE_VALL</kbd>, либо значение <kbd>-HUGE_VALL</kbd>, а глобальная переменная <kbd>errno</kbd> устанавливается равной значению <kbd>ERANGE</kbd>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <em>start</em> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
 <h2>Зависимые функции</h2>
 <a href="atof.htm">atof()</a>  <a href="strtold.htm">strtold()</a>  <a href="strtof.htm">strtof()</a>
-<p>
-</p>
 <hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
 
 

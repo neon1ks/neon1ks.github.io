@@ -42,8 +42,6 @@
   mbstate_t *<em>state</em>)</pre><td class="tj">Повторно запускаемая версия функции <kbd>wcstombs()</kbd>, в которой информация о состоянии передается через параметр <em>state</em>. Кроме того, функция <kbd>wcsrtombs()</kbd> отличается от функции <kbd>wcstombs()</kbd> тем, что параметр <em>in</em> является косвенный указателем на исходный массив. При ошибке переменной <kbd>errno</kbd> присваивается макрос <kbd>EILSEQ</kbd>. В версии С99 к параметрам <em>out</em>, <em>in</em> и <em>state</em> применен квалификатор <kbd>restrict</kbd>
 <tr><td><pre>int wctob(wint_t <em>ch</em>)</pre><td class="tj">Преобразует параметр <em>ch</em> в его однобайтовый эквивалент. При сбое функция возвращает значение <kbd>EOF</kbd>
 </table>
-<p>
-</p>
 <hr><a href="../main.htm#19">Содержание</a> | <a href="1905.htm">&lt;&lt;&lt;</a> | <a href="../20/20.htm">&gt;&gt;&gt;</a>
 
 

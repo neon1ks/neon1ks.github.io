@@ -18,8 +18,6 @@ long long int strtoll(const char * restrict <em>start</em>, char ** restrict <em
 <p class="tj">Функция <kbd>strtoll()</kbd> аналогична функции <kbd>strtol()</kbd> за исключением того, что она возвращает значение типа <kbd>long long int</kbd>. Если результат не может быть представлен как значение типа <kbd>long long int</kbd>, возвращается либо значение <kbd>LLONG_MAX</kbd>, либо значение <kbd>LLONG_MIN</kbd>, а глобальная переменная <kbd>errno</kbd> устанавливается равной значению <kbd>ERANGE</kbd>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <em>start</em> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
 <h2>Зависимые функции</h2>
 <a href="atol.htm">atol()</a>  <a href="strtol.htm">strtol()</a>
-<p>
-</p>
 <hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
 
 
