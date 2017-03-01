@@ -29,3 +29,7 @@ TABLE{font-family:Courier New;font-size:12pt;}
 
 /* Текст выравненный по ширине с красной строкой используется вместе с <p> */
 .tj{text-align:justify;text-indent:10mm;}
+
+.square {
+  list-style-type: square;
+}
