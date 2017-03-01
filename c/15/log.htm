@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция log - cправочник по Си</TITLE>
+<head>
+<title>Функция log - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
-<H1>Функция log</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a><hr>
+<h1>Функция log</h1>
+<pre>
 #include &lt;math.h&gt;
-float logf(float <I>num</I>);
-double log(double <I>num</I>);
-long double logl(long double <I>num</I>);
-</PRE>
-<P class="tj">Функции <KBD>logf()</KBD> и <KBD>logl()</KBD> добавлены в версии C99.
-<P class="tj">Каждая функция семейства <KBD>log()</KBD> возвращает значение натурального логарифма от аргумента <I>num</I>. Если значение аргумента <I>num</I> отрицательно, возникает ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения). Если же значение <I>num</I> равно нулю, возможна ошибка из-зи выхода за пределы диапозона представимых значений.
-<H2>Пример</H2>
-<P class="tj">Следующая программа выводит на экран значения натуральных логарифмов чисел от 1 до 10 (с шагом 1), т.е. составляет таблицу натуральных логарифмов целых чисел от 1 до 10.
-<PRE>
+float logf(float <em>num</em>);
+double log(double <em>num</em>);
+long double logl(long double <em>num</em>);
+</pre>
+<p class="tj">Функции <kbd>logf()</kbd> и <kbd>logl()</kbd> добавлены в версии C99.
+<p class="tj">Каждая функция семейства <kbd>log()</kbd> возвращает значение натурального логарифма от аргумента <em>num</em>. Если значение аргумента <em>num</em> отрицательно, возникает ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения). Если же значение <em>num</em> равно нулю, возможна ошибка из-зи выхода за пределы диапозона представимых значений.
+<h2>Пример</h2>
+<p class="tj">Следующая программа выводит на экран значения натуральных логарифмов чисел от 1 до 10 (с шагом 1), т.е. составляет таблицу натуральных логарифмов целых чисел от 1 до 10.
+<pre>
 #include &lt;math.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -29,11 +29,11 @@ int main(void)
   } while (val&lt;11.0);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="log10.htm">log10()</A>  <A href="log2.htm">log2()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="log10.htm">log10()</a>  <a href="log2.htm">log2()</a>
 <p>
 </p>
-<HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
-</BODY>
+<hr><a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a>
+</body>
 </html>

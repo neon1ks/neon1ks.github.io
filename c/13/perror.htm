@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция perror - cправочник по Си</TITLE>
+<head>
+<title>Функция perror - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция perror</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция perror</h1>
+<pre>
 #include &lt;stdio.h&ft;
-void perror(const char *<I>str</I>);
-</PRE>
-<P class="tj">Функция <KBD>perror()</KBD> преобразует значение глобальной переменной <KBD>errno</KBD> в строку и записывает эту строку в поток ошибок <KBD>stderr</KBD>. Если значение параметра <I>str</I> не равно нулю, то сначала записывается сама строка, за ней ставится двоеточие, а затем следует сообщение об ошибке, определяемое конкретной реализацией.
-<H2>Пример</H2>
-<P class="tj">Этот фрагмент выдает сообщение о любой ошибке ввода/вывода, которая может произойти в потоке, связанном с файлом <KBD>fp</KBD>.
-<PRE>
+void perror(const char *<em>str</em>);
+</pre>
+<p class="tj">Функция <kbd>perror()</kbd> преобразует значение глобальной переменной <kbd>errno</kbd> в строку и записывает эту строку в поток ошибок <kbd>stderr</kbd>. Если значение параметра <em>str</em> не равно нулю, то сначала записывается сама строка, за ней ставится двоеточие, а затем следует сообщение об ошибке, определяемое конкретной реализацией.
+<h2>Пример</h2>
+<p class="tj">Этот фрагмент выдает сообщение о любой ошибке ввода/вывода, которая может произойти в потоке, связанном с файлом <kbd>fp</kbd>.
+<pre>
 if ferror(fp) perror(" Ошибка при работе с файлом ");
-</PRE>
+</pre>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

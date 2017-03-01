@@ -1,62 +1,62 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Строковые и символьные функции - cправочник по Си</TITLE>
+<head>
+<title>Строковые и символьные функции - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A><HR>
-<H1>Строковые и символьные функции</H1>
-<P class="tj">Стандартная библиотека языка С обладает богатым и разнообразным набором функций для обработки строк и символов. Строковые функции работают с массивами символов (строками), заканчивающимися символом конца строки. В языке С для работы со строковыми функциями используется заголовок <KBD>&lt;string.h&gt;</KBD>, для символьных функций — заголовочный файл <KBD>&lt;ctype.h&gt;</KBD>.
-<P class="tj">Поскольку в С не предусмотрен автоматический контроль нарушения границ массивов, вся ответственность за их переполнение ложится на программиста. Не следует этим пренебрегать, так как при переполнении массива может произойти аварийное завершение программы.
-<P class="tj">В С <I>печатаемыми символами</I> являются те, которые можно отобразить на терминале. В ASCII-средах они расположены между пробелом (0x20) и тильдой (OxFE). <I>Управляющие символы</I> имеют значения, лежащие в диапазоне между нулем и Ox1F; в ASCII-средах к ним также относится символ DEL (0x7F).
-<P class="tj">Исторически сложилось так, что аргументами символьных функций являются целые значения, из которых используется только младший байт. Символьные функции автоматически преобразуют свои аргументы в тип <KBD>unsigned char</KBD>. Безусловно, эти функции можно вызывать с символьными аргументами, поскольку в момент вызова функции символы автоматически преобразуются к целому типу.
-<P class="tj">В заголовке <KBD>&lt;string.h&gt;</KBD> определен тип <KBD>size_t</KBD>; это тип результата, который получается после применения оператора<SUP><A href="#11" id="1">[1]</A></SUP> <KBD>sizeof</KBD> и представляет собой разновидность целого без знака.
-<P class="tj">В этой главе описаны только те функции, которые работают с символами типа <KBD>char</KBD>. Эти функции были определены стандартом С с самого начала, и, безусловно, они являются наиболее популярными и поддерживаются большинством компиляторов. Двухбайтовые функции, работающие с символами типа <KBD>wchar_t</KBD>, описаны в <A href="../19/19.htm">главе 19</A>.
-<P class="tj">В версии С99 к некоторым параметрам нескольких функций, первоначально определенных в версии С89, добавлен квалификатор <KBD>restrict</KBD>. При рассмотрении каждой такой функции будет приведен ее прототип, используемый в среде С89 (а также в среде C++), а параметры с атрибутом <KBD>restrict</KBD> будут отмечены в описании этой функции.</P>
-<A id="00"></A>
-<A href="isalnum.htm">isalnum</A><BR>
-<A href="isalpha.htm">isalpha</A><BR>
-<A href="isblank.htm">isblank</A><BR>
-<A href="iscntrl.htm">iscntrl</A><BR>
-<A href="isdigit.htm">isdigit</A><BR>
-<A href="isgraph.htm">isgraph</A><BR>
-<A href="islower.htm">islower</A><BR>
-<A href="isprint.htm">isprint</A><BR>
-<A href="ispunct.htm">ispunct</A><BR>
-<A href="isspace.htm">isspace</A><BR>
-<A href="isupper.htm">isupper</A><BR>
-<A href="isxdigit.htm">isxdigit</A><BR>
-<A href="memchr.htm">memchr</A><BR>
-<A href="memcmp.htm">memcmp</A><BR>
-<A href="memcpy.htm">memcpy</A><BR>
-<A href="memmove.htm">memmove</A><BR>
-<A href="memset.htm">memset</A><BR>
-<A href="strcat.htm">strcat</A><BR>
-<A href="strchr.htm">strchr</A><BR>
-<A href="strcmp.htm">strcmp</A><BR>
-<A href="strcoll.htm">strcoll</A><BR>
-<A href="strcpy.htm">strcpy</A><BR>
-<A href="strcspn.htm">strcspn</A><BR>
-<A href="strerror.htm">strerror</A><BR>
-<A href="strlen.htm">strlen</A><BR>
-<A href="strncat.htm">strncat</A><BR>
-<A href="strncmp.htm">strncmp</A><BR>
-<A href="strncpy.htm">strncpy</A><BR>
-<A href="strpbrk.htm">strpbrk</A><BR>
-<A href="strrchr.htm">strrchr</A><BR>
-<A href="strspn.htm">strspn</A><BR>
-<A href="strstr.htm">strstr</A><BR>
-<A href="strtok.htm">strtok</A><BR>
-<A href="strxfrm.htm">strxfrm</A><BR>
-<A href="tolower.htm">tolower</A><BR>
-<A href="toupper.htm">toupper</A><BR>
-<p><IMG src="../work/sup.bmp" alt="----------">
-<BLOCKQUOTE>
-<P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP>В данном случае под оператором подразумевается знак функции.
-</BLOCKQUOTE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a><hr>
+<h1>Строковые и символьные функции</h1>
+<p class="tj">Стандартная библиотека языка С обладает богатым и разнообразным набором функций для обработки строк и символов. Строковые функции работают с массивами символов (строками), заканчивающимися символом конца строки. В языке С для работы со строковыми функциями используется заголовок <kbd>&lt;string.h&gt;</kbd>, для символьных функций — заголовочный файл <kbd>&lt;ctype.h&gt;</kbd>.
+<p class="tj">Поскольку в С не предусмотрен автоматический контроль нарушения границ массивов, вся ответственность за их переполнение ложится на программиста. Не следует этим пренебрегать, так как при переполнении массива может произойти аварийное завершение программы.
+<p class="tj">В С <em>печатаемыми символами</em> являются те, которые можно отобразить на терминале. В ASCII-средах они расположены между пробелом (0x20) и тильдой (OxFE). <em>Управляющие символы</em> имеют значения, лежащие в диапазоне между нулем и Ox1F; в ASCII-средах к ним также относится символ DEL (0x7F).
+<p class="tj">Исторически сложилось так, что аргументами символьных функций являются целые значения, из которых используется только младший байт. Символьные функции автоматически преобразуют свои аргументы в тип <kbd>unsigned char</kbd>. Безусловно, эти функции можно вызывать с символьными аргументами, поскольку в момент вызова функции символы автоматически преобразуются к целому типу.
+<p class="tj">В заголовке <kbd>&lt;string.h&gt;</kbd> определен тип <kbd>size_t</kbd>; это тип результата, который получается после применения оператора<sup><a href="#11" id="1">[1]</a></sup> <kbd>sizeof</kbd> и представляет собой разновидность целого без знака.
+<p class="tj">В этой главе описаны только те функции, которые работают с символами типа <kbd>char</kbd>. Эти функции были определены стандартом С с самого начала, и, безусловно, они являются наиболее популярными и поддерживаются большинством компиляторов. Двухбайтовые функции, работающие с символами типа <kbd>wchar_t</kbd>, описаны в <a href="../19/19.htm">главе 19</a>.
+<p class="tj">В версии С99 к некоторым параметрам нескольких функций, первоначально определенных в версии С89, добавлен квалификатор <kbd>restrict</kbd>. При рассмотрении каждой такой функции будет приведен ее прототип, используемый в среде С89 (а также в среде C++), а параметры с атрибутом <kbd>restrict</kbd> будут отмечены в описании этой функции.</p>
+<a id="00"></a>
+<a href="isalnum.htm">isalnum</a><br>
+<a href="isalpha.htm">isalpha</a><br>
+<a href="isblank.htm">isblank</a><br>
+<a href="iscntrl.htm">iscntrl</a><br>
+<a href="isdigit.htm">isdigit</a><br>
+<a href="isgraph.htm">isgraph</a><br>
+<a href="islower.htm">islower</a><br>
+<a href="isprint.htm">isprint</a><br>
+<a href="ispunct.htm">ispunct</a><br>
+<a href="isspace.htm">isspace</a><br>
+<a href="isupper.htm">isupper</a><br>
+<a href="isxdigit.htm">isxdigit</a><br>
+<a href="memchr.htm">memchr</a><br>
+<a href="memcmp.htm">memcmp</a><br>
+<a href="memcpy.htm">memcpy</a><br>
+<a href="memmove.htm">memmove</a><br>
+<a href="memset.htm">memset</a><br>
+<a href="strcat.htm">strcat</a><br>
+<a href="strchr.htm">strchr</a><br>
+<a href="strcmp.htm">strcmp</a><br>
+<a href="strcoll.htm">strcoll</a><br>
+<a href="strcpy.htm">strcpy</a><br>
+<a href="strcspn.htm">strcspn</a><br>
+<a href="strerror.htm">strerror</a><br>
+<a href="strlen.htm">strlen</a><br>
+<a href="strncat.htm">strncat</a><br>
+<a href="strncmp.htm">strncmp</a><br>
+<a href="strncpy.htm">strncpy</a><br>
+<a href="strpbrk.htm">strpbrk</a><br>
+<a href="strrchr.htm">strrchr</a><br>
+<a href="strspn.htm">strspn</a><br>
+<a href="strstr.htm">strstr</a><br>
+<a href="strtok.htm">strtok</a><br>
+<a href="strxfrm.htm">strxfrm</a><br>
+<a href="tolower.htm">tolower</a><br>
+<a href="toupper.htm">toupper</a><br>
+<p><img src="../work/sup.bmp" alt="----------">
+<blockquote>
+<p class="tj"><sup><a href="#1" id="11">[1]</a></sup>В данном случае под оператором подразумевается знак функции.
+</blockquote>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a>
+</body>
 </html>

@@ -1,68 +1,68 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функции классификации двухбайтовых символов - cправочник по Си</TITLE>
+<head>
+<title>Функции классификации двухбайтовых символов - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#19">Содержание</A> | <A href="19.htm">&lt;&lt;&lt;</A> | <A href="1902.htm">&gt;&gt;&gt;</A><HR>
-<H1>Функции классификации двухбайтовых символов</H1>
-<P class="tj">Заголовок <KBD>&lt;wctype.h&gt;</KBD> содержит прототипы тех функций, которые позволяют классифицировать двухбайтовые символы. Эти функции распределяют по категориям двухбайтовые символы или преобразуют регистр буквенного символа, устанавливая строчное или прописное написание. В табл. 19.1 приведены списки этих функций, а также соответствующие им функции для работы с символами типа <KBD>char</KBD>, которые были описаны в <A href="../14/14.htm">главе 14</A>.</P>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#19">Содержание</a> | <a href="19.htm">&lt;&lt;&lt;</a> | <a href="1902.htm">&gt;&gt;&gt;</a><hr>
+<h1>Функции классификации двухбайтовых символов</h1>
+<p class="tj">Заголовок <kbd>&lt;wctype.h&gt;</kbd> содержит прототипы тех функций, которые позволяют классифицировать двухбайтовые символы. Эти функции распределяют по категориям двухбайтовые символы или преобразуют регистр буквенного символа, устанавливая строчное или прописное написание. В табл. 19.1 приведены списки этих функций, а также соответствующие им функции для работы с символами типа <kbd>char</kbd>, которые были описаны в <a href="../14/14.htm">главе 14</a>.</p>
 <table class="table table-bordered">
-<CAPTION><B>Таблица 19.1. Функции, предназначенные для работы с двухбайтовыми символами, и соответствующие им функции для типа <KBD>char</KBD></B></CAPTION>
-<TR><TH><I>Функция</I><TH><I>Соотвествующая функция для типа <KBD>char</KBD></I>
-<TR><TD><PRE>int iswalnum(wint_t <I>ch</I>)</PRE><TD><KBD>isalnum()</KBD>
-<TR><TD><PRE>int iswalpha(wint_t <I>ch</I>)</PRE><TD><KBD>isalpha()</KBD>
-<TR><TD><PRE>int iswblank(wint_t <I>ch</I>)</PRE><TD><KBD>isblank()</KBD> (Добавлена в С99)
-<TR><TD><PRE>int iswcntrl(wint_t <I>ch</I>)</PRE><TD><KBD>iscntri()</KBD>
-<TR><TD><PRE>int iswdigit(wint_t <I>ch</I>)</PRE><TD><KBD>isdigit()</KBD>
-<TR><TD><PRE>int iswgraph(wint_t <I>ch</I>)</PRE><TD><KBD>isgraph()</KBD>
-<TR><TD><PRE>int iswlower(wint_t <I>ch</I>)</PRE><TD><KBD>islowert()</KBD>
-<TR><TD><PRE>int iswprint(wint_t <I>ch</I>)</PRE><TD><KBD>isprintt()</KBD>
-<TR><TD><PRE>int iswpunct(wint_t <I>ch</I>)</PRE><TD><KBD>ispunct()</KBD>
-<TR><TD><PRE>int iswspace(wint_t <I>ch</I>)</PRE><TD><KBD>isspacet()</KBD>
-<TR><TD><PRE>int iswupper(wint_t <I>ch</I>)</PRE><TD><KBD>isupper()</KBD>
-<TR><TD><PRE>int iswxdigit(wint_t <I>ch</I>)</PRE><TD><KBD>isxdigit()</KBD>
-<TR><TD><PRE>wint_t towlower(wint_t <I>ch</I>)</PRE><TD><KBD>tolower()</KBD>
-<TR><TD><PRE>wint_t towupper(wint_t <I>ch</I>)</PRE><TD><KBD>toupper()</KBD>
-</TABLE>
-<P class="tj">Помимо функций, приведенных в табл. 19.1, в заголовке <KBD>&lt;wctype.h&gt;</KBD> определены следующие функции, которые предоставляют открытые средства классификации символов.
-<PRE>
-wctype_t wctype(const char *<I>attr</I>);
-int iswctype(wint_t <I>ch</I>, wctype_t <I>attr_ob</I>);
-</PRE>
-<P class="tj">Функция <KBD>wctype()</KBD> возвращает значение, которое можно передать функции <KBD>iswctype()</KBD> в качестве параметра <I>attr_ob</I>. Строка, адресуемая параметром <I>attr</I>, задает свойство, которое должен иметь символ. Это значение можно затем использовать для определения, является ли <I>ch</I> символом, который обладает этим свойством. Если является, то функция <KBD>iswctype()</KBD> возвращает ненулевое значение. В противном случае возвращается нуль. В любых условиях выполнения программы определены следующие строки свойств:
-<PRE>
+<caption><strong>Таблица 19.1. Функции, предназначенные для работы с двухбайтовыми символами, и соответствующие им функции для типа <kbd>char</kbd></strong></caption>
+<tr><th><em>Функция</em><th><em>Соотвествующая функция для типа <kbd>char</kbd></em>
+<tr><td><pre>int iswalnum(wint_t <em>ch</em>)</pre><td><kbd>isalnum()</kbd>
+<tr><td><pre>int iswalpha(wint_t <em>ch</em>)</pre><td><kbd>isalpha()</kbd>
+<tr><td><pre>int iswblank(wint_t <em>ch</em>)</pre><td><kbd>isblank()</kbd> (Добавлена в С99)
+<tr><td><pre>int iswcntrl(wint_t <em>ch</em>)</pre><td><kbd>iscntri()</kbd>
+<tr><td><pre>int iswdigit(wint_t <em>ch</em>)</pre><td><kbd>isdigit()</kbd>
+<tr><td><pre>int iswgraph(wint_t <em>ch</em>)</pre><td><kbd>isgraph()</kbd>
+<tr><td><pre>int iswlower(wint_t <em>ch</em>)</pre><td><kbd>islowert()</kbd>
+<tr><td><pre>int iswprint(wint_t <em>ch</em>)</pre><td><kbd>isprintt()</kbd>
+<tr><td><pre>int iswpunct(wint_t <em>ch</em>)</pre><td><kbd>ispunct()</kbd>
+<tr><td><pre>int iswspace(wint_t <em>ch</em>)</pre><td><kbd>isspacet()</kbd>
+<tr><td><pre>int iswupper(wint_t <em>ch</em>)</pre><td><kbd>isupper()</kbd>
+<tr><td><pre>int iswxdigit(wint_t <em>ch</em>)</pre><td><kbd>isxdigit()</kbd>
+<tr><td><pre>wint_t towlower(wint_t <em>ch</em>)</pre><td><kbd>tolower()</kbd>
+<tr><td><pre>wint_t towupper(wint_t <em>ch</em>)</pre><td><kbd>toupper()</kbd>
+</table>
+<p class="tj">Помимо функций, приведенных в табл. 19.1, в заголовке <kbd>&lt;wctype.h&gt;</kbd> определены следующие функции, которые предоставляют открытые средства классификации символов.
+<pre>
+wctype_t wctype(const char *<em>attr</em>);
+int iswctype(wint_t <em>ch</em>, wctype_t <em>attr_ob</em>);
+</pre>
+<p class="tj">Функция <kbd>wctype()</kbd> возвращает значение, которое можно передать функции <kbd>iswctype()</kbd> в качестве параметра <em>attr_ob</em>. Строка, адресуемая параметром <em>attr</em>, задает свойство, которое должен иметь символ. Это значение можно затем использовать для определения, является ли <em>ch</em> символом, который обладает этим свойством. Если является, то функция <kbd>iswctype()</kbd> возвращает ненулевое значение. В противном случае возвращается нуль. В любых условиях выполнения программы определены следующие строки свойств:
+<pre>
 alnum	digit	print	upper
 alpha	graph	punct	xdigit
 cntrl	lower	space
-</PRE>
-<P class="tj">В версии С99 также определена строка <KBD>blank</KBD>.
-<P class="tj">Следующий фрагмент демонстрирует использование функций - <KBD>wctype()</KBD> и <KBD>iswctype()</KBD>:
-<PRE>
+</pre>
+<p class="tj">В версии С99 также определена строка <kbd>blank</kbd>.
+<p class="tj">Следующий фрагмент демонстрирует использование функций - <kbd>wctype()</kbd> и <kbd>iswctype()</kbd>:
+<pre>
 wctype_t x;
 x = wctype("space");
 if(iswctype(L' ', x))
   printf("Это пробел.\n");
-</PRE>
-<P class="tj">Будет выведено <PRE>Это пробел</PRE>
-<P class="tj">Кроме того, в заголовке <KBD>&lt;wctype.h&gt;</KBD> определены функции <KBD>wctrans()</KBD> и <KBD>towctrans()</KBD>. Их описания приведены ниже.
-<PRE>
-wctrans_t wctrans(const char *<I>mapping</I>);
-wint_t towctrans(wint_t <I>ch</I>, wctrans_t <I>mapping_ob</I>);
-</PRE>
-<P class="tj">Функция <KBD>wctrans()</KBD> возвращает значение, которое можно передать функции <KBD>towctrans()</KBD> в качестве параметра <I>mapping_ob</I>. Строка, адресуемая параметром <I>mapping</I>, определяет отображение одного символа на другой. Данная строка затем может быть использована функцией <KBD>towctrans()</KBD> для преобразования символа <I>ch</I>. Функция возвращает преобразованное значение. При всех условиях выполнения программы поддерживаются следующие строки преобразования.
-<PRE>tolower		toupper</PRE>
-<P class="tj">Следующая последовательность демонстрирует применение функций <KBD>wctrans()</KBD> и <KBD>towctrans()</KBD>:
-<PRE>
+</pre>
+<p class="tj">Будет выведено <pre>Это пробел</pre>
+<p class="tj">Кроме того, в заголовке <kbd>&lt;wctype.h&gt;</kbd> определены функции <kbd>wctrans()</kbd> и <kbd>towctrans()</kbd>. Их описания приведены ниже.
+<pre>
+wctrans_t wctrans(const char *<em>mapping</em>);
+wint_t towctrans(wint_t <em>ch</em>, wctrans_t <em>mapping_ob</em>);
+</pre>
+<p class="tj">Функция <kbd>wctrans()</kbd> возвращает значение, которое можно передать функции <kbd>towctrans()</kbd> в качестве параметра <em>mapping_ob</em>. Строка, адресуемая параметром <em>mapping</em>, определяет отображение одного символа на другой. Данная строка затем может быть использована функцией <kbd>towctrans()</kbd> для преобразования символа <em>ch</em>. Функция возвращает преобразованное значение. При всех условиях выполнения программы поддерживаются следующие строки преобразования.
+<pre>tolower		toupper</pre>
+<p class="tj">Следующая последовательность демонстрирует применение функций <kbd>wctrans()</kbd> и <kbd>towctrans()</kbd>:
+<pre>
 wctrans_t x;
 x = wctrans("tolower");
 wchar_t ch = towctrans(L'W', x);
 printf("%c", (char) ch);
-</PRE>
-<P class="tj">Выводит <PRE>w</PRE><P class="t">на нижнем регистре.
+</pre>
+<p class="tj">Выводит <pre>w</pre><p class="t">на нижнем регистре.
 <p>
 </p>
-<HR><A href="../main.htm#19">Содержание</A> | <A href="19.htm">&lt;&lt;&lt;</A> | <A href="1902.htm">&gt;&gt;&gt;</A>
-</BODY>
+<hr><a href="../main.htm#19">Содержание</a> | <a href="19.htm">&lt;&lt;&lt;</a> | <a href="1902.htm">&gt;&gt;&gt;</a>
+</body>
 </html>

@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция calloc - cправочник по Си</TITLE>
+<head>
+<title>Функция calloc - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A><HR>
-<H1>Функция calloc</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#17">Содержание</a> | <a href="17.htm#00">Глава 17</a><hr>
+<h1>Функция calloc</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-void *calloc(size_t <I>num</I>, size_t <I>size</I>);
-</PRE>
-<P class="tj">Функция <KBD>calloc()</KBD> выделяет память, размер которой равен значению выражения <I>num * size</I>, т.е. память, достаточную для размещения массива, содержащего <I>num</I> объектов размером <I>size</I>. Все биты распределенной памяти инициализируются нулями.
-<P class="tj">Функция <KBD>calloc()</KBD> возвращает указатель на первый байт выделенной области памяти. Если для удовлетворения запроса нет достаточного объема памяти, возвращается нулевой указатель. Перед попыткой использовать распределенную память важно проверить, что возвращаемое значение не равно нулю.
-<H2>Пример</H2>
-<P class="tj">Эта функция возвращает указатель на динамически распределенный блок памяти для массива из 100 чисел типа <KBD>float</KBD>:
-<PRE>
+void *calloc(size_t <em>num</em>, size_t <em>size</em>);
+</pre>
+<p class="tj">Функция <kbd>calloc()</kbd> выделяет память, размер которой равен значению выражения <em>num * size</em>, т.е. память, достаточную для размещения массива, содержащего <em>num</em> объектов размером <em>size</em>. Все биты распределенной памяти инициализируются нулями.
+<p class="tj">Функция <kbd>calloc()</kbd> возвращает указатель на первый байт выделенной области памяти. Если для удовлетворения запроса нет достаточного объема памяти, возвращается нулевой указатель. Перед попыткой использовать распределенную память важно проверить, что возвращаемое значение не равно нулю.
+<h2>Пример</h2>
+<p class="tj">Эта функция возвращает указатель на динамически распределенный блок памяти для массива из 100 чисел типа <kbd>float</kbd>:
+<pre>
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 float *get_mem(void)
@@ -28,11 +28,11 @@ float *get_mem(void)
   }
     return p;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="free.htm">free()</A>  <A href="malloc.htm">malloc()</A>  <A href="realloc.htm">realloc()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="free.htm">free()</a>  <a href="malloc.htm">malloc()</a>  <a href="realloc.htm">realloc()</a>
 <p>
 </p>
-<HR><A href="../main.htm#17">Содержание</A> | <A href="17.htm#00">Глава 17</A>
-</BODY>
+<hr><a href="../main.htm#17">Содержание</a> | <a href="17.htm#00">Глава 17</a>
+</body>
 </html>

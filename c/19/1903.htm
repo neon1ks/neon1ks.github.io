@@ -1,70 +1,70 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функции для операций над строками двухбайтовых символов - cправочник по Си</TITLE>
+<head>
+<title>Функции для операций над строками двухбайтовых символов - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#19">Содержание</A> | <A href="1902.htm">&lt;&lt;&lt;</A> | <A href="1904.htm">&gt;&gt;&gt;</A><HR>
-<H1>Функции для операций над строками двухбайтовых символов</H1>
-<P class="tj">Для операций над строками двухбайтовых символов существуют версии функций, описанных в <A href="../14/14.htm">главе 14</A>. Эти функции (перечисленные в табл. 19.3) используют заголовок <KBD>&lt;wchar.h&gt;</KBD>. Заметьте, что функция <KBD>wcstok()</KBD>, в отличие от версии функции для типа <KBD>char</KBD>, требует передачи дополнительного параметра.</P>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#19">Содержание</a> | <a href="1902.htm">&lt;&lt;&lt;</a> | <a href="1904.htm">&gt;&gt;&gt;</a><hr>
+<h1>Функции для операций над строками двухбайтовых символов</h1>
+<p class="tj">Для операций над строками двухбайтовых символов существуют версии функций, описанных в <a href="../14/14.htm">главе 14</a>. Эти функции (перечисленные в табл. 19.3) используют заголовок <kbd>&lt;wchar.h&gt;</kbd>. Заметьте, что функция <kbd>wcstok()</kbd>, в отличие от версии функции для типа <kbd>char</kbd>, требует передачи дополнительного параметра.</p>
 <table class="table table-bordered">
-<CAPTION><B>Таблица 19.3. Функции для операций над строками двухбайтовых символов и соответствующие им функции для типа <KBD>char</KBD></B></CAPTION>
-<TR><TH><I>Функция</I><TH><I>Соотвествующая функция для типа <KBD>char</KBD></I>
-<TR><TD><PRE>wchar_t *wcscat(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD class="t"><KBD>strcat()</KBD><BR>В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-<TR><TD><PRE>wchar_t *wcschr(
-  const wchar_t *<I>str</I>,
-  wchar_t <I>ch</I>)</PRE><TD><KBD>strchr()</KBD>
-<TR><TD><PRE>int wcscmp(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strcmp()</KBD>
-<TR><TD><PRE>int wcscoll(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strcoll()</KBD>
-<TR><TD><PRE>size_t wcscspn(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strcspn()</KBD>
-<TR><TD><PRE>wchar_t *wcscpy(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD class="t"><KBD>strcpy()</KBD><BR>В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-<TR><TD><PRE>size_t wcslen(const wchar_t *<I>str</I>)</PRE><TD><KBD>strlen()</KBD>
-<TR><TD><PRE>wchar_t *wcsncpy(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>,
-  size_t <I>num</I>)</PRE><TD class="t"><KBD>strncpy()</KBD><BR>В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-<TR><TD><PRE>wchar_t *wcsncat(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>,
-  size_t <I>num</I>)</PRE><TD class="t"><KBD>strncat()</KBD><BR>В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-<TR><TD><PRE>int wcsncmp(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>,
-  size_t <I>num</>)</PRE><TD><KBD>strncmp()</KBD>
-<TR><TD><PRE>wchar_t *wcspbrk(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strpbrk()</KBD>
-<TR><TD><PRE>wchar_t *wcsrchr(
-  const wchar_t *<I>str1</I>,
-  wchar_t <I>ch</I>)</PRE><TD><KBD>strrchr()</KBD>
-<TR><TD><PRE>size_t wcsspn(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strspn()</KBD>
-<TR><TD><PRE>wchar_t *wcstok(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>,
-  wchar_t ** <I>endptr</I>)</PRE><TD class="t"><KBD>strtok()</KBD><BR>Здесь параметр <I>endptr</I> является указателем, который содержит информацию, необходимую для продолжения процесса разделения строки на лексемы. В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-<TR><TD><PRE>wchar_t *wcsstr(
-  const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>)</PRE><TD><KBD>strstr()</KBD>
-<TR><TD><PRE>size_t wcsxfrm(
-  wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>,
-  size_t <I>num</I>)</PRE><TD class="t"><KBD>strxfrm()</KBD><BR>В версии С99 к параметрам <I>str1</I> и <I>str2</I> применен квалификатор <KBD>restrict</KBD>
-</TABLE>
+<caption><strong>Таблица 19.3. Функции для операций над строками двухбайтовых символов и соответствующие им функции для типа <kbd>char</kbd></strong></caption>
+<tr><th><em>Функция</em><th><em>Соотвествующая функция для типа <kbd>char</kbd></em>
+<tr><td><pre>wchar_t *wcscat(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td class="t"><kbd>strcat()</kbd><br>В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+<tr><td><pre>wchar_t *wcschr(
+  const wchar_t *<em>str</em>,
+  wchar_t <em>ch</em>)</pre><td><kbd>strchr()</kbd>
+<tr><td><pre>int wcscmp(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strcmp()</kbd>
+<tr><td><pre>int wcscoll(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strcoll()</kbd>
+<tr><td><pre>size_t wcscspn(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strcspn()</kbd>
+<tr><td><pre>wchar_t *wcscpy(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td class="t"><kbd>strcpy()</kbd><br>В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+<tr><td><pre>size_t wcslen(const wchar_t *<em>str</em>)</pre><td><kbd>strlen()</kbd>
+<tr><td><pre>wchar_t *wcsncpy(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>,
+  size_t <em>num</em>)</pre><td class="t"><kbd>strncpy()</kbd><br>В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+<tr><td><pre>wchar_t *wcsncat(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>,
+  size_t <em>num</em>)</pre><td class="t"><kbd>strncat()</kbd><br>В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+<tr><td><pre>int wcsncmp(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>,
+  size_t <em>num</>)</pre><td><kbd>strncmp()</kbd>
+<tr><td><pre>wchar_t *wcspbrk(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strpbrk()</kbd>
+<tr><td><pre>wchar_t *wcsrchr(
+  const wchar_t *<em>str1</em>,
+  wchar_t <em>ch</em>)</pre><td><kbd>strrchr()</kbd>
+<tr><td><pre>size_t wcsspn(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strspn()</kbd>
+<tr><td><pre>wchar_t *wcstok(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>,
+  wchar_t ** <em>endptr</em>)</pre><td class="t"><kbd>strtok()</kbd><br>Здесь параметр <em>endptr</em> является указателем, который содержит информацию, необходимую для продолжения процесса разделения строки на лексемы. В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+<tr><td><pre>wchar_t *wcsstr(
+  const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>)</pre><td><kbd>strstr()</kbd>
+<tr><td><pre>size_t wcsxfrm(
+  wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>,
+  size_t <em>num</em>)</pre><td class="t"><kbd>strxfrm()</kbd><br>В версии С99 к параметрам <em>str1</em> и <em>str2</em> применен квалификатор <kbd>restrict</kbd>
+</table>
 <p>
 </p>
-<HR><A href="../main.htm#19">Содержание</A> | <A href="1902.htm">&lt;&lt;&lt;</A> | <A href="1904.htm">&gt;&gt;&gt;</A>
-</BODY>
+<hr><a href="../main.htm#19">Содержание</a> | <a href="1902.htm">&lt;&lt;&lt;</a> | <a href="1904.htm">&gt;&gt;&gt;</a>
+</body>
 </html>

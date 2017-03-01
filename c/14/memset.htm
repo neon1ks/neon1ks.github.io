@@ -1,29 +1,29 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция memset - cправочник по Си</TITLE>
+<head>
+<title>Функция memset - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
-<H1>Функция memset</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a><hr>
+<h1>Функция memset</h1>
+<pre>
 #include &lt;string.h&gt;
-void *memset(void *<I>buf</I>, int <I>ch</I>, size_t <I>count</I>);
-</PRE>
-<P class="tj">Функция <KBD>memset()</KBD> копирует младший байт параметра <I>ch</I> в первые <I>count</I> символов массива, адресуемого параметром <I>buf</I>. Функция возвращает значение указателя <I>buf</I>.
-<P class="tj">Чаще всего функция <KBD>memset()</KBD> используется для инициализации области памяти некоторым известным значением.
-<H2>Пример</H2>
-<P class="tj">Данный фрагмент инициализирует первые 100 байтов массива, адресуемого указателем <KBD>buf</KBD>, нулями. Затем он помещает символы <KBD>X</KBD> в первые 10 байтов этого массива и выводит строку XXXXXXXXXX.
-<PRE>
+void *memset(void *<em>buf</em>, int <em>ch</em>, size_t <em>count</em>);
+</pre>
+<p class="tj">Функция <kbd>memset()</kbd> копирует младший байт параметра <em>ch</em> в первые <em>count</em> символов массива, адресуемого параметром <em>buf</em>. Функция возвращает значение указателя <em>buf</em>.
+<p class="tj">Чаще всего функция <kbd>memset()</kbd> используется для инициализации области памяти некоторым известным значением.
+<h2>Пример</h2>
+<p class="tj">Данный фрагмент инициализирует первые 100 байтов массива, адресуемого указателем <kbd>buf</kbd>, нулями. Затем он помещает символы <kbd>X</kbd> в первые 10 байтов этого массива и выводит строку XXXXXXXXXX.
+<pre>
 memset(buf, '\0', 100);
 memset(buf, 'X', 10);
 printf(buf);
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="memcmp.htm">memcmp()</A>  <A href="memcpy.htm">memcpy()</A>  <A href="memmove.htm">memmove()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="memcmp.htm">memcmp()</a>  <a href="memcpy.htm">memcpy()</a>  <a href="memmove.htm">memmove()</a>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a>
+</body>
 </html>

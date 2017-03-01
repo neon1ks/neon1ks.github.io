@@ -1,20 +1,20 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция difftime - cправочник по Си</TITLE>
+<head>
+<title>Функция difftime - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
-<H1>Функция difftime</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a><hr>
+<h1>Функция difftime</h1>
+<pre>
 #include  &lt;time.h&gt;
-double difftime(time_t <I>time2</I>, time_t <I>time1</I>);
-</PRE>
-<P class="tj">Функция <KBD>difftime()</KBD> возвращает разность в секундах между значениями параметров <I>time1</I> и <I>time2</I>, т.е. возвращается значение выражения <I>time2-time1</I>.
-<H2>Пример</H2>
-<P class="tj">Эта программа отображает время в секундах, требуемое для выполнения пустого цикла 5 000 000 раз:
-<PRE>
+double difftime(time_t <em>time2</em>, time_t <em>time1</em>);
+</pre>
+<p class="tj">Функция <kbd>difftime()</kbd> возвращает разность в секундах между значениями параметров <em>time1</em> и <em>time2</em>, т.е. возвращается значение выражения <em>time2-time1</em>.
+<h2>Пример</h2>
+<p class="tj">Эта программа отображает время в секундах, требуемое для выполнения пустого цикла 5 000 000 раз:
+<pre>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -27,11 +27,11 @@ int main(void)
   printf("Цикл использовал %f секунд.\n", difftime(end, start));
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="localtime.htm">localtime()</a>  <a href="gmtime.htm">gmtime()</a>  <a href="time.htm">time()</a>  <a href="asctime.htm">asctime()</a>
 <p>
 </p>
-<HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
-</BODY>
+<hr><a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a>
+</body>
 </html>

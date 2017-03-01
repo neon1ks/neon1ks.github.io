@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция fsetpos - cправочник по Си</TITLE>
+<head>
+<title>Функция fsetpos - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция fsetpos</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция fsetpos</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int fsetpos(FILE *<I>stream</I>, const fpos_t *<I>position</I>);
-</PRE>
-<P class="tj">Функция <KBD>fsetpos()</KBD> перемещает указатель текущей позиции файла в место, заданное объектом, к которому отсылает указатель <I>position</I>. Это значение должно быть предварительно получено путем обращения к функции <KBD>fgetpos()</KBD>. После выполнения функции <KBD>fsetpos()</KBD> признак конца файла сбрасывается. Кроме того, аннулируется любой предыдущий результат обращения к функции <KBD>ungetc()</KBD>.
-<P class="tj">При неудачном выполнении функции <KBD>fsetpos()</KBD> возврашается ненулевое значение, а при успешном — нуль.
-<H2>Пример</H2>
-<P class="tj">Данный фрагмент программы устанавливает указатель текущей позиции файла в новое положение, соответствующее значению переменной <KBD>file_loc</KBD>.
-<PRE>
+int fsetpos(FILE *<em>stream</em>, const fpos_t *<em>position</em>);
+</pre>
+<p class="tj">Функция <kbd>fsetpos()</kbd> перемещает указатель текущей позиции файла в место, заданное объектом, к которому отсылает указатель <em>position</em>. Это значение должно быть предварительно получено путем обращения к функции <kbd>fgetpos()</kbd>. После выполнения функции <kbd>fsetpos()</kbd> признак конца файла сбрасывается. Кроме того, аннулируется любой предыдущий результат обращения к функции <kbd>ungetc()</kbd>.
+<p class="tj">При неудачном выполнении функции <kbd>fsetpos()</kbd> возврашается ненулевое значение, а при успешном — нуль.
+<h2>Пример</h2>
+<p class="tj">Данный фрагмент программы устанавливает указатель текущей позиции файла в новое положение, соответствующее значению переменной <kbd>file_loc</kbd>.
+<pre>
 fsetpos(fp, &file_loc);
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fgetpos.htm">fgetpos()</A>  <A href="fseek.htm">fseek()</A>  <A href="ftell.htm">ftell()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fgetpos.htm">fgetpos()</a>  <a href="fseek.htm">fseek()</a>  <a href="ftell.htm">ftell()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

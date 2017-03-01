@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция strcmp - cправочник по Си</TITLE>
+<head>
+<title>Функция strcmp - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
-<H1>Функция strcmp</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a><hr>
+<h1>Функция strcmp</h1>
+<pre>
 #include &lt;string.h&gt;
-int strcmp(const char *<I>str1</I>, const char *<I>str2</I>);
-</PRE>
-<P class="tj">Функция <KBD>strcmp()</KBD> сравнивает в лексикографическом порядке две строки и возвращает целое значение, зависящее следующим образом от результата сравнения.</P>
+int strcmp(const char *<em>str1</em>, const char *<em>str2</em>);
+</pre>
+<p class="tj">Функция <kbd>strcmp()</kbd> сравнивает в лексикографическом порядке две строки и возвращает целое значение, зависящее следующим образом от результата сравнения.</p>
 <table class="table table-bordered">
-<TR><TH><I>Значение</I><TH><I>Результат сравнения строк</I>
-<TR><TD>Меньше нуля<TD><I>str1</I> меньше <I>str2</I>
-<TR><TD>Нуль<TD><I>str1</I> равен <I>str2</I>
-<TR><TD>Больше нуля<TD><I>str1</I> больше <I>str2</I>
-</TABLE>
-<H2>Пример</H2>
-<P class="tj">Следующую функцию можно использовать для проверки пароля. В случае неудачи она возвращает нуль, а при успешном выполнении — единицу.
-<PRE>
+<tr><th><em>Значение</em><th><em>Результат сравнения строк</em>
+<tr><td>Меньше нуля<td><em>str1</em> меньше <em>str2</em>
+<tr><td>Нуль<td><em>str1</em> равен <em>str2</em>
+<tr><td>Больше нуля<td><em>str1</em> больше <em>str2</em>
+</table>
+<h2>Пример</h2>
+<p class="tj">Следующую функцию можно использовать для проверки пароля. В случае неудачи она возвращает нуль, а при успешном выполнении — единицу.
+<pre>
 int password(void)
 {
   char s[80];
@@ -32,11 +32,11 @@ int password(void)
   }
   return 1;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="strchr.htm">strchr()</A>  <A href="strcpy.htm">strcpy()</A>  <A href="strcmp.htm">strcmp()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="strchr.htm">strchr()</a>  <a href="strcpy.htm">strcpy()</a>  <a href="strcmp.htm">strcmp()</a>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a>
+</body>
 </html>

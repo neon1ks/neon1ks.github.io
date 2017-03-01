@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция setjmp - cправочник по Си</TITLE>
+<head>
+<title>Функция setjmp - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция setjmp</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция setjmp</h1>
+<pre>
 #include &lt;setjmp.h&gt;
-int setjmp(jmp_buf <I>envbuf</I>);
-</PRE>
-<P class="tj">Макрос <KBD>setjmp()</KBD> сохраняет содержимое системного стека в буфере <I>envbuf</I> для использования в будущем с помощью функции <KBD>longjmp()</KBD>. Макрос использует заголовок <KBD>&lt;setjmp.h&gt;</KBD>.
-<P class="tj">Макрос-функция <KBD>setjmp()</KBD> при инициализации возвращает нуль. Однако <KBD>longjmp()</KBD> передает аргумент функции <KBD>setjmp()</KBD>, и именно его значение (всегда отличное от нуля), станет значением <KBD>setjmp()</KBD> после вызова <KBD>longjmp()</KBD>. Таким образом, если макрос <KBD>setjmp()</KBD> выполняется после вызова функции <KBD>longjmp()</KBD>, он возвращает значение аргумента, переданного ему функцией <KBD>longjmp()</KBD>. Дополнительная информация приведена в описании <KBD>longjmp()</KBD>.
-<H2>Зависимые функции</H2>
-<A href="longjmp.htm">longjmp()</A>
+int setjmp(jmp_buf <em>envbuf</em>);
+</pre>
+<p class="tj">Макрос <kbd>setjmp()</kbd> сохраняет содержимое системного стека в буфере <em>envbuf</em> для использования в будущем с помощью функции <kbd>longjmp()</kbd>. Макрос использует заголовок <kbd>&lt;setjmp.h&gt;</kbd>.
+<p class="tj">Макрос-функция <kbd>setjmp()</kbd> при инициализации возвращает нуль. Однако <kbd>longjmp()</kbd> передает аргумент функции <kbd>setjmp()</kbd>, и именно его значение (всегда отличное от нуля), станет значением <kbd>setjmp()</kbd> после вызова <kbd>longjmp()</kbd>. Таким образом, если макрос <kbd>setjmp()</kbd> выполняется после вызова функции <kbd>longjmp()</kbd>, он возвращает значение аргумента, переданного ему функцией <kbd>longjmp()</kbd>. Дополнительная информация приведена в описании <kbd>longjmp()</kbd>.
+<h2>Зависимые функции</h2>
+<a href="longjmp.htm">longjmp()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

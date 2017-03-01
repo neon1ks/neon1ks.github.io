@@ -1,20 +1,20 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция strcspn - cправочник по Си</TITLE>
+<head>
+<title>Функция strcspn - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
-<H1>Функция strcspn</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a><hr>
+<h1>Функция strcspn</h1>
+<pre>
 #include &lt;string.h&gt;
-size_t strcspn(const char *<I>str1</I>, const char *<I>str2</I>);
-</PRE>
-<P class="tj">Функция <KBD>strcspn()</KBD> возвращает длину начальной подстроки в строке, адресуемой параметром <I>str1</I>, которая не содержит ни одного символа из строки, адресуемой параметром <I>str2</I>. Другими словами, функция <KBD>strcspn()</KBD> возвращает индекс первого символа в строке <I>str1</I>, который совпадает с любым из символов в строке <I>str2</I>.
-<H2>Пример</H2>
-<P class="tj">Следующая программа выводит число <PRE>6</PRE>
-<PRE>
+size_t strcspn(const char *<em>str1</em>, const char *<em>str2</em>);
+</pre>
+<p class="tj">Функция <kbd>strcspn()</kbd> возвращает длину начальной подстроки в строке, адресуемой параметром <em>str1</em>, которая не содержит ни одного символа из строки, адресуемой параметром <em>str2</em>. Другими словами, функция <kbd>strcspn()</kbd> возвращает индекс первого символа в строке <em>str1</em>, который совпадает с любым из символов в строке <em>str2</em>.
+<h2>Пример</h2>
+<p class="tj">Следующая программа выводит число <pre>6</pre>
+<pre>
 #include &lt;string.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -24,11 +24,11 @@ int main(void)
   printf("%d", len);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="strrchr.htm">strrchr()</A>  <A href="strpbrk.htm">strpbrk()</A>  <A href="strstr.htm">strstr()</A>  <A href="strtok.htm">strtok()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="strrchr.htm">strrchr()</a>  <a href="strpbrk.htm">strpbrk()</a>  <a href="strstr.htm">strstr()</a>  <a href="strtok.htm">strtok()</a>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a>
+</body>
 </html>

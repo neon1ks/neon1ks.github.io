@@ -1,24 +1,24 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция strerror - cправочник по Си</TITLE>
+<head>
+<title>Функция strerror - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
-<H1>Функция strerror</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a><hr>
+<h1>Функция strerror</h1>
+<pre>
 #include &lt;string.h&gt;
-char *strerror(int <I>errnum</I>);
-</PRE>
-<P class="tj">Функция <KBD>strerror()</KBD> возвращает указатель на строку, содержащую системное сообщение об ошибке, связанной со значением <I>errnum</I>. Эту строку не следует менять ни при каких обстоятельствах.
-<H2>Пример</H2>
-<P class="tj">Данный фрагмент программы выводит на экран системное сообщение об ошибке.
-<PRE>
+char *strerror(int <em>errnum</em>);
+</pre>
+<p class="tj">Функция <kbd>strerror()</kbd> возвращает указатель на строку, содержащую системное сообщение об ошибке, связанной со значением <em>errnum</em>. Эту строку не следует менять ни при каких обстоятельствах.
+<h2>Пример</h2>
+<p class="tj">Данный фрагмент программы выводит на экран системное сообщение об ошибке.
+<pre>
 printf(strerror(10));
-</PRE>
+</pre>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a>
+</body>
 </html>

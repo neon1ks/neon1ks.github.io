@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция _Exit - cправочник по Си</TITLE>
+<head>
+<title>Функция _Exit - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция _Exit</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция _Exit</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-void _Exit(int <I>exit_code</I>);
-</PRE>
-<P class="tj">Функция <KBD>_Exit()</KBD> добавлена в версии С99.
-<P class="tj">Действие функции <KBD>_Exit()</KBD> аналогично действию функции <KBD>exit()</KBD> за исключением следующих моментов:
+void _Exit(int <em>exit_code</em>);
+</pre>
+<p class="tj">Функция <kbd>_Exit()</kbd> добавлена в версии С99.
+<p class="tj">Действие функции <kbd>_Exit()</kbd> аналогично действию функции <kbd>exit()</kbd> за исключением следующих моментов:
 <ul class="square">
-<LI>Не вызываются функции завершения, зарегистрированные функцией <KBD>atexit()</KBD>.
-<LI>Не вызываются обработчики сигналов, зарегистрированные функцией <KBD>signal()</KBD>.
-<LI>Не всегда закрываются открытые файлы и, возможно, они не дозаписываются.
+<li>Не вызываются функции завершения, зарегистрированные функцией <kbd>atexit()</kbd>.
+<li>Не вызываются обработчики сигналов, зарегистрированные функцией <kbd>signal()</kbd>.
+<li>Не всегда закрываются открытые файлы и, возможно, они не дозаписываются.
 </ul>
-<H2>Зависимые функции</H2>
-<A href="atexit.htm">atexit()</A>  <A href="abort.htm">abort()</A>  <A href="exit.htm">exit()</A>
+<h2>Зависимые функции</h2>
+<a href="atexit.htm">atexit()</a>  <a href="abort.htm">abort()</a>  <a href="exit.htm">exit()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция pow - cправочник по Си</TITLE>
+<head>
+<title>Функция pow - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
-<H1>Функция pow</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a><hr>
+<h1>Функция pow</h1>
+<pre>
 #include &lt;math.h&gt;
-float powf(float <I>base</I>, float <I>exp</I>);
-double pow(double <I>base</I>, double <I>exp</I>);
-long double powl(long double <I>base</I>, long double <I>exp</I>);
-</PRE>
-<P class="tj">Функции <KBD>powf()</KBD> и <KBD>powl()</KBD> добавлены в версии С99.
-<P class="tj">Каждая функция семейства <KBD>pow()</KBD> возвращает значение аргумента <I>base</I>, возведенное в степень <I>ехр</I>, т.е. в результате получается <I>base<SUP>exp</SUP></I>. Если значение аргумента <I>base</I> равно нулю, а <I>ехр</I> меньше или равно нулю, возможна ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения). Она произойдет также в том случае, если <I>base</I> отрицательно, а <I>ехр</I> не является целым числом. При этом также может возникнуть ошибка из-за выхода за пределы диапазона представимых значений.
-<H2>Пример</H2>
-<P class="tj">Следующая программа выводит первые десять степеней числа 10, т.е. составляет таблицу степеней числа 10.
-<PRE>
+float powf(float <em>base</em>, float <em>exp</em>);
+double pow(double <em>base</em>, double <em>exp</em>);
+long double powl(long double <em>base</em>, long double <em>exp</em>);
+</pre>
+<p class="tj">Функции <kbd>powf()</kbd> и <kbd>powl()</kbd> добавлены в версии С99.
+<p class="tj">Каждая функция семейства <kbd>pow()</kbd> возвращает значение аргумента <em>base</em>, возведенное в степень <em>ехр</em>, т.е. в результате получается <em>base<sup>exp</sup></em>. Если значение аргумента <em>base</em> равно нулю, а <em>ехр</em> меньше или равно нулю, возможна ошибка из-за выхода за пределы области допустимых значений (ошибка из-за нарушения области определения). Она произойдет также в том случае, если <em>base</em> отрицательно, а <em>ехр</em> не является целым числом. При этом также может возникнуть ошибка из-за выхода за пределы диапазона представимых значений.
+<h2>Пример</h2>
+<p class="tj">Следующая программа выводит первые десять степеней числа 10, т.е. составляет таблицу степеней числа 10.
+<pre>
 #include &lt;math.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -29,11 +29,11 @@ int main(void)
   } while(y&lt;11.0);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="exp.htm">exp()</A>  <A href="log.htm">log()</A>  <A href="sqrt.htm">sqrt()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="exp.htm">exp()</a>  <a href="log.htm">log()</a>  <a href="sqrt.htm">sqrt()</a>
 <p>
 </p>
-<HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
-</BODY>
+<hr><a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a>
+</body>
 </html>

@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция fclose - cправочник по Си</TITLE>
+<head>
+<title>Функция fclose - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция fclose</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция fclose</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int fclose(FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>fclose()</KBD> закрывает файл, связанный с потоком <I>stream</I>, и дозаписывает его буфер. После обращения к функции <KBD>fclose()</KBD> элемент <I>stream</I> больше не связан с файлом, и все автоматически выделенные буфера освобождаются.
-<P class="tj">При успешном выполнении функция <KBD>fclose()</KBD> возвращает нуль; в противном случае возвращается значение <KBD>EOF</KBD>. Попытка закрыть уже закрытый файл расценивается как ошибка. В случае прекращения доступа к носителю данных до закрытия файла, как и при недостатке свободного пространства на диске, будет сгенерирована ошибка.
-<H2>Пример</H2>
-<P class="tj">Следующая программа открывает и закрывает файл.
-<PRE>
+int fclose(FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>fclose()</kbd> закрывает файл, связанный с потоком <em>stream</em>, и дозаписывает его буфер. После обращения к функции <kbd>fclose()</kbd> элемент <em>stream</em> больше не связан с файлом, и все автоматически выделенные буфера освобождаются.
+<p class="tj">При успешном выполнении функция <kbd>fclose()</kbd> возвращает нуль; в противном случае возвращается значение <kbd>EOF</kbd>. Попытка закрыть уже закрытый файл расценивается как ошибка. В случае прекращения доступа к носителю данных до закрытия файла, как и при недостатке свободного пространства на диске, будет сгенерирована ошибка.
+<h2>Пример</h2>
+<p class="tj">Следующая программа открывает и закрывает файл.
+<pre>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int main(void)
@@ -28,10 +28,10 @@ int main(void)
   if(fclose(fp)) printf("Ошибка при закрытии файла.\n");
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fopen.htm">fopen()</A>  <A href="freopen.htm">freopen()</A>  <A href="fflush.htm">fflush()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fopen.htm">fopen()</a>  <a href="freopen.htm">freopen()</a>  <a href="fflush.htm">fflush()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

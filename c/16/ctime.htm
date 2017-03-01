@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция ctime - cправочник по Си</TITLE>
+<head>
+<title>Функция ctime - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
-<H1>Функция ctime</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a><hr>
+<h1>Функция ctime</h1>
+<pre>
 #include &lt;time.h&gt;
-char *ctime(const time_t *<I>time</I>);
-</PRE>
-<P class="tj">Функция <KBD>ctime()</KBD> возвращает указатель на строку, имеющую следующий вид:
-<P class="tj"><I>День месяц год часы:минуты:секунды year\n\0</I>
-<P class="tj">Функции передается указатель на календарное время. Календарное время обычно получают с помощью функции <KBD>time()</KBD>.
-<P class="tj">Буфер, используемый <KBD>ctime()</KBD> для хранения форматированной строки вывода является статически распределенным массивом символов. Он перезаписывается при каждом вызове функции. Для сохранения строки скопируйте ее в какую-нибудь другую область памяти.
-<H2>Пример</H2>
-<P class="tj">Эта программа отображает местное время, определенное в системе:
-<PRE>
+char *ctime(const time_t *<em>time</em>);
+</pre>
+<p class="tj">Функция <kbd>ctime()</kbd> возвращает указатель на строку, имеющую следующий вид:
+<p class="tj"><em>День месяц год часы:минуты:секунды year\n\0</em>
+<p class="tj">Функции передается указатель на календарное время. Календарное время обычно получают с помощью функции <kbd>time()</kbd>.
+<p class="tj">Буфер, используемый <kbd>ctime()</kbd> для хранения форматированной строки вывода является статически распределенным массивом символов. Он перезаписывается при каждом вызове функции. Для сохранения строки скопируйте ее в какую-нибудь другую область памяти.
+<h2>Пример</h2>
+<p class="tj">Эта программа отображает местное время, определенное в системе:
+<pre>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -27,11 +27,11 @@ int main(void)
   printf(ctime(&amp;lt));
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="localtime.htm">localtime()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="localtime.htm">localtime()</a>  <a href="gmtime.htm">gmtime()</a>  <a href="time.htm">time()</a>  <a href="asctime.htm">asctime()</a>
 <p>
 </p>
-<HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
-</BODY>
+<hr><a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a>
+</body>
 </html>

@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция memmove - cправочник по Си</TITLE>
+<head>
+<title>Функция memmove - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A><HR>
-<H1>Функция memmove</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a><hr>
+<h1>Функция memmove</h1>
+<pre>
 #include &lt;string.h&gt;
-void *memmove(void *<I>to</I>, const void *<I>from</I>, size_t <I>count</I>);
-</PRE>
-<P class="tj">Функция <KBD>memmove()</KBD> копирует <I>count</I> символов из массива, адресуемого параметром <I>from</I>, в массив, адресуемый параметром <I>to</I>. Если заданные массивы перекрываются, процесс копирования проходит корректно, т.е. соответствующее содержимое будет помещено в массив <I>to</I>, но содержимое массива <I>from</I> при этом изменится.
-<P class="tj">Функция <KBD>memmove()</KBD> возвращает значение указателя <I>to</I>.
-<H2>Пример</H2>
-<P class="tj">Данная программа сдвигает содержимое массива <KBD>str</KBD> на 10 позиций в сторону младших адресов и выводит результат на дисплей.
-<PRE>
+void *memmove(void *<em>to</em>, const void *<em>from</em>, size_t <em>count</em>);
+</pre>
+<p class="tj">Функция <kbd>memmove()</kbd> копирует <em>count</em> символов из массива, адресуемого параметром <em>from</em>, в массив, адресуемый параметром <em>to</em>. Если заданные массивы перекрываются, процесс копирования проходит корректно, т.е. соответствующее содержимое будет помещено в массив <em>to</em>, но содержимое массива <em>from</em> при этом изменится.
+<p class="tj">Функция <kbd>memmove()</kbd> возвращает значение указателя <em>to</em>.
+<h2>Пример</h2>
+<p class="tj">Данная программа сдвигает содержимое массива <kbd>str</kbd> на 10 позиций в сторону младших адресов и выводит результат на дисплей.
+<pre>
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 #define SIZE 80
@@ -28,11 +28,11 @@ int main(void)
   printf("результат сдвига: %s", str);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="memcpy.htm">memcpy()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="memcpy.htm">memcpy()</a>
 <p>
 </p>
-<HR><A href="../main.htm#14">Содержание</A> | <A href="14.htm#00">Глава 14</A>
-</BODY>
+<hr><a href="../main.htm#14">Содержание</a> | <a href="14.htm#00">Глава 14</a>
+</body>
 </html>

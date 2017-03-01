@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция mktime - cправочник по Си</TITLE>
+<head>
+<title>Функция mktime - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
-<H1>Функция mktime</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a><hr>
+<h1>Функция mktime</h1>
+<pre>
 #include &lt;time.h&gt;
-time_t mktime(struct tm *<I>time</I>);
-</PRE>
-<P class="tj">Функция <KBD>mktime()</KBD> возвращает календарный эквивалент времени, хранящийся в разделенном на компоненты виде в структуре, которая адресуется параметром-указателем <I>time</I>. Элементы <KBD>tm_wday</KBD> и <KBD>tm_yday</KBD> устанавливаются самой функцией, поэтому их не нужно определять при ее вызове.
-<P class="tj">Если <KBD>mktime()</KBD> не может представить информацию в виде допустимого календарного времени, возвращается -1.
-<H2>Пример</H2>
-<P class="tj">Эта программа сообщает день недели 3 января 2005 года:
-<PRE>
+time_t mktime(struct tm *<em>time</em>);
+</pre>
+<p class="tj">Функция <kbd>mktime()</kbd> возвращает календарный эквивалент времени, хранящийся в разделенном на компоненты виде в структуре, которая адресуется параметром-указателем <em>time</em>. Элементы <kbd>tm_wday</kbd> и <kbd>tm_yday</kbd> устанавливаются самой функцией, поэтому их не нужно определять при ее вызове.
+<p class="tj">Если <kbd>mktime()</kbd> не может представить информацию в виде допустимого календарного времени, возвращается -1.
+<h2>Пример</h2>
+<p class="tj">Эта программа сообщает день недели 3 января 2005 года:
+<pre>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -33,11 +33,11 @@ int main(void)
   printf(ctime(&t_of_day));
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="time.htm">time()</A>  <A href="gmtime.htm">gmtime()</A>  <A href="asctime.htm">asctime()</A>  <A href="ctime.htm">ctime()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="time.htm">time()</a>  <a href="gmtime.htm">gmtime()</a>  <a href="asctime.htm">asctime()</a>  <a href="ctime.htm">ctime()</a>
 <p>
 </p>
-<HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
-</BODY>
+<hr><a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a>
+</body>
 </html>

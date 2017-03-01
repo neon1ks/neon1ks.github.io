@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция mblen - cправочник по Си</TITLE>
+<head>
+<title>Функция mblen - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция mblen</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция mblen</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-int mblen(const char *<I>str</I>, size_t <I>size</I>);
-</PRE>
-<P class="tj">Функция <KBD>mblen()</KBD> возвращает длину (в байтах) многобайтового символа, адресуемого параметром <I>str</I>. Учету подлежат только первые <I>size</I> символов. При ошибке функция возвращает значение -1.
-<P class="tj">Если указатель <I>str</I> нулевой, функция <KBD>mblen()</KBD> возвращает ненулевое значение в случае, когда многобайтовые символы имеют кодировку, зависящую от территориально-языковых особенностей. В противном случае возвращается нуль.
-<H2>Пример</H2>
-<P class="tj">Этот оператор отображает размер многобайтового символа, адресуемого указателем <I>mb</I>:
-<PRE>
+int mblen(const char *<em>str</em>, size_t <em>size</em>);
+</pre>
+<p class="tj">Функция <kbd>mblen()</kbd> возвращает длину (в байтах) многобайтового символа, адресуемого параметром <em>str</em>. Учету подлежат только первые <em>size</em> символов. При ошибке функция возвращает значение -1.
+<p class="tj">Если указатель <em>str</em> нулевой, функция <kbd>mblen()</kbd> возвращает ненулевое значение в случае, когда многобайтовые символы имеют кодировку, зависящую от территориально-языковых особенностей. В противном случае возвращается нуль.
+<h2>Пример</h2>
+<p class="tj">Этот оператор отображает размер многобайтового символа, адресуемого указателем <em>mb</em>:
+<pre>
 printf("%d", mblen(mb, 2));
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="mbtowc.htm">mbtowc()</A>  <A href="wctomb.htm">wctomb()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="mbtowc.htm">mbtowc()</a>  <a href="wctomb.htm">wctomb()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

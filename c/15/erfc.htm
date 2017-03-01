@@ -1,35 +1,35 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция erfc - cправочник по Си</TITLE>
+<head>
+<title>Функция erfc - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
-<H1>Функция erfc</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a><hr>
+<h1>Функция erfc</h1>
+<pre>
 #include &lt;math.h&gt;
-float erfcf(float <I>arg</I>);
-double erfc(double <I>arg</I>);
-long double erfcl(long double <I>arg</I>);
-</PRE>
-<P class="tj">Функции <KBD>erfc()</KBD>, <KBD>erfcf()</KBD> и <KBD>erfcl()</KBD> добавлены в версии С99.
-<P class="tj">Каждая функция семейства <KBD>erfс()</KBD> возвращает функцию ошибок дополнительную<SUP><A href="#11" id="1">[1]</A></SUP> от аргумента <I>arg</I>.
-<H2>Зависимые функции</H2>
-<A href="erf.htm">erf()</A>
-<p><IMG src="../work/sup.bmp" alt="----------">
-<BLOCKQUOTE>
-<P class="tj"><SUP><A href="#1" id="11">[1]</A></SUP><I>Дополнительный интеграл вероятности</I>:
-<PRE>
+float erfcf(float <em>arg</em>);
+double erfc(double <em>arg</em>);
+long double erfcl(long double <em>arg</em>);
+</pre>
+<p class="tj">Функции <kbd>erfc()</kbd>, <kbd>erfcf()</kbd> и <kbd>erfcl()</kbd> добавлены в версии С99.
+<p class="tj">Каждая функция семейства <kbd>erfс()</kbd> возвращает функцию ошибок дополнительную<sup><a href="#11" id="1">[1]</a></sup> от аргумента <em>arg</em>.
+<h2>Зависимые функции</h2>
+<a href="erf.htm">erf()</a>
+<p><img src="../work/sup.bmp" alt="----------">
+<blockquote>
+<p class="tj"><sup><a href="#1" id="11">[1]</a></sup><em>Дополнительный интеграл вероятности</em>:
+<pre>
                   &#8734;
              2    /
-erfc(x) = ------- | e<SUP>-t<SUP>2</SUP></SUP>dt = 1 - erf(x).
+erfc(x) = ------- | e<sup>-t<sup>2</sup></sup>dt = 1 - erf(x).
           sqrt(п) /
                   x
-</PRE>
-</BLOCKQUOTE>
+</pre>
+</blockquote>
 <p>
 </p>
-<HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
-</BODY>
+<hr><a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a>
+</body>
 </html>

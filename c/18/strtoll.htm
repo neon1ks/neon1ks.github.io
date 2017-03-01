@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция strtoll - cправочник по Си</TITLE>
+<head>
+<title>Функция strtoll - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция strtoll</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция strtoll</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-long long int strtoll(const char * restrict <I>start</I>, char ** restrict <I>end</I>, int <I>radix</I>);
-</PRE>
-<P class="tj">Функция <KBD>strtoll()</KBD> добавлена в версии С99.
-<P class="tj">Функция <KBD>strtoll()</KBD> аналогична функции <KBD>strtol()</KBD> за исключением того, что она возвращает значение типа <KBD>long long int</KBD>. Если результат не может быть представлен как значение типа <KBD>long long int</KBD>, возвращается либо значение <KBD>LLONG_MAX</KBD>, либо значение <KBD>LLONG_MIN</KBD>, а глобальная переменная <KBD>errno</KBD> устанавливается равной значению <KBD>ERANGE</KBD>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <I>start</I> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
-<H2>Зависимые функции</H2>
-<A href="atol.htm">atol()</A>  <A href="strtol.htm">strtol()</A>
+long long int strtoll(const char * restrict <em>start</em>, char ** restrict <em>end</em>, int <em>radix</em>);
+</pre>
+<p class="tj">Функция <kbd>strtoll()</kbd> добавлена в версии С99.
+<p class="tj">Функция <kbd>strtoll()</kbd> аналогична функции <kbd>strtol()</kbd> за исключением того, что она возвращает значение типа <kbd>long long int</kbd>. Если результат не может быть представлен как значение типа <kbd>long long int</kbd>, возвращается либо значение <kbd>LLONG_MAX</kbd>, либо значение <kbd>LLONG_MIN</kbd>, а глобальная переменная <kbd>errno</kbd> устанавливается равной значению <kbd>ERANGE</kbd>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <em>start</em> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
+<h2>Зависимые функции</h2>
+<a href="atol.htm">atol()</a>  <a href="strtol.htm">strtol()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

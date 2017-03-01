@@ -1,63 +1,63 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Служебные функции - cправочник по Си</TITLE>
+<head>
+<title>Служебные функции - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A><HR>
-<H1>Служебные функции</H1>
-<P class="tj">В библиотеке стандартных функций определен целый ряд так называемых служебных функций. Они осуществляют различные преобразования, обрабатывают списки аргументов переменной длины, выполняют сортировку и поиск, и также генерируют случайные числа. Многие из этих функций описаны в заголовочном файле <KBD>&lt;stdlib.h&gt;</KBD>. В этом заголовке объявлены типы <KBD>div_t</KBD> и <KBD>ldiv_t</KBD>. Значения этих типов возвращаются функциями <KBD>div()</KBD> и <KBD>ldiv()</KBD> соответственно. В С99 добавлены тип <KBD>lldiv_t</KBD> и функция <KBD>lldiv()</KBD>. Здесь также объявлены типи <KBD>size_t</KBD> и <KBD>wchar_t</KBD> и определены следующие макрокоманды:</P>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a><hr>
+<h1>Служебные функции</h1>
+<p class="tj">В библиотеке стандартных функций определен целый ряд так называемых служебных функций. Они осуществляют различные преобразования, обрабатывают списки аргументов переменной длины, выполняют сортировку и поиск, и также генерируют случайные числа. Многие из этих функций описаны в заголовочном файле <kbd>&lt;stdlib.h&gt;</kbd>. В этом заголовке объявлены типы <kbd>div_t</kbd> и <kbd>ldiv_t</kbd>. Значения этих типов возвращаются функциями <kbd>div()</kbd> и <kbd>ldiv()</kbd> соответственно. В С99 добавлены тип <kbd>lldiv_t</kbd> и функция <kbd>lldiv()</kbd>. Здесь также объявлены типи <kbd>size_t</kbd> и <kbd>wchar_t</kbd> и определены следующие макрокоманды:</p>
 <table class="table table-bordered">
-<TR><TH><I>Макрос</I><TH><I>Значение</I>
-<TR><TD><KBD>MB_CUR_MAX</KBD><TD>Максимальная длина (в байтах) многобайтового символа
-<TR><TD><KBD>NULL</KBD><TD>Нулевой указатель
-<TR><TD><KBD>RAND_MAX</KBD><TD>Максимальное значение, которое может возвратить функция <KBD>rand()</KBD>
-<TR><TD><KBD>EXIT_FAILURE</KBD><TD>Значение, возвращаемое вызывающему процессу при неудачном завершении программы
-<TR><TD><KBD>EXIT_SUCCESS</KBD><TD>Значение, возвращаемое вызывающему процессу при успешном завершении программы
-</TABLE>
-<P class="tj">Если для вызова некоторой функции необходимо использовать заголовок, отличный от <KBD>&lt;stdlib.h&gt;</KBD>, об этом будет специально указано в описании функции.</P>
-<A id="00"></A>
-<A href="abort.htm">abort</A><BR>
-<A href="abs.htm">abs</A><BR>
-<A href="assert.htm">assert</A><BR>
-<A href="atexit.htm">atexit</A><BR>
-<A href="atof.htm">atof</A><BR>
-<A href="atoi.htm">atoi</A><BR>
-<A href="atol.htm">atol</A><BR>
-<A href="atoll.htm">atoll</A><BR>
-<A href="bsearch.htm">bsearch</A><BR>
-<A href="div.htm">div</A><BR>
-<A href="exit.htm">exit</A><BR>
-<A href="_Exit.htm">_Exit</A><BR>
-<A href="getenv.htm">getenv</A><BR>
-<A href="labs.htm">labs</A><BR>
-<A href="llabs.htm">llabs</A><BR>
-<A href="ldiv.htm">ldiv</A><BR>
-<A href="lldiv.htm">lldiv</A><BR>
-<A href="longjmp.htm">longjmp</A><BR>
-<A href="mblen.htm">mblen</A><BR>
-<A href="mbstowcs.htm">mbstowcs</A><BR>
-<A href="mbtowc.htm">mbtowc</A><BR>
-<A href="qsort.htm">qsort</A><BR>
-<A href="raise.htm">raise</A><BR>
-<A href="rand.htm">rand</A><BR>
-<A href="setjmp.htm">setjmp</A><BR>
-<A href="signal.htm">signal</A><BR>
-<A href="srand.htm">srand</A><BR>
-<A href="strtod.htm">strtod</A><BR>
-<A href="strtof.htm">strtof</A><BR>
-<A href="strtol.htm">strtol</A><BR>
-<A href="strtold.htm">strtold</A><BR>
-<A href="strtoll.htm">strtoll</A><BR>
-<A href="strtoul.htm">strtoul</A><BR>
-<A href="strtoull.htm">strtoull</A><BR>
-<A href="system.htm">system</A><BR>
-<A href="va_arg-va_start-va_end-va_copy.htm">va_arg, va_start, va_end, va_copy</A><BR>
-<A href="wcstombs.htm">wcstombs</A><BR>
-<A href="wctomb.htm">wctomb</A><BR>
+<tr><th><em>Макрос</em><th><em>Значение</em>
+<tr><td><kbd>MB_CUR_MAX</kbd><td>Максимальная длина (в байтах) многобайтового символа
+<tr><td><kbd>NULL</kbd><td>Нулевой указатель
+<tr><td><kbd>RAND_MAX</kbd><td>Максимальное значение, которое может возвратить функция <kbd>rand()</kbd>
+<tr><td><kbd>EXIT_FAILURE</kbd><td>Значение, возвращаемое вызывающему процессу при неудачном завершении программы
+<tr><td><kbd>EXIT_SUCCESS</kbd><td>Значение, возвращаемое вызывающему процессу при успешном завершении программы
+</table>
+<p class="tj">Если для вызова некоторой функции необходимо использовать заголовок, отличный от <kbd>&lt;stdlib.h&gt;</kbd>, об этом будет специально указано в описании функции.</p>
+<a id="00"></a>
+<a href="abort.htm">abort</a><br>
+<a href="abs.htm">abs</a><br>
+<a href="assert.htm">assert</a><br>
+<a href="atexit.htm">atexit</a><br>
+<a href="atof.htm">atof</a><br>
+<a href="atoi.htm">atoi</a><br>
+<a href="atol.htm">atol</a><br>
+<a href="atoll.htm">atoll</a><br>
+<a href="bsearch.htm">bsearch</a><br>
+<a href="div.htm">div</a><br>
+<a href="exit.htm">exit</a><br>
+<a href="_Exit.htm">_Exit</a><br>
+<a href="getenv.htm">getenv</a><br>
+<a href="labs.htm">labs</a><br>
+<a href="llabs.htm">llabs</a><br>
+<a href="ldiv.htm">ldiv</a><br>
+<a href="lldiv.htm">lldiv</a><br>
+<a href="longjmp.htm">longjmp</a><br>
+<a href="mblen.htm">mblen</a><br>
+<a href="mbstowcs.htm">mbstowcs</a><br>
+<a href="mbtowc.htm">mbtowc</a><br>
+<a href="qsort.htm">qsort</a><br>
+<a href="raise.htm">raise</a><br>
+<a href="rand.htm">rand</a><br>
+<a href="setjmp.htm">setjmp</a><br>
+<a href="signal.htm">signal</a><br>
+<a href="srand.htm">srand</a><br>
+<a href="strtod.htm">strtod</a><br>
+<a href="strtof.htm">strtof</a><br>
+<a href="strtol.htm">strtol</a><br>
+<a href="strtold.htm">strtold</a><br>
+<a href="strtoll.htm">strtoll</a><br>
+<a href="strtoul.htm">strtoul</a><br>
+<a href="strtoull.htm">strtoull</a><br>
+<a href="system.htm">system</a><br>
+<a href="va_arg-va_start-va_end-va_copy.htm">va_arg, va_start, va_end, va_copy</a><br>
+<a href="wcstombs.htm">wcstombs</a><br>
+<a href="wctomb.htm">wctomb</a><br>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a>
+</body>
 </html>

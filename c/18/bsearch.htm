@@ -1,32 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция bsearch - cправочник по Си</TITLE>
+<head>
+<title>Функция bsearch - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция bsearch</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция bsearch</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-void *bsearch(const void *<I>key</I>, const void *<I>buf</I>,
-              size_t <I>num</I>, size_t <I>size</I>,
-              int (*<I>compare</I>) (const void *, const void *));
-</PRE>
-<P class="tj">Функция <KBD>bsearch()</KBD> выполняет двоичный поиск в отсортированном массиве, адресуемом параметром <I>buf</I>, и возвращает указатель на первый член, который совпадает с искомым ключом-значением, адресуемым параметром <I>key</I>. Количество элементов в массиве задается параметром <I>num</I>, а размер (в байтах) каждого элемента — параметром <I>size</I>.
-<P class="tj">Для сравнения каждого элемента массива с ключом-значением используется функция, адресуемая параметром <I>compare</I>. Функция <I>compare</I> должна иметь следующее определение.
-<PRE>int <I>func_name</I>(const void *<I>arg1</I>, const void *<I>arg2</I>);</PRE>
-<P class="tj">Она должна возвращать значения, описанные в следующей таблице.</P>
+void *bsearch(const void *<em>key</em>, const void *<em>buf</em>,
+              size_t <em>num</em>, size_t <em>size</em>,
+              int (*<em>compare</em>) (const void *, const void *));
+</pre>
+<p class="tj">Функция <kbd>bsearch()</kbd> выполняет двоичный поиск в отсортированном массиве, адресуемом параметром <em>buf</em>, и возвращает указатель на первый член, который совпадает с искомым ключом-значением, адресуемым параметром <em>key</em>. Количество элементов в массиве задается параметром <em>num</em>, а размер (в байтах) каждого элемента — параметром <em>size</em>.
+<p class="tj">Для сравнения каждого элемента массива с ключом-значением используется функция, адресуемая параметром <em>compare</em>. Функция <em>compare</em> должна иметь следующее определение.
+<pre>int <em>func_name</em>(const void *<em>arg1</em>, const void *<em>arg2</em>);</pre>
+<p class="tj">Она должна возвращать значения, описанные в следующей таблице.</p>
 <table class="table table-bordered">
-<TR><TH><I>Сравнение</I><TH><I>Возвращаемое значение</I>
-<TR><TD><I>arg1</I> меньше чем <I>arg2</I><TD>Меньше нуля
-<TR><TD><I>arg1</I> равен <I>arg2</I><TD>Нуль
-<TR><TD><I>arg1</I> больше чем <I>arg2</I><TD>Больше нуля
-</TABLE>
-<P class="tj">Массив должен быть отсортирован в порядке возрастания, чтобы по самому младшему адресу содержался наименьший элемент. Если массив не содержит искомого ключа-значения, возвращается нулевой указатель.
-<H2>Пример</H2>
-<P class="tj">Следующая программа считывает вводимые с клавиатуры символы и определяет, входят ли они в алфавит:
-<PRE>
+<tr><th><em>Сравнение</em><th><em>Возвращаемое значение</em>
+<tr><td><em>arg1</em> меньше чем <em>arg2</em><td>Меньше нуля
+<tr><td><em>arg1</em> равен <em>arg2</em><td>Нуль
+<tr><td><em>arg1</em> больше чем <em>arg2</em><td>Больше нуля
+</table>
+<p class="tj">Массив должен быть отсортирован в порядке возрастания, чтобы по самому младшему адресу содержался наименьший элемент. Если массив не содержит искомого ключа-значения, возвращается нулевой указатель.
+<h2>Пример</h2>
+<p class="tj">Следующая программа считывает вводимые с клавиатуры символы и определяет, входят ли они в алфавит:
+<pre>
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;stdio.h&gt;
@@ -49,11 +49,11 @@ int comp(const void *ch, const void *s)
 {
   return *(char *)ch - *(char *)s;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="qsort.htm">qsort()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="qsort.htm">qsort()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

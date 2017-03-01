@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция getc - cправочник по Си</TITLE>
+<head>
+<title>Функция getc - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция getc</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция getc</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int getc(FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>getc()</KBD> возвращает из входного потока <I>stream</I> символ, следующий за указателем текущей позиции, а затем увеличивает значение указателя текущей позиции. При чтении символа предполагается, что он имеет тип <KBD>unsigned char</KBD>, который потом преобразуется в целый.
-<P class="tj">При достижении конца файла функция <KBD>getc()</KBD> возвращает значение <KBD>EOF</KBD>. Ho поскольку значение <KBD>EOF</KBD> само является целым значением, при работе с двоичными файлами проверять условие достижения конца файла необходимо с помощью функции <KBD>feof()</KBD>. При обнаружении ошибки функция <KBD>getc()</KBD> также возвращает значение <KBD>EOF</KBD>. Поэтому для выявления ошибок при работе с двоичными файлами необходимо использовать функцию <KBD>ferror()</KBD>.
-<P class="tj">Функции <KBD>getc()</KBD> и <KBD>fgetc()</KBD> идентичны, но в большинстве реализаций функция <KBD>getc()</KBD> определена как макрос.
-<H2>Пример</H2>
-<P class="tj">Следующая программа читает содержимое текстового файла и выводит его на экран.
-<PRE>
+int getc(FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>getc()</kbd> возвращает из входного потока <em>stream</em> символ, следующий за указателем текущей позиции, а затем увеличивает значение указателя текущей позиции. При чтении символа предполагается, что он имеет тип <kbd>unsigned char</kbd>, который потом преобразуется в целый.
+<p class="tj">При достижении конца файла функция <kbd>getc()</kbd> возвращает значение <kbd>EOF</kbd>. Ho поскольку значение <kbd>EOF</kbd> само является целым значением, при работе с двоичными файлами проверять условие достижения конца файла необходимо с помощью функции <kbd>feof()</kbd>. При обнаружении ошибки функция <kbd>getc()</kbd> также возвращает значение <kbd>EOF</kbd>. Поэтому для выявления ошибок при работе с двоичными файлами необходимо использовать функцию <kbd>ferror()</kbd>.
+<p class="tj">Функции <kbd>getc()</kbd> и <kbd>fgetc()</kbd> идентичны, но в большинстве реализаций функция <kbd>getc()</kbd> определена как макрос.
+<h2>Пример</h2>
+<p class="tj">Следующая программа читает содержимое текстового файла и выводит его на экран.
+<pre>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int main(int argc, char *argv[])
@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
   fclose(fp);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fputc.htm">fputc()</A>  <A href="fgetc.htm">fgetc()</A>  <A href="putc.htm">putc()</A>  <A href="fopen.htm">fopen()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fputc.htm">fputc()</a>  <a href="fgetc.htm">fgetc()</a>  <a href="putc.htm">putc()</a>  <a href="fopen.htm">fopen()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция strtoull - cправочник по Си</TITLE>
+<head>
+<title>Функция strtoull - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция strtoull</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция strtoull</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-unsigned long long int strtoull(const char *restrict <I>start</I>,
-                                char **restrict <I>end</I>, int <I>radix</I>);
-</PRE>
-<P class="tj">Функция <KBD>strtoull()</KBD> добавлена в версии С99.
-<P class="tj">Функция <KBD>strtoull()</KBD> аналогична функции <KBD>strtoul()</KBD> за исключением того, что она возвращает значение типа <KBD>unsigned long long int</KBD>. Если результат не может быть представлен как значение типа <KBD>unsigned long long int</KBD>, возвращается значение <KBD>ULLONG_MAX</KBD>, а глобальная переменная <KBD>errno</KBD> устанавливается равной значению <KBD>ERANGE</KBD>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <I>start</I> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
-<H2>Зависимые функции</H2>
-<A href="strtol.htm">strtol()</A>  <A href="strtoul.htm">strtoul()</A>
+unsigned long long int strtoull(const char *restrict <em>start</em>,
+                                char **restrict <em>end</em>, int <em>radix</em>);
+</pre>
+<p class="tj">Функция <kbd>strtoull()</kbd> добавлена в версии С99.
+<p class="tj">Функция <kbd>strtoull()</kbd> аналогична функции <kbd>strtoul()</kbd> за исключением того, что она возвращает значение типа <kbd>unsigned long long int</kbd>. Если результат не может быть представлен как значение типа <kbd>unsigned long long int</kbd>, возвращается значение <kbd>ULLONG_MAX</kbd>, а глобальная переменная <kbd>errno</kbd> устанавливается равной значению <kbd>ERANGE</kbd>, свидетельствующему об ошибке из-за выхода результата за пределы представимых чисел. Если параметр <em>start</em> не указывает на число, никакого преобразования не выполняется и функция возвращает нуль.
+<h2>Зависимые функции</h2>
+<a href="strtol.htm">strtol()</a>  <a href="strtoul.htm">strtoul()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

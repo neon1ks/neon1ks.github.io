@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция localtime - cправочник по Си</TITLE>
+<head>
+<title>Функция localtime - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A><HR>
-<H1>Функция localtime</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a><hr>
+<h1>Функция localtime</h1>
+<pre>
 #include &lt;time.h&gt;
-struct tm *localtime(const time_t *<I>time</I>);
-</PRE>
-<P class="tj">Функция <KBD>localtime()</KBD> возвращает указатель на структуру типа <KBD>tm</KBD>, содержащую время в разделенной на компоненты форме. Время представлено как местное. Указатель <I>time</I> обычно получают с помощью функции <KBD>time()</KBD>.
-<P class="tj">Память для структуры, в которой <KBD>localtime()</KBD> сохраняет разделенное на компоненты время, выделяется статически. Поэтому эта структура перезаписывается при каждом вызове функции. Для сохранения содержания структуры, скопируйте ее в какую-нибудь другую область памяти.
-<H2>Пример</H2>
-<P class="tj">Эта программа печатает местное время и координированное всемирное время системы:
-<PRE>
+struct tm *localtime(const time_t *<em>time</em>);
+</pre>
+<p class="tj">Функция <kbd>localtime()</kbd> возвращает указатель на структуру типа <kbd>tm</kbd>, содержащую время в разделенной на компоненты форме. Время представлено как местное. Указатель <em>time</em> обычно получают с помощью функции <kbd>time()</kbd>.
+<p class="tj">Память для структуры, в которой <kbd>localtime()</kbd> сохраняет разделенное на компоненты время, выделяется статически. Поэтому эта структура перезаписывается при каждом вызове функции. Для сохранения содержания структуры, скопируйте ее в какую-нибудь другую область памяти.
+<h2>Пример</h2>
+<p class="tj">Эта программа печатает местное время и координированное всемирное время системы:
+<pre>
 #include &lt;time.h&gt;
 #include &lt;stdio.h&gt;
 /* Печатать местное и координированное всемирное (UTC) время. */
@@ -30,11 +30,11 @@ int main(void)
   printf("Координированное всемирное время (UTC) и дата: %s\n", asctime(local));
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="gmtime.htm">gmtime()</A>  <A href="time.htm">time()</A>  <A href="asctime.htm">asctime()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="gmtime.htm">gmtime()</a>  <a href="time.htm">time()</a>  <a href="asctime.htm">asctime()</a>
 <p>
 </p>
-<HR><A href="../main.htm#16">Содержание</A> | <A href="16.htm#00">Глава 16</A>
-</BODY>
+<hr><a href="../main.htm#16">Содержание</a> | <a href="16.htm#00">Глава 16</a>
+</body>
 </html>

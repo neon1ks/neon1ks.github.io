@@ -1,24 +1,24 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция freopen - cправочник по Си</TITLE>
+<head>
+<title>Функция freopen - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция freopen</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция freopen</h1>
+<pre>
 #include &lt;stdio.h&gt;
-FILE *freopen(const char *<I>fname</I>, const char *<I>mode</I>, FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>freopen()</KBD> связывает существующий поток с другим файлом. Имя нового файла задается параметром <I>fname</I>, режим доступа — параметром <I>mode</I>, a переназначаемый поток определяется указателем <I>stream</I>. Возможные значения строки <I>mode</I> — те же, что и для функции <KBD>fopen()</KBD> (полное их описание можно найти в разделе, посвященном описанию <KBD>fopen</KBD>).
-<P class="tj">В версии C99 к параметрам <I>fname</I>, <I>mode</I> и <I>stream</I> применен квалификатор <KBD>restrict</KBD>.
-<P class="tj">При вызове функция <KBD>freopen()</KBD> сначала пытается закрыть файл, который в данный момент связан с потоком <I>stream</I>. Ho даже если этот файл закрыть не удается, <KBD>freopen()</KBD> открывает другой файл.
-<P class="tj">При успешном выполнении функция <KBD>freopen()</KBD> возвращает указатель на поток, а в противном случае — нулевой указатель.
-<P class="tj">Чаще всего функция <KBD>freopen()</KBD> используется для перенаправления таких определенных системой файлов, как <KBD>stdin</KBD>, <KBD>stdout</KBD> и <KBD>stderr</KBD>, в какой-то другой.
-<H2>Пример</H2>
-<P class="tj">Приведенная здесь программа использует функцию <KBD>freopen()</KBD>, чтобы перенаправить поток <KBD>stdout</KBD> в файл с названием OUT. Первое сообщение программы выводится на экран, а второе, перенаправленное, записывается функцией <KBD>freopen()</KBD>, в файл на диске.
-<PRE>
+FILE *freopen(const char *<em>fname</em>, const char *<em>mode</em>, FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>freopen()</kbd> связывает существующий поток с другим файлом. Имя нового файла задается параметром <em>fname</em>, режим доступа — параметром <em>mode</em>, a переназначаемый поток определяется указателем <em>stream</em>. Возможные значения строки <em>mode</em> — те же, что и для функции <kbd>fopen()</kbd> (полное их описание можно найти в разделе, посвященном описанию <kbd>fopen</kbd>).
+<p class="tj">В версии C99 к параметрам <em>fname</em>, <em>mode</em> и <em>stream</em> применен квалификатор <kbd>restrict</kbd>.
+<p class="tj">При вызове функция <kbd>freopen()</kbd> сначала пытается закрыть файл, который в данный момент связан с потоком <em>stream</em>. Ho даже если этот файл закрыть не удается, <kbd>freopen()</kbd> открывает другой файл.
+<p class="tj">При успешном выполнении функция <kbd>freopen()</kbd> возвращает указатель на поток, а в противном случае — нулевой указатель.
+<p class="tj">Чаще всего функция <kbd>freopen()</kbd> используется для перенаправления таких определенных системой файлов, как <kbd>stdin</kbd>, <kbd>stdout</kbd> и <kbd>stderr</kbd>, в какой-то другой.
+<h2>Пример</h2>
+<p class="tj">Приведенная здесь программа использует функцию <kbd>freopen()</kbd>, чтобы перенаправить поток <kbd>stdout</kbd> в файл с названием OUT. Первое сообщение программы выводится на экран, а второе, перенаправленное, записывается функцией <kbd>freopen()</kbd>, в файл на диске.
+<pre>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int main(void)
@@ -33,10 +33,10 @@ int main(void)
   fclose(fp);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fopen.htm">fopen()</A>  <A href="fclose.htm">fclose()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fopen.htm">fopen()</a>  <a href="fclose.htm">fclose()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

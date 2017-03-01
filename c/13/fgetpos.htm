@@ -1,32 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция fgetpos - cправочник по Си</TITLE>
+<head>
+<title>Функция fgetpos - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция fgetpos</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция fgetpos</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int fgetpos(FILE *<I>stream</I>, fpos_t *<I>position</I>);
-</PRE>
-<P class="tj">Функция <KBD>fgetpos()</KBD> сохраняет в объекте, на который указывает параметр <I>position</I>, текущее значение указателя позиции файла из заданного потока. Объект, адресуемый элементом <I>position</I>, должен иметь тип <KBD>fpos_t</KBD>. Сохраняемое значение может быть полезно только для последующего обращения к функции <KBD>fsetpos()</KBD>.
-<P class="tj">Отметим, что в версии C99 к параметрам <I>stream</I> и <I>position</I> применяется квалификатор <KBD>restrict</KBD>.
-<P class="tj">При возникновении ошибки функция <KBD>fgetpos()</KBD> возвращает ненулевое значение; в противном случае возврашается нуль.
-<H2>Пример</H2>
-<P class="tj">Следующий фрагмент программы присваивает переменной <KBD>file_loc</KBD> текущее знамение положения файла.
-<PRE>
+int fgetpos(FILE *<em>stream</em>, fpos_t *<em>position</em>);
+</pre>
+<p class="tj">Функция <kbd>fgetpos()</kbd> сохраняет в объекте, на который указывает параметр <em>position</em>, текущее значение указателя позиции файла из заданного потока. Объект, адресуемый элементом <em>position</em>, должен иметь тип <kbd>fpos_t</kbd>. Сохраняемое значение может быть полезно только для последующего обращения к функции <kbd>fsetpos()</kbd>.
+<p class="tj">Отметим, что в версии C99 к параметрам <em>stream</em> и <em>position</em> применяется квалификатор <kbd>restrict</kbd>.
+<p class="tj">При возникновении ошибки функция <kbd>fgetpos()</kbd> возвращает ненулевое значение; в противном случае возврашается нуль.
+<h2>Пример</h2>
+<p class="tj">Следующий фрагмент программы присваивает переменной <kbd>file_loc</kbd> текущее знамение положения файла.
+<pre>
 FILE *fp;
 fpos_t file_loc;
 .
 .
 .
 fgetpos(fp, &file_loc);
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fsetpos.htm">fsetpos()</A>  <A href="fseek.htm">fseek()</A>  <A href="ftell.htm">ftell()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fsetpos.htm">fsetpos()</a>  <a href="fseek.htm">fseek()</a>  <a href="ftell.htm">ftell()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

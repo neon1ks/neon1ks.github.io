@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция fgetc - cправочник по Си</TITLE>
+<head>
+<title>Функция fgetc - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция fgetc</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция fgetc</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int fgetc(FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>fgetc()</KBD> возвращает символ, взятый из входного потока <I>stream</I> и находящийся сразу после текущей позиции, а также увеличивает указатель текущей позиции файла. Этот символ читается как значение типа <KBD>unsigned char</KBD>, преобразованное в целое.
-<P class="tj">При достижении конца файла функция <KBD>fgetc()</KBD> возвращает значение <KBD>EOF</KBD>. Ho по скольку значение <KBD>EOF</KBD> является действительным целым значением, при работе с двоичными файлами для обнаружения конца файла необходимо использовать функцию <KBD>feof()</KBD>. Если функция <KBD>fgetc()</KBD> обнаруживает ошибку, она возвращает значение <KBD>EOF</KBD>. Для выявления ошибок, возникающих при работе с двоичными файлами, необходимо использовать функцию <KBD>ferror()</KBD>.
-<H2>Пример</H2>
-<P class="tj">Следующая программа читает и выводит на экран содержимое текстового файла.
-<PRE>
+int fgetc(FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>fgetc()</kbd> возвращает символ, взятый из входного потока <em>stream</em> и находящийся сразу после текущей позиции, а также увеличивает указатель текущей позиции файла. Этот символ читается как значение типа <kbd>unsigned char</kbd>, преобразованное в целое.
+<p class="tj">При достижении конца файла функция <kbd>fgetc()</kbd> возвращает значение <kbd>EOF</kbd>. Ho по скольку значение <kbd>EOF</kbd> является действительным целым значением, при работе с двоичными файлами для обнаружения конца файла необходимо использовать функцию <kbd>feof()</kbd>. Если функция <kbd>fgetc()</kbd> обнаруживает ошибку, она возвращает значение <kbd>EOF</kbd>. Для выявления ошибок, возникающих при работе с двоичными файлами, необходимо использовать функцию <kbd>ferror()</kbd>.
+<h2>Пример</h2>
+<p class="tj">Следующая программа читает и выводит на экран содержимое текстового файла.
+<pre>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int main(int argc, char *argv[])
@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
   fclose(fp);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fputc.htm">fputc()</A>  <A href="getc.htm">getc()</A>  <A href="putc.htm">putc()</A>  <A href="fopen.htm">fopen()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fputc.htm">fputc()</a>  <a href="getc.htm">getc()</a>  <a href="putc.htm">putc()</a>  <a href="fopen.htm">fopen()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

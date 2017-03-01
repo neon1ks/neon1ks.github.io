@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция sscanf - cправочник по Си</TITLE>
+<head>
+<title>Функция sscanf - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция sscanf</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция sscanf</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int sscanf(const char *<I>buf</I>, const char *<I>format</I>, ...);
-</PRE>
-<P class="tj">Функция <KBD>sscanf()</KBD> идентична функции <KBD>scanf()</KBD>, но данные читаются из массива, адресуемого параметром <I>buf</I>, а не из стандартного потока ввода <KBD>stdin</KBD>. Подробности приводятся в разделе <KBD>scanf</KBD>.
-<P class="tj">В версии C99 к параметрам <I>buf</I> и <I>format</I> применен квалификатор <KBD>restrict</KBD>.
-<P class="tj">Значение, возвращаемое функцией, равно количеству переменных, которым реально были присвоены значения. К ним не относятся поля, опущенные из-за использования модификатора команды форматирования *. Нулевое значение свидетельствует о том, что ни одно поле не было присвоено, а значение <KBD>EOF</KBD> сигнализирует об ошибке, обнаруженной до первого присваивания.
-<H2>Пример</H2>
-<P class="tj">Данная программа выводит на экран сообщение
-<PRE>привет 1</PRE>
-<PRE>
+int sscanf(const char *<em>buf</em>, const char *<em>format</em>, ...);
+</pre>
+<p class="tj">Функция <kbd>sscanf()</kbd> идентична функции <kbd>scanf()</kbd>, но данные читаются из массива, адресуемого параметром <em>buf</em>, а не из стандартного потока ввода <kbd>stdin</kbd>. Подробности приводятся в разделе <kbd>scanf</kbd>.
+<p class="tj">В версии C99 к параметрам <em>buf</em> и <em>format</em> применен квалификатор <kbd>restrict</kbd>.
+<p class="tj">Значение, возвращаемое функцией, равно количеству переменных, которым реально были присвоены значения. К ним не относятся поля, опущенные из-за использования модификатора команды форматирования *. Нулевое значение свидетельствует о том, что ни одно поле не было присвоено, а значение <kbd>EOF</kbd> сигнализирует об ошибке, обнаруженной до первого присваивания.
+<h2>Пример</h2>
+<p class="tj">Данная программа выводит на экран сообщение
+<pre>привет 1</pre>
+<pre>
 #include &lt;stdio.h&gt;
 int main(void)
 {
@@ -27,10 +27,10 @@ int main(void)
   printf("%s %d", str, i);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="scanf.htm">scanf()</A>  <A href="fscanf.htm">fscanf()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="scanf.htm">scanf()</a>  <a href="fscanf.htm">fscanf()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

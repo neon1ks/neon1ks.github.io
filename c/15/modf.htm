@@ -1,32 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция modf - cправочник по Си</TITLE>
+<head>
+<title>Функция modf - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A><HR>
-<H1>Функция modf</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a><hr>
+<h1>Функция modf</h1>
+<pre>
 #include &lt;math.h&gt;
-float modff(float <I>num</I>, float *<I>i</I>);
-double modf(double <I>num</I>, double *<I>i</I>);
-long double modfl(long double <I>num</I>, long double *<I>i</I>);
-</PRE>
-<P class="tj">Функции <KBD>modff()</KBD> и <KBD>modfl()</KBD> добавлены в версии С99.
-<P class="tj">Каждая функция семейства <KBD>modf()</KBD> разбивает аргумент <I>num</I> на целую и дробную части. Функция возвращает дробную часть и размещает целую часть в переменной, адресуемой параметром <I>i</I>.
-<H2>Пример</H2>
-<P class="tj">Данный фрагмент программы выводит на экран числа <PRE>10</PRE> и <PRE>0.123</PRE>
-<PRE>
+float modff(float <em>num</em>, float *<em>i</em>);
+double modf(double <em>num</em>, double *<em>i</em>);
+long double modfl(long double <em>num</em>, long double *<em>i</em>);
+</pre>
+<p class="tj">Функции <kbd>modff()</kbd> и <kbd>modfl()</kbd> добавлены в версии С99.
+<p class="tj">Каждая функция семейства <kbd>modf()</kbd> разбивает аргумент <em>num</em> на целую и дробную части. Функция возвращает дробную часть и размещает целую часть в переменной, адресуемой параметром <em>i</em>.
+<h2>Пример</h2>
+<p class="tj">Данный фрагмент программы выводит на экран числа <pre>10</pre> и <pre>0.123</pre>
+<pre>
 double i;
 double f;
 f = modf(10.123, &i);
 printf("%f %f",i , f);
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="frexp.htm">frexp()</A>  <A href="ldexp.htm">ldexp()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="frexp.htm">frexp()</a>  <a href="ldexp.htm">ldexp()</a>
 <p>
 </p>
-<HR><A href="../main.htm#15">Содержание</A> | <A href="15.htm#00">Глава 15</A>
-</BODY>
+<hr><a href="../main.htm#15">Содержание</a> | <a href="15.htm#00">Глава 15</a>
+</body>
 </html>

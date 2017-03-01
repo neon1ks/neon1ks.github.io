@@ -1,20 +1,20 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция rewind - cправочник по Си</TITLE>
+<head>
+<title>Функция rewind - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция rewind</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция rewind</h1>
+<pre>
 #include &lt;stdio.h&gt;
-void rewind(FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>rewind()</KBD> перемещает указатель текущей позиции файла в начало заданного потока. Она также очищает связанные с потоком <I>stream</I> признаки конца файла и ошибок.
-<H2>Пример</H2>
-<P class="tj">Данная функция дважды читает поток, адресованный указателем <KBD>fp</KBD>, и каждый раз выводит файл на экран.
-<PRE>
+void rewind(FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>rewind()</kbd> перемещает указатель текущей позиции файла в начало заданного потока. Она также очищает связанные с потоком <em>stream</em> признаки конца файла и ошибок.
+<h2>Пример</h2>
+<p class="tj">Данная функция дважды читает поток, адресованный указателем <kbd>fp</kbd>, и каждый раз выводит файл на экран.
+<pre>
 void re_read(FILE *fp)
 {
   /* первое чтение */
@@ -23,10 +23,10 @@ void re_read(FILE *fp)
   /* второе чтение */
   while(!feof(fp)) putchar(getc(fp));
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fseek.htm">fseek()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fseek.htm">fseek()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

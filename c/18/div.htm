@@ -1,25 +1,25 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция div - cправочник по Си</TITLE>
+<head>
+<title>Функция div - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A><HR>
-<H1>Функция div</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a><hr>
+<h1>Функция div</h1>
+<pre>
 #include &lt;stdlib.h&gt;
-div_t div(int <I>numerator</I>, int <I>denominator</I>);
-</PRE>
-<P class="tj">Функция <KBD>div()</KBD> возвращает в структуре типа <KBD>div_t</KBD> частное и остаток, полученные в результате выполнения операции деления числителя <I>numerator</I> на знаменатель <I>denominator</I>.
-<P class="tj">Структура типа <KBD>div_t</KBD> имеет следующие два поля.
-<PRE>
+div_t div(int <em>numerator</em>, int <em>denominator</em>);
+</pre>
+<p class="tj">Функция <kbd>div()</kbd> возвращает в структуре типа <kbd>div_t</kbd> частное и остаток, полученные в результате выполнения операции деления числителя <em>numerator</em> на знаменатель <em>denominator</em>.
+<p class="tj">Структура типа <kbd>div_t</kbd> имеет следующие два поля.
+<pre>
 int quot; /* частное */
 int rem;  /* остаток */
-</PRE>
-<H2>Пример</H2>
-<P class="tj">Эта программа выводит частное и остаток от деления 10 на 3:
-<PRE>
+</pre>
+<h2>Пример</h2>
+<p class="tj">Эта программа выводит частное и остаток от деления 10 на 3:
+<pre>
 #include &lt;stdlib.h&gt;
 #include &lt;stdio.h&gt;
 int main(void)
@@ -29,11 +29,11 @@ int main(void)
   printf("Частное и остаток: %d %d.\n", n.quot, n.rem);
   return 0;
 }
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="ldiv.htm">ldiv()</A>  <A href="lldiv.htm">lldiv()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="ldiv.htm">ldiv()</a>  <a href="lldiv.htm">lldiv()</a>
 <p>
 </p>
-<HR><A href="../main.htm#18">Содержание</A> | <A href="18.htm#00">Глава 18</A>
-</BODY>
+<hr><a href="../main.htm#18">Содержание</a> | <a href="18.htm#00">Глава 18</a>
+</body>
 </html>

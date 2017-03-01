@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функция putc - cправочник по Си</TITLE>
+<head>
+<title>Функция putc - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
-<H1>Функция putc</H1>
-<PRE>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a><hr>
+<h1>Функция putc</h1>
+<pre>
 #include &lt;stdio.h&gt;
-int putc(int <I>ch</I>, FILE *<I>stream</I>);
-</PRE>
-<P class="tj">Функция <KBD>putc()</KBD> записывает в поток вывода, адресуемый параметром <I>stream</I>, символ, содержащийся в младшем байте параметра <I>ch</I>. Поскольку в момент вызова символьные аргументы преобразуются в целые, их вполне можно использовать в качестве аргументов функции <KBD>putc()</KBD>. Функция <KBD>putc()</KBD> часто реализуется как макрос.
-<P class="tj">При успешном выполнении функция <KBD>putc()</KBD> возвращает записанный символ, а в случае ошибки — значение <KBD>EOF</KBD>. Если поток вывода был открыт в двоичном режиме, <KBD>EOF</KBD> тоже может быть воспринято как <KBD>ch</KBD>. Поэтому в данном случае для выявления ошибки необходимо использовать функцию <KBD>ferror()</KBD>.
-<H2>Пример</H2>
-<P class="tj">Следующий цикл записывает символы в строку <KBD>str</KBD> потока, заданного идентификатором <KBD>fp</KBD>. Символ конца строки не записывается.
-<PRE>
+int putc(int <em>ch</em>, FILE *<em>stream</em>);
+</pre>
+<p class="tj">Функция <kbd>putc()</kbd> записывает в поток вывода, адресуемый параметром <em>stream</em>, символ, содержащийся в младшем байте параметра <em>ch</em>. Поскольку в момент вызова символьные аргументы преобразуются в целые, их вполне можно использовать в качестве аргументов функции <kbd>putc()</kbd>. Функция <kbd>putc()</kbd> часто реализуется как макрос.
+<p class="tj">При успешном выполнении функция <kbd>putc()</kbd> возвращает записанный символ, а в случае ошибки — значение <kbd>EOF</kbd>. Если поток вывода был открыт в двоичном режиме, <kbd>EOF</kbd> тоже может быть воспринято как <kbd>ch</kbd>. Поэтому в данном случае для выявления ошибки необходимо использовать функцию <kbd>ferror()</kbd>.
+<h2>Пример</h2>
+<p class="tj">Следующий цикл записывает символы в строку <kbd>str</kbd> потока, заданного идентификатором <kbd>fp</kbd>. Символ конца строки не записывается.
+<pre>
 for( ;*str; str++) putc(*str; fp);
-</PRE>
-<H2>Зависимые функции</H2>
-<A href="fgetc.htm">fgetc()</A>  <A href="fputc.htm">fputc()</A>  <A href="getchar.htm">getchar()</A>  <A href="putchar.htm">putchar()</A>
+</pre>
+<h2>Зависимые функции</h2>
+<a href="fgetc.htm">fgetc()</a>  <a href="fputc.htm">fputc()</a>  <a href="getchar.htm">getchar()</a>  <a href="putchar.htm">putchar()</a>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a> | <a href="13.htm#00">Глава 13</a>
+</body></html>

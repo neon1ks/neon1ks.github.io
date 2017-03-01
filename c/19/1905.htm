@@ -1,29 +1,29 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функции для обработки массивов двухбайтовых символов - cправочник по Си</TITLE>
+<head>
+<title>Функции для обработки массивов двухбайтовых символов - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#19">Содержание</A> | <A href="1904.htm">&lt;&lt;&lt;</A> | <A href="1906.htm">&gt;&gt;&gt;</A><HR>
-<H1>Функции для обработки массивов двухбайтовых символов</H1>
-<P class="tj">Для стандартных функций, предназначенных для обработки массивов символов (например, для <KBD>memcpy()</KBD>), имеются соответствующие функции, выполняющие аналогичные операции над массивами двухбайтовых символов. Эти функции (перечисленные в следующей табл. 19.5) используют заголовок <KBD>&lt;wchar.h&gt;</KBD>.</P>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#19">Содержание</a> | <a href="1904.htm">&lt;&lt;&lt;</a> | <a href="1906.htm">&gt;&gt;&gt;</a><hr>
+<h1>Функции для обработки массивов двухбайтовых символов</h1>
+<p class="tj">Для стандартных функций, предназначенных для обработки массивов символов (например, для <kbd>memcpy()</kbd>), имеются соответствующие функции, выполняющие аналогичные операции над массивами двухбайтовых символов. Эти функции (перечисленные в следующей табл. 19.5) используют заголовок <kbd>&lt;wchar.h&gt;</kbd>.</p>
 <table class="table table-bordered">
-<CAPTION><B>Таблица 19.5. Функции для обработки массивов двухбайтовых символов и соответствующие им функции для типа <KBD>char</KBD></B></CAPTION>
-<TR><TH><I>Функция</I><TH><I>Соотвествующая функция для типа <KBD>char</KBD></I>
-<TR><TD><PRE>wchar_t *wmemchr(const wchar_t *<I>str</I>,
-  wchar_t <I>ch</I>, size_t <I>num</I>)</PRE><TD><KBD>memchr()</KBD>
-<TR><TD><PRE>int wmemcmp(const wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>, size_t <I>num</I>)</PRE><TD><KBD>memcmp()</KBD>
-<TR><TD><PRE>wchar_t *wmemcpy(wchar_t *<I>str1</I>,
-  const wchar_t *<I>str2</I>, size_t <I>num</I>)</PRE><TD class="t"><KBD>memcpy()</KBD><BR>В версии С99 к параметрам str1 и str2 применен квалификатор restrict
-<TR><TD><PRE>wchar_t *wmemmove(wchar_t *<I>str</I>,
-  const wchar_t *<I>str2</I>, size_t <I>num</I>)</PRE><TD><KBD>memmove()</KBD>
-<TR><TD><PRE>wchar_t *wmemset(wchar_t *<I>str</I>,
-  wchar_t <I>ch</I>, size_t <I>num</I>)</PRE><TD><KBD>memset()</KBD>
-</TABLE>
+<caption><strong>Таблица 19.5. Функции для обработки массивов двухбайтовых символов и соответствующие им функции для типа <kbd>char</kbd></strong></caption>
+<tr><th><em>Функция</em><th><em>Соотвествующая функция для типа <kbd>char</kbd></em>
+<tr><td><pre>wchar_t *wmemchr(const wchar_t *<em>str</em>,
+  wchar_t <em>ch</em>, size_t <em>num</em>)</pre><td><kbd>memchr()</kbd>
+<tr><td><pre>int wmemcmp(const wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>, size_t <em>num</em>)</pre><td><kbd>memcmp()</kbd>
+<tr><td><pre>wchar_t *wmemcpy(wchar_t *<em>str1</em>,
+  const wchar_t *<em>str2</em>, size_t <em>num</em>)</pre><td class="t"><kbd>memcpy()</kbd><br>В версии С99 к параметрам str1 и str2 применен квалификатор restrict
+<tr><td><pre>wchar_t *wmemmove(wchar_t *<em>str</em>,
+  const wchar_t *<em>str2</em>, size_t <em>num</em>)</pre><td><kbd>memmove()</kbd>
+<tr><td><pre>wchar_t *wmemset(wchar_t *<em>str</em>,
+  wchar_t <em>ch</em>, size_t <em>num</em>)</pre><td><kbd>memset()</kbd>
+</table>
 <p>
 </p>
-<HR><A href="../main.htm#19">Содержание</A> | <A href="1904.htm">&lt;&lt;&lt;</A> | <A href="1906.htm">&gt;&gt;&gt;</A>
-</BODY>
+<hr><a href="../main.htm#19">Содержание</a> | <a href="1904.htm">&lt;&lt;&lt;</a> | <a href="1906.htm">&gt;&gt;&gt;</a>
+</body>
 </html>

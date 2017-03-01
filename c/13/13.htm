@@ -1,62 +1,62 @@
 <!DOCTYPE HTML>
 <html lang="ru">
-<HEAD>
-<TITLE>Функции ввода / вывода - cправочник по Си</TITLE>
+<head>
+<title>Функции ввода / вывода - cправочник по Си</title>
 <meta charset="utf-8">
-<LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
-</HEAD><BODY>
-<A href="../main.htm#13">Содержание</A><HR>
-<H1>Функции ввода / вывода</H1>
-<P class="tj">В этой главе описаны стандартные функции ввода/вывода в языке С. Сюда вошли функции, определенные как в Стандарте C89, так и в Стандарте C99. С функциями ввода/вывода ассоциирован заголовок <KBD>&lt;stdio.h&gt;</KBD>. Этот заголовок определяет некоторые макросы и типы, которые используются файловой системой. Наиболее важным из них является тип <KBD>FILE</KBD>, который используется для объявления указателя на файл. Два других часто используемых типа — <KBD>size_t</KBD> и <KBD>fpos_t</KBD>. Тип <KBD>size_t</KBD>, представляющий собой некоторую разновидность целых без знака, — это тип результата, возвращаемого функцией <KBD>sizeof</KBD>. Тип <KBD>fpos_t</KBD> определяет объект, который однозначно задает каждую позицию в файле. Самым популярным макросом, определенным в этом заголовке, является макрос <KBD>EOF</KBD>, значение которого указывает на конец файла. Другие типы данных и макросы, определенные в заголовке <KBD>&lt;stdio.h&gt;</KBD>, описаны вместе с функциями, с которыми они связаны.
-<P class="tj">Многие функции ввода/вывода при возникновении ошибки присваивают встроенной глобальной переменной целого типа <KBD>errno</KBD> определенное значение. Анализ этой переменной поможет программе получить более подробную информацию о возникшей ошибке. Значения, которые может принимать переменная <KBD>errno</KBD>, зависят от конкретной реализации компилятора.
-<P class="tj">В версии C99 введен квалификатор <KBD>restrict</KBD>, который применяется к некоторым параметрам нескольких функций, первоначально определенных в версии C89. При рассмотрении каждой такой функции будет приведен ее прототип, используемый в среде C89 (который одновременно является прототипом в C++), а параметры с атрибутом <KBD>restrict</KBD> будут отмечены в описании этой функции.
-<P class="tj">Обзор системы ввода/вывода приведен в главах <A href="../08/08.htm">8</A> и <A href="../09/09.htm">9</A> <A href="../I.htm">части I</A>.</P>
+<link rel="stylesheet" href="../work/css.css">
+</head><body>
+<a href="../main.htm#13">Содержание</a><hr>
+<h1>Функции ввода / вывода</h1>
+<p class="tj">В этой главе описаны стандартные функции ввода/вывода в языке С. Сюда вошли функции, определенные как в Стандарте C89, так и в Стандарте C99. С функциями ввода/вывода ассоциирован заголовок <kbd>&lt;stdio.h&gt;</kbd>. Этот заголовок определяет некоторые макросы и типы, которые используются файловой системой. Наиболее важным из них является тип <kbd>FILE</kbd>, который используется для объявления указателя на файл. Два других часто используемых типа — <kbd>size_t</kbd> и <kbd>fpos_t</kbd>. Тип <kbd>size_t</kbd>, представляющий собой некоторую разновидность целых без знака, — это тип результата, возвращаемого функцией <kbd>sizeof</kbd>. Тип <kbd>fpos_t</kbd> определяет объект, который однозначно задает каждую позицию в файле. Самым популярным макросом, определенным в этом заголовке, является макрос <kbd>EOF</kbd>, значение которого указывает на конец файла. Другие типы данных и макросы, определенные в заголовке <kbd>&lt;stdio.h&gt;</kbd>, описаны вместе с функциями, с которыми они связаны.
+<p class="tj">Многие функции ввода/вывода при возникновении ошибки присваивают встроенной глобальной переменной целого типа <kbd>errno</kbd> определенное значение. Анализ этой переменной поможет программе получить более подробную информацию о возникшей ошибке. Значения, которые может принимать переменная <kbd>errno</kbd>, зависят от конкретной реализации компилятора.
+<p class="tj">В версии C99 введен квалификатор <kbd>restrict</kbd>, который применяется к некоторым параметрам нескольких функций, первоначально определенных в версии C89. При рассмотрении каждой такой функции будет приведен ее прототип, используемый в среде C89 (который одновременно является прототипом в C++), а параметры с атрибутом <kbd>restrict</kbd> будут отмечены в описании этой функции.
+<p class="tj">Обзор системы ввода/вывода приведен в главах <a href="../08/08.htm">8</a> и <a href="../09/09.htm">9</a> <a href="../I.htm">части I</a>.</p>
 <table class="table table-bordered">
-<TR><td class="tdnote">На заметку<TD class="tj">В этой главе описаны функции познакового ввода/вывода. Эти функции были введены в Стандарт С с самого начала и, безусловно, являются наиболее часто используемыми. В 1995 году было добавлено несколько функций, позволяющих обрабатывать символы в расширенном 16-битном алфавите (<KBD>wchar_t</KBD>); эти функции кратко описаны в <A href="../19/19.htm">главе 19</A>.
-</TABLE>
-<P><A id="00"></A>
-<A href="clearerr.htm">clearerr</A><BR>
-<A href="fclose.htm">fclose</A><BR>
-<A href="feof.htm">feof</A><BR>
-<A href="ferror.htm">ferror</A><BR>
-<A href="fflush.htm">fflush</A><BR>
-<A href="fgetc.htm">fgetc</A><BR>
-<A href="fgetpos.htm">fgetpos</A><BR>
-<A href="fgets.htm">fgets</A><BR>
-<A href="fopen.htm">fopen</A><BR>
-<A href="fprintf.htm">fprintf</A><BR>
-<A href="fputc.htm">fputc</A><BR>
-<A href="fputs.htm">fputs</A><BR>
-<A href="fread.htm">fread</A><BR>
-<A href="freopen.htm">freopen</A><BR>
-<A href="fscanf.htm">fscanf</A><BR>
-<A href="fseek.htm">fseek</A><BR>
-<A href="fsetpos.htm">fsetpos</A><BR>
-<A href="ftell.htm">ftell</A><BR>
-<A href="fwrite.htm">fwrite</A><BR>
-<A href="getc.htm">getc</A><BR>
-<A href="getchar.htm">getchar</A><BR>
-<A href="gets.htm">gets</A><BR>
-<A href="perror.htm">perror</A><BR>
-<A href="printf.htm">printf</A><BR>
-<A href="putc.htm">putc</A><BR>
-<A href="putchar.htm">putchar</A><BR>
-<A href="puts.htm">puts</A><BR>
-<A href="remove.htm">remove</A><BR>
-<A href="rename.htm">rename</A><BR>
-<A href="rewind.htm">rewind</A><BR>
-<A href="scanf.htm">scanf</A><BR>
-<A href="setbuf.htm">setbuf</A><BR>
-<A href="setvbuf.htm">setvbuf</A><BR>
-<A href="snprintf.htm">snprintf</A><BR>
-<A href="sprintf.htm">sprintf</A><BR>
-<A href="sscanf.htm">sscanf</A><BR>
-<A href="tmpfile.htm">tmpfile</A><BR>
-<A href="tmpnam.htm">tmpnam</A><BR>
-<A href="ungetc.htm">ungetc</A><BR>
-<A href="vprintf-vfprintf-vsprintf-vsnprintf.htm">vprintf, vfprintf, vsprintf, vsnprintf</A><BR>
-<A href="vscanf-vfscanf-vsscanf.htm">vscanf, vfscanf, vsscanf</A><BR>
+<tr><td class="tdnote">На заметку<td class="tj">В этой главе описаны функции познакового ввода/вывода. Эти функции были введены в Стандарт С с самого начала и, безусловно, являются наиболее часто используемыми. В 1995 году было добавлено несколько функций, позволяющих обрабатывать символы в расширенном 16-битном алфавите (<kbd>wchar_t</kbd>); эти функции кратко описаны в <a href="../19/19.htm">главе 19</a>.
+</table>
+<p><a id="00"></a>
+<a href="clearerr.htm">clearerr</a><br>
+<a href="fclose.htm">fclose</a><br>
+<a href="feof.htm">feof</a><br>
+<a href="ferror.htm">ferror</a><br>
+<a href="fflush.htm">fflush</a><br>
+<a href="fgetc.htm">fgetc</a><br>
+<a href="fgetpos.htm">fgetpos</a><br>
+<a href="fgets.htm">fgets</a><br>
+<a href="fopen.htm">fopen</a><br>
+<a href="fprintf.htm">fprintf</a><br>
+<a href="fputc.htm">fputc</a><br>
+<a href="fputs.htm">fputs</a><br>
+<a href="fread.htm">fread</a><br>
+<a href="freopen.htm">freopen</a><br>
+<a href="fscanf.htm">fscanf</a><br>
+<a href="fseek.htm">fseek</a><br>
+<a href="fsetpos.htm">fsetpos</a><br>
+<a href="ftell.htm">ftell</a><br>
+<a href="fwrite.htm">fwrite</a><br>
+<a href="getc.htm">getc</a><br>
+<a href="getchar.htm">getchar</a><br>
+<a href="gets.htm">gets</a><br>
+<a href="perror.htm">perror</a><br>
+<a href="printf.htm">printf</a><br>
+<a href="putc.htm">putc</a><br>
+<a href="putchar.htm">putchar</a><br>
+<a href="puts.htm">puts</a><br>
+<a href="remove.htm">remove</a><br>
+<a href="rename.htm">rename</a><br>
+<a href="rewind.htm">rewind</a><br>
+<a href="scanf.htm">scanf</a><br>
+<a href="setbuf.htm">setbuf</a><br>
+<a href="setvbuf.htm">setvbuf</a><br>
+<a href="snprintf.htm">snprintf</a><br>
+<a href="sprintf.htm">sprintf</a><br>
+<a href="sscanf.htm">sscanf</a><br>
+<a href="tmpfile.htm">tmpfile</a><br>
+<a href="tmpnam.htm">tmpnam</a><br>
+<a href="ungetc.htm">ungetc</a><br>
+<a href="vprintf-vfprintf-vsprintf-vsnprintf.htm">vprintf, vfprintf, vsprintf, vsnprintf</a><br>
+<a href="vscanf-vfscanf-vsscanf.htm">vscanf, vfscanf, vsscanf</a><br>
 <p>
 </p>
-<HR><A href="../main.htm#13">Содержание</A>
-</BODY></HTML>
+<hr><a href="../main.htm#13">Содержание</a>
+</body></html>
