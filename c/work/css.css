@@ -62,3 +62,7 @@ li.t + li.t {
 .table-bordered td {
   border: 1px solid #dfd7ca;
 }
+
+.bottom {
+  vertical-align: bottom;
+}
