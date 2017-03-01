@@ -23,7 +23,7 @@ void qsort(void *<I>buf</I>, size_t <I>num</I>, size_t <I>size</I>, int (*<I>com
 <P class="tj">Для сравнения двух элементов массива используется функция, передаваемая через параметр <I>compare</I>. Функция <I>compare</I> должна иметь следующее описание.
 <PRE>int <I>func_name</I>(const void *<I>arg1</I>, const void *<I>arg2</I>);</PRE>
 <P class="tj">Она должна возвращать значения, описанные ниже.</P>
-<table class="table">
+<table class="table table-bordered">
 <TR><TH><I>Сравнение</I><TH><I>Возвращаемое значение</I>
 <TR><TD><I>arg1</I> меньше <I>arg2</I><TD>Меньше нуля
 <TR><TD><I>arg1</I> равен <I>arg2</I><TD>Нуль
