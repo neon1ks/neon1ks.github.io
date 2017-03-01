@@ -1,12 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="ru">
-<HEAD>
-<TITLE>Р¤СѓРЅРєС†РёСЏ remove - cРїСЂР°РІРѕС‡РЅРёРє РїРѕ РЎРё</TITLE>
-<meta charset="utf-8"> 
+<HTML><HEAD>
+<TITLE>Функция remove - cправочник по Си</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Windows-1251"> 
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
-<A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A><HR>
-<H1>Р¤СѓРЅРєС†РёСЏ remove</H1>
+<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
+<H1>Функция remove</H1>
 
 
 
@@ -19,20 +17,20 @@
 #include &lt;stdio.h&gt;
 int remove(const char *<I>fname</I>);
 </PRE>
-<P class="tj">Р¤СѓРЅРєС†РёСЏ <KBD>remove()</KBD> СѓРґР°Р»СЏРµС‚ С„Р°Р№Р», Р·Р°РґР°РЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂРѕРј <I>fname</I>. РџСЂРё СѓСЃРїРµС€РЅРѕРј СѓРґР°Р»РµРЅРёРё С„Р°Р№Р»Р° С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅСѓР»СЊ, Р° РІ СЃР»СѓС‡Р°Рµ РѕС€РёР±РєРё вЂ” РЅРµРЅСѓР»РµРІРѕРµ Р·РЅР°С‡РµРЅРёРµ.
-<H2>РџСЂРёРјРµСЂ</H2>
-<P class="tj">Р”Р°РЅРЅР°СЏ РїСЂРѕРіСЂР°РјРјР° СѓРґР°Р»СЏРµС‚ С„Р°Р№Р», РёРјСЏ РєРѕС‚РѕСЂРѕРіРѕ Р·Р°РґР°РµС‚СЃСЏ РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ.
+<P class="tj">Функция <KBD>remove()</KBD> удаляет файл, заданный параметром <I>fname</I>. При успешном удалении файла функция возвращает нуль, а в случае ошибки — ненулевое значение.
+<H2>Пример</H2>
+<P class="tj">Данная программа удаляет файл, имя которого задается в командной строке.
 <PRE>
 #include &lt;stdio.h&gt;
 
 int main(int argc, char *argv[])
 {
-  if(remove(argv[1])) printf("РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё");
+  if(remove(argv[1])) printf("Ошибка при удалении");
 
   return 0;
 } 
 </PRE>
-<H2>Р—Р°РІРёСЃРёРјС‹Рµ С„СѓРЅРєС†РёРё</H2>
+<H2>Зависимые функции</H2>
 <A href="rename.htm">rename()</A>
 
 
@@ -46,6 +44,5 @@ int main(int argc, char *argv[])
 </p>
 <small>
  
-</small><HR><A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A>
-</BODY>
-</html>
+</small><HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
+</BODY></HTML>

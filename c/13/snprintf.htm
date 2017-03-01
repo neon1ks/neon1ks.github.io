@@ -1,12 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="ru">
-<HEAD>
-<TITLE>Р¤СѓРЅРєС†РёСЏ snprintf - cРїСЂР°РІРѕС‡РЅРёРє РїРѕ РЎРё</TITLE>
-<meta charset="utf-8"> 
+<HTML><HEAD>
+<TITLE>Функция snprintf - cправочник по Си</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Windows-1251"> 
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
-<A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A><HR>
-<H1>Р¤СѓРЅРєС†РёСЏ snprintf</H1>
+<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
+<H1>Функция snprintf</H1>
 
 
 
@@ -19,9 +17,9 @@
 #include &lt;stdio.h&gt;
 int snprintf(char *restrict <I>buf</I>, size_t <I>num</I>, const char *restrict <I>format</I>, ...);
 </PRE>
-<P class="tj">Р¤СѓРЅРєС†РёСЏ <KBD>snprintf()</KBD> РґРѕР±Р°РІР»РµРЅР° РІ РІРµСЂСЃРёРё C99.
-<P class="tj">РћРЅР° РёРґРµРЅС‚РёС‡РЅР° С„СѓРЅРєС†РёРё <KBD>sprintf()</KBD> Р·Р° РёСЃРєР»СЋС‡РµРЅРёРµРј С‚РѕРіРѕ, С‡С‚Рѕ РІ РјР°СЃСЃРёРІРµ, Р°РґСЂРµСЃСѓРµРјРѕРј СѓРєР°Р·Р°С‚РµР»РµРј <I>buf</I>, Р±СѓРґРµС‚ СЃРѕС…СЂР°РЅРµРЅРѕ РјР°РєСЃРёРјСѓРј <I>num-1</I> СЃРёРјРІРѕР»РѕРІ. РџРѕ РѕРєРѕРЅС‡Р°РЅРёРё СЂР°Р±РѕС‚С‹ С„СѓРЅРєС†РёРё СЌС‚РѕС‚ РјР°СЃСЃРёРІ Р±СѓРґРµС‚ Р·Р°РІРµСЂС€Р°С‚СЊСЃСЏ СЃРёРјРІРѕР»РѕРј РєРѕРЅС†Р° СЃС‚СЂРѕРєРё (РЅСѓР»СЊ-СЃРёРјРІРѕР»РѕРј). РўР°РєРёРј РѕР±СЂР°Р·РѕРј, С„СѓРЅРєС†РёСЏ <KBD>snprintf()</KBD> РїРѕР·РІРѕР»СЏРµС‚ РїСЂРµРґРѕС‚РІСЂР°С‚РёС‚СЊ РїРµСЂРµРїРѕР»РЅРµРЅРёРµ Р±СѓС„РµСЂР° <I>buf</I>.
-<H2>Р—Р°РІРёСЃРёРјС‹Рµ С„СѓРЅРєС†РёРё</H2>
+<P class="tj">Функция <KBD>snprintf()</KBD> добавлена в версии C99.
+<P class="tj">Она идентична функции <KBD>sprintf()</KBD> за исключением того, что в массиве, адресуемом указателем <I>buf</I>, будет сохранено максимум <I>num-1</I> символов. По окончании работы функции этот массив будет завершаться символом конца строки (нуль-символом). Таким образом, функция <KBD>snprintf()</KBD> позволяет предотвратить переполнение буфера <I>buf</I>.
+<H2>Зависимые функции</H2>
 <A href="prinf.htm">prinf()</A>  <A href="sprinf.htm">sprinf()</A>  <A href="fsprinf.htm">fsprinf()</A>
 
 
@@ -35,6 +33,5 @@ int snprintf(char *restrict <I>buf</I>, size_t <I>num</I>, const char *restrict 
 </p>
 <small>
  
-</small><HR><A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A>
-</BODY>
-</html>
+</small><HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
+</BODY></HTML>

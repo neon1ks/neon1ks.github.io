@@ -1,12 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="ru">
-<HEAD>
-<TITLE>Р¤СѓРЅРєС†РёСЏ vprintf, vfprintf, vsprintf, vsnprintf - cРїСЂР°РІРѕС‡РЅРёРє РїРѕ РЎРё</TITLE>
-<meta charset="utf-8"> 
+<HTML><HEAD>
+<TITLE>Функция vprintf, vfprintf, vsprintf, vsnprintf - cправочник по Си</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Windows-1251"> 
 <LINK REL=STYLESHEET TYPE="text/css" HREF="../work/css.css">
 </HEAD><BODY>
-<A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A><HR>
-<H1>Р¤СѓРЅРєС†РёСЏ vprintf, vfprintf, vsprintf, vsnprintf</H1>
+<A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A><HR>
+<H1>Функция vprintf, vfprintf, vsprintf, vsnprintf</H1>
 
 
 
@@ -23,10 +21,10 @@ int vfprintf(FILE *<I>stream</I>, const char *<I>format</I>, va_list <I>arg_ptr<
 int vsprintf(char *<I>buf</I>, const char *<I>format</I>, va_list <I>arg_ptr</I>);
 int vsnprintf(char * restrict <I>buf</I>, size_t <I>num</I>, const char * restrict <I>format</I>, va_list <I>arg_ptr</I>);
 </PRE>
-<P class="tj">Р”РµР№СЃС‚РІРёСЏ С„СѓРЅРєС†РёР№ <KBD>vprintf()</KBD>, <KBD>vfprintf()</KBD>, <KBD>vsprintf()</KBD> Рё <KBD>vsnprintf()</KBD> СЌРєРІРёРІР°Р»РµРЅС‚РЅС‹ РґРµР№СЃС‚РІРёСЏРј С„СѓРЅРєС†РёР№ <KBD>printf()</KBD>, <KBD>fprintf()</KBD>, <KBD>sprintf()</KBD> Рё <KBD>snprintf()</KBD> СЃРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ, РЅРѕ СЃРїРёСЃРѕРє Р°СЂРіСѓРјРµРЅС‚РѕРІ Р·Р°РјРµРЅСЏРµС‚СЃСЏ СѓРєР°Р·Р°С‚РµР»РµРј РЅР° СЃРїРёСЃРѕРє Р°СЂРіСѓРјРµРЅС‚РѕРІ. Р­С‚РѕС‚ СѓРєР°Р·Р°С‚РµР»СЊ РґРѕР»Р¶РµРЅ РёРјРµС‚СЊ С‚РёРї <KBD>va_list</KBD>, РєРѕС‚РѕСЂС‹Р№ РѕРїСЂРµРґРµР»РµРЅ РІ Р·Р°РіРѕР»РѕРІРєРµ <KBD>&lt;stdarg.h&gt;</KBD>.
-<P class="tj">Р’ РІРµСЂСЃРёРё C99 Рє РїР°СЂР°РјРµС‚СЂР°Рј <I>buf</I> Рё <I>format</I> РїСЂРёРјРµРЅРµРЅ РєРІР°Р»РёС„РёРєР°С‚РѕСЂ <KBD>restrict</KBD>. Р¤СѓРЅРєС†РёСЏ <KBD>vsnprintf()</KBD> РґРѕР±Р°РІР»РµРЅР° РІ РІРµСЂСЃРёРё C99.
-<H2>РџСЂРёРјРµСЂ</H2>
-<P class="tj">Р”Р°РЅРЅС‹Р№ С„СЂР°РіРјРµРЅС‚ РїСЂРѕРіСЂР°РјРјС‹ РёР»Р»СЋСЃС‚СЂРёСЂСѓРµС‚, РєР°Рє РЅСѓР¶РЅРѕ РІС‹Р·С‹РІР°С‚СЊ С„СѓРЅРєС†РёСЋ <KBD>vprintf()</KBD>. Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё <KBD>va_start()</KBD> РїСЂРёРІРѕРґРёС‚ Рє СЃРѕР·РґР°РЅРёСЋ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° СЃРїРёСЃРѕРє Р°СЂРіСѓРјРµРЅС‚РѕРІ РїРµСЂРµРјРµРЅРЅРѕР№ РґР»РёРЅС‹, РїСЂРёС‡РµРј СЌС‚РѕС‚ СѓРєР°Р·Р°С‚РµР»СЊ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР° Р°СЂРіСѓРјРµРЅС‚РѕРІ. Р­С‚РѕС‚ СѓРєР°Р·Р°С‚РµР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РїСЂРё РІС‹Р·РѕРІРµ С„СѓРЅРєС†РёРё <KBD>vprintf()</KBD>. Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё <KBD>va_end()</KBD> РѕС‡РёС‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРїРёСЃРѕРє Р°СЂРіСѓРјРµРЅС‚РѕРІ РїРµСЂРµРјРµРЅРЅРѕР№ РґР»РёРЅС‹.
+<P class="tj">Действия функций <KBD>vprintf()</KBD>, <KBD>vfprintf()</KBD>, <KBD>vsprintf()</KBD> и <KBD>vsnprintf()</KBD> эквивалентны действиям функций <KBD>printf()</KBD>, <KBD>fprintf()</KBD>, <KBD>sprintf()</KBD> и <KBD>snprintf()</KBD> соответственно, но список аргументов заменяется указателем на список аргументов. Этот указатель должен иметь тип <KBD>va_list</KBD>, который определен в заголовке <KBD>&lt;stdarg.h&gt;</KBD>.
+<P class="tj">В версии C99 к параметрам <I>buf</I> и <I>format</I> применен квалификатор <KBD>restrict</KBD>. Функция <KBD>vsnprintf()</KBD> добавлена в версии C99.
+<H2>Пример</H2>
+<P class="tj">Данный фрагмент программы иллюстрирует, как нужно вызывать функцию <KBD>vprintf()</KBD>. Вызов функции <KBD>va_start()</KBD> приводит к созданию указателя на список аргументов переменной длины, причем этот указатель указывает на начало списка аргументов. Этот указатель должен быть использован при вызове функции <KBD>vprintf()</KBD>. Вызов функции <KBD>va_end()</KBD> очищает указатель на список аргументов переменной длины.
 <PRE>
 #include &lt;stdio.h&gt;
 #include &lt;stdarg.h&gt;
@@ -35,27 +33,27 @@ void print_message(char *format, ...);
 
 int main(void)
 {
-  print_message("РќРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» %s.", "test");
+  print_message("Не удается открыть файл %s.", "test");
 
   return 0;
 }
 
 void print_message(char *format, ...)
 {
-  va_list ptr; /* РёР·РІР»РµС‡РµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚Р° ptr */
+  va_list ptr; /* извлечение аргумента ptr */
 
-  /* РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ ptr, РѕРЅ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ СѓРєР°Р·Р°С‚РµР»РµРј РЅР° РїРµСЂРІС‹Р№ Р°СЂРіСѓРјРµРЅС‚,
-     СЃР»РµРґСѓСЋС‰РёР№ Р·Р° СЃС‚СЂРѕРєРѕР№ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ
+  /* инициализация ptr, он становится указателем на первый аргумент,
+     следующий за строкой форматирования
   */
   va_start(ptr, format);
 
-  /* РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ */
+  /* вывод сообщения */
   vprintf(format, ptr);
 
   va_end(ptr);
 }
 </PRE>
-<H2>Р—Р°РІРёСЃРёРјС‹Рµ С„СѓРЅРєС†РёРё</H2>
+<H2>Зависимые функции</H2>
 <A href="vscanf-vfscanf-vsscanf.htm">vscanf()</A>  <A href="vscanf-vfscanf-vsscanf.htm">vfscanf()</A>  <A href="vscanf-vfscanf-vsscanf.htm">vsscanf()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_arg()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_start()</A>  <A href="../18/va_arg-va_start-va_end-va_copy.htm">va_end()</A>
 
 
@@ -69,6 +67,5 @@ void print_message(char *format, ...)
 </p>
 <small>
  
-</small><HR><A href="../main.htm#13">РЎРѕРґРµСЂР¶Р°РЅРёРµ</A> | <A href="13.htm#00">Р“Р»Р°РІР° 13</A>
-</BODY>
-</html>
+</small><HR><A href="../main.htm#13">Содержание</A> | <A href="13.htm#00">Глава 13</A>
+</BODY></HTML>
