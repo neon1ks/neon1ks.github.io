@@ -37,3 +37,22 @@ TABLE{font-family:Courier New;font-size:12pt;}
 li.t + li.t {
   padding-top: 1em;
 }
+
+.tdnote {
+  background-color: skyblue;
+  width: 8.33333333%;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #dfd7ca;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dfd7ca;
+  padding: 8px;
+}
