@@ -117,6 +117,7 @@ li.t + li.t {
 }
 code {
   padding: 2px 4px;
+  font-size: 90%;
   color: #bd4147;
   background-color: #f7f7f9;
   border-radius: .25rem;
