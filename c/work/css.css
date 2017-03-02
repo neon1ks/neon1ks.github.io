@@ -115,3 +115,9 @@ li.t + li.t {
   margin-left: auto;
   margin-right: auto;
 }
+code {
+  padding: 2px 4px;
+  color: #bd4147;
+  background-color: #f7f7f9;
+  border-radius: .25rem;
+}
