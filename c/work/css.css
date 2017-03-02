@@ -112,6 +112,32 @@ li.t + li.t {
 .span12 {
   width: 99.99999999%;
 }
+@media (max-width: 767px) {
+  .span1 {
+    width: 14.89361702%;
+  }
+  .span2 {
+    width: 31.914893614%;
+  }
+  .span3 {
+    width: 48.936170208%;
+  }
+  .span4 {
+    width: 65.957446802%;
+  }
+  .span5 {
+    width: 82.978723396%;
+  }
+  .span6,
+  .span7,
+  .span8,
+  .span9,
+  .span10,
+  .span11,
+  .span12 {
+    width: 99.99999999%;
+  }
+}
 .center {
   margin-left: auto;
   margin-right: auto;
