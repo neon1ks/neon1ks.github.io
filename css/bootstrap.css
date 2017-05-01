@@ -9327,3 +9327,21 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .bd-content > h4 {
   margin-top: 1.5rem;
 }
+
+figure {
+  margin: 2rem;
+}
+
+figure > img {
+  text-align: center;
+}
+
+figure > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure > figcaption {
+  text-align: center;
+}
