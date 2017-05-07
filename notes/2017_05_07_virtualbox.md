@@ -43,3 +43,8 @@ sudo usermod -a -G vboxsf `whoami`
 ### Ссылки
 
 - [записки для себя: Установка дополнения в гостевую ОС Debian в Virtualbox](http://vr-77.blogspot.ru/2012/08/debian-virtualbox.html) ([Копия](2017_05_07_virtualbox-debian.html))
+
+
+----------
+
+Вернуться  [на главную страницу](../../index.html).
