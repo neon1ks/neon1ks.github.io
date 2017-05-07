@@ -1,4 +1,4 @@
-# Установка дополнения в гостевую ОС Debian в Virtualbox
+# Установка дополнения в гостевую ОС Debian в Virtualbox [virtualbox-guest-additions-debian]
 
 воскресенье, 19 августа 2012 г. (копия)
 
