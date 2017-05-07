@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Установка дополнения в гостевую ОС Debian в Virtualbox</title>
+
+    <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/librebay.css" rel="stylesheet">
+
+    <link href="../css/highlight.css" rel="stylesheet">
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+  <body>
+
+    <div class="container" role="main">
+
+
+
+<h1 id="УстановкадополнениявгостевуюОСdebianвvirtualbox">Установка дополнения в гостевую ОС Debian в Virtualbox</h1>
+
+<p>воскресенье, 19 августа 2012 г.</p>
+
+<p>Установка дополнения в гостевую ОС семейства Linux может понадобится для изменения разрешения монитора для комфортной работы с иксами.
+Делал по статье <a href="http://stuff-coding.blogspot.com/2011/07/virtualbox-guest-additions-ubuntu.html">Установка Virtualbox Guest additions в Ubuntu Server</a>, дальше собственно сама статья:</p>
+
+<p><strong>Что за дополнения и для чего они нужны?</strong></p>
+
+<p>Virtualbox Guest additions изначально были сделаны для систем линейки Windows (согласно <a href="http://www.virtualbox.org/manual/ch04.html#additions-windows">документации</a>) и представляют из себя набор драйверов и утилит для управления гостевой ОС.</p>
+
+<p>В Linux эти дополнения так же набор драйверов, но представляют собой модули для ядра. В связи с этим, модули необходимо пересобирать каждый раз, как будет обновлён пакет ядра Linux (linux-image-*), если в системе не установлен <a href="http://ru.wikipedia.org/wiki/Dynamic_Kernel_Module_Support">DKMS</a>.</p>
+
+<p>В большинстве *nix систем модули Virtualbox присутствуют, но зачастую очень старых версий. В официальной документации рекомендуется заменять их Дополнениями, актуальными для версии Virtualbox, установленной на хосте.</p>
+
+<p><strong>Устанавливаем</strong></p>
+
+<blockquote>
+<p>После обновления желательно перезагрузить систему</p>
+</blockquote>
+
+<p>Итак, для того чтобы установить дополнения гостевой ОС, необходимо:</p>
+
+<ul>
+<li><p>Обновить гостевую систему, так как модули ядра работают только с той версией ядра, на которой они собраны:</p>
+
+<p><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code></p></li>
+<li><p>Установить <code>build-essential</code>, так как мы планируем собирать модуль ядра, а данный метапакет содержит необходимые нам <code>make</code> и <code>gcc</code>:</p>
+
+<p><code>sudo apt-get install build-essential</code></p></li>
+<li><p>В меню Virtualbox выбираем Устройства → Установить Дополнения гостевой ОС или нажимаем Host+D. Монтируем cdrom:</p>
+
+<p><code>sudo mount /dev/cdrom /media/cdrom</code></p></li>
+<li><p>Переходим на смонтированный диск и запускаем установку:</p>
+
+<p><code>cd /media/cdrom &amp;&amp; sudo sh ./VBoxLinuxAdditions.run</code></p></li>
+</ul>
+
+<p>Дальше установщик сделает всё сам.</p>
+
+<p>В случае, если вы проделываете это не в Ubuntu или в Ubuntu до 8.10, или в вашей системе попросту отсутствует DKMS, то необходимо будет после каждого обновления ядра системы пересобирать модули Virtualbox. Для этого необходимо выполнить команду <code>sudo /etc/init.d/vboxadd setup</code>.</p>
+
+
+
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+  </body>
+</html>
