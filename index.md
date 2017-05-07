@@ -8,3 +8,7 @@
 ## Библиотека SFML [library-sfml]
 
 1. [SFML в Ubuntu 16.04](sfml/sfml-ubuntu-xenial.html)
+
+## Заметки [notes]
+
+- [Первоначальная настройка Debian/Ubuntu в виртуальной машине VirtualBox](notes/2017_05_07_virtualbox.html) (7 мая 2017 г.)
