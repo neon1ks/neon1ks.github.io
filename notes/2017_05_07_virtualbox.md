@@ -8,23 +8,20 @@
 
 В начале необходимо обновить систему и перезагрузить её:
 
-```
-sudo apt update
+<pre class="terminal"><span class="user"></span>sudo apt update
 sudo apt full-upgrade
 sudo reboot
-```
+</pre>
 
 Установить dkms и основные компиляторы для сборки модулей dkms:
 
-```
-sudo apt install build-essential dkms
-```
+<pre class="terminal"><span class="user"></span>sudo apt install build-essential dkms
+</pre>
 
 В меню VirtualBox выбираем Устройства → "Установить Дополнения гостевой ОС". Затем в директории подключенного образа выполняем команду:
 
-```
-sudo sh ./VBoxLinuxAdditions.run
-```
+<pre class="terminal"><span class="user"></span>sudo sh ./VBoxLinuxAdditions.run
+</pre>
 
 Перезагружаем систему (можно сделать после следующего шага)
 
@@ -33,9 +30,8 @@ sudo sh ./VBoxLinuxAdditions.run
 
 Для обмена файлами с основной системой можно создать общую папку. Чтобы нормально пользоваться этой папкой необходимо добавить пользователя в группу `vboxsf`.
 
-```
-sudo usermod -a -G vboxsf `whoami`
-```
+<pre class="terminal"><span class="user"></span>sudo usermod -a -G vboxsf `whoami`
+</pre>
 
 И перезагружаем систему
 
@@ -43,10 +39,10 @@ sudo usermod -a -G vboxsf `whoami`
 ### Ссылки [links]
 
 - [записки для себя: Установка дополнения в гостевую ОС Debian в Virtualbox](http://vr-77.blogspot.ru/2012/08/debian-virtualbox.html) ([Копия](2017_05_07_virtualbox-debian.html))
-    
+
     Или [Эникеинг различной «фигни»: Установка Virtualbox Guest additions в Ubuntu Server](http://stuff-coding.blogspot.ru/2011/07/virtualbox-guest-additions-ubuntu.html)
 
 
 ----------
 
-Вернуться  [на главную страницу](../../index.html).
+Вернуться  [на главную страницу](../index.html)

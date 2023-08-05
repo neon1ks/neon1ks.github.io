@@ -149,3 +149,8 @@ clean:
 ```make
 LDADD = `pkg-config sfml-all --libs` -lm
 ```
+
+
+----------
+
+Вернуться  [на главную страницу](../index.html)

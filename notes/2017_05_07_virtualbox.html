@@ -34,20 +34,20 @@
 
 <p>В начале необходимо обновить систему и перезагрузить её:</p>
 
-<pre><code>sudo apt update
+<pre class="terminal"><span class="user"></span>sudo apt update
 sudo apt full-upgrade
 sudo reboot
-</code></pre>
+</pre>
 
 <p>Установить dkms и основные компиляторы для сборки модулей dkms:</p>
 
-<pre><code>sudo apt install build-essential dkms
-</code></pre>
+<pre class="terminal"><span class="user"></span>sudo apt install build-essential dkms
+</pre>
 
 <p>В меню VirtualBox выбираем Устройства → &#8220;Установить Дополнения гостевой ОС&#8221;. Затем в директории подключенного образа выполняем команду:</p>
 
-<pre><code>sudo sh ./VBoxLinuxAdditions.run
-</code></pre>
+<pre class="terminal"><span class="user"></span>sudo sh ./VBoxLinuxAdditions.run
+</pre>
 
 <p>Перезагружаем систему (можно сделать после следующего шага)</p>
 
@@ -55,8 +55,8 @@ sudo reboot
 
 <p>Для обмена файлами с основной системой можно создать общую папку. Чтобы нормально пользоваться этой папкой необходимо добавить пользователя в группу <code>vboxsf</code>.</p>
 
-<pre><code>sudo usermod -a -G vboxsf `whoami`
-</code></pre>
+<pre class="terminal"><span class="user"></span>sudo usermod -a -G vboxsf `whoami`
+</pre>
 
 <p>И перезагружаем систему</p>
 
@@ -70,7 +70,7 @@ sudo reboot
 
 <hr />
 
-<p>Вернуться <a href="../../index.html">на главную страницу</a>.</p>
+<p>Вернуться <a href="../index.html">на главную страницу</a></p>
 
 
 
